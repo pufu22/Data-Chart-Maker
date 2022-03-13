@@ -1,0 +1,14 @@
+INPUT(
+./debug\CreateChartWidget.o
+./debug\bar_data.o
+./debug\barchart_model.o
+./debug\barcharttable.o
+./debug\charts_data.o
+./debug\main.o
+./debug\mainwindow.o
+./debug\selectchartwidget.o
+./debug\moc_CreateChartWidget.o
+./debug\moc_barcharttable.o
+./debug\moc_mainwindow.o
+./debug\moc_selectchartwidget.o
+);

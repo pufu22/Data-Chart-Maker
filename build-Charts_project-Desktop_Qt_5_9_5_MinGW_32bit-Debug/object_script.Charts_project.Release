@@ -1,0 +1,14 @@
+INPUT(
+./release\CreateChartWidget.o
+./release\bar_data.o
+./release\barchart_model.o
+./release\barcharttable.o
+./release\charts_data.o
+./release\main.o
+./release\mainwindow.o
+./release\selectchartwidget.o
+./release\moc_CreateChartWidget.o
+./release\moc_barcharttable.o
+./release\moc_mainwindow.o
+./release\moc_selectchartwidget.o
+);

@@ -4,18 +4,25 @@
 #include<QChartView>
 #include<qchartview.h>
 #include<QChart>
+#include <QAction>
+#include <QMenuBar>
+#include <QMenu>
+#include <barcharttable.h>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
-    CreateChartWidget *createwidget=new CreateChartWidget(this,"cre");
-    this->layout()->addWidget(createwidget);
+
+    barcharttable* bartable=new barcharttable(this,"bartable");
+    this->layout()->addWidget(bartable);
 
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+
 }
 
+void MainWindow::createMenus()
+  {
+       fileMenu = menuBar()->addMenu(tr("&File"));
+}
