@@ -15,8 +15,8 @@ private:
     QHBoxLayout lt;
     QLabel label;
     QPushButton createbutton;
-signals:
-    void crea();
+private slots:
+    void apri_crea();
 };
 
 #endif // CREATECHARTWIDGET_H

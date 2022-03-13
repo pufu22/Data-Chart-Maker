@@ -13,19 +13,24 @@ SOURCES += \
     CreateChartWidget.cpp \
     bar_data.cpp \
     barchart_model.cpp \
+    barcharttable.cpp \
     charts_data.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    selectchartwidget.cpp \
+    tablemodel.cpp
 
 HEADERS += \
     CreateChartWidget.h \
     bar_data.h \
     barchart_model.h \
+    barcharttable.h \
     charts_data.h \
-    mainwindow.h
+    mainwindow.h \
+    selectchartwidget.h \
+    tablemodel.h
 
-FORMS += \
-    mainwindow.ui
+FORMS +=
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

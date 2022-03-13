@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CreateChartWidget_t {
     QByteArrayData data[3];
-    char stringdata0[24];
+    char stringdata0[29];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,11 +32,11 @@ struct qt_meta_stringdata_CreateChartWidget_t {
 static const qt_meta_stringdata_CreateChartWidget_t qt_meta_stringdata_CreateChartWidget = {
     {
 QT_MOC_LITERAL(0, 0, 17), // "CreateChartWidget"
-QT_MOC_LITERAL(1, 18, 4), // "crea"
-QT_MOC_LITERAL(2, 23, 0) // ""
+QT_MOC_LITERAL(1, 18, 9), // "apri_crea"
+QT_MOC_LITERAL(2, 28, 0) // ""
 
     },
-    "CreateChartWidget\0crea\0"
+    "CreateChartWidget\0apri_crea\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -51,12 +51,12 @@ static const uint qt_meta_data_CreateChartWidget[] = {
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       0,       // signalCount
 
- // signals: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x06 /* Public */,
+ // slots: name, argc, parameters, tag, flags
+       1,    0,   19,    2, 0x08 /* Private */,
 
- // signals: parameters
+ // slots: parameters
     QMetaType::Void,
 
        0        // eod
@@ -68,17 +68,8 @@ void CreateChartWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         CreateChartWidget *_t = static_cast<CreateChartWidget *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->crea(); break;
+        case 0: _t->apri_crea(); break;
         default: ;
-        }
-    } else if (_c == QMetaObject::IndexOfMethod) {
-        int *result = reinterpret_cast<int *>(_a[0]);
-        {
-            typedef void (CreateChartWidget::*_t)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CreateChartWidget::crea)) {
-                *result = 0;
-                return;
-            }
         }
     }
     Q_UNUSED(_a);
@@ -118,12 +109,6 @@ int CreateChartWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         _id -= 1;
     }
     return _id;
-}
-
-// SIGNAL 0
-void CreateChartWidget::crea()
-{
-    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE
