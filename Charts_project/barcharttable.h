@@ -5,6 +5,8 @@
 #include <QTableView>
 #include <QLayout>
 #include <QPushButton>
+#include <barchart_model.h>
+#include <barcharttablemodel.h>
 class barcharttable:public QWidget{
     Q_OBJECT
 
@@ -12,7 +14,8 @@ public:
     barcharttable(QWidget *parent = 0, const char *name = 0);
     virtual ~barcharttable(){}
 private:
-    QTableView* table;
+    BarChartTableModel *barmodel;
+    QTableView *table;
     QLayout* lt;
     QPushButton* aggiungi_riga;
     QPushButton* aggiungi_colonna;

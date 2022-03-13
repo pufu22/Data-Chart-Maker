@@ -6,9 +6,7 @@
 #include<QChartView>
 #include<QChart>
 #include<QMenu>
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+
 
 class MainWindow : public QMainWindow
 {
@@ -21,9 +19,8 @@ public:
 
 private:
     //CreateChartWidget createchart;
-    Ui::MainWindow *ui;
     QMenu* fileMenu;
-
+    QMenu* editMenu;
 
 };
 #endif // MAINWINDOW_H

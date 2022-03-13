@@ -14,6 +14,7 @@ SOURCES += \
     bar_data.cpp \
     barchart_model.cpp \
     barcharttable.cpp \
+    barcharttablemodel.cpp \
     charts_data.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -25,6 +26,7 @@ HEADERS += \
     bar_data.h \
     barchart_model.h \
     barcharttable.h \
+    barcharttablemodel.h \
     charts_data.h \
     mainwindow.h \
     selectchartwidget.h \

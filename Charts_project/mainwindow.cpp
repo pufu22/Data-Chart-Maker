@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 #include "CreateChartWidget.h"
 #include<QChartView>
 #include<qchartview.h>
@@ -14,7 +13,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     barcharttable* bartable=new barcharttable(this,"bartable");
     this->layout()->addWidget(bartable);
-
+    bartable->show();
+    this->createMenus();
 }
 
 MainWindow::~MainWindow()
@@ -25,4 +25,5 @@ MainWindow::~MainWindow()
 void MainWindow::createMenus()
   {
        fileMenu = menuBar()->addMenu(tr("&File"));
+       editMenu = menuBar()->addMenu(tr("&Edit"));
 }
