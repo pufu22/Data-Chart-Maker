@@ -14,12 +14,11 @@ MainWindow::MainWindow(QWidget *parent)
     barcharttable* bartable=new barcharttable(this,"bartable");
     this->layout()->addWidget(bartable);
     bartable->show();
-    this->createMenus();
+    //this->createMenus();
 }
 
 MainWindow::~MainWindow()
 {
-
 }
 
 void MainWindow::createMenus()

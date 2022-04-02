@@ -7,6 +7,7 @@
 #include <QPushButton>
 #include <barchart_model.h>
 #include <barcharttablemodel.h>
+#include<bar_data.h>
 class barcharttable:public QWidget{
     Q_OBJECT
 
@@ -15,10 +16,20 @@ public:
     virtual ~barcharttable(){}
 private:
     BarChartTableModel *barmodel;
+    BarChartModel *m_model;
     QTableView *table;
     QLayout* lt;
     QPushButton* aggiungi_riga;
     QPushButton* aggiungi_colonna;
+    void setupModels();
+    Bar_data *dati;
+    BarChartModel *barchartmodel;
+    QChart *chart;
+private slots:
+       void aggiungiriga();
+       void aggiungicolonna();
+signals:
+       void riga();
 };
 
 #endif // BARCHARTTABLE_H

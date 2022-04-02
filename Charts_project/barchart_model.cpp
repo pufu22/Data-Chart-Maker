@@ -3,38 +3,49 @@
 #include<QStringList>
 #include<QString>
 #include<iostream>
-BarChartModel::BarChartModel(Bar_data data)
+#include<string>
+#include<QVBarModelMapper>
+BarChartModel::BarChartModel(BarChartTableModel *data)
 {
-        QBarSeries *series = new QBarSeries();
-        for(unsigned int i=0;i<data.sets.size(); ++i){
-            QBarSet *set=new QBarSet("prova");
-                for(int j=0;j<data.sets[i].size();++j){
-                    std::cout<< data.sets[i].size();
-                    std::cout<<data.sets[i].at(j);
-                    *set<<data.sets[i].at(j);
-                }
-                series->append(set);
-            }
-        chart = new QChart();
-          chart->addSeries(series);
-          QString qstr = QString::fromStdString(data.title);
-          chart->setTitle(qstr);
-          chart->setAnimationOptions(QChart::SeriesAnimations);
-        QStringList categ;
-        for(std::list<std::string>::iterator it=data.categories.begin();it!=data.categories.end();++it){
-            QString qstr = QString::fromStdString(*it);
-            categ<<qstr;
-        }
-        QBarCategoryAxis *axisX = new QBarCategoryAxis();
-        axisX->append(categ);
-            chart->addAxis(axisX, Qt::AlignBottom);
-            series->attachAxis(axisX);
+    chart=new QChart;
+    chart->setAnimationOptions(QChart::AllAnimations);
+    series=new QBarSeries;
+    mapper=new QVBarModelMapper();
+    mapper->setFirstBarSetColumn(0);
+    lastcolumn=data->columnCount();
+    mapper->setLastBarSetColumn(lastcolumn);
+    lastrow=data->rowCount();
+    mapper->setFirstRow(0);
+    mapper->setRowCount(lastrow);
+    mapper->setSeries(series);
+    mapper->setModel(data);
+    chart->addSeries(series);
 
-            QValueAxis   *axisY = new QValueAxis();
-            axisY->setRange(0,15);
-            chart->addAxis(axisY, Qt::AlignLeft);
-            series->attachAxis(axisY);
-            chart->legend()->setVisible(true);
-               chart->legend()->setAlignment(Qt::AlignBottom);
+    for(auto it=data->dati.categories.begin();it!=data->dati.categories.end();++it){
+        QString qstr = QString::fromStdString(*it);
+        categories<<qstr;
 
+    }
+    axisX=new QBarCategoryAxis();
+    axisX->append(categories);
+    chart->addAxis(axisX,Qt::AlignBottom);
+    series->attachAxis(axisX);
+    axisY= new QValueAxis();
+    int w=data->dati.range[0];
+    int x=data->dati.range[1];
+    axisY->setRange(w,x);
+    chart->addAxis(axisY, Qt::AlignLeft);
+    series->attachAxis(axisY);
 };
+
+
+void BarChartModel::updateMapperLastColumn()
+{
+    mapper->setLastBarSetColumn(++lastcolumn);
+}
+void BarChartModel::updateMapperLastRow()
+{
+    mapper->setRowCount(++lastrow);
+    categories<<QString(lastrow);
+    axisX->append(categories);
+}

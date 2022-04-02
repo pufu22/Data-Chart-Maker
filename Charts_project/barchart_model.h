@@ -1,19 +1,24 @@
 #ifndef BARCHART_MODEL_H
 #define BARCHART_MODEL_H
 #include<bar_data.h>
-
+#include<barcharttablemodel.h>
+#include<qbarmodelmapper.h>
 class BarChartModel
 {
 public:
-    BarChartModel(Bar_data data);
+    BarChartModel(BarChartTableModel *data);
     QChart *chart;
+    void updateMapperLastColumn();
+    void updateMapperLastRow();
 protected:
     std::vector<std::vector<std::list<QBarSet>>> sets;
-    QBarSeries series;
+    QBarSeries *series;
     QStringList categories;
     QBarCategoryAxis *axisX;
     QValueAxis *axisY;
-
+    QVBarModelMapper *mapper;
+    int lastcolumn;
+    int lastrow;
     friend class main;
 };
 
