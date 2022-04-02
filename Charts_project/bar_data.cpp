@@ -4,7 +4,7 @@ Bar_data::Bar_data(std::vector<std::vector<int>> m_sets, std::string m_title, st
     categories(m_categories){};
 
 
-Bar_data::Bar_data():sets({{3},{1}}),title("riempi"),categories({"w ","e"}),range({0,15}){};
+Bar_data::Bar_data():sets({{3},{1}}),title("riempi"),categories({"w ","e"}),range({-10,15}){};
 
 //int const Bar_data::numero_categorie(){
 //    int count=0;
