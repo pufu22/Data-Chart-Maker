@@ -5,6 +5,10 @@ INPUT(
 ./debug\barcharttable.o
 ./debug\barcharttablemodel.o
 ./debug\charts_data.o
+./debug\linechartdata.o
+./debug\linechartmodel.o
+./debug\linecharttablemodel.o
+./debug\linechartwidget.o
 ./debug\main.o
 ./debug\mainwindow.o
 ./debug\selectchartwidget.o
@@ -12,6 +16,8 @@ INPUT(
 ./debug\moc_CreateChartWidget.o
 ./debug\moc_barcharttable.o
 ./debug\moc_barcharttablemodel.o
+./debug\moc_linecharttablemodel.o
+./debug\moc_linechartwidget.o
 ./debug\moc_mainwindow.o
 ./debug\moc_selectchartwidget.o
 );

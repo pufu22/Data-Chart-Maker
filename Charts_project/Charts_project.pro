@@ -16,9 +16,15 @@ SOURCES += \
     barcharttable.cpp \
     barcharttablemodel.cpp \
     charts_data.cpp \
+    createwindow.cpp \
+    linechartdata.cpp \
+    linechartmodel.cpp \
+    linecharttablemodel.cpp \
+    linechartwidget.cpp \
     main.cpp \
     mainwindow.cpp \
     selectchartwidget.cpp \
+    selectwindow.cpp \
     tablemodel.cpp
 
 HEADERS += \
@@ -28,8 +34,14 @@ HEADERS += \
     barcharttable.h \
     barcharttablemodel.h \
     charts_data.h \
+    createwindow.h \
+    linechartdata.h \
+    linechartmodel.h \
+    linecharttablemodel.h \
+    linechartwidget.h \
     mainwindow.h \
     selectchartwidget.h \
+    selectwindow.h \
     tablemodel.h
 
 FORMS +=

@@ -5,6 +5,10 @@ INPUT(
 ./release\barcharttable.o
 ./release\barcharttablemodel.o
 ./release\charts_data.o
+./release\linechartdata.o
+./release\linechartmodel.o
+./release\linecharttablemodel.o
+./release\linechartwidget.o
 ./release\main.o
 ./release\mainwindow.o
 ./release\selectchartwidget.o
@@ -12,6 +16,8 @@ INPUT(
 ./release\moc_CreateChartWidget.o
 ./release\moc_barcharttable.o
 ./release\moc_barcharttablemodel.o
+./release\moc_linecharttablemodel.o
+./release\moc_linechartwidget.o
 ./release\moc_mainwindow.o
 ./release\moc_selectchartwidget.o
 );
