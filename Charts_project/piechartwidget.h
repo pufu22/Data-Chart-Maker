@@ -5,6 +5,7 @@
 #include<pie_data.h>
 #include<piechartmodel.h>
 #include<piecharttablemodel.h>
+#include<inputdialog.h>
 class piechartwidget:public QWidget
 {
     Q_OBJECT

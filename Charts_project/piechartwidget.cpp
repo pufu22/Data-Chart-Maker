@@ -24,4 +24,9 @@ piechartwidget::piechartwidget(QWidget *parent, const char *name):QWidget(parent
 
 void piechartwidget::aggiungifettaslot(){
 pietablemodel->insertRows(pietablemodel->rowCount(),1);
+bool ok;
+QStringList list = inputdialog::getStrings(this, &ok);
+if (ok) {
+
+}
 }

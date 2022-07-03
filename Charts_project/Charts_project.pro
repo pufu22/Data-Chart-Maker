@@ -17,6 +17,7 @@ SOURCES += \
     barcharttablemodel.cpp \
     charts_data.cpp \
     createwindow.cpp \
+    inputdialog.cpp \
     linechartdata.cpp \
     linechartmodel.cpp \
     linecharttablemodel.cpp \
@@ -39,6 +40,7 @@ HEADERS += \
     barcharttablemodel.h \
     charts_data.h \
     createwindow.h \
+    inputdialog.h \
     linechartdata.h \
     linechartmodel.h \
     linecharttablemodel.h \
