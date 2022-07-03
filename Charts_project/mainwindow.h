@@ -26,6 +26,8 @@ private:
     selectWindow* selezionaTipo;
 private slots:
     void nuovoGrafico();
-
+public slots:
+    void creaBarChart();
+    void creaLineChart();
 };
 #endif // MAINWINDOW_H

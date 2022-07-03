@@ -12,6 +12,10 @@ INPUT(
 ./debug\linechartwidget.o
 ./debug\main.o
 ./debug\mainwindow.o
+./debug\pie_data.o
+./debug\piechartmodel.o
+./debug\piecharttablemodel.o
+./debug\piechartwidget.o
 ./debug\selectchartwidget.o
 ./debug\selectwindow.o
 ./debug\tablemodel.o
@@ -21,6 +25,8 @@ INPUT(
 ./debug\moc_linecharttablemodel.o
 ./debug\moc_linechartwidget.o
 ./debug\moc_mainwindow.o
+./debug\moc_piecharttablemodel.o
+./debug\moc_piechartwidget.o
 ./debug\moc_selectchartwidget.o
 ./debug\moc_selectwindow.o
 );

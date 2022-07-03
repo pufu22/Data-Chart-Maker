@@ -7,17 +7,22 @@
 #include <QMenuBar>
 #include <QMenu>
 #include <barcharttable.h>
+#include<piechartwidget.h>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
 
-    //barcharttable* bartable=new barcharttable(this,"bartable");
+
     //LineChartWidget* linechart= new LineChartWidget(this,"linechart");
     //this->setCentralWidget(linechart);
     //linechart->show();
     //bartable->show();
     this->createActions();
     this->createMenus();
+    piechartwidget* piechart=new piechartwidget(this,"piechart");
+    this->setCentralWidget(piechart);
+    piechart->show();
+
 }
 
 MainWindow::~MainWindow()
@@ -43,4 +48,20 @@ void MainWindow::nuovoGrafico()
 {
     selezionaTipo=new selectWindow(this);
     selezionaTipo->show();
+    connect(selezionaTipo,&selectWindow::creaBarChartSignal,this,&MainWindow::creaBarChart);
+    connect(selezionaTipo,&selectWindow::creaLineChartSignal,this,&MainWindow::creaLineChart);
+}
+
+void MainWindow::creaBarChart()
+{
+    barcharttable* bartable=new barcharttable(this,"bartable");
+    this->setCentralWidget(bartable);
+    bartable->show();
+}
+
+void MainWindow::creaLineChart()
+{
+    LineChartWidget* linechart= new LineChartWidget(this,"linechart");
+        this->setCentralWidget(linechart);
+        linechart->show();
 }

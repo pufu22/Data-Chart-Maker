@@ -12,6 +12,10 @@ INPUT(
 ./release\linechartwidget.o
 ./release\main.o
 ./release\mainwindow.o
+./release\pie_data.o
+./release\piechartmodel.o
+./release\piecharttablemodel.o
+./release\piechartwidget.o
 ./release\selectchartwidget.o
 ./release\selectwindow.o
 ./release\tablemodel.o
@@ -21,6 +25,8 @@ INPUT(
 ./release\moc_linecharttablemodel.o
 ./release\moc_linechartwidget.o
 ./release\moc_mainwindow.o
+./release\moc_piecharttablemodel.o
+./release\moc_piechartwidget.o
 ./release\moc_selectchartwidget.o
 ./release\moc_selectwindow.o
 );

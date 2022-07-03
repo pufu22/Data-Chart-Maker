@@ -3,6 +3,7 @@
 #include<QDialog>
 #include<QLayout>
 #include<QPushButton>
+
 class selectWindow:public QDialog
 {
     Q_OBJECT
@@ -13,8 +14,12 @@ public:
 private:
     QLayout* lt;
     QPushButton* prima;
-private signal:
+    QPushButton* seconda;
     void creaLineChart();
+    void creaBarChart();
+signals:
+    void creaBarChartSignal();
+    void creaLineChartSignal();
 };
 
 #endif // SELECTWINDOW_H

@@ -23,6 +23,10 @@ SOURCES += \
     linechartwidget.cpp \
     main.cpp \
     mainwindow.cpp \
+    pie_data.cpp \
+    piechartmodel.cpp \
+    piecharttablemodel.cpp \
+    piechartwidget.cpp \
     selectchartwidget.cpp \
     selectwindow.cpp \
     tablemodel.cpp
@@ -40,6 +44,10 @@ HEADERS += \
     linecharttablemodel.h \
     linechartwidget.h \
     mainwindow.h \
+    pie_data.h \
+    piechartmodel.h \
+    piecharttablemodel.h \
+    piechartwidget.h \
     selectchartwidget.h \
     selectwindow.h \
     tablemodel.h
