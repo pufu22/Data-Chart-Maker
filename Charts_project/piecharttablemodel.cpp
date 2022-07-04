@@ -65,13 +65,19 @@ Qt::ItemFlags Piecharttablemodel::flags(const QModelIndex &index) const
             |Qt::ItemIsEditable;
 }
 
-bool Piecharttablemodel::insertRows(int row, int count, const QModelIndex &parent)
+bool Piecharttablemodel::insertRows(int row, int count,std::string eti,int val, const QModelIndex &parent)
 {
     beginInsertRows(parent, row, row + count - 1);
-    dati.etichette.push_back(" ");
-    dati.valori.push_back(0);
+    dati.etichette.push_back(eti);
+    dati.valori.push_back(val);
     endInsertRows();
 }
 
-
+bool Piecharttablemodel::removeRows(int row, int count, const QModelIndex &parent)
+{
+    beginRemoveRows(parent,row,row);
+    dati.etichette.erase(dati.etichette.begin()+row-1);
+    dati.valori.erase(dati.valori.begin()+row-1);
+    endRemoveRows();
+}
 

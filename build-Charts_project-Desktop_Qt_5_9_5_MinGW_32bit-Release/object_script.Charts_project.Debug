@@ -6,6 +6,7 @@ INPUT(
 ./debug\barcharttablemodel.o
 ./debug\charts_data.o
 ./debug\createwindow.o
+./debug\inputdialog.o
 ./debug\linechartdata.o
 ./debug\linechartmodel.o
 ./debug\linecharttablemodel.o
@@ -22,6 +23,7 @@ INPUT(
 ./debug\moc_CreateChartWidget.o
 ./debug\moc_barcharttable.o
 ./debug\moc_barcharttablemodel.o
+./debug\moc_inputdialog.o
 ./debug\moc_linecharttablemodel.o
 ./debug\moc_linechartwidget.o
 ./debug\moc_mainwindow.o

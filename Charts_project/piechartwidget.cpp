@@ -12,6 +12,9 @@ piechartwidget::piechartwidget(QWidget *parent, const char *name):QWidget(parent
     aggiungifetta=new QPushButton("&Aggiungi una fetta");
     lt->addWidget(aggiungifetta);
     connect(aggiungifetta,&QPushButton::released,this,&piechartwidget::aggiungifettaslot);
+    rimuovifetta=new QPushButton("&Rimuovi una fetta");
+    lt->addWidget(rimuovifetta);
+    connect(rimuovifetta,&QPushButton::released,this,&piechartwidget::rimuovifettaslot);
     pietable->show();
     chartview=new QChartView(piemodel->chart);
     chartview->setRenderHint(QPainter::Antialiasing);
@@ -23,10 +26,22 @@ piechartwidget::piechartwidget(QWidget *parent, const char *name):QWidget(parent
 }
 
 void piechartwidget::aggiungifettaslot(){
-pietablemodel->insertRows(pietablemodel->rowCount(),1);
+//pietablemodel->insertRows(pietablemodel->rowCount(),1);
+    std::string etichetta;
+    int valore;
 bool ok;
 QStringList list = inputdialog::getStrings(this, &ok);
 if (ok) {
+    etichetta=list.at(0).toStdString();
+    valore=list.at(1).toInt();
+    pietablemodel->insertRows(pietablemodel->rowCount(),1,etichetta,valore);
+    piemodel->connectInsertedSlice();
+}
 
 }
+
+void piechartwidget::rimuovifettaslot(){
+    bool ok;
+    int fetta=QInputDialog::getInt(this,tr("ELIMINA FETTA"),tr("Fetta:"),QLineEdit::Normal,1,piemodel->sliceCount(),1,&ok);
+    pietablemodel->removeRows(fetta-1,1);
 }

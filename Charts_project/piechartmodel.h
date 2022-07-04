@@ -12,11 +12,14 @@ class piechartmodel:public QObject
 public:
     QChart* chart;
     piechartmodel(Piecharttablemodel* data);
+    void connectInsertedSlice();
+    int sliceCount();
 protected:
     QPieSeries* pieSeries;
     QString* title;
     QVPieModelMapper* piemapper;
-
+public slots:
+    void explodeSplice(bool state);
 };
 
 #endif // PIECHARTMODEL_H

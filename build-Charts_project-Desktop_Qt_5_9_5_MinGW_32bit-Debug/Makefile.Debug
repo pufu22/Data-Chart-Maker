@@ -1512,6 +1512,13 @@ debug/moc_inputdialog.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QObject \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qfiledevice.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QLineEdit \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtextcursor.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtextformat.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpen.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtextoption.h \
 		../Charts_project/inputdialog.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
@@ -2753,6 +2760,56 @@ debug/moc_piecharttablemodel.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstrac
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer_impl.h \
 		../Charts_project/pie_data.h \
+		../Charts_project/inputdialog.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QObject \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QDialog \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qdialog.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtguiglobal.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtgui-config.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qwidget.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qmargins.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpaintdevice.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qrect.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsize.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpalette.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qcolor.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qrgb.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qrgba64.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qbrush.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qmatrix.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpolygon.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qregion.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qdatastream.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qline.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtransform.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpainterpath.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qimage.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpixelformat.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpixmap.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qfont.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qfontmetrics.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qfontinfo.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qcursor.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qkeysequence.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qevent.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qurl.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qurlquery.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qfile.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qfiledevice.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qvector2d.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QLineEdit \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtextcursor.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtextformat.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpen.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtextoption.h \
 		../Charts_project/piecharttablemodel.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
@@ -3301,6 +3358,9 @@ debug/moc_piechartwidget.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QHPieModelMapper \
 		../Charts_project/piecharttablemodel.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
+		../Charts_project/inputdialog.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QDialog \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QLineEdit \
 		../Charts_project/piechartwidget.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
@@ -5950,15 +6010,15 @@ debug/inputdialog.o: ../Charts_project/inputdialog.cpp ../Charts_project/inputdi
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qfiledevice.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtouchdevice.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qframe.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QLineEdit \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qframe.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtextcursor.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtextformat.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpen.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtextoption.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QLabel \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qlabel.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QDialogButtonBox \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qdialogbuttonbox.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QFormLayout \
@@ -8279,7 +8339,9 @@ debug/mainwindow.o: ../Charts_project/mainwindow.cpp ../Charts_project/mainwindo
 		../Charts_project/piechartmodel.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QString \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QHPieModelMapper \
-		../Charts_project/piecharttablemodel.h
+		../Charts_project/piecharttablemodel.h \
+		../Charts_project/inputdialog.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QLineEdit
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\Charts_project\mainwindow.cpp
 
 debug/pie_data.o: ../Charts_project/pie_data.cpp ../Charts_project/pie_data.h
@@ -8827,7 +8889,10 @@ debug/piechartmodel.o: ../Charts_project/piechartmodel.cpp ../Charts_project/pie
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QHPieModelMapper \
 		../Charts_project/piecharttablemodel.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
-		../Charts_project/pie_data.h
+		../Charts_project/pie_data.h \
+		../Charts_project/inputdialog.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QDialog \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QLineEdit
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\piechartmodel.o ..\Charts_project\piechartmodel.cpp
 
 debug/piecharttablemodel.o: ../Charts_project/piecharttablemodel.cpp ../Charts_project/piecharttablemodel.h \
@@ -8893,7 +8958,57 @@ debug/piecharttablemodel.o: ../Charts_project/piecharttablemodel.cpp ../Charts_p
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer_impl.h \
-		../Charts_project/pie_data.h
+		../Charts_project/pie_data.h \
+		../Charts_project/inputdialog.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QObject \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QDialog \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qdialog.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtguiglobal.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtgui-config.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qwidget.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qmargins.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpaintdevice.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qrect.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsize.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpalette.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qcolor.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qrgb.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qrgba64.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qbrush.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qmatrix.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpolygon.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qregion.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qdatastream.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qline.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtransform.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpainterpath.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qimage.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpixelformat.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpixmap.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qfont.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qfontmetrics.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qfontinfo.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qcursor.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qkeysequence.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qevent.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qurl.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qurlquery.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qfile.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qfiledevice.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qvector2d.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QLineEdit \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtextcursor.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtextformat.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qpen.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtextoption.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\piecharttablemodel.o ..\Charts_project\piecharttablemodel.cpp
 
 debug/piechartwidget.o: ../Charts_project/piechartwidget.cpp ../Charts_project/piechartwidget.h \
@@ -9439,7 +9554,10 @@ debug/piechartwidget.o: ../Charts_project/piechartwidget.cpp ../Charts_project/p
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QString \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QHPieModelMapper \
 		../Charts_project/piecharttablemodel.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
+		../Charts_project/inputdialog.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QDialog \
+		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QLineEdit
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\piechartwidget.o ..\Charts_project\piechartwidget.cpp
 
 debug/selectchartwidget.o: ../Charts_project/selectchartwidget.cpp ../Charts_project/selectchartwidget.h \

@@ -20,8 +20,10 @@ private:
     pie_data* dati;
     QChartView* chartview;
     QPushButton* aggiungifetta;
+    QPushButton* rimuovifetta;
 public slots:
     void aggiungifettaslot();
+    void rimuovifettaslot();
 };
 
 #endif // PIECHARTWIDGET_H
