@@ -17,17 +17,20 @@ public:
     ~MainWindow();
     void createMenus();
     void createActions();
-
+    void creaPieChartFromFile(const QJsonObject &json);
 private:
     //CreateChartWidget createchart;
     QMenu* fileMenu;
-    QMenu* editMenu;
+    QMenu* openMenu;
     QAction* newAct;
+    QAction* openAct;
     selectWindow* selezionaTipo;
 private slots:
     void nuovoGrafico();
+    bool apriFile();
 public slots:
     void creaBarChart();
     void creaLineChart();
+
 };
 #endif // MAINWINDOW_H

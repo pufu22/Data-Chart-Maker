@@ -9,8 +9,7 @@ class Piecharttablemodel : public QAbstractTableModel
     Q_OBJECT
 
 public:
-    explicit Piecharttablemodel(QObject *parent = nullptr);
-
+    explicit Piecharttablemodel(QObject *parent = nullptr,pie_data* d=nullptr);
     // Header:
 
 

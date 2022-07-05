@@ -19,6 +19,7 @@ piechartmodel::piechartmodel(Piecharttablemodel* data)
 
     chart->createDefaultAxes();
     chart->setTitle(QString::fromStdString(data->dati.title));
+
 }
 
 void piechartmodel::explodeSplice(bool state){
@@ -40,4 +41,8 @@ void piechartmodel::connectInsertedSlice(){
 
 int piechartmodel::sliceCount(){
     return pieSeries->slices().size();
+}
+void piechartmodel::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event){
+
+
 }

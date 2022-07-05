@@ -1,11 +1,13 @@
 #include "piecharttablemodel.h"
 
-Piecharttablemodel::Piecharttablemodel(QObject *parent)
+Piecharttablemodel::Piecharttablemodel(QObject *parent,pie_data* d)
     : QAbstractTableModel(parent)
 {
-    dati=*(new pie_data());
+    if(d==0)
+        dati=*(new pie_data());
+    else
+        dati=*d;
 }
-
 
 
 

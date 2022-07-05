@@ -11,6 +11,7 @@ class piechartwidget:public QWidget
     Q_OBJECT
 public:
     piechartwidget(QWidget *parent = 0, const char* name = 0);
+    piechartwidget(QWidget *parent=0, const char *name=0,pie_data* d=0);
     virtual ~piechartwidget(){};
 private:
     piechartmodel* piemodel;

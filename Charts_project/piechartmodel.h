@@ -14,12 +14,15 @@ public:
     piechartmodel(Piecharttablemodel* data);
     void connectInsertedSlice();
     int sliceCount();
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event);
 protected:
     QPieSeries* pieSeries;
     QString* title;
     QVPieModelMapper* piemapper;
 public slots:
     void explodeSplice(bool state);
+
+
 };
 
 #endif // PIECHARTMODEL_H
