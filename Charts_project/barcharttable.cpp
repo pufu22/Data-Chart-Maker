@@ -1,6 +1,6 @@
 #include "barcharttable.h"
 
-barcharttable::barcharttable(QWidget *parent, const char *name):QWidget(parent)
+barcharttable::barcharttable(Bar_data *data, QWidget *parent, const char *name):QWidget(parent)
 {
     lt=new QGridLayout(this);
 
@@ -10,7 +10,10 @@ barcharttable::barcharttable(QWidget *parent, const char *name):QWidget(parent)
     connect(aggiungi_colonna,&QPushButton::released,this,&barcharttable::aggiungicolonna);
 
     table=new QTableView;
-    barmodel=new BarChartTableModel();
+    if(data!=nullptr)
+        barmodel=new BarChartTableModel();
+    else
+        barmodel=new BarChartTableModel(data);
     m_model=new BarChartModel(barmodel);
     table->setModel(barmodel);
     barmodel->setParent(table);

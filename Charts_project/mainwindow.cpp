@@ -19,14 +19,15 @@ MainWindow::MainWindow(QWidget *parent)
     //bartable->show();
     this->createActions();
     this->createMenus();
-    //piechartwidget* piechart=new piechartwidget(this,"piechart");
+    //piechartwidget* piechart=new piechartwidget(this,"piechart",nullptr);
     //this->setCentralWidget(piechart);
-    //piechart->show();
+    //(piechart->show();
 
 }
 
 MainWindow::~MainWindow()
 {
+
 }
 
 void MainWindow::createMenus()
@@ -73,6 +74,9 @@ bool MainWindow::apriFile()
                 creaPieChartFromFile(obj);
                 return true;
          }
+         else if(tipo=="barchart"){
+             creaBarChartFromFile(obj);
+         }
          else
              return false;
 
@@ -82,7 +86,9 @@ bool MainWindow::apriFile()
 }
 void MainWindow::creaBarChart()
 {
-    barcharttable* bartable=new barcharttable(this,"bartable");
+    barcharttable* bartable=new barcharttable(nullptr,this,"bartable");
+    if(this->centralWidget())
+        this->centralWidget()->disconnect();
     this->setCentralWidget(bartable);
     bartable->show();
 }
@@ -110,3 +116,21 @@ void MainWindow::creaPieChartFromFile(const QJsonObject &json){
     piechart->show();
 }
 
+void MainWindow::creaBarChartFromFile(const QJsonObject &json){
+std::string tempString =json["title"].toString().toStdString();
+QJsonObject tempA =json["bars"].toObject();
+std::vector<std::vector<int>> s;
+std::vector<std::string> s2;
+int j=0;
+foreach(const QString& key, tempA.keys()) {
+       QJsonValue value = tempA.value(key);
+       QJsonArray a=value.toArray();
+       for(int i=0;i<a.size();++i)
+       {
+
+       }
+}
+//Bar_data* d=new Bar_data(s,tempString,{"M","S"},{0,15});
+//barcharttable* barchart=new barcharttable(d);
+
+}

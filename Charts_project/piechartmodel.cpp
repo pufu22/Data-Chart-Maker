@@ -5,7 +5,7 @@ piechartmodel::piechartmodel(Piecharttablemodel* data)
     chart=new QChart;
     chart->setAnimationOptions(QChart::AllAnimations);
     pieSeries=new QPieSeries;
-    piemapper=new QVPieModelMapper;
+    piemapper=new QVPieModelMapper();
     piemapper->setSeries(pieSeries);
     piemapper->setLabelsColumn(0);
     piemapper->setValuesColumn(1);

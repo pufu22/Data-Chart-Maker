@@ -17,6 +17,7 @@ public:
     Bar_data();
     bool operator !();
     bool operator==(Bar_data d);
+    Bar_data& operator =(const Bar_data& other);
 };
 
 #endif // BAR_DATA_H

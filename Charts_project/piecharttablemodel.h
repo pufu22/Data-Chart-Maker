@@ -31,7 +31,8 @@ public:
     // Add data:
     bool insertRows(int row, int count,std::string eti,int val, const QModelIndex &parent = QModelIndex());
 
-    bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
+
+    bool removeRow(int row, const QModelIndex &parent=QModelIndex()) ;
     pie_data dati;
 private:
 };

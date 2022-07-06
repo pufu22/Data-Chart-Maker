@@ -29,7 +29,10 @@ piechartwidget::piechartwidget(QWidget *parent, const char *name):QWidget(parent
 piechartwidget::piechartwidget(QWidget *parent, const char *name,pie_data* d){
     lt=new QGridLayout(this);
     pietable=new QTableView;
-    pietablemodel=new Piecharttablemodel(this,d);
+    if(d==nullptr)
+        pietablemodel=new Piecharttablemodel();
+        else
+        pietablemodel=new Piecharttablemodel(this,d);
     piemodel=new piechartmodel(pietablemodel);
     pietable->setModel(pietablemodel);
     pietablemodel->setParent(pietable);
@@ -67,5 +70,5 @@ void piechartwidget::aggiungifettaslot(){
 void piechartwidget::rimuovifettaslot(){
     bool ok;
     int fetta=QInputDialog::getInt(this,tr("ELIMINA FETTA"),tr("Fetta:"),QLineEdit::Normal,1,piemodel->sliceCount(),1,&ok);
-    pietablemodel->removeRows(fetta-1,1);
+    pietablemodel->removeRow(fetta);
 }

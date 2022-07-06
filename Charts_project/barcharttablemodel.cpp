@@ -4,7 +4,10 @@ BarChartTableModel::BarChartTableModel(QObject *parent):QAbstractTableModel(pare
 {
     dati=*(new Bar_data());
 }
-
+BarChartTableModel::BarChartTableModel(Bar_data *data, QObject *parent):QAbstractTableModel(parent)
+{
+    dati=*data;
+}
 int BarChartTableModel::rowCount(const QModelIndex &parent) const
 {
     if(parent.isValid())
@@ -32,7 +35,6 @@ QVariant BarChartTableModel::data(const QModelIndex &index, int role) const
 bool BarChartTableModel::setData(const QModelIndex &index,const QVariant &value,int role)
 {
     if(role==Qt::EditRole){
-
             dati.sets[index.row()][index.column()]=value.toInt();
         emit dataChanged(index,index);
         return true;

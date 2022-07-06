@@ -18,6 +18,8 @@ public:
     void createMenus();
     void createActions();
     void creaPieChartFromFile(const QJsonObject &json);
+    void creaBarChartFromFile(const QJsonObject &json);
+    void creaLineChartFromFile(const QJsonObject &json);
 private:
     //CreateChartWidget createchart;
     QMenu* fileMenu;
