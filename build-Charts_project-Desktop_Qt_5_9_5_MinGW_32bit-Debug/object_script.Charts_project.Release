@@ -1,5 +1,9 @@
 INPUT(
 ./release\CreateChartWidget.o
+./release\areachartdata.o
+./release\areachartmodel.o
+./release\areacharttablemodel.o
+./release\areachartwidget.o
 ./release\bar_data.o
 ./release\barchart_model.o
 ./release\barcharttable.o
@@ -21,6 +25,8 @@ INPUT(
 ./release\selectwindow.o
 ./release\tablemodel.o
 ./release\moc_CreateChartWidget.o
+./release\moc_areacharttablemodel.o
+./release\moc_areachartwidget.o
 ./release\moc_barcharttable.o
 ./release\moc_barcharttablemodel.o
 ./release\moc_inputdialog.o

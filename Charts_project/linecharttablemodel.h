@@ -9,7 +9,7 @@ class LineChartTableModel:public QAbstractTableModel
         Q_OBJECT
 
 public:
-    LineChartTableModel(QObject *parent=0);
+    LineChartTableModel(LineChartData* data=nullptr,QObject *parent=0);
     int rowCount(const QModelIndex &parent = QModelIndex())const override;
     int columnCount(const QModelIndex &parent = QModelIndex())const override;
     bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex());

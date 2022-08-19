@@ -24,12 +24,18 @@ private:
     //CreateChartWidget createchart;
     QMenu* fileMenu;
     QMenu* openMenu;
+    QMenu* saveMenu;
+    QAction* saveAct;
     QAction* newAct;
     QAction* openAct;
     selectWindow* selezionaTipo;
+signals:
+    void graficoSalvabile(bool);
+    void salvaConNomeSignal();
 private slots:
     void nuovoGrafico();
     bool apriFile();
+    bool salvaConNome();
 public slots:
     void creaBarChart();
     void creaLineChart();

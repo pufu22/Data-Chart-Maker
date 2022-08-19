@@ -1,8 +1,11 @@
 #include "linecharttablemodel.h"
 
-LineChartTableModel::LineChartTableModel(QObject *parent):QAbstractTableModel(parent)
+LineChartTableModel::LineChartTableModel(LineChartData* data,QObject *parent):QAbstractTableModel(parent)
 {
-    dati=*(new LineChartData());
+    if(data==nullptr)
+        dati=*(new LineChartData());
+    else
+        dati=*data;
 }
 
 int LineChartTableModel::rowCount(const QModelIndex &parent) const

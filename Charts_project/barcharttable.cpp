@@ -10,10 +10,11 @@ barcharttable::barcharttable(Bar_data *data, QWidget *parent, const char *name):
     connect(aggiungi_colonna,&QPushButton::released,this,&barcharttable::aggiungicolonna);
 
     table=new QTableView;
-    if(data!=nullptr)
+    if(data==nullptr)
         barmodel=new BarChartTableModel();
     else
-        barmodel=new BarChartTableModel(data);
+
+    barmodel=new BarChartTableModel(data);
     m_model=new BarChartModel(barmodel);
     table->setModel(barmodel);
     barmodel->setParent(table);
@@ -29,7 +30,7 @@ barcharttable::barcharttable(Bar_data *data, QWidget *parent, const char *name):
     lt->addWidget(chartView);
     lt->setSizeConstraint(QLayout::SetFixedSize);
     setLayout(lt);
-
+    connect(nullptr,&MainWindow::salvaConNomeSignal,this,&barcharttable::salvaJsonBar);
 }
 
 void barcharttable::setupModels(){
@@ -48,3 +49,6 @@ void barcharttable::aggiungicolonna(){
     m_model->updateMapperLastColumn();
 }
 
+void barcharttable::salvaJsonBar(){
+    m_model->salvaJsonBar();
+}

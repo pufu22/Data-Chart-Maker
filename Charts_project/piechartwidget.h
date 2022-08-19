@@ -6,6 +6,7 @@
 #include<piechartmodel.h>
 #include<piecharttablemodel.h>
 #include<inputdialog.h>
+#include<mainwindow.h>
 class piechartwidget:public QWidget
 {
     Q_OBJECT
@@ -25,6 +26,7 @@ private:
 public slots:
     void aggiungifettaslot();
     void rimuovifettaslot();
+    void salvaJsonPie();
 };
 
 #endif // PIECHARTWIDGET_H

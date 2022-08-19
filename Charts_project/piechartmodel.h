@@ -7,6 +7,7 @@
 #include<QString>
 #include<QHPieModelMapper>
 #include<piecharttablemodel.h>
+
 class piechartmodel:public QObject
 {
 public:
@@ -15,9 +16,10 @@ public:
     void connectInsertedSlice();
     int sliceCount();
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event);
+    void salvaJsonPie();
 protected:
     QPieSeries* pieSeries;
-    QString* title;
+    QString title;
     QVPieModelMapper* piemapper;
 public slots:
     void explodeSplice(bool state);

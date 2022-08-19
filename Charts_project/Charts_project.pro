@@ -11,6 +11,10 @@ CONFIG += c++11
 
 SOURCES += \
     CreateChartWidget.cpp \
+    areachartdata.cpp \
+    areachartmodel.cpp \
+    areacharttablemodel.cpp \
+    areachartwidget.cpp \
     bar_data.cpp \
     barchart_model.cpp \
     barcharttable.cpp \
@@ -34,6 +38,10 @@ SOURCES += \
 
 HEADERS += \
     CreateChartWidget.h \
+    areachartdata.h \
+    areachartmodel.h \
+    areacharttablemodel.h \
+    areachartwidget.h \
     bar_data.h \
     barchart_model.h \
     barcharttable.h \

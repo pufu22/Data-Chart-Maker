@@ -17,8 +17,9 @@ piechartmodel::piechartmodel(Piecharttablemodel* data)
         connect(slice,&QPieSlice::hovered,this, &piechartmodel::explodeSplice);
     }
 
+    title=QString::fromStdString(data->dati.title);
     chart->createDefaultAxes();
-    chart->setTitle(QString::fromStdString(data->dati.title));
+    chart->setTitle(title);
 
 }
 
@@ -45,4 +46,34 @@ int piechartmodel::sliceCount(){
 void piechartmodel::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event){
 
 
+}
+void piechartmodel::salvaJsonPie(){
+    QJsonObject mainObject;
+    mainObject.insert(QString::fromStdString("title"),title);
+    mainObject.insert(QString::fromStdString("Type"),QString::fromStdString("piechart"));
+    QJsonArray labels;
+    QJsonArray values;
+    QList<QPieSlice*>temp=pieSeries->slices();
+    for(int i=0;i<temp.size();++i)
+    {
+        labels.append(temp.at(i)->label());
+        values.append(temp.at(i)->value());
+    }
+
+    mainObject.insert(QString::fromStdString("slices"),labels);
+    mainObject.insert(QString::fromStdString("values"),values);
+
+    QJsonDocument document;
+    document.setObject( mainObject );
+    bool ok;
+    QString nomeFile=QInputDialog::getText(nullptr,tr("Salva con nome:"),tr("Nome file:"),QLineEdit::Normal,QDir::home().dirName(),&ok);
+
+    QFile file( "../Charts_project/graficisalvati/"+nomeFile+".json");
+    if(file.open( QIODevice::WriteOnly))
+    {
+        file.write(document.toJson());
+               //return false;
+    }
+    else
+            qWarning("Couldn't open save file.");
 }

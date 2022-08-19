@@ -8,6 +8,7 @@
 #include <barchart_model.h>
 #include <barcharttablemodel.h>
 #include<bar_data.h>
+#include<mainwindow.h>
 class barcharttable:public QWidget{
     Q_OBJECT
 
@@ -28,6 +29,8 @@ private:
 private slots:
        void aggiungiriga();
        void aggiungicolonna();
+public slots:
+       void salvaJsonBar();
 signals:
        void riga();
 };

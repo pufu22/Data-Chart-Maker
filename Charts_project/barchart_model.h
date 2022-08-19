@@ -10,6 +10,7 @@ public:
     QChart *chart;
     void updateMapperLastColumn();
     void updateMapperLastRow();
+    void salvaJsonBar();
 protected:
     std::vector<std::vector<std::list<QBarSet>>> sets;
     QBarSeries *series;
@@ -17,6 +18,7 @@ protected:
     QBarCategoryAxis *axisX;
     QValueAxis *axisY;
     QVBarModelMapper *mapper;
+    QString title;
     int lastcolumn;
     int lastrow;
     friend class main;

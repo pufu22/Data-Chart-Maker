@@ -13,7 +13,7 @@ protected:
     friend class BarChartModel;
     friend class BarChartTableModel;
 public:
-    Bar_data(std::vector<std::vector<int>> m_sets, std::string m_title,  std::list<std::string> m_categories, int m_range[]);
+    Bar_data(std::vector<std::vector<int>> m_sets, std::string m_title,  std::list<std::string> m_categories, int m_range[2]);
     Bar_data();
     bool operator !();
     bool operator==(Bar_data d);

@@ -1,5 +1,9 @@
 INPUT(
 ./debug\CreateChartWidget.o
+./debug\areachartdata.o
+./debug\areachartmodel.o
+./debug\areacharttablemodel.o
+./debug\areachartwidget.o
 ./debug\bar_data.o
 ./debug\barchart_model.o
 ./debug\barcharttable.o
@@ -21,6 +25,8 @@ INPUT(
 ./debug\selectwindow.o
 ./debug\tablemodel.o
 ./debug\moc_CreateChartWidget.o
+./debug\moc_areacharttablemodel.o
+./debug\moc_areachartwidget.o
 ./debug\moc_barcharttable.o
 ./debug\moc_barcharttablemodel.o
 ./debug\moc_inputdialog.o

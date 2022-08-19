@@ -1,6 +1,6 @@
 #include "linechartwidget.h"
 
-LineChartWidget::LineChartWidget(QWidget *parent, const char *name):QWidget(parent)
+LineChartWidget::LineChartWidget(LineChartData* data,QWidget *parent, const char *name):QWidget(parent)
 {
     lt=new QGridLayout(this);
     aggiungiriga=new QPushButton("&Aggiungi punto");
@@ -9,8 +9,10 @@ LineChartWidget::LineChartWidget(QWidget *parent, const char *name):QWidget(pare
     connect(aggiungilinea,&QPushButton::released,this,&LineChartWidget::aggiungilineaslot);
     connect(aggiungiriga,&QPushButton::released,this,&LineChartWidget::aggiungipunto);
     table=new QTableView;
-    linecharttablemodel=new LineChartTableModel();
-
+    if(data==nullptr)
+        linecharttablemodel=new LineChartTableModel();
+    else
+        linecharttablemodel=new LineChartTableModel(data);
     linechartmodel=new LineChartModel(linecharttablemodel);
     connect(linecharttablemodel,&LineChartTableModel::changeRange,linechartmodel,&LineChartModel::axises);
     table->setModel(linecharttablemodel);
@@ -28,7 +30,7 @@ LineChartWidget::LineChartWidget(QWidget *parent, const char *name):QWidget(pare
      lt->setSizeConstraint(QLayout::SetFixedSize);
      setLayout(lt);
      linecharttablemodel->setHeaderData(0, Qt::Horizontal, "Stock ID", Qt::DisplayRole);
-
+     connect(nullptr,&MainWindow::salvaConNomeSignal,this,&LineChartWidget::salvaJsonFile);
 }
 
 void LineChartWidget::aggiungilineaslot(){
@@ -41,4 +43,8 @@ void LineChartWidget::aggiungipunto(){
     linecharttablemodel->insertRows(linecharttablemodel->rowCount(),1);
     linechartmodel->updateMapper(linecharttablemodel);
     linechartmodel->updateAxises();
+}
+
+void LineChartWidget::salvaJsonFile(){
+    linechartmodel->salvaJsonFile();
 }

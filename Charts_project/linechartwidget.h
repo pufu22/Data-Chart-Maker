@@ -5,11 +5,12 @@
 #include<linechartdata.h>
 #include<linechartmodel.h>
 #include<linecharttablemodel.h>
+#include<mainwindow.h>
 class LineChartWidget:public QWidget
 {
     Q_OBJECT
 public:
-    LineChartWidget(QWidget *parent = 0, const char* name = 0);
+    LineChartWidget(LineChartData* data=nullptr,QWidget *parent = 0, const char* name = 0);
     virtual ~LineChartWidget(){};
 private:
     LineChartTableModel *linecharttablemodel;
@@ -27,6 +28,8 @@ private slots:
     void aggiungipunto();
 signals:
     void linea();
+public slots:
+    void salvaJsonFile();
 };
 
 #endif // LINECHARTWIDGET_H

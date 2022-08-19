@@ -1,6 +1,7 @@
 {
     "Type":"barchart",
     "title":"Bar",
+    "range":"0-15",
     "bars":
     {
         "M":

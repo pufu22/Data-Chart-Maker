@@ -11,8 +11,10 @@ protected:
     std::string title;
 public:
     LineChartData();
+    LineChartData(std::vector<std::vector<int>> series,std::string title);
     friend class LineChartTableModel;
     friend class LineChartModel;
+    LineChartData& operator =(const LineChartData& other);
 };
 
 #endif // LINECHARTDATA_H

@@ -8,6 +8,7 @@
 #include <QMenu>
 #include <barcharttable.h>
 #include<piechartwidget.h>
+#include<areachartwidget.h>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -17,11 +18,15 @@ MainWindow::MainWindow(QWidget *parent)
     //this->setCentralWidget(linechart);
     //linechart->show();
     //bartable->show();
+
     this->createActions();
     this->createMenus();
+    AreaChartWidget* areaChart=new AreaChartWidget(this,"areachart");
+    this->setCentralWidget(areaChart);
+    areaChart->show();
     //piechartwidget* piechart=new piechartwidget(this,"piechart",nullptr);
     //this->setCentralWidget(piechart);
-    //(piechart->show();
+    //piechart->show();
 
 }
 
@@ -35,7 +40,9 @@ void MainWindow::createMenus()
        fileMenu = menuBar()->addMenu(tr("&File"));
        openMenu = menuBar()->addMenu(tr("&Open"));
        fileMenu->addAction(newAct);
+       fileMenu->addAction(saveAct);
        openMenu->addAction(openAct);
+
 }
 
 void MainWindow::createActions()
@@ -47,6 +54,11 @@ void MainWindow::createActions()
     openAct=new QAction(tr("Apri file"),this);
     openAct->setShortcuts(QKeySequence::Open);
     connect(openAct,&QAction::triggered,this,&MainWindow::apriFile);
+    saveAct=new QAction(tr("Salva con nome"),this);
+    saveAct->setShortcuts(QKeySequence::SaveAs);
+    saveAct->setEnabled(false);
+    connect(saveAct,&QAction::triggered,this,&MainWindow::salvaConNome);
+     connect(this,&MainWindow::graficoSalvabile,saveAct,&QAction::setEnabled);
 }
 
 void MainWindow::nuovoGrafico()
@@ -55,6 +67,7 @@ void MainWindow::nuovoGrafico()
     selezionaTipo->show();
     connect(selezionaTipo,&selectWindow::creaBarChartSignal,this,&MainWindow::creaBarChart);
     connect(selezionaTipo,&selectWindow::creaLineChartSignal,this,&MainWindow::creaLineChart);
+
 }
 
 bool MainWindow::apriFile()
@@ -76,6 +89,8 @@ bool MainWindow::apriFile()
          }
          else if(tipo=="barchart"){
              creaBarChartFromFile(obj);
+         }else if(tipo=="linechart"){
+            creaLineChartFromFile(obj);
          }
          else
              return false;
@@ -84,6 +99,11 @@ bool MainWindow::apriFile()
 
 
 }
+
+bool MainWindow::salvaConNome(){
+emit salvaConNomeSignal();
+}
+
 void MainWindow::creaBarChart()
 {
     barcharttable* bartable=new barcharttable(nullptr,this,"bartable");
@@ -91,13 +111,16 @@ void MainWindow::creaBarChart()
         this->centralWidget()->disconnect();
     this->setCentralWidget(bartable);
     bartable->show();
+    emit graficoSalvabile(true);
 }
 
 void MainWindow::creaLineChart()
 {
-    LineChartWidget* linechart= new LineChartWidget(this,"linechart");
+    LineChartWidget* linechart= new LineChartWidget(nullptr,this,"linechart");
         this->setCentralWidget(linechart);
         linechart->show();
+        emit graficoSalvabile(true);
+
 }
 
 void MainWindow::creaPieChartFromFile(const QJsonObject &json){
@@ -114,23 +137,54 @@ void MainWindow::creaPieChartFromFile(const QJsonObject &json){
     piechartwidget* piechart=new piechartwidget(this,"piechart",d);
     this->setCentralWidget(piechart);
     piechart->show();
+    emit graficoSalvabile(true);
+    connect(this,&MainWindow::salvaConNomeSignal,piechart,&piechartwidget::salvaJsonPie);
 }
 
 void MainWindow::creaBarChartFromFile(const QJsonObject &json){
 std::string tempString =json["title"].toString().toStdString();
 QJsonObject tempA =json["bars"].toObject();
 std::vector<std::vector<int>> s;
-std::vector<std::string> s2;
+std::list<std::string> s2;
 int j=0;
 foreach(const QString& key, tempA.keys()) {
+        s2.push_back(key.toStdString());
        QJsonValue value = tempA.value(key);
        QJsonArray a=value.toArray();
+       std::vector<int> n2;
        for(int i=0;i<a.size();++i)
        {
-
+            n2.push_back(a.at(i).toInt());
        }
+       s.push_back(n2);
+       ++j;
 }
-//Bar_data* d=new Bar_data(s,tempString,{"M","S"},{0,15});
-//barcharttable* barchart=new barcharttable(d);
+int range[]={0,15};
+Bar_data* d=new Bar_data(s,tempString,s2,range);
+barcharttable* barchart=new barcharttable(d);
+this->setCentralWidget(barchart);
+barchart->show();
+emit graficoSalvabile(true);
+}
 
+void MainWindow::creaLineChartFromFile(const QJsonObject &json)
+{
+    std::string tempString =json["title"].toString().toStdString();
+    QJsonObject tempA =json["series"].toObject();
+    std::vector<std::vector<int>> s;
+    foreach(const QString& key, tempA.keys()) {
+           QJsonValue value = tempA.value(key);
+           QJsonArray a=value.toArray();
+           std::vector<int> n2;
+           for(int i=0;i<a.size();++i)
+           {
+                n2.push_back(a.at(i).toInt());
+           }
+           s.push_back(n2);
+    }
+    LineChartData* d=new LineChartData(s,tempString);
+    LineChartWidget* linechart=new LineChartWidget(d);
+    this->setCentralWidget(linechart);
+    linechart->show();
+    emit graficoSalvabile(true);
 }

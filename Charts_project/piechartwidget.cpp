@@ -25,6 +25,7 @@ piechartwidget::piechartwidget(QWidget *parent, const char *name):QWidget(parent
     ingrandisci->setIcon(QIcon(":/icone/ingrandisci"));
     lt->addWidget(ingrandisci);
     setLayout(lt);
+
 }
 piechartwidget::piechartwidget(QWidget *parent, const char *name,pie_data* d){
     lt=new QGridLayout(this);
@@ -53,6 +54,7 @@ piechartwidget::piechartwidget(QWidget *parent, const char *name,pie_data* d){
     ingrandisci->setIcon(QIcon(":/icone/ingrandisci"));
     lt->addWidget(ingrandisci);
     setLayout(lt);
+    connect(nullptr,&MainWindow::salvaConNomeSignal,this,&piechartwidget::salvaJsonPie);
 }
 void piechartwidget::aggiungifettaslot(){
     std::string etichetta;
@@ -72,3 +74,9 @@ void piechartwidget::rimuovifettaslot(){
     int fetta=QInputDialog::getInt(this,tr("ELIMINA FETTA"),tr("Fetta:"),QLineEdit::Normal,1,piemodel->sliceCount(),1,&ok);
     pietablemodel->removeRow(fetta);
 }
+
+void piechartwidget::salvaJsonPie(){
+    piemodel->salvaJsonPie();
+}
+
+

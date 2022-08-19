@@ -72,6 +72,7 @@ bool Piecharttablemodel::insertRows(int row, int count,std::string eti,int val, 
     dati.etichette.push_back(eti);
     dati.valori.push_back(val);
     endInsertRows();
+    return true;
 }
 
 bool Piecharttablemodel::removeRow(int row, const QModelIndex &parent)

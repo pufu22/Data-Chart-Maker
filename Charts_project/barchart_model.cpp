@@ -34,6 +34,8 @@ BarChartModel::BarChartModel(BarChartTableModel *data)
     int w=data->dati.range[0];
     int x=data->dati.range[1];
     axisY->setRange(w,x);
+    title=QString::fromStdString(data->dati.title);
+    chart->setTitle(title);
     chart->addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
 };
@@ -48,4 +50,11 @@ void BarChartModel::updateMapperLastRow()
     mapper->setRowCount(++lastrow);
     categories<<QString(lastrow);
     axisX->append(categories);
+}
+
+void BarChartModel::salvaJsonBar(){
+    QJsonObject mainObject;
+    mainObject.insert(QString::fromStdString("title"),title);
+    mainObject.insert(QString::fromStdString("Type"),QString::fromStdString("barchart"));
+
 }

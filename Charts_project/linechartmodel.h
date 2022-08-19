@@ -15,11 +15,12 @@ public:
     QChart *chart;
     void updateMapper(LineChartTableModel *data);
     void updateAxises();
+    void salvaJsonFile();
 protected:
     int nLines;
-    std::vector<QLineSeries*> series;
-    std::string title;
-    std::vector<QVXYModelMapper*> mapper;
+    QVector<QLineSeries*> series;
+    QString title;
+    QVector<QVXYModelMapper*> mapper;
 public slots:
     void axises(int maxValue);
 };
