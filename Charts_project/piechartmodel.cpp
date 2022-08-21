@@ -17,7 +17,7 @@ piechartmodel::piechartmodel(Piecharttablemodel* data)
         connect(slice,&QPieSlice::hovered,this, &piechartmodel::explodeSplice);
     }
 
-    title=QString::fromStdString(data->dati.title);
+    title=data->dati.getTitle();
     chart->createDefaultAxes();
     chart->setTitle(title);
 

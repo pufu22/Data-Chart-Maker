@@ -29,7 +29,7 @@ public:
     Qt::ItemFlags flags(const QModelIndex& index) const override;
 
     // Add data:
-    bool insertRows(int row, int count,std::string eti,int val, const QModelIndex &parent = QModelIndex());
+    bool insertRows(int row, int count,QString eti,int val, const QModelIndex &parent = QModelIndex());
 
 
     bool removeRow(int row, const QModelIndex &parent=QModelIndex()) ;

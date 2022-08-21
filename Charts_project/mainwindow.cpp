@@ -126,13 +126,13 @@ void MainWindow::creaLineChart()
 void MainWindow::creaPieChartFromFile(const QJsonObject &json){
     QVector<QVariant> v= json["values"].toArray().toVariantList().toVector();
      QVector<QVariant> v2=json["slices"].toArray().toVariantList().toVector();
-     std::vector<int> s;
-     std::vector<std::string> s2;
+     QVector<int> s;
+     QVector<QString> s2;
     for(int i=0;i<v.size();++i){
         s.push_back(v.at(i).toInt());
-        s2.push_back(v2.at(i).toString().toStdString());
+        s2.push_back(v2.at(i).toString());
     }
-    std::string s3=json["title"].toString().toStdString();
+    QString s3=json["title"].toString();
     pie_data* d=new pie_data(s,s2,s3);
     piechartwidget* piechart=new piechartwidget(this,"piechart",d);
     this->setCentralWidget(piechart);
@@ -171,18 +171,18 @@ void MainWindow::creaLineChartFromFile(const QJsonObject &json)
 {
     std::string tempString =json["title"].toString().toStdString();
     QJsonObject tempA =json["series"].toObject();
-    std::vector<std::vector<int>> s;
+    QVector<QVector<int>> s;
     foreach(const QString& key, tempA.keys()) {
            QJsonValue value = tempA.value(key);
            QJsonArray a=value.toArray();
-           std::vector<int> n2;
+           QVector<int> n2;
            for(int i=0;i<a.size();++i)
            {
                 n2.push_back(a.at(i).toInt());
            }
            s.push_back(n2);
     }
-    LineChartData* d=new LineChartData(s,tempString);
+    LineChartData* d=new LineChartData(s,json["title"].toString());
     LineChartWidget* linechart=new LineChartWidget(d);
     this->setCentralWidget(linechart);
     linechart->show();

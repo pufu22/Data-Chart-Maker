@@ -4,17 +4,24 @@
 #include<vector>
 #include<QPointF>
 #include<string>
+#include <QtCharts>
+#include<QVector>
 class LineChartData
 {
 protected:
-    std::vector<std::vector<int>> lineseries;
-    std::string title;
+    QVector<QVector<int>> lineseries;
+    QString title;
 public:
     LineChartData();
-    LineChartData(std::vector<std::vector<int>> series,std::string title);
+    LineChartData(QVector<QVector<int>> series,QString title);
     friend class LineChartTableModel;
     friend class LineChartModel;
     LineChartData& operator =(const LineChartData& other);
+    QVector<QVector<int>> getLines() const;
+    QString getTitle() const;
+    void setData(int x, int y, int value);
+    void pushPoint(int count);
+    void pushLine(int pos,int coordinate);
 };
 
 #endif // LINECHARTDATA_H

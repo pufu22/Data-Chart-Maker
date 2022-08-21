@@ -10,9 +10,15 @@ AreaChartWidget::AreaChartWidget(QWidget *parent, const char *name):QWidget(pare
     areaTableModel->setParent(areaTable);
     lt->addWidget(areaTable);
     areaTable->show();
+
     aggiungiLinea=new QPushButton("&Aggiungi una linea");
     lt->addWidget(aggiungiLinea);
     connect(aggiungiLinea,&QPushButton::released,this,&AreaChartWidget::aggiungiLineaSlot);
+
+    aggiungiPunto=new QPushButton("&Aggiungi punto");
+    lt->addWidget(aggiungiPunto);
+    connect(aggiungiPunto,&QPushButton::released,this,&AreaChartWidget::aggiungiPuntoSlot);
+
     chartview=new QChartView(areaModel->chart);
     chartview->setRenderHint(QPainter::Antialiasing);
     chartview->setMinimumSize(1280,480);
@@ -23,4 +29,8 @@ AreaChartWidget::AreaChartWidget(QWidget *parent, const char *name):QWidget(pare
 void AreaChartWidget::aggiungiLineaSlot(){
     areaTableModel->insertColumns(areaTableModel->columnCount(),2);
     areaModel->updateMappers(areaTableModel);
+}
+
+void AreaChartWidget::aggiungiPuntoSlot(){
+    areaTableModel->insertRows(areaTableModel->rowCount(),1);
 }

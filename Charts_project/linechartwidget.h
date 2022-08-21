@@ -18,7 +18,6 @@ private:
     QTableView *table;
     QLayout *lt;
     QPushButton* aggiungiriga;
-    QPushButton* aggiungicolonna;
     QPushButton* aggiungilinea;
     LineChartData* dati;
     QChartView* chartview;

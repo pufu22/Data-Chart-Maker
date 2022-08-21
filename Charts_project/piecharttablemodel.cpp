@@ -16,7 +16,7 @@ int Piecharttablemodel::rowCount(const QModelIndex &parent) const
     if (parent.isValid())
         return 0;
     else
-        return dati.etichette.size();
+        return dati.getLabels().size();
 
 }
 
@@ -37,10 +37,10 @@ QVariant Piecharttablemodel::data(const QModelIndex &index, int role) const
 {
     if (role==Qt::DisplayRole){
         if(index.column()==0)
-            //overhead nel convertire std::string a QString ma non c'è altra soluzione visto che QVariant non ha costruttori con std::string
-            return QString::fromStdString(dati.etichette.at(index.row()));
+
+            return dati.getLabels().at(index.row());
         else
-            return dati.valori.at(index.row());
+            return dati.getValues().at(index.row());
     }
 
 
@@ -52,9 +52,9 @@ bool Piecharttablemodel::setData(const QModelIndex &index, const QVariant &value
 {
     if (data(index, role) != value) {
         if(index.column()==0)
-            dati.etichette.at(index.row())=value.toString().toStdString();
+            dati.setLabel(index.row(),value.toString());
         else
-            dati.valori.at(index.row())=value.toInt();
+            dati.setValue(index.row(),value.toInt());
         emit dataChanged(index, index, QVector<int>() << role);
         return true;
     }
@@ -66,11 +66,11 @@ Qt::ItemFlags Piecharttablemodel::flags(const QModelIndex &index) const
     return QAbstractTableModel::flags(index)
             |Qt::ItemIsEditable;
 }
-bool Piecharttablemodel::insertRows(int row, int count,std::string eti,int val, const QModelIndex &parent)
+bool Piecharttablemodel::insertRows(int row, int count,QString eti,int val, const QModelIndex &parent)
 {
     beginInsertRows(parent, row, row + count - 1);
-    dati.etichette.push_back(eti);
-    dati.valori.push_back(val);
+    dati.pushbackLabel(eti);
+    dati.pushbackValue(val);
     endInsertRows();
     return true;
 }
@@ -78,7 +78,8 @@ bool Piecharttablemodel::insertRows(int row, int count,std::string eti,int val, 
 bool Piecharttablemodel::removeRow(int row, const QModelIndex &parent)
 {
     beginRemoveRows(parent,row,row);
-    dati.etichette.erase(dati.etichette.begin()+row-1);
-    dati.valori.erase(dati.valori.begin()+row-1);
+    dati.removeSlice(row);
+    //dati.etichette.erase(dati.etichette.begin()+row-1);
+    //dati.valori.erase(dati.valori.begin()+row-1);
     endRemoveRows();
 }

@@ -18,8 +18,10 @@ public:
     AreaChartData* dati;
     QChartView* chartview;
     QPushButton* aggiungiLinea;
+    QPushButton* aggiungiPunto;
 private slots:
     void aggiungiLineaSlot();
+    void aggiungiPuntoSlot();
 };
 
 #endif // AREACHARTWIDGET_H

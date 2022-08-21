@@ -28,8 +28,9 @@ void AreaChartModel::updateMappers(AreaChartTableModel* data)
     linesmappers[temp]->setFirstRow(0);
     linesmappers[temp]->setModel(data);
     linesmappers[temp]->setSeries(series[temp]);
-    areaSeries.push_back(new QAreaSeries(series.at(temp),series.at(temp-1)));
-    chart->addSeries(areaSeries.at(temp));
+        areaSeries.push_back(new QAreaSeries(series.at(temp),series.at(temp-1)));
+        chart->addSeries(areaSeries.at(temp));
+
     chart->createDefaultAxes();
 
 }

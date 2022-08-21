@@ -13,7 +13,7 @@ int LineChartTableModel::rowCount(const QModelIndex &parent) const
     if(parent.isValid())
         return 0;
     else
-        return dati.lineseries.size();
+        return dati.getLines().size();
 }
 
 int LineChartTableModel::columnCount(const QModelIndex &parent) const
@@ -21,13 +21,13 @@ int LineChartTableModel::columnCount(const QModelIndex &parent) const
     if(parent.isValid())
         return 0;
     else
-        return dati.lineseries.at(0).size();
+        return dati.getLines().at(0).size();
 }
 
 QVariant LineChartTableModel::data(const QModelIndex &index, int role) const
 {
     if(role==Qt::DisplayRole)
-        return dati.lineseries[index.row()][index.column()];
+        return dati.getLines()[index.row()][index.column()];
 
         return QVariant();
 }
@@ -37,7 +37,7 @@ bool LineChartTableModel::setData(const QModelIndex &index, const QVariant &valu
     if(role==Qt::EditRole&&correctValue(index,value)){
         if(value.toInt()>maxValue)
             maxValue=value.toInt();
-        dati.lineseries[index.row()][index.column()]=value.toInt();
+        dati.setData(index.row(),index.column(),value.toInt());
         emit dataChanged(index,index);
         emit changeRange(maxValue);
         return true;
@@ -79,10 +79,7 @@ bool LineChartTableModel::insertRows(int row, int count, const QModelIndex &pare
     beginInsertRows(parent,row,row);
     for(int row =0;row<count;++row)
     {
-        std::vector<int> temp;
-        temp.resize(columnCount());
-        std::fill(temp.begin(),temp.end(),0);
-        dati.lineseries.push_back(temp);
+        dati.pushPoint(columnCount());
     }
     endInsertRows();
     return true;
@@ -94,7 +91,7 @@ bool LineChartTableModel::insertColumns(int column, int count, const QModelIndex
     for(int c=0;c<count;++c)
     {
         for(int i=0;i<rowCount();++i)
-            dati.lineseries[i].push_back(i+1);
+            dati.pushLine(i,i+1);
     }
     endInsertColumns();
     return true;

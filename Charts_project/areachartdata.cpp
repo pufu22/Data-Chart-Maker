@@ -19,3 +19,10 @@ void AreaChartData::pushLine(int pos,int coordinate){
 void AreaChartData::setData(int x, int y, int value){
     lines[x][y]=value;
 }
+
+void AreaChartData::pushPoint(int count){
+    QVector<int> temp;
+    temp.fill(0,count);
+    lines.push_back(temp);
+}
+

@@ -57,12 +57,12 @@ piechartwidget::piechartwidget(QWidget *parent, const char *name,pie_data* d){
     connect(nullptr,&MainWindow::salvaConNomeSignal,this,&piechartwidget::salvaJsonPie);
 }
 void piechartwidget::aggiungifettaslot(){
-    std::string etichetta;
+    QString etichetta;
     int valore;
     bool ok;
     QStringList list = inputdialog::getStrings(this, &ok);
     if (ok) {
-        etichetta=list.at(0).toStdString();
+        etichetta=list.at(0);
         valore=list.at(1).toInt();
         pietablemodel->insertRows(pietablemodel->rowCount(),1,etichetta,valore);
         piemodel->connectInsertedSlice();

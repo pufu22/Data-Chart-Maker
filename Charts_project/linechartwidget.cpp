@@ -4,7 +4,6 @@ LineChartWidget::LineChartWidget(LineChartData* data,QWidget *parent, const char
 {
     lt=new QGridLayout(this);
     aggiungiriga=new QPushButton("&Aggiungi punto");
-    aggiungicolonna=new QPushButton("&Aggiungi colonna");
     aggiungilinea=new QPushButton("&Aggiungi una linea");
     connect(aggiungilinea,&QPushButton::released,this,&LineChartWidget::aggiungilineaslot);
     connect(aggiungiriga,&QPushButton::released,this,&LineChartWidget::aggiungipunto);
@@ -24,7 +23,6 @@ LineChartWidget::LineChartWidget(LineChartData* data,QWidget *parent, const char
      chartview->setRenderHint(QPainter::Antialiasing);
      chartview->setMinimumSize(1280,480);
      lt->addWidget(aggiungiriga);
-     lt->addWidget(aggiungicolonna);
      lt->addWidget(aggiungilinea);
      lt->addWidget(chartview);
      lt->setSizeConstraint(QLayout::SetFixedSize);
