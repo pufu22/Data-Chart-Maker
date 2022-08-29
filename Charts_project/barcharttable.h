@@ -14,7 +14,7 @@ class barcharttable:public QWidget{
 
 public:
     barcharttable(Bar_data* data=0, QWidget *parent = 0, const char *name = 0);
-    virtual ~barcharttable(){}
+
 private:
     BarChartTableModel *barmodel;
     BarChartModel *m_model;
@@ -22,6 +22,9 @@ private:
     QLayout* lt;
     QPushButton* aggiungi_riga;
     QPushButton* aggiungi_colonna;
+    QPushButton* removeBars;
+    QPushButton* removeSet;
+    QPushButton* changeTitle;
     void setupModels();
     Bar_data *dati;
     BarChartModel *barchartmodel;
@@ -29,6 +32,9 @@ private:
 private slots:
        void aggiungiriga();
        void aggiungicolonna();
+       void removebars();
+       void removeset();
+       void changetitle();
 public slots:
        void salvaJsonBar();
 signals:

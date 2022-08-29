@@ -79,7 +79,5 @@ bool Piecharttablemodel::removeRow(int row, const QModelIndex &parent)
 {
     beginRemoveRows(parent,row,row);
     dati.removeSlice(row);
-    //dati.etichette.erase(dati.etichette.begin()+row-1);
-    //dati.valori.erase(dati.valori.begin()+row-1);
     endRemoveRows();
 }

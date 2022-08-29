@@ -11,6 +11,7 @@ BarChartModel::BarChartModel(BarChartTableModel *data)
     chart->setAnimationOptions(QChart::AllAnimations);
     series=new QBarSeries;
     mapper=new QVBarModelMapper();
+
     mapper->setFirstBarSetColumn(0);
     lastcolumn=data->columnCount();
     mapper->setLastBarSetColumn(lastcolumn);
@@ -22,33 +23,47 @@ BarChartModel::BarChartModel(BarChartTableModel *data)
     chart->addSeries(series);
 
     for(auto it=data->dati.categories.begin();it!=data->dati.categories.end();++it){
-        QString qstr = QString::fromStdString(*it);
+        QString qstr = *it;
         categories<<qstr;
 
     }
+
     axisX=new QBarCategoryAxis();
     axisX->append(categories);
     chart->addAxis(axisX,Qt::AlignBottom);
     series->attachAxis(axisX);
     axisY= new QValueAxis();
-    int w=data->dati.range[0];
-    int x=data->dati.range[1];
+    int w=data->dati.minValue;
+    int x=data->dati.maxValue;
     axisY->setRange(w,x);
-    title=QString::fromStdString(data->dati.title);
+    title=data->dati.getTitle();
     chart->setTitle(title);
     chart->addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
-};
+}
 
 
 void BarChartModel::updateMapperLastColumn()
 {
     mapper->setLastBarSetColumn(++lastcolumn);
 }
-void BarChartModel::updateMapperLastRow()
+void BarChartModel::updateMapperLastRow(BarChartTableModel *data)
 {
+
     mapper->setRowCount(++lastrow);
-    categories<<QString(lastrow);
+    categories<<data->dati.getCategories()[lastrow-1];
+    axisX->append(categories);
+
+}
+
+void BarChartModel::updateMapperRemoveColumn(){
+    mapper->setLastBarSetColumn(--lastcolumn);
+}
+
+void BarChartModel::updateMapperRemoveRow(int pos){
+    mapper->setRowCount(--lastrow);
+    categories.removeAt(pos);
+    axisX->clear();
     axisX->append(categories);
 }
 
@@ -57,4 +72,13 @@ void BarChartModel::salvaJsonBar(){
     mainObject.insert(QString::fromStdString("title"),title);
     mainObject.insert(QString::fromStdString("Type"),QString::fromStdString("barchart"));
 
+}
+
+void BarChartModel::updateAxisY(int min,int max){
+    axisY->setRange(min,max);
+}
+
+void BarChartModel::changeTitle(BarChartTableModel *data,QString t){
+    data->dati.setTitle(t);
+    chart->setTitle(data->dati.getTitle());
 }

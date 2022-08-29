@@ -10,6 +10,7 @@ piechartmodel::piechartmodel(Piecharttablemodel* data)
     piemapper->setLabelsColumn(0);
     piemapper->setValuesColumn(1);
     piemapper->setModel(data);
+    piemapper->setFirstRow(1);
     chart->addSeries(pieSeries);
 
     for(int i=0;i<pieSeries->slices().size();++i){

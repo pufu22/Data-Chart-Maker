@@ -142,16 +142,16 @@ void MainWindow::creaPieChartFromFile(const QJsonObject &json){
 }
 
 void MainWindow::creaBarChartFromFile(const QJsonObject &json){
-std::string tempString =json["title"].toString().toStdString();
+QString tempString =json["title"].toString();
 QJsonObject tempA =json["bars"].toObject();
-std::vector<std::vector<int>> s;
-std::list<std::string> s2;
+QVector<QVector<int>> s;
+QVector<QString> s2;
 int j=0;
 foreach(const QString& key, tempA.keys()) {
-        s2.push_back(key.toStdString());
+        s2.push_back(key);
        QJsonValue value = tempA.value(key);
        QJsonArray a=value.toArray();
-       std::vector<int> n2;
+       QVector<int> n2;
        for(int i=0;i<a.size();++i)
        {
             n2.push_back(a.at(i).toInt());
@@ -159,12 +159,13 @@ foreach(const QString& key, tempA.keys()) {
        s.push_back(n2);
        ++j;
 }
-int range[]={0,15};
-Bar_data* d=new Bar_data(s,tempString,s2,range);
-barcharttable* barchart=new barcharttable(d);
-this->setCentralWidget(barchart);
-barchart->show();
-emit graficoSalvabile(true);
+int minVal;
+int maxVal;
+//Bar_data* d=new Bar_data(s,tempString,s2,minVal,maxVal);
+//barcharttable* barchart=new barcharttable(d);
+//this->setCentralWidget(barchart);
+//barchart->show();
+//emit graficoSalvabile(true);
 }
 
 void MainWindow::creaLineChartFromFile(const QJsonObject &json)

@@ -3,16 +3,20 @@
 #include<bar_data.h>
 #include<barcharttablemodel.h>
 #include<qbarmodelmapper.h>
-class BarChartModel
+#include<QString>
+class BarChartModel:public QObject
 {
 public:
     BarChartModel(BarChartTableModel *data);
     QChart *chart;
     void updateMapperLastColumn();
-    void updateMapperLastRow();
+    void updateMapperLastRow(BarChartTableModel *data);
+    void updateMapperRemoveColumn();
+    void updateMapperRemoveRow(int pos);
     void salvaJsonBar();
-protected:
-    std::vector<std::vector<std::list<QBarSet>>> sets;
+    void changeTitle(BarChartTableModel *data,QString t);
+private:
+    QVector<QVector<QList<QBarSet>>> sets;
     QBarSeries *series;
     QStringList categories;
     QBarCategoryAxis *axisX;
@@ -22,6 +26,8 @@ protected:
     int lastcolumn;
     int lastrow;
     friend class main;
+public slots:
+    void updateAxisY(int min,int max);
 };
 
 #endif // BARCHART_MODEL_H
