@@ -3,8 +3,8 @@
 
 #include <QObject>
 #include <QWidget>
-#include<areacharttablemodel.h>
-#include<areachartmodel.h>
+#include<model/areacharttablemodel.h>
+#include<model/areachartmodel.h>
 #include<areachartdata.h>
 class AreaChartWidget:public QWidget
 {

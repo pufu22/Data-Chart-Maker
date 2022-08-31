@@ -2,12 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <CreateChartWidget.h>
+#include <view/CreateChartWidget.h>
 #include<QChartView>
 #include<QChart>
 #include<QMenu>
-#include<linechartwidget.h>
-#include<selectwindow.h>
+#include<view/linechartwidget.h>
+#include<view/selectwindow.h>
 class MainWindow : public QMainWindow
 {
     Q_OBJECT

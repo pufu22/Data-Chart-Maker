@@ -10,59 +10,59 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    CreateChartWidget.cpp \
     areachartdata.cpp \
-    areachartmodel.cpp \
-    areacharttablemodel.cpp \
-    areachartwidget.cpp \
     bar_data.cpp \
-    barchart_model.cpp \
-    barcharttable.cpp \
-    barcharttablemodel.cpp \
     charts_data.cpp \
-    createwindow.cpp \
     inputdialog.cpp \
     linechartdata.cpp \
-    linechartmodel.cpp \
-    linecharttablemodel.cpp \
-    linechartwidget.cpp \
     main.cpp \
-    mainwindow.cpp \
     pie_data.cpp \
-    piechartmodel.cpp \
-    piecharttablemodel.cpp \
-    piechartwidget.cpp \
     popupchart.cpp \
-    selectchartwidget.cpp \
-    selectwindow.cpp \
-    tablemodel.cpp
+    model/areachartmodel.cpp \
+    model/areacharttablemodel.cpp \
+    model/barchart_model.cpp \
+    model/barcharttablemodel.cpp \
+    model/linechartmodel.cpp \
+    model/linecharttablemodel.cpp \
+    model/piechartmodel.cpp \
+    model/piecharttablemodel.cpp \
+    model/tablemodel.cpp \
+    view/areachartwidget.cpp \
+    view/CreateChartWidget.cpp \
+    view/barcharttable.cpp \
+    view/createwindow.cpp \
+    view/linechartwidget.cpp \
+    view/mainwindow.cpp \
+    view/piechartwidget.cpp \
+    view/selectchartwidget.cpp \
+    view/selectwindow.cpp
 
 HEADERS += \
-    CreateChartWidget.h \
     areachartdata.h \
-    areachartmodel.h \
-    areacharttablemodel.h \
-    areachartwidget.h \
     bar_data.h \
-    barchart_model.h \
-    barcharttable.h \
-    barcharttablemodel.h \
     charts_data.h \
-    createwindow.h \
     inputdialog.h \
     linechartdata.h \
-    linechartmodel.h \
-    linecharttablemodel.h \
-    linechartwidget.h \
-    mainwindow.h \
     pie_data.h \
-    piechartmodel.h \
-    piecharttablemodel.h \
-    piechartwidget.h \
     popupchart.h \
-    selectchartwidget.h \
-    selectwindow.h \
-    tablemodel.h
+    model/areachartmodel.h \
+    model/areacharttablemodel.h \
+    model/barchart_model.h \
+    model/barcharttablemodel.h \
+    model/linechartmodel.h \
+    model/linecharttablemodel.h \
+    model/piechartmodel.h \
+    model/piecharttablemodel.h \
+    model/tablemodel.h \
+    view/areachartwidget.h \
+    view/CreateChartWidget.h \
+    view/barcharttable.h \
+    view/createwindow.h \
+    view/linechartwidget.h \
+    view/mainwindow.h \
+    view/piechartwidget.h \
+    view/selectchartwidget.h \
+    view/selectwindow.h
 
 FORMS +=
 

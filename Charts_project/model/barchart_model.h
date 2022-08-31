@@ -1,7 +1,7 @@
 #ifndef BARCHART_MODEL_H
 #define BARCHART_MODEL_H
 #include<bar_data.h>
-#include<barcharttablemodel.h>
+#include<model/barcharttablemodel.h>
 #include<qbarmodelmapper.h>
 #include<QString>
 class BarChartModel:public QObject

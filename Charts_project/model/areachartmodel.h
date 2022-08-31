@@ -3,7 +3,7 @@
 #include<QChart>
 #include<QVXYModelMapper>
 #include<areachartdata.h>
-#include<areacharttablemodel.h>
+#include<model/areacharttablemodel.h>
 class AreaChartModel
 {
 public:

@@ -3,10 +3,10 @@
 
 #include <QWidget>
 #include<pie_data.h>
-#include<piechartmodel.h>
-#include<piecharttablemodel.h>
+#include<model/piechartmodel.h>
+#include<model/piecharttablemodel.h>
 #include<inputdialog.h>
-#include<mainwindow.h>
+#include<view/mainwindow.h>
 class piechartwidget:public QWidget
 {
     Q_OBJECT

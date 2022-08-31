@@ -5,10 +5,10 @@
 #include <QTableView>
 #include <QLayout>
 #include <QPushButton>
-#include <barchart_model.h>
-#include <barcharttablemodel.h>
+#include <model/barchart_model.h>
+#include <model/barcharttablemodel.h>
 #include<bar_data.h>
-#include<mainwindow.h>
+#include<view/mainwindow.h>
 class barcharttable:public QWidget{
     Q_OBJECT
 

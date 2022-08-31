@@ -6,7 +6,7 @@
 #include<QtCharts>
 #include<QString>
 #include<QHPieModelMapper>
-#include<piecharttablemodel.h>
+#include<model/piecharttablemodel.h>
 
 class piechartmodel:public QObject
 {

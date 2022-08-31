@@ -3,7 +3,7 @@
 
 #include<vector>
 #include<string>
-#include<linecharttablemodel.h>
+#include<model/linecharttablemodel.h>
 #include<QtCharts>
 #include<QVXYModelMapper>
 #include<linechartdata.h>

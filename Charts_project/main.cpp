@@ -1,8 +1,8 @@
-#include "mainwindow.h"
+#include "view/mainwindow.h"
 
 #include <QApplication>
 #include<QChartView>
-#include<barchart_model.h>
+#include<model/barchart_model.h>
 using namespace QtCharts;
 int main(int argc, char *argv[])
 {

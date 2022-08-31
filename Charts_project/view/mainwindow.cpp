@@ -6,9 +6,9 @@
 #include <QAction>
 #include <QMenuBar>
 #include <QMenu>
-#include <barcharttable.h>
-#include<piechartwidget.h>
-#include<areachartwidget.h>
+#include <view/barcharttable.h>
+#include<view/piechartwidget.h>
+#include<view/areachartwidget.h>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {

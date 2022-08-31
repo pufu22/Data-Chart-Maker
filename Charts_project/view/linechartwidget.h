@@ -3,9 +3,9 @@
 
 #include <QWidget>
 #include<linechartdata.h>
-#include<linechartmodel.h>
-#include<linecharttablemodel.h>
-#include<mainwindow.h>
+#include<model/linechartmodel.h>
+#include<model/linecharttablemodel.h>
+#include<view/mainwindow.h>
 class LineChartWidget:public QWidget
 {
     Q_OBJECT
