@@ -21,6 +21,7 @@ INPUT(
 ./debug\piechartmodel.o
 ./debug\piecharttablemodel.o
 ./debug\piechartwidget.o
+./debug\popupchart.o
 ./debug\selectchartwidget.o
 ./debug\selectwindow.o
 ./debug\tablemodel.o
@@ -35,6 +36,7 @@ INPUT(
 ./debug\moc_mainwindow.o
 ./debug\moc_piecharttablemodel.o
 ./debug\moc_piechartwidget.o
+./debug\moc_popupchart.o
 ./debug\moc_selectchartwidget.o
 ./debug\moc_selectwindow.o
 );

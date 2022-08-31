@@ -23,9 +23,11 @@ private:
     QChartView* chartview;
     QPushButton* aggiungifetta;
     QPushButton* rimuovifetta;
+    QPushButton* cambiaTitolo;
 public slots:
     void aggiungifettaslot();
     void rimuovifettaslot();
+    void cambiaTitoloSlot();
     void salvaJsonPie();
 };
 

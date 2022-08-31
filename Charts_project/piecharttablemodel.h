@@ -33,6 +33,8 @@ public:
 
 
     bool removeRow(int row, const QModelIndex &parent=QModelIndex()) ;
+
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     pie_data dati;
 private:
 };

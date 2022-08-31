@@ -17,12 +17,14 @@ public:
     int sliceCount();
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event);
     void salvaJsonPie();
+    void changeTitle(Piecharttablemodel *data,QString t);
 protected:
     QPieSeries* pieSeries;
     QString title;
     QVPieModelMapper* piemapper;
 public slots:
     void explodeSplice(bool state);
+    void changeSlice();
 
 
 };

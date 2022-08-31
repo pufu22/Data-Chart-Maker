@@ -37,6 +37,10 @@ void pie_data::setValue(int pos,int v){
     valori[pos]=v;
 }
 
+void pie_data::setTitle(QString t){
+    title=t;
+}
+
 void pie_data::pushbackLabel(QString l){
     etichette.push_back(l);
 }

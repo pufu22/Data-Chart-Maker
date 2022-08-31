@@ -21,9 +21,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->createActions();
     this->createMenus();
-    AreaChartWidget* areaChart=new AreaChartWidget(this,"areachart");
-    this->setCentralWidget(areaChart);
-    areaChart->show();
+    //AreaChartWidget* areaChart=new AreaChartWidget(this,"areachart");
+    //this->setCentralWidget(areaChart);
+    //areaChart->show();
     //piechartwidget* piechart=new piechartwidget(this,"piechart",nullptr);
     //this->setCentralWidget(piechart);
     //piechart->show();
@@ -64,6 +64,8 @@ void MainWindow::createActions()
 void MainWindow::nuovoGrafico()
 {
     selezionaTipo=new selectWindow(this);
+    selezionaTipo->setFocus();
+    selezionaTipo->setModal(true);
     selezionaTipo->show();
     connect(selezionaTipo,&selectWindow::creaBarChartSignal,this,&MainWindow::creaBarChart);
     connect(selezionaTipo,&selectWindow::creaLineChartSignal,this,&MainWindow::creaLineChart);

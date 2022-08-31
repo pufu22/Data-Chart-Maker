@@ -77,7 +77,21 @@ bool Piecharttablemodel::insertRows(int row, int count,QString eti,int val, cons
 
 bool Piecharttablemodel::removeRow(int row, const QModelIndex &parent)
 {
-    beginRemoveRows(parent,row,row);
+    beginRemoveRows(parent,row-1,row-1);
     dati.removeSlice(row);
     endRemoveRows();
+    return true;
+}
+
+QVariant Piecharttablemodel::headerData(int section, Qt::Orientation orientation, int role) const{
+    if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
+        if(section%2==0)
+            return QString("Etichetta");
+        else
+            return QString("Valore");
+    }
+    else if(role == Qt::DisplayRole && orientation == Qt::Vertical){
+        return section+1;
+    }
+    return QVariant();
 }

@@ -21,6 +21,7 @@ INPUT(
 ./release\piechartmodel.o
 ./release\piecharttablemodel.o
 ./release\piechartwidget.o
+./release\popupchart.o
 ./release\selectchartwidget.o
 ./release\selectwindow.o
 ./release\tablemodel.o
@@ -35,6 +36,7 @@ INPUT(
 ./release\moc_mainwindow.o
 ./release\moc_piecharttablemodel.o
 ./release\moc_piechartwidget.o
+./release\moc_popupchart.o
 ./release\moc_selectchartwidget.o
 ./release\moc_selectwindow.o
 );

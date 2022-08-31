@@ -44,6 +44,9 @@ piechartwidget::piechartwidget(QWidget *parent, const char *name,pie_data* d){
     rimuovifetta=new QPushButton("&Rimuovi una fetta");
     lt->addWidget(rimuovifetta);
     connect(rimuovifetta,&QPushButton::released,this,&piechartwidget::rimuovifettaslot);
+    cambiaTitolo=new QPushButton("&Cambia Titolo");
+    lt->addWidget(cambiaTitolo);
+    connect(cambiaTitolo,&QPushButton::released,this,&piechartwidget::cambiaTitoloSlot);
     pietable->show();
     chartview=new QChartView(piemodel->chart);
     chartview->setRenderHint(QPainter::Antialiasing);
@@ -71,8 +74,19 @@ void piechartwidget::aggiungifettaslot(){
 
 void piechartwidget::rimuovifettaslot(){
     bool ok;
-    int fetta=QInputDialog::getInt(this,tr("ELIMINA FETTA"),tr("Fetta:"),QLineEdit::Normal,1,piemodel->sliceCount(),1,&ok);
-    pietablemodel->removeRow(fetta);
+    if(piemodel->sliceCount()>1){
+        int fetta=QInputDialog::getInt(this,tr("ELIMINA FETTA"),tr("Fetta:"),QLineEdit::Normal,1,piemodel->sliceCount(),1,&ok);
+        if(ok)
+            pietablemodel->removeRow(fetta);
+    }
+}
+
+void piechartwidget::cambiaTitoloSlot(){
+    bool ok;
+    QString titolo=QInputDialog::getText(this,tr("Titolo"),tr("Titolo:"),QLineEdit::Normal,tr(""),&ok);
+    if(ok && titolo.trimmed()!=""){
+        piemodel->changeTitle(pietablemodel,titolo);
+    }
 }
 
 void piechartwidget::salvaJsonPie(){

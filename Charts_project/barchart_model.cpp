@@ -40,8 +40,9 @@ BarChartModel::BarChartModel(BarChartTableModel *data)
     chart->setTitle(title);
     chart->addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
-}
+    series->setLabelsVisible(true);
 
+}
 
 void BarChartModel::updateMapperLastColumn()
 {

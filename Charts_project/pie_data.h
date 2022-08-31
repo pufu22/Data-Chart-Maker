@@ -22,6 +22,7 @@ public:
     QString getTitle()const;
     void setLabel(int pos,QString l);
     void setValue(int pos,int v);
+    void setTitle(QString t);
     void pushbackLabel(QString l);
     void pushbackValue(int v);
     void removeSlice(int pos);

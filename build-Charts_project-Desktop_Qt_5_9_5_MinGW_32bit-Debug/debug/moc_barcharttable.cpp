@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_barcharttable_t {
-    QByteArrayData data[6];
-    char stringdata0[62];
+    QByteArrayData data[9];
+    char stringdata0[95];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,11 +36,15 @@ QT_MOC_LITERAL(1, 14, 4), // "riga"
 QT_MOC_LITERAL(2, 19, 0), // ""
 QT_MOC_LITERAL(3, 20, 12), // "aggiungiriga"
 QT_MOC_LITERAL(4, 33, 15), // "aggiungicolonna"
-QT_MOC_LITERAL(5, 49, 12) // "salvaJsonBar"
+QT_MOC_LITERAL(5, 49, 10), // "removebars"
+QT_MOC_LITERAL(6, 60, 9), // "removeset"
+QT_MOC_LITERAL(7, 70, 11), // "changetitle"
+QT_MOC_LITERAL(8, 82, 12) // "salvaJsonBar"
 
     },
     "barcharttable\0riga\0\0aggiungiriga\0"
-    "aggiungicolonna\0salvaJsonBar"
+    "aggiungicolonna\0removebars\0removeset\0"
+    "changetitle\0salvaJsonBar"
 };
 #undef QT_MOC_LITERAL
 
@@ -50,7 +54,7 @@ static const uint qt_meta_data_barcharttable[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -58,17 +62,23 @@ static const uint qt_meta_data_barcharttable[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   34,    2, 0x06 /* Public */,
+       1,    0,   49,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   35,    2, 0x08 /* Private */,
-       4,    0,   36,    2, 0x08 /* Private */,
-       5,    0,   37,    2, 0x0a /* Public */,
+       3,    0,   50,    2, 0x08 /* Private */,
+       4,    0,   51,    2, 0x08 /* Private */,
+       5,    0,   52,    2, 0x08 /* Private */,
+       6,    0,   53,    2, 0x08 /* Private */,
+       7,    0,   54,    2, 0x08 /* Private */,
+       8,    0,   55,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -85,7 +95,10 @@ void barcharttable::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 0: _t->riga(); break;
         case 1: _t->aggiungiriga(); break;
         case 2: _t->aggiungicolonna(); break;
-        case 3: _t->salvaJsonBar(); break;
+        case 3: _t->removebars(); break;
+        case 4: _t->removeset(); break;
+        case 5: _t->changetitle(); break;
+        case 6: _t->salvaJsonBar(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -126,13 +139,13 @@ int barcharttable::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 7)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 4;
+        _id -= 7;
     }
     return _id;
 }

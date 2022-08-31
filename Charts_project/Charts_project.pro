@@ -32,6 +32,7 @@ SOURCES += \
     piechartmodel.cpp \
     piecharttablemodel.cpp \
     piechartwidget.cpp \
+    popupchart.cpp \
     selectchartwidget.cpp \
     selectwindow.cpp \
     tablemodel.cpp
@@ -58,6 +59,7 @@ HEADERS += \
     piechartmodel.h \
     piecharttablemodel.h \
     piechartwidget.h \
+    popupchart.h \
     selectchartwidget.h \
     selectwindow.h \
     tablemodel.h

@@ -6,22 +6,23 @@ piechartmodel::piechartmodel(Piecharttablemodel* data)
     chart->setAnimationOptions(QChart::AllAnimations);
     pieSeries=new QPieSeries;
     piemapper=new QVPieModelMapper();
-    piemapper->setSeries(pieSeries);
+    piemapper->setFirstRow(0);
     piemapper->setLabelsColumn(0);
     piemapper->setValuesColumn(1);
+    piemapper->setSeries(pieSeries);
     piemapper->setModel(data);
-    piemapper->setFirstRow(1);
     chart->addSeries(pieSeries);
 
     for(int i=0;i<pieSeries->slices().size();++i){
         QPieSlice* slice=pieSeries->slices().at(i);
         connect(slice,&QPieSlice::hovered,this, &piechartmodel::explodeSplice);
+        connect(slice,&QPieSlice::doubleClicked,this,&piechartmodel::changeSlice);
     }
 
     title=data->dati.getTitle();
     chart->createDefaultAxes();
     chart->setTitle(title);
-
+    chart->legend()->setAlignment(Qt::AlignBottom);
 }
 
 void piechartmodel::explodeSplice(bool state){
@@ -30,11 +31,28 @@ void piechartmodel::explodeSplice(bool state){
         QPieSlice* slice=pieSeries->slices().at(i);
         if(obj==slice){
             slice->setExploded(state);
+            slice->setExplodeDistanceFactor(0.1);
             slice->setLabelVisible(state);
             break;
         }
     }
 }
+
+void piechartmodel::changeSlice(){
+    QObject* obj=sender();
+    for(int i=0;i<pieSeries->slices().size();++i){
+        QPieSlice* slice=pieSeries->slices().at(i);
+        if(obj==slice){
+
+            const QColor color = QColorDialog::getColor(Qt::green,nullptr, "Select Color");
+            if(color.isValid()){
+                slice->setColor(color);
+            }
+            break;
+        }
+    }
+}
+
 void piechartmodel::connectInsertedSlice(){
     QPieSlice* slice=pieSeries->slices().at(pieSeries->slices().size()-1);
     connect(slice,&QPieSlice::hovered,this, &piechartmodel::explodeSplice);
@@ -77,4 +95,10 @@ void piechartmodel::salvaJsonPie(){
     }
     else
             qWarning("Couldn't open save file.");
+}
+
+void piechartmodel::changeTitle(Piecharttablemodel
+                                *data,QString t){
+    data->dati.setTitle(t);
+    chart->setTitle(data->dati.getTitle());
 }
