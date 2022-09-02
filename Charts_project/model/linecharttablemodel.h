@@ -23,6 +23,7 @@ public:
     int maxValue=0;
 signals:
     changeRange(int maxValue);
+    void minMaxChanged(int min,int max);
 };
 
 #endif // LINECHARTTABLEMODEL_H

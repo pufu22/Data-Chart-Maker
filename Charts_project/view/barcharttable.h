@@ -9,6 +9,7 @@
 #include <model/barcharttablemodel.h>
 #include<bar_data.h>
 #include<view/mainwindow.h>
+#include<popupchart.h>
 class barcharttable:public QWidget{
     Q_OBJECT
 
@@ -19,6 +20,7 @@ private:
     BarChartTableModel *barmodel;
     BarChartModel *m_model;
     QTableView *table;
+    QChartView *chartView;
     QLayout* lt;
     QPushButton* aggiungi_riga;
     QPushButton* aggiungi_colonna;
@@ -29,6 +31,7 @@ private:
     Bar_data *dati;
     BarChartModel *barchartmodel;
     QChart *chart;
+    void adjustChart();
 private slots:
        void aggiungiriga();
        void aggiungicolonna();
@@ -37,6 +40,7 @@ private slots:
        void changetitle();
 public slots:
        void salvaJsonBar();
+       void chartFocus();
 signals:
        void riga();
 };

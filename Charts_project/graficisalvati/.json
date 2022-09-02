@@ -3,12 +3,14 @@
     "slices": [
         "Sinb",
         "Jennie",
-        "Carlo"
+        "Carlo",
+        "ADS"
     ],
     "title": "Persone",
     "values": [
         30,
         50,
-        12
+        12,
+        21
     ]
 }

@@ -7,6 +7,7 @@
 #include<model/piecharttablemodel.h>
 #include<inputdialog.h>
 #include<view/mainwindow.h>
+#include<popupchart.h>
 class piechartwidget:public QWidget
 {
     Q_OBJECT
@@ -24,10 +25,12 @@ private:
     QPushButton* aggiungifetta;
     QPushButton* rimuovifetta;
     QPushButton* cambiaTitolo;
+    QPushButton* ingrandisci;
 public slots:
     void aggiungifettaslot();
     void rimuovifettaslot();
     void cambiaTitoloSlot();
+    void chartFocus();
     void salvaJsonPie();
 };
 

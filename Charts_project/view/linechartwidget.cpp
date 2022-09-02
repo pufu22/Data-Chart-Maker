@@ -13,7 +13,7 @@ LineChartWidget::LineChartWidget(LineChartData* data,QWidget *parent, const char
     else
         linecharttablemodel=new LineChartTableModel(data);
     linechartmodel=new LineChartModel(linecharttablemodel);
-    connect(linecharttablemodel,&LineChartTableModel::changeRange,linechartmodel,&LineChartModel::axises);
+    connect(linecharttablemodel,&LineChartTableModel::minMaxChanged,linechartmodel,&LineChartModel::updateAxisY);
     table->setModel(linecharttablemodel);
      linecharttablemodel->setParent(table);
      lt->addWidget(table);

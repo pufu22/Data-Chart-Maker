@@ -13,7 +13,6 @@ LineChartModel::LineChartModel(LineChartTableModel * data)
     mapper[0]->setModel(data);
     chart->addSeries(series[0]);
     chart->createDefaultAxes();
-    //title=data->dati.title;
     chart->setTitle(title);
 
 }
@@ -44,4 +43,8 @@ void LineChartModel::salvaJsonFile(){
     mainObject.insert(QString::fromStdString("title"),title);
     mainObject.insert(QString::fromStdString("Type"),QString::fromStdString("linechart"));
 
+}
+
+void LineChartModel::updateAxisY(int min,int max){
+    chart->axisY()->setRange(min,max);
 }

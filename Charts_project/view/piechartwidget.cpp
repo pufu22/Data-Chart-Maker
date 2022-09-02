@@ -23,6 +23,7 @@ piechartwidget::piechartwidget(QWidget *parent, const char *name):QWidget(parent
     lt->setSizeConstraint(QLayout::SetFixedSize);
     QPushButton* ingrandisci=new QPushButton;
     ingrandisci->setIcon(QIcon(":/icone/ingrandisci"));
+
     lt->addWidget(ingrandisci);
     setLayout(lt);
 
@@ -47,15 +48,18 @@ piechartwidget::piechartwidget(QWidget *parent, const char *name,pie_data* d){
     cambiaTitolo=new QPushButton("&Cambia Titolo");
     lt->addWidget(cambiaTitolo);
     connect(cambiaTitolo,&QPushButton::released,this,&piechartwidget::cambiaTitoloSlot);
+    pietable->adjustSize();
     pietable->show();
+    ingrandisci=new QPushButton("&Ingrandisci");
+    //ingrandisci->setIcon(QIcon(":/icone/ingrandisci"));
+    connect(ingrandisci,&QPushButton::released,this,&piechartwidget::chartFocus);
+    lt->addWidget(ingrandisci);
     chartview=new QChartView(piemodel->chart);
     chartview->setRenderHint(QPainter::Antialiasing);
     chartview->setMinimumSize(1280,480);
     lt->addWidget(chartview);
     lt->setSizeConstraint(QLayout::SetFixedSize);
-    QPushButton* ingrandisci=new QPushButton;
-    ingrandisci->setIcon(QIcon(":/icone/ingrandisci"));
-    lt->addWidget(ingrandisci);
+
     setLayout(lt);
     connect(nullptr,&MainWindow::salvaConNomeSignal,this,&piechartwidget::salvaJsonPie);
 }
@@ -87,10 +91,18 @@ void piechartwidget::cambiaTitoloSlot(){
     if(ok && titolo.trimmed()!=""){
         piemodel->changeTitle(pietablemodel,titolo);
     }
+
 }
 
 void piechartwidget::salvaJsonPie(){
     piemodel->salvaJsonPie();
 }
 
+void piechartwidget::chartFocus(){
+    ingrandisci->blockSignals(true);
+    lt->removeWidget(chartview);
+    PopupChart::chartFocus(chartview,this);
+    ingrandisci->blockSignals(false);
+    lt->addWidget(chartview);
+}
 

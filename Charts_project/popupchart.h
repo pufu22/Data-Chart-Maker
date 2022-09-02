@@ -2,13 +2,19 @@
 #define POPUPCHART_H
 
 #include <QObject>
-#include <QWidget>
-#include <QChart>
-class PopupChart:public QWidget
+#include <QDialog>
+#include <QtCharts>
+#include <QVBoxLayout>
+class PopupChart:public QDialog
 {
     Q_OBJECT
 public:
-    PopupChart();
+    PopupChart(QChartView* chart,QWidget *parent = nullptr);
+    QVBoxLayout* lyt;
+    QChart* chart;
+    static void chartFocus(QChartView* chart,QWidget* parent);
+
+
 };
 
 #endif // POPUPCHART_H

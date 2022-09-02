@@ -6,6 +6,7 @@
 #include<model/linechartmodel.h>
 #include<model/linecharttablemodel.h>
 #include<view/mainwindow.h>
+#include <algorithm>
 class LineChartWidget:public QWidget
 {
     Q_OBJECT

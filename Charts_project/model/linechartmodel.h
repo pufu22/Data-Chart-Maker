@@ -23,6 +23,7 @@ protected:
     QVector<QVXYModelMapper*> mapper;
 public slots:
     void axises(int maxValue);
+    void updateAxisY(int min,int max);
 };
 
 #endif // LINECHARTMODEL_H

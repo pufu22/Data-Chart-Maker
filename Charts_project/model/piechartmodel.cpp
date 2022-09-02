@@ -18,7 +18,6 @@ piechartmodel::piechartmodel(Piecharttablemodel* data)
         connect(slice,&QPieSlice::hovered,this, &piechartmodel::explodeSplice);
         connect(slice,&QPieSlice::doubleClicked,this,&piechartmodel::changeSlice);
     }
-
     title=data->dati.getTitle();
     chart->createDefaultAxes();
     chart->setTitle(title);
@@ -63,7 +62,6 @@ int piechartmodel::sliceCount(){
     return pieSeries->slices().size();
 }
 void piechartmodel::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event){
-
 
 }
 void piechartmodel::salvaJsonPie(){

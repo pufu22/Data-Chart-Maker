@@ -26,8 +26,10 @@ int LineChartTableModel::columnCount(const QModelIndex &parent) const
 
 QVariant LineChartTableModel::data(const QModelIndex &index, int role) const
 {
-    if(role==Qt::DisplayRole)
+    if(role==Qt::DisplayRole){
         return dati.getLines()[index.row()][index.column()];
+    }
+
 
         return QVariant();
 }
@@ -35,11 +37,19 @@ QVariant LineChartTableModel::data(const QModelIndex &index, int role) const
 bool LineChartTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if(role==Qt::EditRole&&correctValue(index,value)){
-        if(value.toInt()>maxValue)
-            maxValue=value.toInt();
+        if(index.column()%2==1)
+            dati.removeY(index.row(),index.column());
         dati.setData(index.row(),index.column(),value.toInt());
         emit dataChanged(index,index);
-        emit changeRange(maxValue);
+        if(index.column()%2!=0){
+            int v=value.toInt();
+            if(v<dati.getMinValue()||v>dati.getMaxValue()){
+                dati.addY(v);
+                emit minMaxChanged(dati.getMinValue(),dati.getMaxValue());
+            }
+            else
+                dati.addY(v);
+        }
         return true;
     }
     else
