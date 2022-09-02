@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/Chart">
+        <file>Immagini/barchart.png</file>
+        <file>Immagini/linechart.svg</file>
+        <file>Immagini/piechart.png</file>
+        <file>Immagini/areachart.PNG</file>
+        <file>Immagini/candlechart.svg</file>
+    </qresource>
+</RCC>

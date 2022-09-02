@@ -10,25 +10,63 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    CreateChartWidget.cpp \
+    areachartdata.cpp \
     bar_data.cpp \
-    barchart_model.cpp \
-    barcharttable.cpp \
     charts_data.cpp \
+    inputdialog.cpp \
+    linechartdata.cpp \
     main.cpp \
-    mainwindow.cpp \
-    selectchartwidget.cpp \
-    tablemodel.cpp
+    pie_data.cpp \
+    popupchart.cpp \
+    model/areachartmodel.cpp \
+    model/areacharttablemodel.cpp \
+    model/barchart_model.cpp \
+    model/barcharttablemodel.cpp \
+    model/linechartmodel.cpp \
+    model/linecharttablemodel.cpp \
+    model/piechartmodel.cpp \
+    model/piecharttablemodel.cpp \
+    model/tablemodel.cpp \
+    view/areachartwidget.cpp \
+    view/CreateChartWidget.cpp \
+    view/barcharttable.cpp \
+    view/choosechart.cpp \
+    view/createwindow.cpp \
+    view/linechartwidget.cpp \
+    view/mainwindow.cpp \
+    view/piechartwidget.cpp \
+    view/selectGraphic.cpp \
+    view/selectchartwidget.cpp \
+    view/selectwindow.cpp
 
 HEADERS += \
-    CreateChartWidget.h \
+    areachartdata.h \
     bar_data.h \
-    barchart_model.h \
-    barcharttable.h \
     charts_data.h \
-    mainwindow.h \
-    selectchartwidget.h \
-    tablemodel.h
+    inputdialog.h \
+    linechartdata.h \
+    pie_data.h \
+    popupchart.h \
+    model/areachartmodel.h \
+    model/areacharttablemodel.h \
+    model/barchart_model.h \
+    model/barcharttablemodel.h \
+    model/linechartmodel.h \
+    model/linecharttablemodel.h \
+    model/piechartmodel.h \
+    model/piecharttablemodel.h \
+    model/tablemodel.h \
+    view/areachartwidget.h \
+    view/CreateChartWidget.h \
+    view/barcharttable.h \
+    view/choosechart.h \
+    view/createwindow.h \
+    view/linechartwidget.h \
+    view/mainwindow.h \
+    view/piechartwidget.h \
+    view/selectGraphic.h \
+    view/selectchartwidget.h \
+    view/selectwindow.h
 
 FORMS +=
 
@@ -36,3 +74,6 @@ FORMS +=
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Images.qrc
