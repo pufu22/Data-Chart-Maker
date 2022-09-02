@@ -3,18 +3,22 @@
 
 #include <QMainWindow>
 #include <view/CreateChartWidget.h>
-#include<QChartView>
-#include<QChart>
-#include<QMenu>
-#include<view/linechartwidget.h>
-#include<view/selectwindow.h>
+#include <QChartView>
+#include <QChart>
+#include <QMenu>
+#include <QSize>
+#include <view/linechartwidget.h>
+#include <view/selectwindow.h>
+
+// è una view specializzata per la finestra principale dell'applicazione (il cornicione sul quale verrà visualizzato il resto).
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(const QSize& s = QSize(), QWidget *parent = nullptr);
     ~MainWindow();
+
     void createMenus();
     void createActions();
     void creaPieChartFromFile(const QJsonObject &json);

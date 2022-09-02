@@ -1,4 +1,5 @@
 #include "view/mainwindow.h"
+#include "view/selectGraphic.h"
 
 #include <QApplication>
 #include<QChartView>

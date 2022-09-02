@@ -19,12 +19,15 @@ INPUT(
 ./release\areachartwidget.o
 ./release\CreateChartWidget.o
 ./release\barcharttable.o
+./release\choosechart.o
 ./release\createwindow.o
 ./release\linechartwidget.o
 ./release\mainwindow.o
 ./release\piechartwidget.o
+./release\selectGraphic.o
 ./release\selectchartwidget.o
 ./release\selectwindow.o
+./release\qrc_Images.o
 ./release\moc_inputdialog.o
 ./release\moc_popupchart.o
 ./release\moc_areacharttablemodel.o
@@ -34,9 +37,11 @@ INPUT(
 ./release\moc_areachartwidget.o
 ./release\moc_CreateChartWidget.o
 ./release\moc_barcharttable.o
+./release\moc_choosechart.o
 ./release\moc_linechartwidget.o
 ./release\moc_mainwindow.o
 ./release\moc_piechartwidget.o
+./release\moc_selectGraphic.o
 ./release\moc_selectchartwidget.o
 ./release\moc_selectwindow.o
 );

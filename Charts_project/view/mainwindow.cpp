@@ -9,10 +9,10 @@
 #include <view/barcharttable.h>
 #include<view/piechartwidget.h>
 #include<view/areachartwidget.h>
-MainWindow::MainWindow(QWidget *parent)
+#include <view/selectGraphic.h>
+MainWindow::MainWindow(const QSize& s, QWidget *parent)
     : QMainWindow(parent)
 {
-
 
     //LineChartWidget* linechart= new LineChartWidget(this,"linechart");
     //this->setCentralWidget(linechart);
@@ -27,7 +27,9 @@ MainWindow::MainWindow(QWidget *parent)
     //piechartwidget* piechart=new piechartwidget(this,"piechart",nullptr);
     //this->setCentralWidget(piechart);
     //piechart->show();
-
+    if(!s.isEmpty() && !s.isNull())
+        resize(s);
+    this->setCentralWidget(new SelectGraphic(this));
 }
 
 MainWindow::~MainWindow()

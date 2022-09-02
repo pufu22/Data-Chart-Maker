@@ -30,10 +30,12 @@ SOURCES += \
     view/areachartwidget.cpp \
     view/CreateChartWidget.cpp \
     view/barcharttable.cpp \
+    view/choosechart.cpp \
     view/createwindow.cpp \
     view/linechartwidget.cpp \
     view/mainwindow.cpp \
     view/piechartwidget.cpp \
+    view/selectGraphic.cpp \
     view/selectchartwidget.cpp \
     view/selectwindow.cpp
 
@@ -57,10 +59,12 @@ HEADERS += \
     view/areachartwidget.h \
     view/CreateChartWidget.h \
     view/barcharttable.h \
+    view/choosechart.h \
     view/createwindow.h \
     view/linechartwidget.h \
     view/mainwindow.h \
     view/piechartwidget.h \
+    view/selectGraphic.h \
     view/selectchartwidget.h \
     view/selectwindow.h
 
@@ -70,3 +74,6 @@ FORMS +=
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Images.qrc
