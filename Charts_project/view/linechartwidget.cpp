@@ -24,7 +24,7 @@ LineChartWidget::LineChartWidget(LineChartData* data,QWidget *parent, const char
      lt->addWidget(table);
 
      table->show();
-     chartview=new QChartView(linechartmodel->chart);
+     chartview=new QChartView(linechartmodel->getChart());
      chartview->setRenderHint(QPainter::Antialiasing);
      chartview->setMinimumSize(1280,480);
      lt->addWidget(aggiungiriga);

@@ -118,6 +118,7 @@ void MainWindow::creaBarChart()
         this->centralWidget()->disconnect();
     this->setCentralWidget(bartable);
     bartable->show();
+
     emit graficoSalvabile(true);
 }
 
@@ -137,6 +138,7 @@ void MainWindow::creaPieChart(){
     piechartwidget* piechart=new piechartwidget(this,"piechart");
     this->setCentralWidget(piechart);
     piechart->show();
+    connect(this,&MainWindow::salvaConNomeSignal,piechart,&piechartwidget::salvaJsonPie);
     emit graficoSalvabile(true);
 }
 void MainWindow::creaAreaChart(){

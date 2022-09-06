@@ -37,3 +37,6 @@ void AreaChartModel::updateMappers(AreaChartTableModel* data)
     chart->createDefaultAxes();
 
 }
+QChart* AreaChartModel::getChart(){
+    return chart;
+}

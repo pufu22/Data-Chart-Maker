@@ -11,12 +11,14 @@ class LineChartModel:public QObject
 {
 
 public:
+    QChart* getChart();
     LineChartModel(LineChartTableModel *data);
-    QChart *chart;
+
     void updateMapper(LineChartTableModel *data);
     void addLinea(LineChartTableModel *data,QString l);
     void salvaJsonFile();
 protected:
+    QChart *chart;
     int nLines;
     QVector<QLineSeries*> series;
     QString title;

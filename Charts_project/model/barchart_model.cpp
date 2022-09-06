@@ -22,8 +22,9 @@ BarChartModel::BarChartModel(BarChartTableModel *data)
     mapper->setModel(data);
     chart->addSeries(series);
 
-    for(auto it=data->dati.categories.begin();it!=data->dati.categories.end();++it){
-        QString qstr = *it;
+    for(int i=0;i<data->dati.getCategories().size();++i){
+        QString qstr = data->dati.getCategories().at(i);
+
         categories<<qstr;
 
     }
@@ -83,3 +84,8 @@ void BarChartModel::changeTitle(BarChartTableModel *data,QString t){
     data->dati.setTitle(t);
     chart->setTitle(data->dati.getTitle());
 }
+
+QChart* BarChartModel::getChart(){
+    return chart;
+}
+

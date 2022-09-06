@@ -8,9 +8,10 @@ class AreaChartModel
 {
 public:
     AreaChartModel(AreaChartTableModel* data);
-    QChart *chart;
+    QChart* getChart();
     void updateMappers(AreaChartTableModel* data);
 private:
+    QChart *chart;
     QVector<QVXYModelMapper*> linesmappers;
     QVector <QLineSeries*> series;
     QVector <QAreaSeries*> areaSeries;

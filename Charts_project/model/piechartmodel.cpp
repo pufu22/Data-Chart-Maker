@@ -100,3 +100,7 @@ void piechartmodel::changeTitle(Piecharttablemodel
     data->dati.setTitle(t);
     chart->setTitle(data->dati.getTitle());
 }
+
+QChart* piechartmodel::getChart(){
+    return chart;
+}

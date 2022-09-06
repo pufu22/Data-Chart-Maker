@@ -15,7 +15,7 @@ CandleStickChartWidget::CandleStickChartWidget(QWidget *parent)
     connect(aggiungiSet,&QPushButton::released,this,&CandleStickChartWidget::aggiungiSetSlot);
     rimuoviSet=new QPushButton("Rimuovi set",this);
     connect(rimuoviSet,&QPushButton::released,this,&CandleStickChartWidget::rimuoviSetSlot);
-    chartview=new QChartView(candleModel->chart);
+    chartview=new QChartView(candleModel->getChart());
     chartview->setRenderHint(QPainter::Antialiasing);
     chartview->setMinimumSize(1280,480);
     lt->addWidget(aggiungiSet);
@@ -23,6 +23,9 @@ CandleStickChartWidget::CandleStickChartWidget(QWidget *parent)
     lt->addWidget(chartview);
     lt->setSizeConstraint(QLayout::SetFixedSize);
     setLayout(lt);
+
+    connect(candleTableModel,&CandleStickChartTableModel::axisUpdate,candleModel,&CandleStickChartModel::updateAxis);
+
 }
 
 void CandleStickChartWidget::aggiungiSetSlot(){
@@ -38,7 +41,7 @@ void CandleStickChartWidget::rimuoviSetSlot(){
         int set=QInputDialog::getInt(this,tr("ELIMINA SET"),tr("Set:"),QLineEdit::Normal,1,candleModel->setsCount(),1,&ok);
     if(ok)
         candleTableModel->removeRows(set-1,1);
-        //candleModel->updateMapper();
+        candleModel->updateRemoved(set-1);
     }
 
 }

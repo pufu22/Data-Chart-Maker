@@ -11,13 +11,15 @@
 class piechartmodel:public QObject
 {
 public:
-    QChart* chart;
+    QChart* getChart();
+
     piechartmodel(Piecharttablemodel* data);
     void connectInsertedSlice();
     int sliceCount();
     void salvaJsonPie();
     void changeTitle(Piecharttablemodel *data,QString t);
 protected:
+    QChart* chart;
     QPieSeries* pieSeries;
     QString title;
     QVPieModelMapper* piemapper;

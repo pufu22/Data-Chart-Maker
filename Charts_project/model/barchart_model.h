@@ -8,7 +8,7 @@ class BarChartModel:public QObject
 {
 public:
     BarChartModel(BarChartTableModel *data);
-    QChart *chart;
+    QChart* getChart();
     void updateMapperLastColumn();
     void updateMapperLastRow(BarChartTableModel *data);
     void updateMapperRemoveColumn();
@@ -16,6 +16,7 @@ public:
     void salvaJsonBar();
     void changeTitle(BarChartTableModel *data,QString t);
 private:
+    QChart *chart;
     QVector<QVector<QList<QBarSet>>> sets;
     QBarSeries *series;
     QStringList categories;

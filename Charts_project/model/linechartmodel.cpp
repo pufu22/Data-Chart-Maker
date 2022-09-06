@@ -52,4 +52,7 @@ void LineChartModel::updateAxisY(int min,int max){
 void LineChartModel::addLinea(LineChartTableModel *data,QString l){
     data->dati.addLineName(l);
 }
+QChart* LineChartModel::getChart(){
+    return chart;
+}
 

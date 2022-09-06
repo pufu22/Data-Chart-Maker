@@ -9,12 +9,12 @@ class CandleStickChartModel:public QObject
 {
 public:
     CandleStickChartModel(CandleStickChartTableModel *data);
-    QChart* chart;
+
     int setsCount();
     void updateMapper();
-
+    QChart* getChart();
 private:
-
+    QChart* chart;
     QCandlestickSeries* candleSeries;
     QColor increasingColor;
     QColor decreasingColor;
@@ -27,6 +27,7 @@ private:
     qreal getMin();
 public slots:
     void updateAxis();
+    void updateRemoved(int row);
 
 
 };

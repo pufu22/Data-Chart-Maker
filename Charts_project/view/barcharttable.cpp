@@ -28,7 +28,7 @@ barcharttable::barcharttable(Bar_data *data, QWidget *parent, const char *name):
     lt->addWidget(table);
     table->show();
 
-    chartView = new QChartView(m_model->chart);
+    chartView = new QChartView(m_model->getChart());
     chartView->setRenderHint(QPainter::Antialiasing);
     chartView->setMinimumSize(1280, 480);
 

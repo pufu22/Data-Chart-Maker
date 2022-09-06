@@ -33,7 +33,6 @@ CandleStickChartModel::CandleStickChartModel(CandleStickChartTableModel* data)
         axisY->setMin(axisY->min() * 0.99);
     chart->setTitle("Acme Ltd Historical Data (July 2015)");
     connect(candleSeries,&QCandlestickSeries::candlestickSetsAdded,this,&CandleStickChartModel::updateAxis);
-    connect(candleSeries,&QCandlestickSeries::candlestickSetsRemoved,this,&CandleStickChartModel::updateAxis);
 }
 
 int CandleStickChartModel::setsCount(){
@@ -58,7 +57,16 @@ void CandleStickChartModel::updateAxis(){
         axisY->setMax(getMax()*1.01);
         axisY->setMin(getMin()*0.99);
 }
-
+void CandleStickChartModel::updateRemoved(int row){
+    mapper->setLastSetRow(mapper->lastSetRow()-1);
+    categories.removeAt(row);
+    chart->createDefaultAxes();
+    axisX = qobject_cast<QBarCategoryAxis *>(chart->axes(Qt::Horizontal).at(0));
+    axisX->setCategories(categories);
+    axisY = qobject_cast<QValueAxis *>(chart->axes(Qt::Vertical).at(0));
+        axisY->setMax(getMax() * 1.01);
+        axisY->setMin(getMin() * 0.99);
+}
 qreal CandleStickChartModel::getMax(){
     qreal max=0;
     for(int i=0;i<candleSeries->sets().size();++i){
@@ -75,4 +83,8 @@ qreal CandleStickChartModel::getMin(){
             min=candleSeries->sets().at(i)->low();
     }
     return min;
+}
+
+QChart* CandleStickChartModel::getChart(){
+    return chart;
 }

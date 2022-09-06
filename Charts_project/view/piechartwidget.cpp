@@ -27,14 +27,13 @@ piechartwidget::piechartwidget(QWidget *parent, const char *name,pie_data* d){
     //ingrandisci->setIcon(QIcon(":/icone/ingrandisci"));
     connect(ingrandisci,&QPushButton::released,this,&piechartwidget::chartFocus);
     lt->addWidget(ingrandisci);
-    chartview=new QChartView(piemodel->chart);
+    chartview=new QChartView(piemodel->getChart());
     chartview->setRenderHint(QPainter::Antialiasing);
     chartview->setMinimumSize(1280,480);
     lt->addWidget(chartview);
     lt->setSizeConstraint(QLayout::SetFixedSize);
 
     setLayout(lt);
-    connect(nullptr,&MainWindow::salvaConNomeSignal,this,&piechartwidget::salvaJsonPie);
 }
 void piechartwidget::aggiungifettaslot(){
     QString etichetta;

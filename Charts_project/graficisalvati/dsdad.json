@@ -1,0 +1,14 @@
+{
+    "Type": "piechart",
+    "slices": [
+        "John",
+        "Jude",
+        "Eunbi"
+    ],
+    "title": "Persone che occupano gli stock di holo",
+    "values": [
+        1,
+        32,
+        12
+    ]
+}

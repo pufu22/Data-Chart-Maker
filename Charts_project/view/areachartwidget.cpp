@@ -19,7 +19,7 @@ AreaChartWidget::AreaChartWidget(QWidget *parent, const char *name):QWidget(pare
     lt->addWidget(aggiungiPunto);
     connect(aggiungiPunto,&QPushButton::released,this,&AreaChartWidget::aggiungiPuntoSlot);
 
-    chartview=new QChartView(areaModel->chart);
+    chartview=new QChartView(areaModel->getChart());
     chartview->setRenderHint(QPainter::Antialiasing);
     chartview->setMinimumSize(1280,480);
     lt->addWidget(chartview);

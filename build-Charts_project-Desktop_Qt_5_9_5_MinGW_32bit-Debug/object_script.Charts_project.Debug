@@ -2,7 +2,6 @@ INPUT(
 ./debug\areachartdata.o
 ./debug\bar_data.o
 ./debug\candlestickdata.o
-./debug\charts_data.o
 ./debug\inputdialog.o
 ./debug\linechartdata.o
 ./debug\main.o
@@ -18,18 +17,14 @@ INPUT(
 ./debug\linecharttablemodel.o
 ./debug\piechartmodel.o
 ./debug\piecharttablemodel.o
-./debug\tablemodel.o
 ./debug\areachartwidget.o
-./debug\CreateChartWidget.o
 ./debug\barcharttable.o
 ./debug\candlestickchartwidget.o
 ./debug\choosechart.o
-./debug\createwindow.o
 ./debug\linechartwidget.o
 ./debug\mainwindow.o
 ./debug\piechartwidget.o
 ./debug\selectGraphic.o
-./debug\selectchartwidget.o
 ./debug\selectwindow.o
 ./debug\qrc_Images.o
 ./debug\moc_inputdialog.o
@@ -40,7 +35,6 @@ INPUT(
 ./debug\moc_linecharttablemodel.o
 ./debug\moc_piecharttablemodel.o
 ./debug\moc_areachartwidget.o
-./debug\moc_CreateChartWidget.o
 ./debug\moc_barcharttable.o
 ./debug\moc_candlestickchartwidget.o
 ./debug\moc_choosechart.o
@@ -48,6 +42,5 @@ INPUT(
 ./debug\moc_mainwindow.o
 ./debug\moc_piechartwidget.o
 ./debug\moc_selectGraphic.o
-./debug\moc_selectchartwidget.o
 ./debug\moc_selectwindow.o
 );
