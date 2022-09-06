@@ -10,11 +10,10 @@ class LineChartData
 {
 protected:
     QVector<QVector<int>> lineseries;
+    QVector<QString> nomeLinea;
     QString title;
     int maxValue;
     int minValue;
-    int secondMaxValue;
-    int secondMinValue;
     QVector<int> sortedYValues;
 public:
     LineChartData();
@@ -25,19 +24,20 @@ public:
     QVector<QVector<int>> getLines() const;
     QString getTitle() const;
     int getMaxValue()const;
-    int getsecondMaxValue()const;
     int getMinValue()const;
-    int getsecondMinValue() const;
+    QString getLineName(int i) const;
     void setTitle(QString t);
     void setData(int x, int y, int value);
     void pushPoint(int count);
     void pushLine(int pos,int coordinate);
     void setMaxValue(int max);
     void setMinValue(int min);
-    void setSecondMaxValue(int smax);
-    void setSecondMinValue(int smin);
     void addY(int y);
     void removeY(int x,int y);
+    void addLineName(QString l);
+    void removeLineName(int l);
+    void removeLine(int column);
+    void removePoints(int row);
 };
 
 #endif // LINECHARTDATA_H

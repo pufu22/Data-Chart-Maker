@@ -9,7 +9,7 @@
 #include <QSize>
 #include <view/linechartwidget.h>
 #include <view/selectwindow.h>
-
+#include <view/candlestickchartwidget.h>
 // è una view specializzata per la finestra principale dell'applicazione (il cornicione sul quale verrà visualizzato il resto).
 class MainWindow : public QMainWindow
 {
@@ -43,6 +43,8 @@ private slots:
 public slots:
     void creaBarChart();
     void creaLineChart();
+    void creaPieChart();
+    void creaAreaChart();
 
 };
 #endif // MAINWINDOW_H

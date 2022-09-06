@@ -15,6 +15,9 @@ AreaChartModel::AreaChartModel(AreaChartTableModel* data)
     areaSeries.push_back(new QAreaSeries(series.at(0)));
     chart->addSeries(areaSeries.at(0));
     chart->createDefaultAxes();
+    QValueAxis *axisY = qobject_cast<QValueAxis *>(chart->axes(Qt::Vertical).at(0));
+    axisY->setMax(axisY->max() * 1.01);
+    axisY->setMin(axisY->min() * 0.99);
     chart->setTitle(data->dati.getTitle());
 }
 

@@ -20,12 +20,16 @@ private:
     QLayout *lt;
     QPushButton* aggiungiriga;
     QPushButton* aggiungilinea;
+    QPushButton* togliLinea;
+    QPushButton* togliPunto;
     LineChartData* dati;
     QChartView* chartview;
 
 private slots:
     void aggiungilineaslot();
     void aggiungipunto();
+    void togliLineaSlot();
+    void togliPuntoSlot();
 signals:
     void linea();
 public slots:

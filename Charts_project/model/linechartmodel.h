@@ -14,14 +14,16 @@ public:
     LineChartModel(LineChartTableModel *data);
     QChart *chart;
     void updateMapper(LineChartTableModel *data);
-    void updateAxises();
+    void addLinea(LineChartTableModel *data,QString l);
     void salvaJsonFile();
 protected:
     int nLines;
     QVector<QLineSeries*> series;
     QString title;
     QVector<QVXYModelMapper*> mapper;
+
 public slots:
+    void updateAxises();
     void axises(int maxValue);
     void updateAxisY(int min,int max);
 };

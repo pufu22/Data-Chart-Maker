@@ -15,7 +15,6 @@ public:
     piechartmodel(Piecharttablemodel* data);
     void connectInsertedSlice();
     int sliceCount();
-    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event);
     void salvaJsonPie();
     void changeTitle(Piecharttablemodel *data,QString t);
 protected:

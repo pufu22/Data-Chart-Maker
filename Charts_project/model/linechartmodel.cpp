@@ -13,8 +13,9 @@ LineChartModel::LineChartModel(LineChartTableModel * data)
     mapper[0]->setModel(data);
     chart->addSeries(series[0]);
     chart->createDefaultAxes();
-    chart->setTitle(title);
 
+    chart->setTitle(title);
+    series.at(0)->setName(data->dati.getLineName(0));
 }
 
 void LineChartModel::updateMapper(LineChartTableModel * data){
@@ -26,6 +27,7 @@ void LineChartModel::updateMapper(LineChartTableModel * data){
     mapper[temp]->setSeries(series[temp]);
     mapper[temp]->setModel(data);
     chart->addSeries(series[temp]);
+    series.at(temp)->setName(data->dati.getLineName(temp));
 }
 
 void LineChartModel::updateAxises(){
@@ -34,8 +36,6 @@ void LineChartModel::updateAxises(){
 
 void LineChartModel::axises(int maxValue){
     this->updateAxises();
-    chart->axisY()->setRange(0,maxValue);
-
 }
 
 void LineChartModel::salvaJsonFile(){
@@ -48,3 +48,8 @@ void LineChartModel::salvaJsonFile(){
 void LineChartModel::updateAxisY(int min,int max){
     chart->axisY()->setRange(min,max);
 }
+
+void LineChartModel::addLinea(LineChartTableModel *data,QString l){
+    data->dati.addLineName(l);
+}
+

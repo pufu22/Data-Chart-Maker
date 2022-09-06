@@ -1,3 +1,4 @@
+
 #include "piechartmodel.h"
 
 piechartmodel::piechartmodel(Piecharttablemodel* data)
@@ -55,15 +56,14 @@ void piechartmodel::changeSlice(){
 void piechartmodel::connectInsertedSlice(){
     QPieSlice* slice=pieSeries->slices().at(pieSeries->slices().size()-1);
     connect(slice,&QPieSlice::hovered,this, &piechartmodel::explodeSplice);
+    connect(slice,&QPieSlice::doubleClicked,this,&piechartmodel::changeSlice);
 
 }
 
 int piechartmodel::sliceCount(){
     return pieSeries->slices().size();
 }
-void piechartmodel::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event){
 
-}
 void piechartmodel::salvaJsonPie(){
     QJsonObject mainObject;
     mainObject.insert(QString::fromStdString("title"),title);

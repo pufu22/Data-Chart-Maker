@@ -50,6 +50,7 @@ bool LineChartTableModel::setData(const QModelIndex &index, const QVariant &valu
             else
                 dati.addY(v);
         }
+        emit   updateAxis();
         return true;
     }
     else
@@ -104,6 +105,21 @@ bool LineChartTableModel::insertColumns(int column, int count, const QModelIndex
             dati.pushLine(i,i+1);
     }
     endInsertColumns();
+    return true;
+}
+
+bool LineChartTableModel::removeRows(int row, int count, const QModelIndex &parent){
+    beginRemoveRows(parent,row,row);
+        dati.removePoints(row);
+    endRemoveRows();
+    return true;
+}
+bool LineChartTableModel::removeColumns(int column, int count, const QModelIndex &parent){
+    beginRemoveColumns(parent,column,column+count-1);
+        dati.removeLine(column+1);
+        dati.removeLine(column);
+    dati.removeLineName(column);
+    endRemoveColumns();
     return true;
 }
 

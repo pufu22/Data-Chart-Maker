@@ -1,10 +1,11 @@
 #include "linechartdata.h"
 
-LineChartData::LineChartData():lineseries({{0,0},{1,12},{2,0},{3,0}})
+LineChartData::LineChartData():lineseries({{0,0},{1,12},{2,0},{3,0}}),nomeLinea({"po"})
 {
     for(int i=0;i<lineseries.size();++i){
-        for(int j=1;j<lineseries.at(0).size();j+2)
-
+        for(int j=1;j<lineseries.at(0).size();j++)
+            sortedYValues.push_back(lineseries[i][j]);
+         std::sort(sortedYValues.begin(),sortedYValues.end());
     }
 }
 
@@ -41,15 +42,11 @@ void LineChartData::pushLine(int pos,int coordinate){
 int LineChartData::getMaxValue()const{
     return sortedYValues.last();
 }
-int LineChartData::getsecondMaxValue()const{
-    return secondMaxValue;
-}
+
 int LineChartData::getMinValue()const{
     return sortedYValues.first();
 }
-int LineChartData::getsecondMinValue() const{
-    return secondMinValue;
-}
+
 void LineChartData::setTitle(QString t){
     title=t;
 }
@@ -60,12 +57,7 @@ void LineChartData::setMaxValue(int max){
 void LineChartData::setMinValue(int min){
     minValue=min;
 }
-void LineChartData::setSecondMaxValue(int smax){
-    secondMaxValue=smax;
-}
-void LineChartData::setSecondMinValue(int smin){
 
-}
 
 void LineChartData::addY(int y){
     sortedYValues.push_back(y);
@@ -75,4 +67,27 @@ void LineChartData::addY(int y){
 void LineChartData::removeY(int x,int y){
     sortedYValues.removeOne(lineseries[x][y]);
     std::sort(sortedYValues.begin(),sortedYValues.end());
+}
+
+QString LineChartData::getLineName(int i) const{
+    return nomeLinea.at(i);
+}
+
+void LineChartData::addLineName(QString l){
+    nomeLinea.push_back(l);
+}
+
+void LineChartData::removeLine(int column){
+    for(int i=0;i<lineseries.size();++i)
+    {
+        lineseries[i].remove(column);
+    }
+
+}
+void LineChartData::removePoints(int row){
+    lineseries.remove(row);
+}
+
+void LineChartData::removeLineName(int l){
+    nomeLinea.remove(l);
 }

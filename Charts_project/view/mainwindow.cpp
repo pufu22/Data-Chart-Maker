@@ -21,13 +21,16 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->createActions();
     this->createMenus();
+    CandleStickChartWidget* cChart=new CandleStickChartWidget(this);
+    this->setCentralWidget(cChart);
+    cChart->show();
     //AreaChartWidget* areaChart=new AreaChartWidget(this,"areachart");
     //this->setCentralWidget(areaChart);
     //areaChart->show();
     //piechartwidget* piechart=new piechartwidget(this,"piechart",nullptr);
     //this->setCentralWidget(piechart);
     //piechart->show();
-    this->setCentralWidget(new SelectGraphic(this));
+    //this->setCentralWidget(new SelectGraphic(this));
 
 }
 
@@ -70,7 +73,8 @@ void MainWindow::nuovoGrafico()
     selezionaTipo->show();
     connect(selezionaTipo,&selectWindow::creaBarChartSignal,this,&MainWindow::creaBarChart);
     connect(selezionaTipo,&selectWindow::creaLineChartSignal,this,&MainWindow::creaLineChart);
-
+    connect(selezionaTipo,&selectWindow::creaAreaChartSignal,this,&MainWindow::creaAreaChart);
+    connect(selezionaTipo,&selectWindow::creaPieChartSignal,this,&MainWindow::creaPieChart);
 }
 
 bool MainWindow::apriFile()
@@ -120,10 +124,28 @@ void MainWindow::creaBarChart()
 void MainWindow::creaLineChart()
 {
     LineChartWidget* linechart= new LineChartWidget(nullptr,this,"linechart");
-        this->setCentralWidget(linechart);
+    if(this->centralWidget())
+        this->centralWidget()->disconnect();
+    this->setCentralWidget(linechart);
         linechart->show();
         emit graficoSalvabile(true);
 
+}
+void MainWindow::creaPieChart(){
+    if(this->centralWidget())
+        this->centralWidget()->disconnect();
+    piechartwidget* piechart=new piechartwidget(this,"piechart");
+    this->setCentralWidget(piechart);
+    piechart->show();
+    emit graficoSalvabile(true);
+}
+void MainWindow::creaAreaChart(){
+    if(this->centralWidget())
+        this->centralWidget()->disconnect();
+    AreaChartWidget* areachart=new AreaChartWidget(this,"piechart");
+    this->setCentralWidget(areachart);
+    areachart->show();
+    emit graficoSalvabile(true);
 }
 
 void MainWindow::creaPieChartFromFile(const QJsonObject &json){

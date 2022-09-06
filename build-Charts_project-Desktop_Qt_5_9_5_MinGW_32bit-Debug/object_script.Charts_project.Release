@@ -1,10 +1,13 @@
 INPUT(
 ./release\areachartdata.o
 ./release\bar_data.o
+./release\candlestickdata.o
 ./release\charts_data.o
 ./release\inputdialog.o
 ./release\linechartdata.o
 ./release\main.o
+./release\candlestickchartmodel.o
+./release\candlestickcharttablemodel.o
 ./release\pie_data.o
 ./release\popupchart.o
 ./release\areachartmodel.o
@@ -19,6 +22,7 @@ INPUT(
 ./release\areachartwidget.o
 ./release\CreateChartWidget.o
 ./release\barcharttable.o
+./release\candlestickchartwidget.o
 ./release\choosechart.o
 ./release\createwindow.o
 ./release\linechartwidget.o
@@ -29,6 +33,7 @@ INPUT(
 ./release\selectwindow.o
 ./release\qrc_Images.o
 ./release\moc_inputdialog.o
+./release\moc_candlestickcharttablemodel.o
 ./release\moc_popupchart.o
 ./release\moc_areacharttablemodel.o
 ./release\moc_barcharttablemodel.o
@@ -37,6 +42,7 @@ INPUT(
 ./release\moc_areachartwidget.o
 ./release\moc_CreateChartWidget.o
 ./release\moc_barcharttable.o
+./release\moc_candlestickchartwidget.o
 ./release\moc_choosechart.o
 ./release\moc_linechartwidget.o
 ./release\moc_mainwindow.o

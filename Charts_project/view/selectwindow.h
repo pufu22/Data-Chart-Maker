@@ -15,11 +15,17 @@ private:
     QLayout* lt;
     QPushButton* prima;
     QPushButton* seconda;
+    QPushButton* terza;
+    QPushButton* quarta;
     void creaLineChart();
     void creaBarChart();
+    void creaAreaChart();
+    void creaPieChart();
 signals:
     void creaBarChartSignal();
     void creaLineChartSignal();
+    void creaPieChartSignal();
+    void creaAreaChartSignal();
 };
 
 #endif // SELECTWINDOW_H

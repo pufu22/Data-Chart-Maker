@@ -12,10 +12,12 @@ CONFIG += c++11
 SOURCES += \
     areachartdata.cpp \
     bar_data.cpp \
-    charts_data.cpp \
+    candlestickdata.cpp \
     inputdialog.cpp \
     linechartdata.cpp \
     main.cpp \
+    model/candlestickchartmodel.cpp \
+    model/candlestickcharttablemodel.cpp \
     pie_data.cpp \
     popupchart.cpp \
     model/areachartmodel.cpp \
@@ -26,25 +28,24 @@ SOURCES += \
     model/linecharttablemodel.cpp \
     model/piechartmodel.cpp \
     model/piecharttablemodel.cpp \
-    model/tablemodel.cpp \
     view/areachartwidget.cpp \
-    view/CreateChartWidget.cpp \
     view/barcharttable.cpp \
+    view/candlestickchartwidget.cpp \
     view/choosechart.cpp \
-    view/createwindow.cpp \
     view/linechartwidget.cpp \
     view/mainwindow.cpp \
     view/piechartwidget.cpp \
     view/selectGraphic.cpp \
-    view/selectchartwidget.cpp \
     view/selectwindow.cpp
 
 HEADERS += \
     areachartdata.h \
     bar_data.h \
-    charts_data.h \
+    candlestickdata.h \
     inputdialog.h \
     linechartdata.h \
+    model/candlestickchartmodel.h \
+    model/candlestickcharttablemodel.h \
     pie_data.h \
     popupchart.h \
     model/areachartmodel.h \
@@ -55,17 +56,14 @@ HEADERS += \
     model/linecharttablemodel.h \
     model/piechartmodel.h \
     model/piecharttablemodel.h \
-    model/tablemodel.h \
     view/areachartwidget.h \
-    view/CreateChartWidget.h \
     view/barcharttable.h \
+    view/candlestickchartwidget.h \
     view/choosechart.h \
-    view/createwindow.h \
     view/linechartwidget.h \
     view/mainwindow.h \
     view/piechartwidget.h \
     view/selectGraphic.h \
-    view/selectchartwidget.h \
     view/selectwindow.h
 
 FORMS +=
