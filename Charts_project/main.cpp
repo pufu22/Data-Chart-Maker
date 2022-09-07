@@ -4,6 +4,7 @@
 #include <QApplication>
 #include<QChartView>
 #include<model/barchart_model.h>
+#include <iostream>
 using namespace QtCharts;
 int main(int argc, char *argv[])
 {

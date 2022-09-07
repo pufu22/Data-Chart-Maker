@@ -27,7 +27,8 @@ AreaChartWidget::AreaChartWidget(QWidget *parent, const char *name):QWidget(pare
     setLayout(lt);
 }
 void AreaChartWidget::aggiungiLineaSlot(){
-    areaTableModel->insertColumns(areaTableModel->columnCount(),2);
+    //areaTableModel->insertColumns(areaTableModel->columnCount(),2);
+    areaTableModel->insertColumns(areaTableModel->columnCount(),1);
     areaModel->updateMappers(areaTableModel);
 }
 

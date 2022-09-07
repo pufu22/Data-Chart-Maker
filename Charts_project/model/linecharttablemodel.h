@@ -19,14 +19,14 @@ public:
     QVariant data(const QModelIndex &index, int role=Qt::DisplayRole)const override;
     Qt::ItemFlags flags(const QModelIndex &index) const ;
     bool setData(const QModelIndex &index,const QVariant &value,int role);
-    LineChartData dati;
+    LineChartData* dati;   /*dovrebbe essere in private o protected*/
     QVariant headerData(int section, Qt::Orientation orientation, int role) const;
-    bool correctValue(const QModelIndex &index,const QVariant &value);
-    int maxValue=0;
+    //bool correctValue(const QModelIndex &index,const QVariant &value);
+    int maxValue=0;    /*a che serve?*/
 signals:
-    changeRange(int maxValue);
+    void changeRange(int maxValue);
     void minMaxChanged(int min,int max);
-    updateAxis();
+    void updateAxis();
 };
 
 #endif // LINECHARTTABLEMODEL_H

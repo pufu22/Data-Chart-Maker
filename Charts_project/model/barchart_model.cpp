@@ -22,8 +22,8 @@ BarChartModel::BarChartModel(BarChartTableModel *data)
     mapper->setModel(data);
     chart->addSeries(series);
 
-    for(int i=0;i<data->dati.getCategories().size();++i){
-        QString qstr = data->dati.getCategories().at(i);
+    for(int i=0;i<data->dati->getCategories().size();++i){
+        QString qstr = data->dati->getCategories().at(i);
 
         categories<<qstr;
 
@@ -34,10 +34,10 @@ BarChartModel::BarChartModel(BarChartTableModel *data)
     chart->addAxis(axisX,Qt::AlignBottom);
     series->attachAxis(axisX);
     axisY= new QValueAxis();
-    int w=data->dati.minValue;
-    int x=data->dati.maxValue;
+    int w=data->dati->getYAxisMinValue();
+    int x=data->dati->getYAxisMaxValue();
     axisY->setRange(w,x);
-    title=data->dati.getTitle();
+    title=data->dati->getTitle();
     chart->setTitle(title);
     chart->addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
@@ -53,7 +53,7 @@ void BarChartModel::updateMapperLastRow(BarChartTableModel *data)
 {
 
     mapper->setRowCount(++lastrow);
-    categories<<data->dati.getCategories()[lastrow-1];
+    categories<<data->dati->getCategories()[lastrow-1];
     axisX->append(categories);
 
 }
@@ -81,8 +81,8 @@ void BarChartModel::updateAxisY(int min,int max){
 }
 
 void BarChartModel::changeTitle(BarChartTableModel *data,QString t){
-    data->dati.setTitle(t);
-    chart->setTitle(data->dati.getTitle());
+    data->dati->setTitle(t);
+    chart->setTitle(data->dati->getTitle());
 }
 
 QChart* BarChartModel::getChart(){

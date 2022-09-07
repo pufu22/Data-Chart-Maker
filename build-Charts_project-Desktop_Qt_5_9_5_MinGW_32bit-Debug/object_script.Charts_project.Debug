@@ -2,6 +2,7 @@ INPUT(
 ./debug\areachartdata.o
 ./debug\bar_data.o
 ./debug\candlestickdata.o
+./debug\comparisonChartData.o
 ./debug\inputdialog.o
 ./debug\linechartdata.o
 ./debug\main.o
@@ -17,6 +18,7 @@ INPUT(
 ./debug\linecharttablemodel.o
 ./debug\piechartmodel.o
 ./debug\piecharttablemodel.o
+./debug\statisticalChartData.o
 ./debug\areachartwidget.o
 ./debug\barcharttable.o
 ./debug\candlestickchartwidget.o

@@ -66,9 +66,9 @@ static const uint qt_meta_data_LineChartTableModel[] = {
        7,    0,   37,    2, 0x06 /* Public */,
 
  // signals: parameters
-    QMetaType::Int, QMetaType::Int,    3,
+    QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    5,    6,
-    QMetaType::Int,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -79,17 +79,15 @@ void LineChartTableModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
         LineChartTableModel *_t = static_cast<LineChartTableModel *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: { int _r = _t->changeRange((*reinterpret_cast< int(*)>(_a[1])));
-            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
+        case 0: _t->changeRange((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 1: _t->minMaxChanged((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 2: { int _r = _t->updateAxis();
-            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
+        case 2: _t->updateAxis(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            typedef int (LineChartTableModel::*_t)(int );
+            typedef void (LineChartTableModel::*_t)(int );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&LineChartTableModel::changeRange)) {
                 *result = 0;
                 return;
@@ -103,7 +101,7 @@ void LineChartTableModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
             }
         }
         {
-            typedef int (LineChartTableModel::*_t)();
+            typedef void (LineChartTableModel::*_t)();
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&LineChartTableModel::updateAxis)) {
                 *result = 2;
                 return;
@@ -149,12 +147,10 @@ int LineChartTableModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-int LineChartTableModel::changeRange(int _t1)
+void LineChartTableModel::changeRange(int _t1)
 {
-    int _t0{};
-    void *_a[] = { const_cast<void*>(reinterpret_cast<const void*>(&_t0)), const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
-    return _t0;
 }
 
 // SIGNAL 1
@@ -165,12 +161,9 @@ void LineChartTableModel::minMaxChanged(int _t1, int _t2)
 }
 
 // SIGNAL 2
-int LineChartTableModel::updateAxis()
+void LineChartTableModel::updateAxis()
 {
-    int _t0{};
-    void *_a[] = { const_cast<void*>(reinterpret_cast<const void*>(&_t0)) };
-    QMetaObject::activate(this, &staticMetaObject, 2, _a);
-    return _t0;
+    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

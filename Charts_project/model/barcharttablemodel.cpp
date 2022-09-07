@@ -2,31 +2,35 @@
 
 BarChartTableModel::BarChartTableModel(QObject *parent):QAbstractTableModel(parent)
 {
-    dati=*(new Bar_data());
+    //dati=*(new Bar_data());
+    dati=new Bar_data();
 }
-BarChartTableModel::BarChartTableModel(Bar_data *data, QObject *parent):QAbstractTableModel(parent)
+BarChartTableModel::BarChartTableModel(Bar_data *data,/*comparisonChartData* data,*/ QObject *parent):QAbstractTableModel(parent)
 {
-    dati=*data;
+    dati=data;
 }
 int BarChartTableModel::rowCount(const QModelIndex &parent) const
 {
     if(parent.isValid())
         return 0;
 
-    return dati.getSets().size();
+    //return dati.getSets().size();
+    return dati->getSets().size();
 }
 
 int BarChartTableModel::columnCount(const QModelIndex &parent) const
 {
     if(parent.isValid())
         return 0;
-    return dati.getSets().at(0).size();
+    //return dati.getSets().at(0).size();
+    return dati->getSets().at(0).size();
 }
 
 QVariant BarChartTableModel::data(const QModelIndex &index, int role) const
 {
     if (role == Qt::DisplayRole)
-           return dati.getSets()[index.row()][index.column()];
+           //return dati.getSets()[index.row()][index.column()];
+        return dati->getSets()[index.row()][index.column()];
 
         return QVariant();
 
@@ -35,16 +39,16 @@ QVariant BarChartTableModel::data(const QModelIndex &index, int role) const
 bool BarChartTableModel::setData(const QModelIndex &index,const QVariant &value,int role)
 {
     if(role==Qt::EditRole){
-            dati.setSets(index.row(),index.column(),value.toInt());
+            dati->setSets(index.row(),index.column(),value.toInt());
         emit dataChanged(index,index);
-            if(value.toInt()<dati.getMinValue()){
-                dati.setMinValue(value.toInt());
-                emit minMaxChanged(dati.getMinValue(),dati.getMaxValue());
+            if(value.toInt()<dati->getYAxisMinValue()){
+                dati->setYAxisMinValue(value.toInt());
+                emit minMaxChanged(dati->getYAxisMinValue(),dati->getYAxisMaxValue());
             }
 
-            if(value.toInt()>dati.getMaxValue()){
-                dati.setMaxValue(value.toInt());
-                emit minMaxChanged(dati.getMinValue(),dati.getMaxValue());
+            if(value.toInt()>dati->getYAxisMaxValue()){
+                dati->setYAxisMaxValue(value.toInt());
+                emit minMaxChanged(dati->getYAxisMinValue(),dati->getYAxisMaxValue());
             }
 
 
@@ -67,8 +71,8 @@ bool BarChartTableModel::insertRows(int row, int count,QString cat, const QModel
     beginInsertRows(QModelIndex(),row,row);
         for(int r = 0;r<count;++r)
         {
-            dati.pushSets(columnCount());
-            dati.pushCategory(cat);
+            dati->pushSets(columnCount());
+            dati->pushCategory(cat);
         }
 
     endInsertRows();
@@ -82,8 +86,10 @@ bool BarChartTableModel::insertColumns(int column, int count,QString name,const 
     for(int c=0;c<count;++c)
     {
         for(int i=0;i<rowCount();++i)
-            dati.pushBar(i);
-            dati.pushBarName(name);
+            //dati.pushBar(i);
+            //dati.pushBarName(name);
+            dati->pushGroup(i);
+            dati->pushName(name);
     }
 
     endInsertColumns();
@@ -94,14 +100,14 @@ bool BarChartTableModel::insertColumns(int column, int count,QString name,const 
 
 bool BarChartTableModel::removeRow(int row, const QModelIndex &parent){
     beginRemoveRows(parent,row,row);
-    dati.removeRow(row);
+    dati->removeRow(row);
     endRemoveRows();
     return true;
 }
 
 bool BarChartTableModel::removeColumn(int column, const QModelIndex &parent){
     beginRemoveColumns(parent,column,column);
-    dati.removeColumn(column);
+    dati->removeColumn(column);
     endRemoveColumns();
     return true;
 }
@@ -109,10 +115,12 @@ bool BarChartTableModel::removeColumn(int column, const QModelIndex &parent){
 
 QVariant BarChartTableModel::headerData(int section, Qt::Orientation orientation, int role) const{
     if (role == Qt::DisplayRole && orientation == Qt::Vertical) {
-        return dati.getCategories()[section];
+        //return dati.getCategories()[section];
+        return dati->getCategories()[section];
     }
     else if(role == Qt::DisplayRole && orientation == Qt::Horizontal){
-        return dati.getBarNames()[section];
+        //return dati.getBarNames()[section];
+        return dati->getNames()[section];
     }
     return QVariant();
 }

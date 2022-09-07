@@ -28,9 +28,6 @@ private:
     QPushButton* removeSet;
     QPushButton* changeTitle;
     void setupModels();
-    Bar_data *dati;
-    BarChartModel *barchartmodel;
-    QChart *chart;
     void adjustChart();
 private slots:
        void aggiungiriga();

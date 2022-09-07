@@ -18,10 +18,10 @@ AreaChartModel::AreaChartModel(AreaChartTableModel* data)
     QValueAxis *axisY = qobject_cast<QValueAxis *>(chart->axes(Qt::Vertical).at(0));
     axisY->setMax(axisY->max() * 1.01);
     axisY->setMin(axisY->min() * 0.99);
-    chart->setTitle(data->dati.getTitle());
+    chart->setTitle(data->dati->getTitle());
 }
 
-void AreaChartModel::updateMappers(AreaChartTableModel* data)
+/*void AreaChartModel::updateMappers(AreaChartTableModel* data)
 {
     int temp=nLines++;
     series.push_back(new QLineSeries);
@@ -36,7 +36,25 @@ void AreaChartModel::updateMappers(AreaChartTableModel* data)
 
     chart->createDefaultAxes();
 
+}*/
+
+void AreaChartModel::updateMappers(AreaChartTableModel* data)
+{
+    int temp=nLines++;
+    series.push_back(new QLineSeries);
+    linesmappers.push_back(new QVXYModelMapper);
+    linesmappers[temp]->setXColumn(0);
+    linesmappers[temp]->setYColumn(temp+1);
+    linesmappers[temp]->setFirstRow(0);
+    linesmappers[temp]->setModel(data);
+    linesmappers[temp]->setSeries(series[temp]);
+        areaSeries.push_back(new QAreaSeries(series.at(temp),series.at(temp-1)));
+        chart->addSeries(areaSeries.at(temp));
+
+    chart->createDefaultAxes();
+
 }
+
 QChart* AreaChartModel::getChart(){
     return chart;
 }
