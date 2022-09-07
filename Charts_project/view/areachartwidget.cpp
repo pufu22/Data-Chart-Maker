@@ -25,6 +25,12 @@ AreaChartWidget::AreaChartWidget(QWidget *parent, const char *name):QWidget(pare
     lt->addWidget(chartview);
     lt->setSizeConstraint(QLayout::SetFixedSize);
     setLayout(lt);
+
+    connect(areaTableModel,&AreaChartTableModel::dataChanged,areaModel,&AreaChartModel::updateAxisY);
+    connect(areaTableModel,&AreaChartTableModel::columnsInserted,areaModel,&AreaChartModel::updateAxisY);
+    connect(areaTableModel,&AreaChartTableModel::columnsRemoved,areaModel,&AreaChartModel::updateAxisY);
+    connect(areaTableModel,&AreaChartTableModel::rowsInserted,areaModel,&AreaChartModel::updateAxisY);
+    connect(areaTableModel,&AreaChartTableModel::rowsRemoved,areaModel,&AreaChartModel::updateAxisY);
 }
 void AreaChartWidget::aggiungiLineaSlot(){
     //areaTableModel->insertColumns(areaTableModel->columnCount(),2);

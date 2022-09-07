@@ -10,28 +10,30 @@
 #include<view/piechartwidget.h>
 #include<view/areachartwidget.h>
 #include <view/selectGraphic.h>
+#include<stdio.h>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
 
-    //LineChartWidget* linechart= new LineChartWidget(this,"linechart");
-    //this->setCentralWidget(linechart);
-    //linechart->show();
+    /*LineChartWidget* linechart= new LineChartWidget();
+    this->setCentralWidget(linechart);
+    linechart->show();*/
     //bartable->show();
 
     this->createActions();
     this->createMenus();
-    CandleStickChartWidget* cChart=new CandleStickChartWidget(this);
-    this->setCentralWidget(cChart);
-    cChart->show();
+    //CandleStickChartWidget* cChart=new CandleStickChartWidget(this);
+    //this->setCentralWidget(cChart);
+    //cChart->show();
     //AreaChartWidget* areaChart=new AreaChartWidget(this,"areachart");
     //this->setCentralWidget(areaChart);
     //areaChart->show();
     //piechartwidget* piechart=new piechartwidget(this,"piechart",nullptr);
     //this->setCentralWidget(piechart);
     //piechart->show();
-    //this->setCentralWidget(new SelectGraphic(this));
-
+    SelectGraphic* sG=new SelectGraphic(this);
+    this->setCentralWidget(sG);
+    connect(sG,&SelectGraphic::createChart,this,&MainWindow::creaChart);
 }
 
 MainWindow::~MainWindow()
@@ -67,14 +69,10 @@ void MainWindow::createActions()
 
 void MainWindow::nuovoGrafico()
 {
-    selezionaTipo=new selectWindow(this);
-    selezionaTipo->setFocus();
-    selezionaTipo->setModal(true);
-    selezionaTipo->show();
-    connect(selezionaTipo,&selectWindow::creaBarChartSignal,this,&MainWindow::creaBarChart);
-    connect(selezionaTipo,&selectWindow::creaLineChartSignal,this,&MainWindow::creaLineChart);
-    connect(selezionaTipo,&selectWindow::creaAreaChartSignal,this,&MainWindow::creaAreaChart);
-    connect(selezionaTipo,&selectWindow::creaPieChartSignal,this,&MainWindow::creaPieChart);
+
+    SelectGraphic* sG=new SelectGraphic(this);
+    this->setCentralWidget(sG);
+    connect(sG,&SelectGraphic::createChart,this,&MainWindow::creaChart);
 }
 
 bool MainWindow::apriFile()
@@ -149,7 +147,12 @@ void MainWindow::creaAreaChart(){
     areachart->show();
     emit graficoSalvabile(true);
 }
-
+void MainWindow::creaCandleChart(){
+    CandleStickChartWidget* candleChart=new CandleStickChartWidget(this);
+    this->setCentralWidget(candleChart);
+    candleChart->show();
+    emit graficoSalvabile(true);
+}
 void MainWindow::creaPieChartFromFile(const QJsonObject &json){
     QVector<QVariant> v= json["values"].toArray().toVariantList().toVector();
      QVector<QVariant> v2=json["slices"].toArray().toVariantList().toVector();
@@ -216,3 +219,28 @@ void MainWindow::creaLineChartFromFile(const QJsonObject &json)
     linechart->show();
     emit graficoSalvabile(true);
 }
+
+void MainWindow::creaCandleChartFromFile(const QJsonObject &json){
+    QString title=json["title"].toString();
+    QJsonObject temp=json["timestamps"].toObject();
+    QVector<qreal> s;
+    foreach (const QString& timestamp, temp.keys()) {
+
+    }
+}
+
+void MainWindow::creaChart(QString name){
+
+     if(name.compare("PieChart")==0)
+        creaPieChart();
+     if(name.compare("AreaChart")==0)
+         creaAreaChart();
+     if(name.compare("BarChart")==0)
+         creaBarChart();
+     if(name.compare("LineChart")==0)
+         creaLineChart();
+     if(name.compare("CandleChart")==0)
+         creaCandleChart();
+
+}
+

@@ -365,7 +365,7 @@ debug/moc_inputdialog.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QObject \
 		../Charts_project/inputdialog.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\inputdialog.h -o debug\moc_inputdialog.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\inputdialog.h -o debug\moc_inputdialog.cpp
 
 debug/moc_candlestickcharttablemodel.cpp: ../Charts_project/candlestickdata.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
@@ -911,7 +911,7 @@ debug/moc_candlestickcharttablemodel.cpp: ../Charts_project/candlestickdata.h \
 		../Charts_project/model/candlestickcharttablemodel.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\model\candlestickcharttablemodel.h -o debug\moc_candlestickcharttablemodel.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\model\candlestickcharttablemodel.h -o debug\moc_candlestickcharttablemodel.cpp
 
 debug/moc_popupchart.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QObject \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobject.h \
@@ -1455,13 +1455,13 @@ debug/moc_popupchart.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QObject \
 		../Charts_project/popupchart.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\popupchart.h -o debug\moc_popupchart.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\popupchart.h -o debug\moc_popupchart.cpp
 
 debug/moc_areacharttablemodel.cpp: ../Charts_project/areachartdata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
-		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCoreDepends \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qvector.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qalgorithms.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qglobal.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qconfig.h \
@@ -1483,26 +1483,30 @@ debug/moc_areacharttablemodel.cpp: ../Charts_project/areachartdata.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qmutex.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnumeric.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qversiontagging.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qabstractanimation.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobject.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstring.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qchar.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiterator.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlist.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qrefcount.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qarraydata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlist.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qalgorithms.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiterator.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qhashfunctions.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qchar.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpair.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstring.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringbuilder.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringlist.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qregexp.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
+		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCoreDepends \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qabstractanimation.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qcoreevent.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qscopedpointer.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qmetatype.h \
@@ -1520,8 +1524,6 @@ debug/moc_areacharttablemodel.cpp: ../Charts_project/areachartdata.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiodevice.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlocale.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qvector.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpoint.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qset.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer.h \
@@ -1995,13 +1997,12 @@ debug/moc_areacharttablemodel.cpp: ../Charts_project/areachartdata.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QLineSeries \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
 		../Charts_project/model/areacharttablemodel.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\model\areacharttablemodel.h -o debug\moc_areacharttablemodel.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\model\areacharttablemodel.h -o debug\moc_areacharttablemodel.cpp
 
 debug/moc_barcharttablemodel.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qabstractitemmodel.h \
@@ -2066,6 +2067,8 @@ debug/moc_barcharttablemodel.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstrac
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer_impl.h \
 		../Charts_project/bar_data.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
@@ -2542,14 +2545,13 @@ debug/moc_barcharttablemodel.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstrac
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QString \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractItemModel \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QInputDialog \
 		../Charts_project/model/barcharttablemodel.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\model\barcharttablemodel.h -o debug\moc_barcharttablemodel.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\model\barcharttablemodel.h -o debug\moc_barcharttablemodel.cpp
 
 debug/moc_linecharttablemodel.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qabstractitemmodel.h \
@@ -2614,6 +2616,8 @@ debug/moc_linecharttablemodel.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstra
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer_impl.h \
 		../Charts_project/linechartdata.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QPointF \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
@@ -3090,11 +3094,10 @@ debug/moc_linecharttablemodel.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstra
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		../Charts_project/model/linecharttablemodel.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\model\linecharttablemodel.h -o debug\moc_linecharttablemodel.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\model\linecharttablemodel.h -o debug\moc_linecharttablemodel.cpp
 
 debug/moc_piecharttablemodel.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qabstractitemmodel.h \
@@ -3219,7 +3222,7 @@ debug/moc_piecharttablemodel.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstrac
 		../Charts_project/model/piecharttablemodel.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\model\piecharttablemodel.h -o debug\moc_piecharttablemodel.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\model\piecharttablemodel.h -o debug\moc_piecharttablemodel.cpp
 
 debug/moc_areachartwidget.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QObject \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobject.h \
@@ -3324,6 +3327,8 @@ debug/moc_areachartwidget.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QObject \
 		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtouchdevice.h \
 		../Charts_project/model/areacharttablemodel.h \
 		../Charts_project/areachartdata.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
@@ -3760,7 +3765,6 @@ debug/moc_areachartwidget.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QObject \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QLineSeries \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
 		../Charts_project/model/areachartmodel.h \
@@ -3768,7 +3772,7 @@ debug/moc_areachartwidget.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QObject \
 		../Charts_project/view/areachartwidget.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\areachartwidget.h -o debug\moc_areachartwidget.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\areachartwidget.h -o debug\moc_areachartwidget.cpp
 
 debug/moc_barcharttable.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qwidget.h \
@@ -3899,6 +3903,8 @@ debug/moc_barcharttable.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qabstractbutton.h \
 		../Charts_project/model/barchart_model.h \
 		../Charts_project/bar_data.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
@@ -4311,7 +4317,6 @@ debug/moc_barcharttable.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QString \
 		../Charts_project/model/barcharttablemodel.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
@@ -4342,7 +4347,7 @@ debug/moc_barcharttable.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QWidget \
 		../Charts_project/view/barcharttable.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\barcharttable.h -o debug\moc_barcharttable.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\barcharttable.h -o debug\moc_barcharttable.cpp
 
 debug/moc_candlestickchartwidget.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QObject \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobject.h \
@@ -4890,7 +4895,7 @@ debug/moc_candlestickchartwidget.cpp: C:/Qt/5.9.5/mingw53_32/include/QtCore/QObj
 		../Charts_project/view/candlestickchartwidget.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\candlestickchartwidget.h -o debug\moc_candlestickchartwidget.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\candlestickchartwidget.h -o debug\moc_candlestickchartwidget.cpp
 
 debug/moc_choosechart.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qwidget.h \
@@ -5008,7 +5013,7 @@ debug/moc_choosechart.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QWidget \
 		../Charts_project/view/choosechart.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\choosechart.h -o debug\moc_choosechart.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\choosechart.h -o debug\moc_choosechart.cpp
 
 debug/moc_linechartwidget.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qwidget.h \
@@ -5111,6 +5116,8 @@ debug/moc_linechartwidget.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QWidget 
 		C:/Qt/5.9.5/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtouchdevice.h \
 		../Charts_project/linechartdata.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QPointF \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
@@ -5548,7 +5555,6 @@ debug/moc_linechartwidget.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QWidget 
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		../Charts_project/model/linechartmodel.h \
 		../Charts_project/model/linecharttablemodel.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
@@ -5573,7 +5579,7 @@ debug/moc_linechartwidget.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QWidget 
 		../Charts_project/view/linechartwidget.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\linechartwidget.h -o debug\moc_linechartwidget.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\linechartwidget.h -o debug\moc_linechartwidget.cpp
 
 debug/moc_mainwindow.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qmainwindow.h \
@@ -5729,6 +5735,8 @@ debug/moc_mainwindow.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QSize \
 		../Charts_project/view/linechartwidget.h \
 		../Charts_project/linechartdata.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QPointF \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
@@ -6121,7 +6129,6 @@ debug/moc_mainwindow.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		../Charts_project/model/linechartmodel.h \
 		../Charts_project/model/linecharttablemodel.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
@@ -6138,7 +6145,7 @@ debug/moc_mainwindow.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QMainWindow \
 		../Charts_project/view/mainwindow.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\mainwindow.h -o debug\moc_mainwindow.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\mainwindow.h -o debug\moc_mainwindow.cpp
 
 debug/moc_piechartwidget.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qwidget.h \
@@ -6699,6 +6706,7 @@ debug/moc_piechartwidget.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QMenu \
 		../Charts_project/view/linechartwidget.h \
 		../Charts_project/linechartdata.h \
+		../Charts_project/comparisonChartData.h \
 		../Charts_project/model/linechartmodel.h \
 		../Charts_project/model/linecharttablemodel.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QVXYModelMapper \
@@ -6712,7 +6720,7 @@ debug/moc_piechartwidget.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QWidget \
 		../Charts_project/view/piechartwidget.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\piechartwidget.h -o debug\moc_piechartwidget.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\piechartwidget.h -o debug\moc_piechartwidget.cpp
 
 debug/moc_selectGraphic.cpp: ../Charts_project/view/choosechart.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QWidget \
@@ -6833,7 +6841,7 @@ debug/moc_selectGraphic.cpp: ../Charts_project/view/choosechart.h \
 		../Charts_project/view/selectGraphic.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\selectGraphic.h -o debug\moc_selectGraphic.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\selectGraphic.h -o debug\moc_selectGraphic.cpp
 
 debug/moc_selectwindow.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qdialog.h \
@@ -6948,7 +6956,7 @@ debug/moc_selectwindow.cpp: C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QDialog \
 		../Charts_project/view/selectwindow.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.9.5/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/rucaj/Desktop/ChartProjectFolder/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\selectwindow.h -o debug\moc_selectwindow.cpp
+	C:\Qt\5.9.5\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.9.5/mingw53_32/mkspecs/win32-g++ -IC:/Users/judev/OneDrive/Desktop/PAOCHART/charts_project/Charts_project -IC:/Qt/5.9.5/mingw53_32/include -IC:/Qt/5.9.5/mingw53_32/include/QtCharts -IC:/Qt/5.9.5/mingw53_32/include/QtWidgets -IC:/Qt/5.9.5/mingw53_32/include/QtGui -IC:/Qt/5.9.5/mingw53_32/include/QtANGLE -IC:/Qt/5.9.5/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Charts_project\view\selectwindow.h -o debug\moc_selectwindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -6967,10 +6975,10 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 ####### Compile
 
 debug/areachartdata.o: ../Charts_project/areachartdata.cpp ../Charts_project/areachartdata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
-		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCoreDepends \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qvector.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qalgorithms.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qglobal.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qconfig.h \
@@ -6992,26 +7000,30 @@ debug/areachartdata.o: ../Charts_project/areachartdata.cpp ../Charts_project/are
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qmutex.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnumeric.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qversiontagging.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qabstractanimation.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobject.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstring.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qchar.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiterator.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlist.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qrefcount.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qarraydata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlist.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qalgorithms.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiterator.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qhashfunctions.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qchar.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpair.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstring.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringbuilder.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringlist.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qregexp.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
+		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCoreDepends \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qabstractanimation.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qcoreevent.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qscopedpointer.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qmetatype.h \
@@ -7029,8 +7041,6 @@ debug/areachartdata.o: ../Charts_project/areachartdata.cpp ../Charts_project/are
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiodevice.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlocale.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qvector.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpoint.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qset.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer.h \
@@ -7504,15 +7514,14 @@ debug/areachartdata.o: ../Charts_project/areachartdata.cpp ../Charts_project/are
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QLineSeries
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\areachartdata.o ..\Charts_project\areachartdata.cpp
 
 debug/bar_data.o: ../Charts_project/bar_data.cpp ../Charts_project/bar_data.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
-		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCoreDepends \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qvector.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qalgorithms.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qglobal.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qconfig.h \
@@ -7534,26 +7543,30 @@ debug/bar_data.o: ../Charts_project/bar_data.cpp ../Charts_project/bar_data.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qmutex.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnumeric.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qversiontagging.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qabstractanimation.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobject.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstring.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qchar.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiterator.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlist.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qrefcount.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qarraydata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlist.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qalgorithms.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiterator.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qhashfunctions.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qchar.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpair.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstring.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringbuilder.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringlist.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qregexp.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
+		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCoreDepends \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qabstractanimation.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qcoreevent.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qscopedpointer.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qmetatype.h \
@@ -7571,8 +7584,6 @@ debug/bar_data.o: ../Charts_project/bar_data.cpp ../Charts_project/bar_data.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiodevice.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlocale.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qvector.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpoint.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qset.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer.h \
@@ -8046,7 +8057,6 @@ debug/bar_data.o: ../Charts_project/bar_data.cpp ../Charts_project/bar_data.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\bar_data.o ..\Charts_project\bar_data.cpp
 
@@ -8757,9 +8767,10 @@ debug/inputdialog.o: ../Charts_project/inputdialog.cpp ../Charts_project/inputdi
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\inputdialog.o ..\Charts_project\inputdialog.cpp
 
 debug/linechartdata.o: ../Charts_project/linechartdata.cpp ../Charts_project/linechartdata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QPointF \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpoint.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnamespace.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qvector.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qalgorithms.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qglobal.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qconfig.h \
@@ -8781,6 +8792,23 @@ debug/linechartdata.o: ../Charts_project/linechartdata.cpp ../Charts_project/lin
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qmutex.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnumeric.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiterator.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlist.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qhashfunctions.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qchar.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpair.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstring.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringlist.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qregexp.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QPointF \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
@@ -8789,21 +8817,6 @@ debug/linechartdata.o: ../Charts_project/linechartdata.cpp ../Charts_project/lin
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobject.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstring.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qchar.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearray.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qrefcount.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qarraydata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlist.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qalgorithms.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiterator.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qhashfunctions.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpair.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearraylist.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringlist.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qregexp.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringmatcher.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qcoreevent.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qscopedpointer.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qmetatype.h \
@@ -8821,7 +8834,6 @@ debug/linechartdata.o: ../Charts_project/linechartdata.cpp ../Charts_project/lin
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiodevice.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlocale.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qvector.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qset.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer.h \
@@ -9293,8 +9305,7 @@ debug/linechartdata.o: ../Charts_project/linechartdata.cpp ../Charts_project/lin
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvpiemodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector
+		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\linechartdata.o ..\Charts_project\linechartdata.cpp
 
 debug/main.o: ../Charts_project/main.cpp ../Charts_project/view/mainwindow.h \
@@ -9452,6 +9463,8 @@ debug/main.o: ../Charts_project/main.cpp ../Charts_project/view/mainwindow.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QSize \
 		../Charts_project/view/linechartwidget.h \
 		../Charts_project/linechartdata.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QPointF \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
@@ -9844,7 +9857,6 @@ debug/main.o: ../Charts_project/main.cpp ../Charts_project/view/mainwindow.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		../Charts_project/model/linechartmodel.h \
 		../Charts_project/model/linecharttablemodel.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
@@ -11697,6 +11709,8 @@ debug/areachartmodel.o: ../Charts_project/model/areachartmodel.cpp ../Charts_pro
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QXYModelMapper \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxymodelmapper.h \
 		../Charts_project/areachartdata.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
@@ -12114,7 +12128,6 @@ debug/areachartmodel.o: ../Charts_project/model/areachartmodel.cpp ../Charts_pro
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvpiemodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QLineSeries \
 		../Charts_project/model/areacharttablemodel.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel
@@ -12122,10 +12135,10 @@ debug/areachartmodel.o: ../Charts_project/model/areachartmodel.cpp ../Charts_pro
 
 debug/areacharttablemodel.o: ../Charts_project/model/areacharttablemodel.cpp ../Charts_project/model/areacharttablemodel.h \
 		../Charts_project/areachartdata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
-		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCoreDepends \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qvector.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qalgorithms.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qglobal.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qconfig.h \
@@ -12147,26 +12160,30 @@ debug/areacharttablemodel.o: ../Charts_project/model/areacharttablemodel.cpp ../
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qmutex.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnumeric.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qversiontagging.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qabstractanimation.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobject.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstring.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qchar.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiterator.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlist.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qrefcount.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qarraydata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlist.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qalgorithms.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiterator.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qhashfunctions.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qchar.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpair.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstring.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringbuilder.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringlist.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qregexp.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
+		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCoreDepends \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qabstractanimation.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qcoreevent.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qscopedpointer.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qmetatype.h \
@@ -12184,8 +12201,6 @@ debug/areacharttablemodel.o: ../Charts_project/model/areacharttablemodel.cpp ../
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiodevice.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlocale.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qvector.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpoint.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qset.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer.h \
@@ -12659,17 +12674,16 @@ debug/areacharttablemodel.o: ../Charts_project/model/areacharttablemodel.cpp ../
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QLineSeries \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\areacharttablemodel.o ..\Charts_project\model\areacharttablemodel.cpp
 
 debug/barchart_model.o: ../Charts_project/model/barchart_model.cpp ../Charts_project/model/barchart_model.h \
 		../Charts_project/bar_data.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
-		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCoreDepends \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qvector.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qalgorithms.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qglobal.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qconfig.h \
@@ -12691,26 +12705,30 @@ debug/barchart_model.o: ../Charts_project/model/barchart_model.cpp ../Charts_pro
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qmutex.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnumeric.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qversiontagging.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qabstractanimation.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobject.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstring.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qchar.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiterator.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlist.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qrefcount.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qarraydata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlist.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qalgorithms.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiterator.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qhashfunctions.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qchar.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpair.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstring.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringbuilder.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringlist.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qregexp.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
+		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCoreDepends \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qabstractanimation.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qcoreevent.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qscopedpointer.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qmetatype.h \
@@ -12728,8 +12746,6 @@ debug/barchart_model.o: ../Charts_project/model/barchart_model.cpp ../Charts_pro
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qiodevice.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qlocale.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qvector.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/qpoint.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qset.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer.h \
@@ -13203,7 +13219,6 @@ debug/barchart_model.o: ../Charts_project/model/barchart_model.cpp ../Charts_pro
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QString \
 		../Charts_project/model/barcharttablemodel.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
@@ -13276,6 +13291,8 @@ debug/barcharttablemodel.o: ../Charts_project/model/barcharttablemodel.cpp ../Ch
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer_impl.h \
 		../Charts_project/bar_data.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
@@ -13752,7 +13769,6 @@ debug/barcharttablemodel.o: ../Charts_project/model/barcharttablemodel.cpp ../Ch
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QString \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractItemModel \
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QInputDialog
@@ -13823,6 +13839,8 @@ debug/linechartmodel.o: ../Charts_project/model/linechartmodel.cpp ../Charts_pro
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer_impl.h \
 		../Charts_project/linechartdata.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QPointF \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
@@ -14299,7 +14317,6 @@ debug/linechartmodel.o: ../Charts_project/model/linechartmodel.cpp ../Charts_pro
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QVXYModelMapper
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\linechartmodel.o ..\Charts_project\model\linechartmodel.cpp
 
@@ -14367,6 +14384,8 @@ debug/linecharttablemodel.o: ../Charts_project/model/linecharttablemodel.cpp ../
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/qsharedpointer_impl.h \
 		../Charts_project/linechartdata.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QPointF \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
@@ -14842,8 +14861,7 @@ debug/linecharttablemodel.o: ../Charts_project/model/linecharttablemodel.cpp ../
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvpiemodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector
+		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\linecharttablemodel.o ..\Charts_project\model\linecharttablemodel.cpp
 
 debug/piechartmodel.o: ../Charts_project/model/piechartmodel.cpp ../Charts_project/model/piechartmodel.h \
@@ -15627,6 +15645,8 @@ debug/areachartwidget.o: ../Charts_project/view/areachartwidget.cpp ../Charts_pr
 		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtouchdevice.h \
 		../Charts_project/model/areacharttablemodel.h \
 		../Charts_project/areachartdata.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
@@ -16063,7 +16083,6 @@ debug/areachartwidget.o: ../Charts_project/view/areachartwidget.cpp ../Charts_pr
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QLineSeries \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
 		../Charts_project/model/areachartmodel.h \
@@ -16200,6 +16219,8 @@ debug/barcharttable.o: ../Charts_project/view/barcharttable.cpp ../Charts_projec
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/qabstractbutton.h \
 		../Charts_project/model/barchart_model.h \
 		../Charts_project/bar_data.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QtCore \
@@ -16612,7 +16633,6 @@ debug/barcharttable.o: ../Charts_project/view/barcharttable.cpp ../Charts_projec
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QString \
 		../Charts_project/model/barcharttablemodel.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
@@ -17406,6 +17426,8 @@ debug/linechartwidget.o: ../Charts_project/view/linechartwidget.cpp ../Charts_pr
 		C:/Qt/5.9.5/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtGui/qtouchdevice.h \
 		../Charts_project/linechartdata.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QPointF \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
@@ -17843,7 +17865,6 @@ debug/linechartwidget.o: ../Charts_project/view/linechartwidget.cpp ../Charts_pr
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		../Charts_project/model/linechartmodel.h \
 		../Charts_project/model/linecharttablemodel.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
@@ -18021,6 +18042,8 @@ debug/mainwindow.o: ../Charts_project/view/mainwindow.cpp ../Charts_project/view
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QSize \
 		../Charts_project/view/linechartwidget.h \
 		../Charts_project/linechartdata.h \
+		../Charts_project/comparisonChartData.h \
+		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QPointF \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtCharts \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QtChartsDepends \
@@ -18413,7 +18436,6 @@ debug/mainwindow.o: ../Charts_project/view/mainwindow.cpp ../Charts_project/view
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qvxymodelmapper.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qxylegendmarker.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/qtchartsversion.h \
-		C:/Qt/5.9.5/mingw53_32/include/QtCore/QVector \
 		../Charts_project/model/linechartmodel.h \
 		../Charts_project/model/linecharttablemodel.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCore/QAbstractTableModel \
@@ -19017,6 +19039,7 @@ debug/piechartwidget.o: ../Charts_project/view/piechartwidget.cpp ../Charts_proj
 		C:/Qt/5.9.5/mingw53_32/include/QtWidgets/QMenu \
 		../Charts_project/view/linechartwidget.h \
 		../Charts_project/linechartdata.h \
+		../Charts_project/comparisonChartData.h \
 		../Charts_project/model/linechartmodel.h \
 		../Charts_project/model/linecharttablemodel.h \
 		C:/Qt/5.9.5/mingw53_32/include/QtCharts/QVXYModelMapper \

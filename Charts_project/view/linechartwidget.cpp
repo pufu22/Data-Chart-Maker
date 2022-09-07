@@ -17,8 +17,7 @@ LineChartWidget::LineChartWidget(LineChartData* data,QWidget *parent, const char
     else
         linecharttablemodel=new LineChartTableModel(data);
     linechartmodel=new LineChartModel(linecharttablemodel);
-    connect(linecharttablemodel,&LineChartTableModel::minMaxChanged,linechartmodel,&LineChartModel::updateAxisY);
-    connect(linecharttablemodel,&LineChartTableModel::updateAxis,linechartmodel,&LineChartModel::updateAxises);
+
     table->setModel(linecharttablemodel);
      linecharttablemodel->setParent(table);
      lt->addWidget(table);
@@ -36,6 +35,11 @@ LineChartWidget::LineChartWidget(LineChartData* data,QWidget *parent, const char
      setLayout(lt);
      linecharttablemodel->setHeaderData(0, Qt::Horizontal, "Stock ID", Qt::DisplayRole);
      connect(nullptr,&MainWindow::salvaConNomeSignal,this,&LineChartWidget::salvaJsonFile);
+     connect(linecharttablemodel,&LineChartTableModel::dataChanged,linechartmodel,&LineChartModel::updateAxisY);
+     connect(linecharttablemodel,&LineChartTableModel::rowsInserted,linechartmodel,&LineChartModel::updateAxisY);
+     connect(linecharttablemodel,&LineChartTableModel::rowsRemoved,linechartmodel,&LineChartModel::updateAxisY);
+     connect(linecharttablemodel,&LineChartTableModel::columnsInserted,linechartmodel,&LineChartModel::updateAxisY);
+     connect(linecharttablemodel,&LineChartTableModel::columnsRemoved,linechartmodel,&LineChartModel::updateAxisY);
 }
 
 void LineChartWidget::aggiungilineaslot(){
@@ -47,7 +51,7 @@ void LineChartWidget::aggiungilineaslot(){
         //linecharttablemodel->insertColumns(linecharttablemodel->columnCount(),2);
         linecharttablemodel->insertColumns(linecharttablemodel->columnCount(),1);
         linechartmodel->updateMapper(linecharttablemodel);
-        linechartmodel->updateAxises();
+        linechartmodel->updateAxisY();
     }
 }
 

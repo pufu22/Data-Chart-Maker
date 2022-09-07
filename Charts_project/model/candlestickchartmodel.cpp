@@ -54,6 +54,7 @@ void CandleStickChartModel::updateAxis(){
     chart->createDefaultAxes();
     axisX = qobject_cast<QBarCategoryAxis *>(chart->axes(Qt::Horizontal).at(0));
     axisX->setCategories(categories);
+    axisY = qobject_cast<QValueAxis *>(chart->axes(Qt::Vertical).at(0));
         axisY->setMax(getMax()*1.01);
         axisY->setMin(getMin()*0.99);
 }
@@ -68,7 +69,7 @@ void CandleStickChartModel::updateRemoved(int row){
         axisY->setMin(getMin() * 0.99);
 }
 qreal CandleStickChartModel::getMax(){
-    qreal max=0;
+    qreal max=candleSeries->sets().at(0)->high();
     for(int i=0;i<candleSeries->sets().size();++i){
         if(candleSeries->sets().at(i)->high()>max)
             max=candleSeries->sets().at(i)->high();
@@ -77,7 +78,7 @@ qreal CandleStickChartModel::getMax(){
 }
 
 qreal CandleStickChartModel::getMin(){
-    qreal min=10000000;
+    qreal min=candleSeries->sets().at(0)->low();
     for(int i=0;i<candleSeries->sets().size();++i){
         if(candleSeries->sets().at(i)->low()<min)
             min=candleSeries->sets().at(i)->low();

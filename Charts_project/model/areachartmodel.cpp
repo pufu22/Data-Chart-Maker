@@ -41,3 +41,33 @@ void AreaChartModel::updateMappers(AreaChartTableModel* data)
 QChart* AreaChartModel::getChart(){
     return chart;
 }
+int AreaChartModel::getMax(){
+    qreal max=0;
+    for(int i=0;i<series.size();++i){
+        for(int j=0;j<series.at(i)->points().size();++j)
+        {
+            qreal y=series.at(i)->points()[j].ry();
+            if(y>max)
+                max=y;
+        }
+    }
+    return max;
+}
+
+int AreaChartModel::getMin(){
+    qreal min=0;
+    for(int i=0;i<series.size();++i){
+        for(int j=0;j<series.at(i)->points().size();++j)
+        {
+            qreal y=series.at(i)->points()[j].ry();
+            if(y<min)
+                min=y;
+        }
+    }
+    return min;
+}
+
+void AreaChartModel::updateAxisY(){
+    chart->createDefaultAxes();
+    chart->axisY()->setRange(getMin(),getMax());
+}

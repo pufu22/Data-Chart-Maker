@@ -10,11 +10,13 @@ SelectGraphic::SelectGraphic(QWidget* parent) : QWidget(parent) {
     int i = 0;
     for (; i < (totCharts/3)*3; i++){
         chart = new ChooseChart(map.firstKey(), map.first(), this);
+        connect(chart,&ChooseChart::creaChartSignal,this,&SelectGraphic::createChart);
         gridLayout->addWidget(chart, i/3, 2*(i%3), 1, 2);
         map.remove(map.firstKey());
     }
     for (int j = 0; i < totCharts; i++, j++) {
         chart = new ChooseChart(map.firstKey(), map.first(), this);
+        connect(chart,&ChooseChart::creaChartSignal,this,&SelectGraphic::createChart);
         if (totCharts-((totCharts/3)*3) == 1)
             gridLayout->addWidget(chart, i/3, 2, 1, 2);
         else // per forza == 2
@@ -34,3 +36,4 @@ QMap<QString, QString> SelectGraphic::getChartImages() {
 
     return map;
 }
+

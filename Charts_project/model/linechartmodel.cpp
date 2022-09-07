@@ -20,14 +20,15 @@ LineChartModel::LineChartModel(LineChartTableModel * data)
 
 void LineChartModel::updateMapper(LineChartTableModel * data){
     int temp=nLines++;
-    series.push_back(new QLineSeries);
-    mapper.push_back(new QVXYModelMapper());
-    mapper[temp]->setXColumn(0);
-    mapper[temp]->setYColumn(temp+1);
-    mapper[temp]->setSeries(series[temp]);
-    mapper[temp]->setModel(data);
-    chart->addSeries(series[temp]);
-    series.at(temp)->setName(data->dati->getLineName(temp));
+        series.push_back(new QLineSeries);
+        mapper.push_back(new QVXYModelMapper());
+        mapper[temp]->setXColumn(0);
+        mapper[temp]->setYColumn(temp+1);
+        mapper[temp]->setSeries(series[temp]);
+        mapper[temp]->setModel(data);
+        chart->addSeries(series[temp]);
+        series.at(temp)->setName(data->dati->getLineName(temp));
+    updateAxisY();
 }
 
 void LineChartModel::updateAxises(){
@@ -45,15 +46,42 @@ void LineChartModel::salvaJsonFile(){
 
 }
 
-void LineChartModel::updateAxisY(int min,int max){
-    chart->axisY()->setRange(min,max);
+void LineChartModel::updateAxisY(){
+    chart->createDefaultAxes();
+    chart->axisY()->setRange(getMin(),getMax()+1);
 }
 
 void LineChartModel::addLinea(LineChartTableModel *data,QString l){
-    data->dati->pushName(l);
+    data->dati->addLineName(l);
 }
-
 QChart* LineChartModel::getChart(){
     return chart;
 }
+
+int LineChartModel::getMax(){
+    int max=0;
+    for(int i=0;i<series.size();++i){
+        for(int j=0;j<series.at(i)->points().size();++j)
+        {
+            qreal y=series.at(i)->points().at(j).y();
+            if(y>max)
+                max=y;
+        }
+    }
+    return max;
+}
+
+int LineChartModel::getMin(){
+    int min=0;
+    for(int i=0;i<series.size();++i){
+        for(int j=0;j<series.at(i)->points().size();++j)
+        {
+            qreal y=series.at(i)->points().at(j).y();
+            if(y<min)
+                min=y;
+        }
+    }
+    return min;
+}
+
 

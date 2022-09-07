@@ -17,8 +17,10 @@ ChooseChart::ChooseChart(const QString& name, const QString& imgPath, QWidget* p
     img->setPixmap(pic);
     //img->setFixedSize(300,300);
 
-    button = new QPushButton("Click me", this);
+    button = new QPushButton(name, this);
+    button->setObjectName(name);
     //button->setFixedSize(150,70);
+    connect(button,&QPushButton::released,this,&ChooseChart::creaChartSlot);
 
     layout->addWidget(label);
     layout->addWidget(img);
@@ -27,3 +29,9 @@ ChooseChart::ChooseChart(const QString& name, const QString& imgPath, QWidget* p
 
     setLayout(layout);
 }
+
+
+void ChooseChart::creaChartSlot(){
+    emit creaChartSignal(button->objectName());
+}
+

@@ -24,8 +24,11 @@ CandleStickChartWidget::CandleStickChartWidget(QWidget *parent)
     lt->setSizeConstraint(QLayout::SetFixedSize);
     setLayout(lt);
 
-    connect(candleTableModel,&CandleStickChartTableModel::axisUpdate,candleModel,&CandleStickChartModel::updateAxis);
-
+    connect(candleTableModel,&CandleStickChartTableModel::dataChanged,candleModel,&CandleStickChartModel::updateAxis);
+    connect(candleTableModel,&CandleStickChartTableModel::columnsRemoved,candleModel,&CandleStickChartModel::updateAxis);
+    connect(candleTableModel,&CandleStickChartTableModel::rowsRemoved,candleModel,&CandleStickChartModel::updateAxis);
+    connect(candleTableModel,&CandleStickChartTableModel::columnsInserted,candleModel,&CandleStickChartModel::updateAxis);
+    connect(candleTableModel,&CandleStickChartTableModel::rowsInserted,candleModel,&CandleStickChartModel::updateAxis);
 }
 
 void CandleStickChartWidget::aggiungiSetSlot(){

@@ -19,6 +19,7 @@ public:
     void addY(int y);
     void removeY(int x,int y);
     void removeLineName(int l);
+    void addLineName(QString l);
 };
 
 #endif // LINECHARTDATA_H

@@ -19,6 +19,8 @@ private:
 public:
     explicit SelectGraphic(QWidget* parent = nullptr);
     QMap<QString, QString> getChartImages();
+signals:
+    void createChart(QString name);
 };
 
 #endif // SELECTGRAPHIC_H

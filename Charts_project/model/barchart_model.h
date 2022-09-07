@@ -17,7 +17,6 @@ public:
     void changeTitle(BarChartTableModel *data,QString t);
 private:
     QChart *chart;
-    QVector<QVector<QList<QBarSet>>> sets;
     QBarSeries *series;
     QStringList categories;
     QBarCategoryAxis *axisX;
@@ -26,9 +25,11 @@ private:
     QString title;
     int lastcolumn;
     int lastrow;
-    friend class main;
+    int getMax();
+    int getMin();
+
 public slots:
-    void updateAxisY(int min,int max);
+    void updateAxisY();
 };
 
 #endif // BARCHART_MODEL_H

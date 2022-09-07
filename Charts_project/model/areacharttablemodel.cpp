@@ -51,6 +51,7 @@ bool AreaChartTableModel::setData(const QModelIndex &index, const QVariant &valu
 
 Qt::ItemFlags AreaChartTableModel::flags(const QModelIndex &index) const
 {
+    if(index.column()!=0)
     return QAbstractTableModel::flags(index)
             |Qt::ItemIsEditable;
 }

@@ -37,15 +37,7 @@ bool BarChartTableModel::setData(const QModelIndex &index,const QVariant &value,
     if(role==Qt::EditRole){
             dati->setSets(index.row(),index.column(),value.toInt());
         emit dataChanged(index,index);
-            if(value.toInt()<dati->getYAxisMinValue()){
-                dati->setYAxisMinValue(value.toInt());
-                emit minMaxChanged(dati->getYAxisMinValue(),dati->getYAxisMaxValue());
-            }
 
-            if(value.toInt()>dati->getYAxisMaxValue()){
-                dati->setYAxisMaxValue(value.toInt());
-                emit minMaxChanged(dati->getYAxisMinValue(),dati->getYAxisMaxValue());
-            }
 
 
         return true;

@@ -15,6 +15,10 @@ private:
     QPushButton* button;
 public:
     explicit ChooseChart(const QString& name, const QString& imgPath, QWidget* parent = nullptr);
+private slots:
+    void creaChartSlot();
+signals:
+    void creaChartSignal(QString name);
 };
 
 #endif // CHOOSECHART_H

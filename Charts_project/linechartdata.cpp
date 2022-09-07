@@ -53,3 +53,6 @@ QString LineChartData::getLineName(int i) const{
 void LineChartData::removeLineName(int l){
     names.remove(l);
 }
+void LineChartData::addLineName(QString l){
+    names.push_back(l);
+}

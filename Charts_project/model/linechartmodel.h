@@ -17,17 +17,18 @@ public:
     void updateMapper(LineChartTableModel *data);
     void addLinea(LineChartTableModel *data,QString l);
     void salvaJsonFile();
-protected:
+private:
     QChart *chart;
     int nLines;
     QVector<QLineSeries*> series;
     QString title;
     QVector<QVXYModelMapper*> mapper;
-
+    int getMax();
+    int getMin();
 public slots:
     void updateAxises();
     void axises(int maxValue);
-    void updateAxisY(int min,int max);
+    void updateAxisY();
 };
 
 #endif // LINECHARTMODEL_H

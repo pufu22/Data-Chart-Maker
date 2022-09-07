@@ -24,6 +24,7 @@ public:
     void creaPieChartFromFile(const QJsonObject &json);
     void creaBarChartFromFile(const QJsonObject &json);
     void creaLineChartFromFile(const QJsonObject &json);
+    void creaCandleChartFromFile(const QJsonObject &json);
 private:
     //CreateChartWidget createchart;
     QMenu* fileMenu;
@@ -41,10 +42,13 @@ private slots:
     bool apriFile();
     bool salvaConNome();
 public slots:
+    void creaChart(QString name);
     void creaBarChart();
     void creaLineChart();
     void creaPieChart();
     void creaAreaChart();
+    void creaCandleChart();
+
 
 };
 #endif // MAINWINDOW_H

@@ -37,24 +37,12 @@ QVariant LineChartTableModel::data(const QModelIndex &index, int role) const
 bool LineChartTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if(role==Qt::EditRole){
-        if(index.column()!=0){
-            dati->removeY(index.row(),index.column());
+
             dati->setSets(index.row(),index.column(),value.toInt());
-        }
         emit dataChanged(index,index);
 
         /*Il codice all'interno dell'if potrebbe non funzionare dato che dipendeva precedentemente da
             funzioni che sono state ghostate (commentate/eliminate).*/
-        if(index.column()!=0){
-            int v=value.toInt();
-            if(v<dati->getYAxisMinValue()||v>dati->getYAxisMaxValue()){
-                dati->addY(v);
-                emit minMaxChanged(dati->getYAxisMinValue(),dati->getYAxisMaxValue());
-            }
-            else
-                dati->addY(v);
-        }
-        emit   updateAxis();
         return true;
     }
     else
@@ -63,6 +51,7 @@ bool LineChartTableModel::setData(const QModelIndex &index, const QVariant &valu
 
 Qt::ItemFlags LineChartTableModel::flags(const QModelIndex &index) const
 {
+    if(index.column()!=0)
     return QAbstractTableModel::flags(index)
             |Qt::ItemIsEditable;
 }

@@ -76,8 +76,8 @@ void BarChartModel::salvaJsonBar(){
 
 }
 
-void BarChartModel::updateAxisY(int min,int max){
-    axisY->setRange(min,max);
+void BarChartModel::updateAxisY(){
+    axisY->setRange(getMin(),getMax()+1);
 }
 
 void BarChartModel::changeTitle(BarChartTableModel *data,QString t){
@@ -87,5 +87,26 @@ void BarChartModel::changeTitle(BarChartTableModel *data,QString t){
 
 QChart* BarChartModel::getChart(){
     return chart;
+}
+int BarChartModel::getMax(){
+    int max=series->barSets().at(0)->at(0);
+for(int i=0;i<series->barSets().size();++i)
+    for(int j=0;j<series->barSets().at(i)->count();++j){
+        qreal t=series->barSets().at(i)->at(j);
+        if(t>max)
+            max=t;
+    }
+    return max;
+}
+
+int BarChartModel::getMin(){
+    int min=0;
+    for(int i=0;i<series->barSets().size();++i)
+        for(int j=0;j<series->barSets().at(i)->count();++j){
+            qreal t=series->barSets().at(i)->at(j);
+            if(t<min)
+                min=t;
+        }
+        return min;
 }
 
