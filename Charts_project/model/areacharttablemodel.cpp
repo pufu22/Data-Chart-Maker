@@ -15,7 +15,6 @@ int AreaChartTableModel::rowCount(const QModelIndex &parent) const
     if(parent.isValid())
         return 0;
     else
-        //return dati->getLines().size();
         return dati->getSets().size();
 }
 
@@ -24,7 +23,6 @@ int AreaChartTableModel::columnCount(const QModelIndex &parent) const
     if(parent.isValid())
         return 0;
     else
-        //return dati->getLines().at(0).size();
         return dati->getSets().at(0).size();
 }
 
@@ -33,24 +31,10 @@ QVariant AreaChartTableModel::data(const QModelIndex &index, int role) const
 
 
     if(role==Qt::DisplayRole){
-        //return dati->getLines()[index.row()][index.column()];
         return dati->getSets()[index.row()][index.column()];
     }
     return QVariant();
 }
-
-/*bool AreaChartTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
-{
-
-    if(role==Qt::EditRole){
-
-        //dati->setData(index.row(),index.column(),value.toInt());
-        dati->setSets(index.row(),index.column(),value.toInt());
-        emit dataChanged(index,index);
-        return true;
-    }else
-    return false;
-}*/
 
 bool AreaChartTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
@@ -89,7 +73,6 @@ bool AreaChartTableModel::insertColumns(int column, int count, const QModelIndex
     for(int c=0;c<count;++c)
     {
         for(int i=0;i<rowCount();++i)
-            //dati->pushLine(i,i+1);
             dati->pushGroup(i);
     }
     endInsertColumns();

@@ -21,23 +21,6 @@ AreaChartModel::AreaChartModel(AreaChartTableModel* data)
     chart->setTitle(data->dati->getTitle());
 }
 
-/*void AreaChartModel::updateMappers(AreaChartTableModel* data)
-{
-    int temp=nLines++;
-    series.push_back(new QLineSeries);
-    linesmappers.push_back(new QVXYModelMapper);
-    linesmappers[temp]->setXColumn(2*temp);
-    linesmappers[temp]->setYColumn(2*temp+1);
-    linesmappers[temp]->setFirstRow(0);
-    linesmappers[temp]->setModel(data);
-    linesmappers[temp]->setSeries(series[temp]);
-        areaSeries.push_back(new QAreaSeries(series.at(temp),series.at(temp-1)));
-        chart->addSeries(areaSeries.at(temp));
-
-    chart->createDefaultAxes();
-
-}*/
-
 void AreaChartModel::updateMappers(AreaChartTableModel* data)
 {
     int temp=nLines++;

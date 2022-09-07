@@ -2,7 +2,6 @@
 
 BarChartTableModel::BarChartTableModel(QObject *parent):QAbstractTableModel(parent)
 {
-    //dati=*(new Bar_data());
     dati=new Bar_data();
 }
 BarChartTableModel::BarChartTableModel(Bar_data *data,/*comparisonChartData* data,*/ QObject *parent):QAbstractTableModel(parent)
@@ -14,7 +13,6 @@ int BarChartTableModel::rowCount(const QModelIndex &parent) const
     if(parent.isValid())
         return 0;
 
-    //return dati.getSets().size();
     return dati->getSets().size();
 }
 
@@ -22,14 +20,12 @@ int BarChartTableModel::columnCount(const QModelIndex &parent) const
 {
     if(parent.isValid())
         return 0;
-    //return dati.getSets().at(0).size();
     return dati->getSets().at(0).size();
 }
 
 QVariant BarChartTableModel::data(const QModelIndex &index, int role) const
 {
     if (role == Qt::DisplayRole)
-           //return dati.getSets()[index.row()][index.column()];
         return dati->getSets()[index.row()][index.column()];
 
         return QVariant();
@@ -86,8 +82,6 @@ bool BarChartTableModel::insertColumns(int column, int count,QString name,const 
     for(int c=0;c<count;++c)
     {
         for(int i=0;i<rowCount();++i)
-            //dati.pushBar(i);
-            //dati.pushBarName(name);
             dati->pushGroup(i);
             dati->pushName(name);
     }
@@ -115,11 +109,9 @@ bool BarChartTableModel::removeColumn(int column, const QModelIndex &parent){
 
 QVariant BarChartTableModel::headerData(int section, Qt::Orientation orientation, int role) const{
     if (role == Qt::DisplayRole && orientation == Qt::Vertical) {
-        //return dati.getCategories()[section];
         return dati->getCategories()[section];
     }
     else if(role == Qt::DisplayRole && orientation == Qt::Horizontal){
-        //return dati.getBarNames()[section];
         return dati->getNames()[section];
     }
     return QVariant();

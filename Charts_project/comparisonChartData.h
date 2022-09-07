@@ -12,7 +12,9 @@ protected:
     int yAxisMinValue;
     int yAxisMaxValue;
 public:
-    explicit comparisonChartData(const QString& m_title="insert title", const QVector<QVector<int>>& m_sets={{10}}, const QVector<QString>& m_names={"insert name"}, const QVector<QString>& m_categories={"insert label"}, const int& minValue=0, const int& maxValue=15);
+    explicit comparisonChartData(const QString& m_title="insert title", const QVector<QVector<int>>& m_sets={{10}},
+                                 const QVector<QString>& m_names={"insert name"}, const QVector<QString>& m_categories={"insert label"},
+                                 const int& minValue=0, const int& maxValue=15);
 
     QString getTitle() const;
     QVector<QVector<int>> getSets() const;

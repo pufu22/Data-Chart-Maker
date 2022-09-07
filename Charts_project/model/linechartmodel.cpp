@@ -18,18 +18,6 @@ LineChartModel::LineChartModel(LineChartTableModel * data)
     series.at(0)->setName(data->dati->getLineName(0));
 }
 
-/*void LineChartModel::updateMapper(LineChartTableModel * data){
-    int temp=nLines++;
-    series.push_back(new QLineSeries);
-    mapper.push_back(new QVXYModelMapper());
-    mapper[temp]->setXColumn(2*temp);
-    mapper[temp]->setYColumn(2*temp+1);
-    mapper[temp]->setSeries(series[temp]);
-    mapper[temp]->setModel(data);
-    chart->addSeries(series[temp]);
-    series.at(temp)->setName(data->dati->getLineName(temp));
-}*/
-
 void LineChartModel::updateMapper(LineChartTableModel * data){
     int temp=nLines++;
     series.push_back(new QLineSeries);
@@ -60,10 +48,6 @@ void LineChartModel::salvaJsonFile(){
 void LineChartModel::updateAxisY(int min,int max){
     chart->axisY()->setRange(min,max);
 }
-
-/*void LineChartModel::addLinea(LineChartTableModel *data,QString l){
-    data->dati->addLineName(l);
-}*/
 
 void LineChartModel::addLinea(LineChartTableModel *data,QString l){
     data->dati->pushName(l);
