@@ -5,7 +5,7 @@
 #include <QWidget>
 #include<model/areacharttablemodel.h>
 #include<model/areachartmodel.h>
-#include<areachartdata.h>
+#include<data/areachartdata.h>
 class AreaChartWidget:public QWidget
 {
     Q_OBJECT

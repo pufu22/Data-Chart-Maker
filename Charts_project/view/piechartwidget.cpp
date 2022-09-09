@@ -43,7 +43,7 @@ void piechartwidget::aggiungifettaslot(){
     if (ok) {
         etichetta=list.at(0);
         valore=list.at(1).toInt();
-        pietablemodel->insertRows(pietablemodel->rowCount(),1,etichetta,valore);
+        pietablemodel->insertRows(pietablemodel->rowCount(),1);
         piemodel->connectInsertedSlice();
     }
 }

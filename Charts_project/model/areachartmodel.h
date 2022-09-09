@@ -2,14 +2,14 @@
 #define AREACHARTMODEL_H
 #include<QChart>
 #include<QVXYModelMapper>
-#include<areachartdata.h>
+#include<data/areachartdata.h>
 #include<model/areacharttablemodel.h>
-class AreaChartModel:public QObject
+class AreaChartModel : public QObject
 {
 public:
-    AreaChartModel(AreaChartTableModel* data);
+    AreaChartModel(QAbstractTableModel* data);
     QChart* getChart();
-    void updateMappers(AreaChartTableModel* data);
+    void updateMappers(QAbstractTableModel* data);
 public slots:
     void updateAxisY();
 private:

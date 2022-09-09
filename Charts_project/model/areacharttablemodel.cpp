@@ -41,7 +41,7 @@ bool AreaChartTableModel::setData(const QModelIndex &index, const QVariant &valu
 
     if(role==Qt::EditRole){
         if(index.column()!=0){
-            dati->setSets(index.row(),index.column(),value.toInt());
+            dati->setData(index.row(),index.column(),value.toInt());
         }
         emit dataChanged(index,index);
         return true;
@@ -61,7 +61,7 @@ bool AreaChartTableModel::insertRows(int row, int count, const QModelIndex &pare
     beginInsertRows(parent,row,row);
     for(int row =0;row<count;++row)
     {
-        dati->pushPoint(rowCount(), columnCount());
+        dati->pushData(columnCount());
     }
     endInsertRows();
     return true;

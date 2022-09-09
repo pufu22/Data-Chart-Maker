@@ -54,7 +54,7 @@ bool Piecharttablemodel::setData(const QModelIndex &index, const QVariant &value
         if(index.column()==0)
             dati.setLabel(index.row(),value.toString());
         else
-            dati.setValue(index.row(),value.toInt());
+            dati.setData(index.row(), index.column(), value.toInt());
         emit dataChanged(index, index, QVector<int>() << role);
         return true;
     }
@@ -66,19 +66,19 @@ Qt::ItemFlags Piecharttablemodel::flags(const QModelIndex &index) const
     return QAbstractTableModel::flags(index)
             |Qt::ItemIsEditable;
 }
-bool Piecharttablemodel::insertRows(int row, int count,QString eti,int val, const QModelIndex &parent)
+bool Piecharttablemodel::insertRows(int row, int count, const QModelIndex &parent)
 {
     beginInsertRows(parent, row, row + count - 1);
-    dati.pushbackLabel(eti);
-    dati.pushbackValue(val);
+    //dati.pushLabel(eti);
+    //dati.pushValue(val);
     endInsertRows();
     return true;
 }
 
-bool Piecharttablemodel::removeRow(int row, const QModelIndex &parent)
+bool Piecharttablemodel::removeRows(int row, int count, const QModelIndex &parent)
 {
     beginRemoveRows(parent,row-1,row-1);
-    dati.removeSlice(row);
+    dati.removeData(row);
     endRemoveRows();
     return true;
 }

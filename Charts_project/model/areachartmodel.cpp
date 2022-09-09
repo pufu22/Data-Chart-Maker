@@ -1,6 +1,7 @@
 #include "areachartmodel.h"
 #include"stdio.h"
-AreaChartModel::AreaChartModel(AreaChartTableModel* data)
+//AreaChartModel::AreaChartModel(AreaChartTableModel* data)
+AreaChartModel::AreaChartModel(QAbstractTableModel* data)
 {
     chart=new QChart;
     chart->setAnimationOptions(QChart::AllAnimations);
@@ -18,10 +19,11 @@ AreaChartModel::AreaChartModel(AreaChartTableModel* data)
     QValueAxis *axisY = qobject_cast<QValueAxis *>(chart->axes(Qt::Vertical).at(0));
     axisY->setMax(axisY->max() * 1.01);
     axisY->setMin(axisY->min() * 0.99);
-    chart->setTitle(data->dati->getTitle());
+    //chart->setTitle(data->dati->getTitle());
 }
 
-void AreaChartModel::updateMappers(AreaChartTableModel* data)
+//void AreaChartModel::updateMappers(AreaChartTableModel* data)
+void AreaChartModel::updateMappers(QAbstractTableModel* data)
 {
     int temp=nLines++;
     series.push_back(new QLineSeries);

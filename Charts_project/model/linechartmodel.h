@@ -6,7 +6,7 @@
 #include<model/linecharttablemodel.h>
 #include<QtCharts>
 #include<QVXYModelMapper>
-#include<linechartdata.h>
+#include<data/linechartdata.h>
 class LineChartModel:public QObject
 {
 

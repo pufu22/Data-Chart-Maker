@@ -111,6 +111,7 @@ emit salvaConNomeSignal();
 
 void MainWindow::creaBarChart()
 {
+    //ChartWidget* bartable = new barcharttable(nullptr,this,"bartable");
     barcharttable* bartable=new barcharttable(nullptr,this,"bartable");
     if(this->centralWidget())
         this->centralWidget()->disconnect();
@@ -156,7 +157,7 @@ void MainWindow::creaCandleChart(){
 void MainWindow::creaPieChartFromFile(const QJsonObject &json){
     QVector<QVariant> v= json["values"].toArray().toVariantList().toVector();
      QVector<QVariant> v2=json["slices"].toArray().toVariantList().toVector();
-     QVector<int> s;
+     QVector<qreal> s;
      QVector<QString> s2;
     for(int i=0;i<v.size();++i){
         s.push_back(v.at(i).toInt());
@@ -202,11 +203,11 @@ void MainWindow::creaLineChartFromFile(const QJsonObject &json)
 {
     std::string tempString =json["title"].toString().toStdString();
     QJsonObject tempA =json["series"].toObject();
-    QVector<QVector<int>> s;
+    QVector<QVector<qreal>> s;
     foreach(const QString& key, tempA.keys()) {
            QJsonValue value = tempA.value(key);
            QJsonArray a=value.toArray();
-           QVector<int> n2;
+           QVector<qreal> n2;
            for(int i=0;i<a.size();++i)
            {
                 n2.push_back(a.at(i).toInt());

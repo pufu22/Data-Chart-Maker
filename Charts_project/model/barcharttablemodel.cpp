@@ -35,11 +35,8 @@ QVariant BarChartTableModel::data(const QModelIndex &index, int role) const
 bool BarChartTableModel::setData(const QModelIndex &index,const QVariant &value,int role)
 {
     if(role==Qt::EditRole){
-            dati->setSets(index.row(),index.column(),value.toInt());
+            dati->setData(index.row(),index.column(),value.toInt());
         emit dataChanged(index,index);
-
-
-
         return true;
     }
     else
@@ -53,14 +50,13 @@ Qt::ItemFlags BarChartTableModel::flags(const QModelIndex &index) const
 }
 
 
-bool BarChartTableModel::insertRows(int row, int count,QString cat, const QModelIndex &)
+bool BarChartTableModel::insertRows(int row, int count, const QModelIndex &)
 {
 
     beginInsertRows(QModelIndex(),row,row);
         for(int r = 0;r<count;++r)
         {
-            dati->pushSets(columnCount());
-            dati->pushCategory(cat);
+            dati->pushData(columnCount());
         }
 
     endInsertRows();
@@ -68,14 +64,13 @@ bool BarChartTableModel::insertRows(int row, int count,QString cat, const QModel
 
 }
 
-bool BarChartTableModel::insertColumns(int column, int count,QString name,const QModelIndex &parent)
+bool BarChartTableModel::insertColumns(int column, int count, const QModelIndex &parent)
 {
     beginInsertColumns(parent,column,column);
     for(int c=0;c<count;++c)
     {
         for(int i=0;i<rowCount();++i)
             dati->pushGroup(i);
-            dati->pushName(name);
     }
 
     endInsertColumns();
@@ -84,16 +79,16 @@ bool BarChartTableModel::insertColumns(int column, int count,QString name,const 
 
 }
 
-bool BarChartTableModel::removeRow(int row, const QModelIndex &parent){
+bool BarChartTableModel::removeRows(int row, int count, const QModelIndex &parent){
     beginRemoveRows(parent,row,row);
-    dati->removeRow(row);
+    dati->removeData(row);
     endRemoveRows();
     return true;
 }
 
-bool BarChartTableModel::removeColumn(int column, const QModelIndex &parent){
+bool BarChartTableModel::removeColumns(int column, int count, const QModelIndex &parent){
     beginRemoveColumns(parent,column,column);
-    dati->removeColumn(column);
+    dati->removeGroup(column);
     endRemoveColumns();
     return true;
 }

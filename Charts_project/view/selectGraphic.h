@@ -14,11 +14,11 @@ class SelectGraphic : public QWidget {
     Q_OBJECT
 
 private:
-    QMap<QString, QString> map;
+    QMap<QString, QString> map;   //togliere il puntatore
     ChooseChart* chart;
 public:
     explicit SelectGraphic(QWidget* parent = nullptr);
-    QMap<QString, QString> getChartImages();
+    QMap<QString, QString> getChartImages();  //togliere il puntatore
 signals:
     void createChart(QString name);
 };

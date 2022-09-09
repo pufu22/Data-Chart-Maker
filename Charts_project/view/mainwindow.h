@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <view/CreateChartWidget.h>
 #include <QChartView>
 #include <QChart>
 #include <QMenu>
@@ -10,6 +9,8 @@
 #include <view/linechartwidget.h>
 #include <view/selectwindow.h>
 #include <view/candlestickchartwidget.h>
+#include <view/chartWidget.h>
+
 // è una view specializzata per la finestra principale dell'applicazione (il cornicione sul quale verrà visualizzato il resto).
 class MainWindow : public QMainWindow
 {

@@ -1,11 +1,12 @@
 #include "barchart_model.h"
-#include <bar_data.h>
+#include <data/bar_data.h>
 #include<QStringList>
 #include<QString>
 #include<iostream>
 #include<string>
 #include<QVBarModelMapper>
 BarChartModel::BarChartModel(BarChartTableModel *data)
+//BarChartModel::BarChartModel(QAbstractTableModel *data)
 {
     chart=new QChart;
     chart->setAnimationOptions(QChart::AllAnimations);
@@ -50,6 +51,7 @@ void BarChartModel::updateMapperLastColumn()
     mapper->setLastBarSetColumn(++lastcolumn);
 }
 void BarChartModel::updateMapperLastRow(BarChartTableModel *data)
+//void BarChartModel::updateMapperLastRow(QAbstractTableModel *data)
 {
 
     mapper->setRowCount(++lastrow);
@@ -81,6 +83,7 @@ void BarChartModel::updateAxisY(){
 }
 
 void BarChartModel::changeTitle(BarChartTableModel *data,QString t){
+//void BarChartModel::changeTitle(QAbstractTableModel *data,QString t){
     data->dati->setTitle(t);
     chart->setTitle(data->dati->getTitle());
 }

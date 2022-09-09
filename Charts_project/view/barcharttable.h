@@ -7,14 +7,20 @@
 #include <QPushButton>
 #include <model/barchart_model.h>
 #include <model/barcharttablemodel.h>
-#include<bar_data.h>
-#include<view/mainwindow.h>
-#include<popupchart.h>
-class barcharttable:public QWidget{
+#include <data/bar_data.h>
+#include <view/mainwindow.h>
+#include <popupchart.h>
+#include <view/chartWidget.h>
+
+class barcharttable : public QWidget{
     Q_OBJECT
 
 public:
     barcharttable(Bar_data* data=0, QWidget *parent = 0, const char *name = 0);
+
+    /*void setTableView() override;
+    QVector<QPushButton*>* setArrayPushButton() override;
+    void setChartView() override;*/
 
 private:
     BarChartTableModel *barmodel;

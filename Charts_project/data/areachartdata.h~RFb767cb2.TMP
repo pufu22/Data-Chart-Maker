@@ -1,7 +1,7 @@
 #ifndef AREACHARTDATA_H
 #define AREACHARTDATA_H
 
-#include <comparisonChartData.h>
+#include <data/comparisonChartData.h>
 #include <QtCharts>
 #include<QVector>
 #include<QLineSeries>

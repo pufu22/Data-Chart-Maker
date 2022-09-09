@@ -15,7 +15,7 @@ LineChartModel::LineChartModel(LineChartTableModel * data)
     chart->createDefaultAxes();
 
     chart->setTitle(title);
-    series.at(0)->setName(data->dati->getLineName(0));
+    series.at(0)->setName(data->dati->getNames().at(0));
 }
 
 void LineChartModel::updateMapper(LineChartTableModel * data){
@@ -27,7 +27,7 @@ void LineChartModel::updateMapper(LineChartTableModel * data){
         mapper[temp]->setSeries(series[temp]);
         mapper[temp]->setModel(data);
         chart->addSeries(series[temp]);
-        series.at(temp)->setName(data->dati->getLineName(temp));
+        series.at(temp)->setName(data->dati->getNames().at(temp));
     updateAxisY();
 }
 
@@ -52,8 +52,9 @@ void LineChartModel::updateAxisY(){
 }
 
 void LineChartModel::addLinea(LineChartTableModel *data,QString l){
-    data->dati->addLineName(l);
+    data->dati->pushName(l);
 }
+
 QChart* LineChartModel::getChart(){
     return chart;
 }
