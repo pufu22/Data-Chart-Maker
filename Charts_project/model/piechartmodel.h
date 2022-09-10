@@ -12,7 +12,8 @@ class piechartmodel:public QObject
 {
 public:
     QChart* getChart();
-
+    ~piechartmodel();
+    Piecharttablemodel* dati;
     piechartmodel(Piecharttablemodel* data);
     void connectInsertedSlice();
     int sliceCount();

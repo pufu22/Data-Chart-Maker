@@ -1,26 +1,8 @@
 #include "candlestickcharttablemodel.h"
 
-CandleStickChartTableModel::CandleStickChartTableModel(CandleStickData* data,QObject* parent):QAbstractTableModel(parent)
-{
-    if(data==nullptr){
-        dati=*(new CandleStickData());
-    }
-    else
-        dati=*data;
-}
+CandleStickChartTableModel::CandleStickChartTableModel(QObject* parent, CandleStickData* data) : ChartTableModel(parent, data),
+                                                                                                 candleData(data) {}
 
-int CandleStickChartTableModel::rowCount(const QModelIndex &parent)const {
-    if (parent.isValid())
-        return 0;
-    else
-        return dati.getEntries();
-}
-int CandleStickChartTableModel::columnCount(const QModelIndex &parent)const {
-    if (parent.isValid())
-        return 0;
-    else
-        return 5;
-}
 bool CandleStickChartTableModel::insertRows(int row, int count, const QModelIndex &parent){
     qreal timestamp;
     qreal open;
@@ -35,72 +17,22 @@ bool CandleStickChartTableModel::insertRows(int row, int count, const QModelInde
         high=list.at(2).toDouble();
         low=list.at(3).toDouble();
         close=list.at(4).toDouble();
-    if(timestamp>dati.getTimeStampAt(row-1)){
-        beginInsertRows(parent,row,row);
-            dati.addData(timestamp,open,high,low,close);
-        endInsertRows();
-        return true;
-    }
-    }
-        return false;
-}
-bool CandleStickChartTableModel::removeRows(int row, int count, const QModelIndex &parent){
-    beginRemoveRows(parent,row,row);
-        dati.removeData(row);
-    endRemoveRows();
-}
-QVariant CandleStickChartTableModel::data(const QModelIndex &index, int role)const {
-    if (role==Qt::DisplayRole){
-        switch (index.column()) {
-        case 0:
-            return dati.getTimeStampAt(index.row());
-            break;
-        case 1:
-            return dati.getOpenAt(index.row());
-            break;
-        case 2:
-            return dati.getHighAt(index.row());
-            break;
-        case 3:
-            return dati.getLowAt(index.row());
-            break;
-        case 4:
-            return dati.getCloseAt(index.row());
-            break;
+        if(timestamp>candleData->getTimeStampAt(row-1)) {
+            beginInsertRows(parent,row,row);
+                candleData->addData(timestamp,open,high,low,close);
+            endInsertRows();
+            return true;
         }
     }
-    else return QVariant();
+    return false;
 }
+
 Qt::ItemFlags CandleStickChartTableModel::flags(const QModelIndex &index) const {
     return QAbstractTableModel::flags(index)
             |Qt::ItemIsEditable;
 }
-bool CandleStickChartTableModel::setData(const QModelIndex &index,const QVariant &value,int role){
-    if(role==Qt::EditRole){
-        switch (index.column()) {
-        case 0:
-            dati.setData(index.row(), 0, value.toReal());
-            break;
-        case 1:
-            dati.setData(index.row(), 1, value.toReal());
-            break;
-        case 2:
-            dati.setData(index.row(), 2, value.toReal());
-            break;
-        case 3:
-            dati.setData(index.row(), 3, value.toReal());
-            break;
-        case 4:
-            dati.setData(index.row(), 4, value.toReal());
-            break;
-        }
-        emit dataChanged(index,index);
-        return true;
-    }else
-    return false;
-}
 
-QVariant CandleStickChartTableModel::headerData(int section, Qt::Orientation orientation, int role) const{
+QVariant CandleStickChartTableModel::headerData(int section, Qt::Orientation orientation, int role) const {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
         switch(section){
         case 0:

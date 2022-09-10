@@ -1,21 +1,22 @@
 #ifndef AREACHARTTABLEMODEL_H
 #define AREACHARTTABLEMODEL_H
-#include<data/areachartdata.h>
-#include<QAbstractTableModel>
-class AreaChartTableModel:public QAbstractTableModel {
+
+#include "chartTableModel.h"
+#include <data/areachartdata.h>
+
+class AreaChartTableModel : public ChartTableModel {
     Q_OBJECT
 private:
-    AreaChartData* dati;
+    AreaChartData* areaData;
 public:
-    AreaChartTableModel(AreaChartData* data=nullptr,QObject *parent=0);
+    AreaChartTableModel(QObject* parent=nullptr, AreaChartData* data=new AreaChartData());
 
-    int rowCount(const QModelIndex &parent = QModelIndex())const override;
-    int columnCount(const QModelIndex &parent = QModelIndex())const override;
     bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
     bool insertColumns(int column, int count, const QModelIndex &parent = QModelIndex()) override;
-    QVariant data(const QModelIndex &index, int role=Qt::DisplayRole)const override;
-    bool setData(const QModelIndex &index,const QVariant &value,int role) override;
+    bool removeColumns(int column, int count, const QModelIndex &parent=QModelIndex()) override;
     Qt::ItemFlags flags(const QModelIndex &index) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    bool setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role=Qt::EditRole) override;
 };
 
 #endif // AREACHARTTABLEMODEL_H

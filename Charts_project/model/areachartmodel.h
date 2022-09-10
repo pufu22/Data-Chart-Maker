@@ -4,15 +4,22 @@
 #include<QVXYModelMapper>
 #include<data/areachartdata.h>
 #include<model/areacharttablemodel.h>
-class AreaChartModel : public QObject
+class AreaChartModel:public QObject
 {
 public:
-    AreaChartModel(QAbstractTableModel* data);
+    AreaChartModel(AreaChartTableModel* data);
     QChart* getChart();
-    void updateMappers(QAbstractTableModel* data);
+    void updateMappers();
+    void updateRemoved(int pos);
+
 public slots:
     void updateAxisY();
+    void salvaJson();
+    void changeTitle(QString title);
+private slots:
+    void cambiaNome();
 private:
+    AreaChartTableModel* dati;
     QChart *chart;
     QVector<QVXYModelMapper*> linesmappers;
     QVector <QLineSeries*> series;

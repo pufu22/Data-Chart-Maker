@@ -43,7 +43,7 @@ barcharttable::barcharttable(Bar_data *data, QWidget *parent, const char *name) 
     if(data==nullptr)
         barmodel=new BarChartTableModel();
     else
-        barmodel=new BarChartTableModel(data);
+        barmodel=new BarChartTableModel(this, data);
     changeTitle=new QPushButton("&Cambia Titolo");
     connect(changeTitle,&QPushButton::released,this,&barcharttable::changetitle);
 

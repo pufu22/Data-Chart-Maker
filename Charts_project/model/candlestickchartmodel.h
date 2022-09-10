@@ -14,6 +14,7 @@ public:
     void updateMapper();
     QChart* getChart();
 private:
+    CandleStickChartTableModel* dati;
     QChart* chart;
     QCandlestickSeries* candleSeries;
     QColor increasingColor;
@@ -28,8 +29,11 @@ private:
 public slots:
     void updateAxis();
     void updateRemoved(int row);
+    void salvaJson();
+    void cambiaTitolo(CandleStickChartTableModel* data,QString t);
 
 
 };
 
 #endif // CANDLESTICKCHARTMODEL_H
+

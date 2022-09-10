@@ -15,7 +15,7 @@ LineChartWidget::LineChartWidget(LineChartData* data,QWidget *parent, const char
     if(data==nullptr)
         linecharttablemodel=new LineChartTableModel();
     else
-        linecharttablemodel=new LineChartTableModel(data);
+        linecharttablemodel=new LineChartTableModel(this, data);
     linechartmodel=new LineChartModel(linecharttablemodel);
 
     table->setModel(linecharttablemodel);
@@ -47,7 +47,7 @@ void LineChartWidget::aggiungilineaslot(){
     bool ok;
     QString nomeLinea=QInputDialog::getText(this,tr("Titolo"),tr("Titolo:"),QLineEdit::Normal,tr(""),&ok);
     if(ok && nomeLinea.trimmed()!=""){
-        linechartmodel->addLinea(linecharttablemodel,nomeLinea);
+        //linechartmodel->addLinea(linecharttablemodel,nomeLinea);
         //linecharttablemodel->insertColumns(linecharttablemodel->columnCount(),2);
         linecharttablemodel->insertColumns(linecharttablemodel->columnCount(),1);
         linechartmodel->updateMapper(linecharttablemodel);

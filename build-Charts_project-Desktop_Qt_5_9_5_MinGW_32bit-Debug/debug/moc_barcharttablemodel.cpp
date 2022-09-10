@@ -63,7 +63,7 @@ void BarChartTableModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
 }
 
 const QMetaObject BarChartTableModel::staticMetaObject = {
-    { &QAbstractTableModel::staticMetaObject, qt_meta_stringdata_BarChartTableModel.data,
+    { &ChartTableModel::staticMetaObject, qt_meta_stringdata_BarChartTableModel.data,
       qt_meta_data_BarChartTableModel,  qt_static_metacall, nullptr, nullptr}
 };
 
@@ -78,12 +78,12 @@ void *BarChartTableModel::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_BarChartTableModel.stringdata0))
         return static_cast<void*>(this);
-    return QAbstractTableModel::qt_metacast(_clname);
+    return ChartTableModel::qt_metacast(_clname);
 }
 
 int BarChartTableModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QAbstractTableModel::qt_metacall(_c, _id, _a);
+    _id = ChartTableModel::qt_metacall(_c, _id, _a);
     return _id;
 }
 QT_WARNING_POP

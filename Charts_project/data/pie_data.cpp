@@ -8,10 +8,8 @@ pie_data::pie_data(QVector<qreal> m_values, QVector<QString> m_labels, QString m
 }
 
 void pie_data::dataInit() {
-    QVector<qreal> temp;
     for(int i = 0; i < values.size(); i++){
-        temp.push_back(values[i]);
-        data.push_back(temp);
+        data.push_back({values[i]});
     }
 }
 
@@ -29,7 +27,7 @@ void pie_data::setLabel(int pos, QString l){
 
 void pie_data::setData(int x, int y, qreal val) {
     values[x] = val;
-    data[x][y] = val;
+    data[x][y-1] = val;
 }
 
 void pie_data::removeData(int pos) {

@@ -27,7 +27,7 @@ public:
     void setYAxisMaxValue(int max);
 
     void removeData(int pos) override;
-    void removeGroup(int pos);
+    virtual void removeGroup(int pos);
 
     virtual void pushData(int count);
     void pushName(QString name);

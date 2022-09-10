@@ -13,6 +13,7 @@ public:
     LineChartData();
     LineChartData(QVector<QVector<qreal>> series,QString title);
 
+    void removeGroup(int pos) override;
     void pushData(int count);
 
 };

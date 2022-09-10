@@ -15,9 +15,13 @@ public:
     LineChartModel(LineChartTableModel *data);
 
     void updateMapper(LineChartTableModel *data);
-    void addLinea(LineChartTableModel *data,QString l);
+    //void addLinea(LineChartTableModel *data,QString l);
     void salvaJsonFile();
+    void removeLine(int pos);
+    void updateRemoved(int pos);
+    void cambiaTitolo(LineChartTableModel* data,QString t);
 private:
+    LineChartTableModel* dati;
     QChart *chart;
     int nLines;
     QVector<QLineSeries*> series;
@@ -29,6 +33,7 @@ public slots:
     void updateAxises();
     void axises(int maxValue);
     void updateAxisY();
+    void cambiaNome();
 };
 
 #endif // LINECHARTMODEL_H

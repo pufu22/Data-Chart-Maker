@@ -1,17 +1,21 @@
-
 #include "piechartmodel.h"
 
 piechartmodel::piechartmodel(Piecharttablemodel* data)
 {
+    dati=data;
     chart=new QChart;
     chart->setAnimationOptions(QChart::AllAnimations);
-    pieSeries=new QPieSeries;
-    piemapper=new QVPieModelMapper();
+    pieSeries=new QPieSeries();
+    piemapper=new QVPieModelMapper();//QUESTO é IL PROBLEMA CHE FA CRASHARE TUTTO
+
     piemapper->setFirstRow(0);
     piemapper->setLabelsColumn(0);
     piemapper->setValuesColumn(1);
     piemapper->setSeries(pieSeries);
     piemapper->setModel(data);
+
+
+
     chart->addSeries(pieSeries);
 
     for(int i=0;i<pieSeries->slices().size();++i){
@@ -19,7 +23,7 @@ piechartmodel::piechartmodel(Piecharttablemodel* data)
         connect(slice,&QPieSlice::hovered,this, &piechartmodel::explodeSplice);
         connect(slice,&QPieSlice::doubleClicked,this,&piechartmodel::changeSlice);
     }
-    title=data->dati.getTitle();
+    title=dati->getData()->getTitle();
     chart->createDefaultAxes();
     chart->setTitle(title);
     chart->legend()->setAlignment(Qt::AlignBottom);
@@ -57,7 +61,10 @@ void piechartmodel::connectInsertedSlice(){
     QPieSlice* slice=pieSeries->slices().at(pieSeries->slices().size()-1);
     connect(slice,&QPieSlice::hovered,this, &piechartmodel::explodeSplice);
     connect(slice,&QPieSlice::doubleClicked,this,&piechartmodel::changeSlice);
+}
 
+piechartmodel::~piechartmodel(){
+    delete(piemapper);
 }
 
 int piechartmodel::sliceCount(){
@@ -97,8 +104,8 @@ void piechartmodel::salvaJsonPie(){
 
 void piechartmodel::changeTitle(Piecharttablemodel
                                 *data,QString t){
-    data->dati.setTitle(t);
-    chart->setTitle(data->dati.getTitle());
+    data->getData()->setTitle(t);
+    chart->setTitle(data->getData()->getTitle());
 }
 
 QChart* piechartmodel::getChart(){

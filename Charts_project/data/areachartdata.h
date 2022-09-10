@@ -11,6 +11,7 @@ class AreaChartData : public comparisonChartData {
 public:
     AreaChartData();
 
+    void removeGroup(int pos) override;
     void pushData(int count) override;
 };
 

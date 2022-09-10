@@ -10,6 +10,7 @@ INPUT(
 ./release\candlestickchartmodel.o
 ./release\candlestickcharttablemodel.o
 ./release\pie_data.o
+./release\chartTableModel.o
 ./release\popupchart.o
 ./release\areachartmodel.o
 ./release\areacharttablemodel.o

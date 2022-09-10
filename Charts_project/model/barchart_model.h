@@ -8,17 +8,15 @@ class BarChartModel:public QObject
 {
 public:
     BarChartModel(BarChartTableModel *data);
-    //BarChartModel(QAbstractTableModel *data);
     QChart* getChart();
     void updateMapperLastColumn();
     void updateMapperLastRow(BarChartTableModel *data);
-    //void updateMapperLastRow(QAbstractTableModel *data);
     void updateMapperRemoveColumn();
     void updateMapperRemoveRow(int pos);
     void salvaJsonBar();
     void changeTitle(BarChartTableModel *data,QString t);
-    //void changeTitle(QAbstractTableModel *data,QString t);
 private:
+    BarChartTableModel* dati;
     QChart *chart;
     QBarSeries *series;
     QStringList categories;
@@ -30,7 +28,8 @@ private:
     int lastrow;
     int getMax();
     int getMin();
-
+private slots:
+    void cambiaNome(int index,QBarSet* barset);
 public slots:
     void updateAxisY();
 };
