@@ -31,6 +31,9 @@ MainWindow::MainWindow(QWidget *parent)
     //piechartwidget* piechart=new piechartwidget(this,"piechart",nullptr);
     //this->setCentralWidget(piechart);
     //piechart->show();
+    /*barcharttable* barchart= new barcharttable();
+    this->setCentralWidget(barchart);
+    barchart->show();*/
     SelectGraphic* sG=new SelectGraphic(this);
     this->setCentralWidget(sG);
     connect(sG,&SelectGraphic::createChart,this,&MainWindow::creaChart);

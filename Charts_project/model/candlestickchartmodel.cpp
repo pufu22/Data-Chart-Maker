@@ -1,21 +1,19 @@
 #include "candlestickchartmodel.h"
 #include<iostream>
-CandleStickChartModel::CandleStickChartModel(CandleStickChartTableModel* data)
+CandleStickChartModel::CandleStickChartModel(CandleStickChartTableModel* data) : ChartModel(data)
 {
-    chart=new QChart();
-    chart->setAnimationOptions(QChart::AllAnimations);
     candleSeries=new QCandlestickSeries;
     candleSeries->setIncreasingColor(QColor(Qt::green));
     candleSeries->setDecreasingColor(QColor(Qt::red));
     mapper=new QHCandlestickModelMapper;
     mapper->setFirstSetRow(0);
-    mapper->setLastSetRow(data->rowCount());
+    mapper->setLastSetRow(tableModel->rowCount());
     mapper->setTimestampColumn(0);
     mapper->setOpenColumn(1);
     mapper->setHighColumn(2);
     mapper->setLowColumn(3);
     mapper->setCloseColumn(4);
-    mapper->setModel(data);
+    mapper->setModel(tableModel);
     mapper->setSeries(candleSeries);
     for(int i=0;i<candleSeries->sets().size();++i){
         categories << QDateTime::fromMSecsSinceEpoch(candleSeries->sets().at(i)->timestamp()).toString("dd.MM.yyyy");
@@ -23,32 +21,38 @@ CandleStickChartModel::CandleStickChartModel(CandleStickChartTableModel* data)
     chart->addSeries(candleSeries);
     chart->createDefaultAxes();
     chart->legend()->hide();
-    //candleSeries->setName("Acme Ltd");
     axisX = qobject_cast<QBarCategoryAxis *>(chart->axes(Qt::Horizontal).at(0));
     axisX->setCategories(categories);
     axisY = qobject_cast<QValueAxis *>(chart->axes(Qt::Vertical).at(0));
         axisY->setMax(axisY->max() * 1.01);
         axisY->setMin(axisY->min() * 0.99);
-    chart->setTitle(data->getData()->getTitle());
-    connect(candleSeries,&QCandlestickSeries::candlestickSetsAdded,this,&CandleStickChartModel::updateAxis);
+    chart->setTitle(tableModel->getData()->getTitle());
+    connect(candleSeries,&QCandlestickSeries::candlestickSetsAdded,this,&CandleStickChartModel::updateAxisY);
 }
 
-int CandleStickChartModel::setsCount(){
-    return candleSeries->sets().size();
-}
-
-void CandleStickChartModel::updateMapper(){
+void CandleStickChartModel::updateInsertRow() {
     mapper->setLastSetRow(mapper->lastSetRow()+1);
     categories<<QDateTime::fromMSecsSinceEpoch(candleSeries->sets().at(mapper->lastSetRow()-1)->timestamp()).toString("dd.MM.yyyy");
     chart->createDefaultAxes();
     axisX = qobject_cast<QBarCategoryAxis *>(chart->axes(Qt::Horizontal).at(0));
     axisX->setCategories(categories);
     axisY = qobject_cast<QValueAxis *>(chart->axes(Qt::Vertical).at(0));
-        axisY->setMax(getMax() * 1.01);
-        axisY->setMin(getMin() * 0.99);
+    axisY->setMax(getMax() * 1.01);
+    axisY->setMin(getMin() * 0.99);
 }
 
-void CandleStickChartModel::updateAxis(){
+void CandleStickChartModel::updateRemoveRow(int pos) {
+    mapper->setLastSetRow(mapper->lastSetRow()-1);
+    categories.removeAt(pos);
+    chart->createDefaultAxes();
+    axisX = qobject_cast<QBarCategoryAxis *>(chart->axes(Qt::Horizontal).at(0));
+    axisX->setCategories(categories);
+    axisY = qobject_cast<QValueAxis *>(chart->axes(Qt::Vertical).at(0));
+    axisY->setMax(getMax() * 1.01);
+    axisY->setMin(getMin() * 0.99);
+}
+
+void CandleStickChartModel::updateAxisY() {
     chart->createDefaultAxes();
     axisX = qobject_cast<QBarCategoryAxis *>(chart->axes(Qt::Horizontal).at(0));
     axisX->setCategories(categories);
@@ -56,16 +60,7 @@ void CandleStickChartModel::updateAxis(){
         axisY->setMax(getMax()*1.01);
         axisY->setMin(getMin()*0.99);
 }
-void CandleStickChartModel::updateRemoved(int row){
-    mapper->setLastSetRow(mapper->lastSetRow()-1);
-    categories.removeAt(row);
-    chart->createDefaultAxes();
-    axisX = qobject_cast<QBarCategoryAxis *>(chart->axes(Qt::Horizontal).at(0));
-    axisX->setCategories(categories);
-    axisY = qobject_cast<QValueAxis *>(chart->axes(Qt::Vertical).at(0));
-        axisY->setMax(getMax() * 1.01);
-        axisY->setMin(getMin() * 0.99);
-}
+
 qreal CandleStickChartModel::getMax(){
     qreal max=candleSeries->sets().at(0)->high();
     for(int i=0;i<candleSeries->sets().size();++i){
@@ -82,10 +77,6 @@ qreal CandleStickChartModel::getMin(){
             min=candleSeries->sets().at(i)->low();
     }
     return min;
-}
-
-QChart* CandleStickChartModel::getChart(){
-    return chart;
 }
 
 void CandleStickChartModel::salvaJson(){
@@ -122,13 +113,7 @@ void CandleStickChartModel::salvaJson(){
     if(file.open( QIODevice::WriteOnly))
     {
         file.write(document.toJson());
-               //return false;
     }
     else
             qWarning("Couldn't open save file.");
-}
-
-void CandleStickChartModel::cambiaTitolo(CandleStickChartTableModel* data,QString t){
-    data->getData()->setTitle(t);
-    chart->setTitle(t);
 }

@@ -6,11 +6,11 @@
 #include<model/areacharttablemodel.h>
 #include<model/areachartmodel.h>
 #include<data/areachartdata.h>
-class AreaChartWidget:public QWidget
-{
+class AreaChartWidget:public QWidget {
     Q_OBJECT
 public:
     AreaChartWidget(QWidget *parent = 0, const char* name = 0);
+
     AreaChartModel* areaModel;
     AreaChartTableModel* areaTableModel;
     QTableView* areaTable;

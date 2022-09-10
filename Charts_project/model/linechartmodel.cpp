@@ -1,54 +1,48 @@
 #include "linechartmodel.h"
 
-LineChartModel::LineChartModel(LineChartTableModel * data)
+LineChartModel::LineChartModel(LineChartTableModel * data) : ChartModel(data)
 {
-    dati=data;
-    chart=new QChart;
-    chart->setAnimationOptions(QChart::AllAnimations);
-    nLines=0;
-    for(int i=0;i<data->columnCount()-1;++i)
+    for(int i=0; i < tableModel->columnCount()-1; ++i)
     {
         series.push_back(new QLineSeries);
         mapper.push_back(new QVXYModelMapper());
         mapper[i]->setXColumn(0);
         mapper[i]->setYColumn(i+1);
         mapper[i]->setSeries(series[i]);
-        mapper[i]->setModel(data);
+        mapper[i]->setModel(tableModel);
         chart->addSeries(series[i]);
-        series.at(i)->setName(dati->headerData(i+1,Qt::Horizontal,Qt::DisplayRole).toString());
+        series.at(i)->setName(tableModel->headerData(i+1,Qt::Horizontal,Qt::DisplayRole).toString());
         connect(series.at(i),&QLineSeries::doubleClicked,this,&LineChartModel::cambiaNome);
-        nLines++;
     }
     chart->createDefaultAxes();
-    chart->setTitle(dati->getData()->getTitle());
-
-
+    chart->setTitle(tableModel->getData()->getTitle());
 }
 
-void LineChartModel::updateMapper(LineChartTableModel * data){
-    int temp=nLines++;
-        series.push_back(new QLineSeries);
-        mapper.push_back(new QVXYModelMapper());
-        mapper[temp]->setXColumn(0);
-        mapper[temp]->setYColumn(temp+1);
-        mapper[temp]->setSeries(series[temp]);
-        mapper[temp]->setModel(data);
-        chart->addSeries(series[temp]);
-        series.at(temp)->setName(dati->headerData(temp+1,Qt::Horizontal,Qt::DisplayRole).toString());
-        updateAxisY();
-        connect(series.at(temp),&QLineSeries::doubleClicked,this,&LineChartModel::cambiaNome);
+void LineChartModel::updateInsertColumn() {
+    int n = tableModel->columnCount()-2;
+    series.push_back(new QLineSeries);
+    mapper.push_back(new QVXYModelMapper());
+    mapper[n]->setXColumn(0);
+    mapper[n]->setYColumn(n+1);
+    mapper[n]->setSeries(series[n]);
+    mapper[n]->setModel(tableModel);
+    chart->addSeries(series[n]);
+    series.at(n)->setName(tableModel->headerData(n+1,Qt::Horizontal,Qt::DisplayRole).toString());
+    updateAxisY();
+    connect(series.at(n),&QLineSeries::doubleClicked,this,&LineChartModel::cambiaNome);
 }
 
-void LineChartModel::updateRemoved(int pos){
-    int temp=--nLines;
+void LineChartModel::updateRemoveColumn(int pos) {
+    int n = tableModel->columnCount()-1;
     chart->removeSeries(series.at(pos));
     series.removeAt(pos);
     mapper.removeAt(pos);
-        for(int i=pos;i<temp;++i){
-            mapper[i]->setXColumn(i);
-            mapper[i]->setYColumn(i+1);
-        }
+    for(int i=pos;i<n;++i){
+        mapper[i]->setXColumn(i);
+        mapper[i]->setYColumn(i+1);
+    }
 }
+
 void LineChartModel::cambiaNome(){
     QObject* obj=sender();
     for(int i=0;i<series.size();++i){
@@ -57,69 +51,17 @@ void LineChartModel::cambiaNome(){
             bool ok;
             QString nome=QInputDialog::getText(nullptr,tr("Nome"),tr("Nome:"),QLineEdit::Normal,tr(""),&ok);
             if(ok && nome.trimmed()!=""){
-                dati->setHeaderData(i,Qt::Horizontal,nome,Qt::EditRole);
-               series.at(i)->setName(dati->headerData(i+1,Qt::Horizontal,Qt::DisplayRole).toString());
+                tableModel->setHeaderData(i,Qt::Horizontal,nome,Qt::EditRole);
+               series.at(i)->setName(tableModel->headerData(i+1,Qt::Horizontal,Qt::DisplayRole).toString());
             }
         }
     }
-}
-void LineChartModel::updateAxises(){
-    chart->createDefaultAxes();
-}
-
-void LineChartModel::axises(int maxValue){
-    this->updateAxises();
-}
-
-void LineChartModel::salvaJsonFile(){
-    QJsonObject mainObject;
-    QJsonObject secondaryObject;
-    mainObject.insert(QString::fromStdString("title"),chart->title());
-    mainObject.insert(QString::fromStdString("Type"),QString::fromStdString("linechart"));
-    QJsonArray names;
-    QJsonArray line;
-
-    for(int i=0;i<dati->rowCount();++i)
-    {
-        for(int j=0;j<dati->columnCount()-1;++j){
-            if(i>0)
-                line.pop_front();
-            if(i==0)
-                names.append(dati->headerData(j+1,Qt::Horizontal,Qt::DisplayRole).toString());
-            line.append(series.at(j)->at(i).y());
-        }
-        secondaryObject.insert(QString::fromStdString(std::to_string(i)),line);
-
-    }
-    mainObject.insert(QString::fromStdString("series"),secondaryObject);
-    mainObject.insert(QString::fromStdString("names"),names);
-
-    QJsonDocument document;
-    document.setObject( mainObject );
-    bool ok;
-    QString nomeFile=QInputDialog::getText(nullptr,tr("Salva con nome:"),tr("Nome file:"),QLineEdit::Normal,QDir::home().dirName(),&ok);
-
-    QFile file( "../Charts_project/graficisalvati/"+nomeFile+".json");
-    if(file.open( QIODevice::WriteOnly))
-    {
-        file.write(document.toJson());
-               //return false;
-    }
-    else
-            qWarning("Couldn't open save file.");
 }
 
 void LineChartModel::updateAxisY(){
     chart->createDefaultAxes();
     chart->axisY()->setRange(getMin(),getMax()+1);
     chart->axisX()->setRange(0,series.at(0)->count()-1);
-}
-
-/*void LineChartModel::addLinea(LineChartTableModel *data,QString l){
-    data->getData()->addLineName(l);
-}*/
-QChart* LineChartModel::getChart(){
-    return chart;
 }
 
 int LineChartModel::getMax(){
@@ -148,11 +90,40 @@ int LineChartModel::getMin(){
     return min;
 }
 
-void LineChartModel::removeLine(int pos){
-    series.removeAt(pos);
+void LineChartModel::salvaJson(){
+    QJsonObject mainObject;
+    QJsonObject secondaryObject;
+    mainObject.insert(QString::fromStdString("title"),chart->title());
+    mainObject.insert(QString::fromStdString("Type"),QString::fromStdString("linechart"));
+    QJsonArray names;
+    QJsonArray line;
+
+    for(int i=0;i<tableModel->rowCount();++i)
+    {
+        for(int j=0;j<tableModel->columnCount()-1;++j){
+            if(i>0)
+                line.pop_front();
+            if(i==0)
+                names.append(tableModel->headerData(j+1,Qt::Horizontal,Qt::DisplayRole).toString());
+            line.append(series.at(j)->at(i).y());
+        }
+        secondaryObject.insert(QString::fromStdString(std::to_string(i)),line);
+
+    }
+    mainObject.insert(QString::fromStdString("series"),secondaryObject);
+    mainObject.insert(QString::fromStdString("names"),names);
+
+    QJsonDocument document;
+    document.setObject( mainObject );
+    bool ok;
+    QString nomeFile=QInputDialog::getText(nullptr,tr("Salva con nome:"),tr("Nome file:"),QLineEdit::Normal,QDir::home().dirName(),&ok);
+
+    QFile file( "../Charts_project/graficisalvati/"+nomeFile+".json");
+    if(file.open( QIODevice::WriteOnly))
+    {
+        file.write(document.toJson());
+    }
+    else
+            qWarning("Couldn't open save file.");
 }
 
-void LineChartModel::cambiaTitolo(LineChartTableModel* data,QString t){
-    data->getData()->setTitle(t);
-    chart->setTitle(t);
-}

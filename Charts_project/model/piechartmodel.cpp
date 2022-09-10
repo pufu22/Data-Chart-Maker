@@ -1,20 +1,15 @@
 #include "piechartmodel.h"
 
-piechartmodel::piechartmodel(Piecharttablemodel* data)
+piechartmodel::piechartmodel(Piecharttablemodel* data) : ChartModel(data)
 {
-    dati=data;
-    chart=new QChart;
-    chart->setAnimationOptions(QChart::AllAnimations);
     pieSeries=new QPieSeries();
-    piemapper=new QVPieModelMapper();//QUESTO é IL PROBLEMA CHE FA CRASHARE TUTTO
+    piemapper=new QVPieModelMapper();
 
     piemapper->setFirstRow(0);
     piemapper->setLabelsColumn(0);
     piemapper->setValuesColumn(1);
     piemapper->setSeries(pieSeries);
-    piemapper->setModel(data);
-
-
+    piemapper->setModel(tableModel);
 
     chart->addSeries(pieSeries);
 
@@ -23,7 +18,7 @@ piechartmodel::piechartmodel(Piecharttablemodel* data)
         connect(slice,&QPieSlice::hovered,this, &piechartmodel::explodeSplice);
         connect(slice,&QPieSlice::doubleClicked,this,&piechartmodel::changeSlice);
     }
-    title=dati->getData()->getTitle();
+    title=tableModel->getData()->getTitle();
     chart->createDefaultAxes();
     chart->setTitle(title);
     chart->legend()->setAlignment(Qt::AlignBottom);
@@ -57,21 +52,13 @@ void piechartmodel::changeSlice(){
     }
 }
 
-void piechartmodel::connectInsertedSlice(){
+void piechartmodel::updateInsertRow() {
     QPieSlice* slice=pieSeries->slices().at(pieSeries->slices().size()-1);
     connect(slice,&QPieSlice::hovered,this, &piechartmodel::explodeSplice);
     connect(slice,&QPieSlice::doubleClicked,this,&piechartmodel::changeSlice);
 }
 
-piechartmodel::~piechartmodel(){
-    delete(piemapper);
-}
-
-int piechartmodel::sliceCount(){
-    return pieSeries->slices().size();
-}
-
-void piechartmodel::salvaJsonPie(){
+void piechartmodel::salvaJson(){
     QJsonObject mainObject;
     mainObject.insert(QString::fromStdString("title"),title);
     mainObject.insert(QString::fromStdString("Type"),QString::fromStdString("piechart"));
@@ -96,18 +83,7 @@ void piechartmodel::salvaJsonPie(){
     if(file.open( QIODevice::WriteOnly))
     {
         file.write(document.toJson());
-               //return false;
     }
     else
             qWarning("Couldn't open save file.");
-}
-
-void piechartmodel::changeTitle(Piecharttablemodel
-                                *data,QString t){
-    data->getData()->setTitle(t);
-    chart->setTitle(data->getData()->getTitle());
-}
-
-QChart* piechartmodel::getChart(){
-    return chart;
 }

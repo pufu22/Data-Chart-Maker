@@ -12,13 +12,17 @@ int Piecharttablemodel::columnCount(const QModelIndex &parent) const
 
 }
 
-bool Piecharttablemodel::insertRows(int row, int count, const QModelIndex &parent)
-{
-    beginInsertRows(parent, row, row + count - 1);
-        //pieData->pushLabel(eti);
-        //pieData->pushValue(val);
-    endInsertRows();
-    return true;
+bool Piecharttablemodel::insertRows(int row, int count, const QModelIndex &parent) {
+    bool ok;
+    QStringList list = inputdialog::getStrings(nullptr, "piechart", &ok);
+    if(ok){
+        beginInsertRows(parent, row, row + count - 1);
+            pieData->pushLabel(list.at(0));
+            pieData->pushValue(list.at(1).toInt());
+        endInsertRows();
+        return true;
+    }
+    return false;
 }
 
 QVariant Piecharttablemodel::data(const QModelIndex &index, int role) const {

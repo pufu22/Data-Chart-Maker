@@ -13,12 +13,19 @@ bool LineChartTableModel::insertRows(int row, int count, const QModelIndex &pare
 
 bool LineChartTableModel::insertColumns(int column, int count, const QModelIndex &parent)
 {
-    beginInsertColumns(parent,column,column);
-    for(int c=0;c<count;++c)
-        for(int i=0;i<rowCount();++i)
-            lineData->pushGroup(i);
-    endInsertColumns();
-    return true;
+    bool ok;
+    QString nomeLinea=QInputDialog::getText(nullptr, tr("Titolo"), tr("Titolo:"), QLineEdit::Normal, tr(""), &ok);
+    if(ok && nomeLinea.trimmed()!=""){
+        beginInsertColumns(parent,column,column);
+        for(int c=0;c<count;++c)
+            for(int i=0;i<rowCount();++i)
+                lineData->pushGroup(i);
+        lineData->pushName(nomeLinea);
+        endInsertColumns();
+        return true;
+    }
+    else
+        return false;
 }
 
 bool LineChartTableModel::removeColumns(int column, int count, const QModelIndex &parent){

@@ -6,7 +6,7 @@ piechartwidget::piechartwidget(QWidget *parent, const char *name,pie_data* d){
     pietable=new QTableView;
     if(d==nullptr)
         pietablemodel=new Piecharttablemodel();
-        else
+    else
         pietablemodel=new Piecharttablemodel(this,d);
     piemodel=new piechartmodel(pietablemodel);
     pietable->setModel(pietablemodel);
@@ -36,22 +36,16 @@ piechartwidget::piechartwidget(QWidget *parent, const char *name,pie_data* d){
     setLayout(lt);
 }
 void piechartwidget::aggiungifettaslot(){
-    QString etichetta;
-    int valore;
     bool ok;
-    QStringList list = inputdialog::getStrings(this, "piechart",&ok);
-    if (ok) {
-        etichetta=list.at(0);
-        valore=list.at(1).toInt();
-        pietablemodel->insertRows(pietablemodel->rowCount(),1);
-        piemodel->connectInsertedSlice();
-    }
+    ok = pietablemodel->insertRows(pietablemodel->rowCount(),1);
+    if(ok)
+        piemodel->updateInsertRow();
 }
 
 void piechartwidget::rimuovifettaslot(){
     bool ok;
-    if(piemodel->sliceCount()>1){
-        int fetta=QInputDialog::getInt(this,tr("ELIMINA FETTA"),tr("Fetta:"),QLineEdit::Normal,1,piemodel->sliceCount(),1,&ok);
+    if(pietablemodel->rowCount() > 1){
+        int fetta=QInputDialog::getInt(this,tr("ELIMINA FETTA"),tr("Fetta:"),QLineEdit::Normal,1,pietablemodel->rowCount(),1,&ok);
         if(ok)
             pietablemodel->removeRow(fetta);
     }
@@ -61,7 +55,7 @@ void piechartwidget::cambiaTitoloSlot(){
     bool ok;
     QString titolo=QInputDialog::getText(this,tr("Titolo"),tr("Titolo:"),QLineEdit::Normal,tr(""),&ok);
     if(ok && titolo.trimmed()!=""){
-        piemodel->changeTitle(pietablemodel,titolo);
+        piemodel->updateTitle(titolo);
     }
 
 }

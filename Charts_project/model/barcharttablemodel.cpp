@@ -1,24 +1,41 @@
 #include "barcharttablemodel.h"
 
-BarChartTableModel::BarChartTableModel(QObject* parent, Bar_data* data) : ChartTableModel(parent, data),
-                                                                                                        barData(data) {}
+BarChartTableModel::BarChartTableModel(QObject* parent, Bar_data* data) : ChartTableModel(parent, data), barData(data) {}
 
 bool BarChartTableModel::insertRows(int row, int count, const QModelIndex &) {
+    bool ok;
+    QString cat=QInputDialog::getText(nullptr,tr("Aggiungi categoria"),tr("Categoria:"),QLineEdit::Normal,tr(" "),&ok);
+    if(ok && cat.trimmed()!=""){
+        beginInsertRows(QModelIndex(),row,row);
+            for(int r=0; r<count; ++r)
+            {
+                barData->pushData(columnCount());
+                barData->pushCategory(cat);
+            }
 
-    beginInsertRows(QModelIndex(),row,row);
-        for(int r = 0;r<count;++r)
-            barData->pushData(columnCount());
-    endInsertRows();
-    return true;
+        endInsertRows();
+            return true;
+    }
+    return false;
 }
 
 bool BarChartTableModel::insertColumns(int column, int count, const QModelIndex &parent) {
+    bool ok;
+    QString set=QInputDialog::getText(nullptr,tr("Aggiungi nome barra"),tr("Barra:"),QLineEdit::Normal,tr(" "),&ok);
+    if(ok && set.trimmed()!= ""){
     beginInsertColumns(parent,column,column);
         for(int c=0;c<count;++c)
+        {
             for(int i=0;i<rowCount();++i)
                 barData->pushGroup(i);
-    endInsertColumns();
-    return true;
+            barData->pushName(set);
+        }
+
+        endInsertColumns();
+
+            return true;
+    }
+    return false;
 }
 
 bool BarChartTableModel::removeColumns(int column, int count, const QModelIndex &parent) {
@@ -26,6 +43,16 @@ bool BarChartTableModel::removeColumns(int column, int count, const QModelIndex 
         barData->removeGroup(column);
     endRemoveColumns();
     return true;
+}
+
+bool BarChartTableModel::setData(const QModelIndex &index, const QVariant &value, int role) {
+    if(role==Qt::EditRole){
+        chartData->setData(index.row(),index.column(),value.toInt());
+        emit dataChanged(index,index);
+        return true;
+    }
+    else
+        return false;
 }
 
 Qt::ItemFlags BarChartTableModel::flags(const QModelIndex &index) const {

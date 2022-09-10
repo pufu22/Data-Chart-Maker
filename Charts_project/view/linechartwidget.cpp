@@ -44,29 +44,26 @@ LineChartWidget::LineChartWidget(LineChartData* data,QWidget *parent, const char
 
 void LineChartWidget::aggiungilineaslot(){
 
-    bool ok;
-    QString nomeLinea=QInputDialog::getText(this,tr("Titolo"),tr("Titolo:"),QLineEdit::Normal,tr(""),&ok);
-    if(ok && nomeLinea.trimmed()!=""){
-        //linechartmodel->addLinea(linecharttablemodel,nomeLinea);
-        //linecharttablemodel->insertColumns(linecharttablemodel->columnCount(),2);
-        linecharttablemodel->insertColumns(linecharttablemodel->columnCount(),1);
-        linechartmodel->updateMapper(linecharttablemodel);
+    bool ok = linecharttablemodel->insertColumns(linecharttablemodel->columnCount(),1);
+    if(ok){
+        linechartmodel->updateInsertColumn();
         linechartmodel->updateAxisY();
     }
 }
 
 void LineChartWidget::aggiungipunto(){
     linecharttablemodel->insertRows(linecharttablemodel->rowCount(),1);
-    linechartmodel->updateAxises();
 }
 
 void LineChartWidget::togliLineaSlot(){
     bool ok;
     int linea;
-    if(linecharttablemodel->columnCount()/2>1){
-        linea=QInputDialog::getInt(this, tr("Linea"),tr("Linea:"),1,1,linecharttablemodel->columnCount()/2,1, &ok);
-        if(ok)
-            linecharttablemodel->removeColumns((linea-1)*2,2);
+    if(linecharttablemodel->columnCount()-1 > 1){
+        linea=QInputDialog::getInt(this, tr("Linea"),tr("Linea:"),1,1,linecharttablemodel->columnCount()-1,1, &ok);
+        if(ok) {
+            linecharttablemodel->removeColumns(linea, 1);
+            linechartmodel->updateRemoveColumn(linea-1);
+        }
     }
 }
 

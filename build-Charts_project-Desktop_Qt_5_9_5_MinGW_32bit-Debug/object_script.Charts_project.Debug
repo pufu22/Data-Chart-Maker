@@ -10,6 +10,7 @@ INPUT(
 ./debug\candlestickchartmodel.o
 ./debug\candlestickcharttablemodel.o
 ./debug\pie_data.o
+./debug\chartModel.o
 ./debug\chartTableModel.o
 ./debug\popupchart.o
 ./debug\areachartmodel.o
@@ -33,6 +34,7 @@ INPUT(
 ./debug\qrc_Images.o
 ./debug\moc_inputdialog.o
 ./debug\moc_candlestickcharttablemodel.o
+./debug\moc_chartModel.o
 ./debug\moc_popupchart.o
 ./debug\moc_areacharttablemodel.o
 ./debug\moc_barcharttablemodel.o

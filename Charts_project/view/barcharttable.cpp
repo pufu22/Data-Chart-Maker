@@ -84,21 +84,17 @@ void barcharttable::setupModels(){
 }
 
 void barcharttable::aggiungiriga(){
-    bool ok;
-    QString cat=QInputDialog::getText(nullptr,tr("Aggiungi categoria"),tr("Categoria:"),QLineEdit::Normal,tr(" "),&ok);
-    if(ok && cat.trimmed()!=""){
-        barmodel->insertRows(barmodel->rowCount(),1);
-        m_model->updateMapperLastRow(barmodel);
+    bool ok = barmodel->insertRows(barmodel->rowCount(),1);
+    if(ok){
+        m_model->updateInsertRow();
     }
 
 }
 
 void barcharttable::aggiungicolonna(){
-        bool ok;
-        QString set=QInputDialog::getText(nullptr,tr("Aggiungi nome barra"),tr("Barra:"),QLineEdit::Normal,tr(" "),&ok);
-        if(ok && set.trimmed()!= ""){
-            barmodel->insertColumns(barmodel->columnCount(),1);
-            m_model->updateMapperLastColumn();
+        bool ok = barmodel->insertColumns(barmodel->columnCount(),1);
+        if(ok){
+            m_model->updateInsertColumn();
         }
 }
 
@@ -110,7 +106,7 @@ void barcharttable::removebars(){
         item = QInputDialog::getInt(this, tr("Barre"),tr("Barra:"),1,1,barmodel->columnCount(),1, &ok);
         if (ok){
             barmodel->removeColumn(item-1);
-            m_model->updateMapperRemoveColumn();
+            m_model->updateRemoveColumn(barmodel->columnCount());
         }
 
 }
@@ -122,7 +118,7 @@ void barcharttable::removeset(){
         item = QInputDialog::getInt(this, tr("Barre"),tr("Barra:"),1,1,barmodel->rowCount(),1, &ok);
     if(ok){
         barmodel->removeRow(item-1);
-        m_model->updateMapperRemoveRow(item-1);
+        m_model->updateRemoveRow(item-1);
     }
 
 }
@@ -136,7 +132,7 @@ void barcharttable::changetitle(){
     QString title;
     title=QInputDialog::getText(this,tr("Titolo"),tr("Titolo:"),QLineEdit::Normal,tr(""),&ok);
     if(ok)
-        m_model->changeTitle(barmodel,title);
+        m_model->updateTitle(title);
     chartView->resize(1280,480);
 }
 void barcharttable::chartFocus(){

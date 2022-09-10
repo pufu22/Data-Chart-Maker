@@ -21,10 +21,11 @@ void CandleStickData::dataInit() {
     for(int i = 0; i < timestamp.size(); i++){
         temp.push_back(timestamp[i]);
         temp.push_back(open[i]);
-        temp.push_back(high[0]);
-        temp.push_back(low[0]);
-        temp.push_back(close[0]);
+        temp.push_back(high[i]);
+        temp.push_back(low[i]);
+        temp.push_back(close[i]);
         data.push_back(temp);
+        temp.clear();
     }
 }
 

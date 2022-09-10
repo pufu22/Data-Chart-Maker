@@ -35,16 +35,16 @@ void CandleStickChartWidget::aggiungiSetSlot(){
 
     bool ok=candleTableModel->insertRows(candleTableModel->rowCount(),1);
     if(ok)
-        candleModel->updateMapper();
+        candleModel->updateInsertRow();
 
 }
 void CandleStickChartWidget::rimuoviSetSlot(){
     bool ok;
-    if(candleModel->setsCount()>1){
-        int set=QInputDialog::getInt(this,tr("ELIMINA SET"),tr("Set:"),QLineEdit::Normal,1,candleModel->setsCount(),1,&ok);
-    if(ok)
-        candleTableModel->removeRows(set-1,1);
-        candleModel->updateRemoved(set-1);
+    if(candleTableModel->rowCount() > 1){
+        int set=QInputDialog::getInt(this,tr("ELIMINA SET"),tr("Set:"),QLineEdit::Normal,1,candleTableModel->rowCount(),1,&ok);
+        if(ok)
+            candleTableModel->removeRows(set-1,1);
+        candleModel->updateRemoveRow(set-1);
     }
 
 }

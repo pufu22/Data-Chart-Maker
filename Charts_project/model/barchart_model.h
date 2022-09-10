@@ -1,37 +1,34 @@
 #ifndef BARCHART_MODEL_H
 #define BARCHART_MODEL_H
+
+#include "chartModel.h"
 #include<data/bar_data.h>
 #include<model/barcharttablemodel.h>
 #include<qbarmodelmapper.h>
 #include<QString>
-class BarChartModel:public QObject
-{
-public:
-    BarChartModel(BarChartTableModel *data);
-    QChart* getChart();
-    void updateMapperLastColumn();
-    void updateMapperLastRow(BarChartTableModel *data);
-    void updateMapperRemoveColumn();
-    void updateMapperRemoveRow(int pos);
-    void salvaJsonBar();
-    void changeTitle(BarChartTableModel *data,QString t);
+
+class BarChartModel : public ChartModel {
 private:
-    BarChartTableModel* dati;
-    QChart *chart;
     QBarSeries *series;
     QStringList categories;
     QBarCategoryAxis *axisX;
     QValueAxis *axisY;
     QVBarModelMapper *mapper;
-    QString title;
-    int lastcolumn;
-    int lastrow;
+
     int getMax();
     int getMin();
+public:
+    BarChartModel(BarChartTableModel *data);
+
+    void updateInsertRow() override;
+    void updateInsertColumn() override;
+    void updateRemoveRow(int pos) override;
+    void updateRemoveColumn(int pos) override;
 private slots:
-    void cambiaNome(int index,QBarSet* barset);
+    void cambiaNome(int index, QtCharts::QBarSet* barset);
 public slots:
-    void updateAxisY();
+    void updateAxisY() override;
+    void salvaJson() override;
 };
 
 #endif // BARCHART_MODEL_H

@@ -10,6 +10,7 @@ INPUT(
 ./release\candlestickchartmodel.o
 ./release\candlestickcharttablemodel.o
 ./release\pie_data.o
+./release\chartModel.o
 ./release\chartTableModel.o
 ./release\popupchart.o
 ./release\areachartmodel.o
@@ -33,6 +34,7 @@ INPUT(
 ./release\qrc_Images.o
 ./release\moc_inputdialog.o
 ./release\moc_candlestickcharttablemodel.o
+./release\moc_chartModel.o
 ./release\moc_popupchart.o
 ./release\moc_areacharttablemodel.o
 ./release\moc_barcharttablemodel.o
