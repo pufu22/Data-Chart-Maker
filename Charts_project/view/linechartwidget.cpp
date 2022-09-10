@@ -79,5 +79,5 @@ void LineChartWidget::togliPuntoSlot(){
 }
 
 void LineChartWidget::salvaJsonFile(){
-    linechartmodel->salvaJsonFile();
+    linechartmodel->salvaJson();
 }

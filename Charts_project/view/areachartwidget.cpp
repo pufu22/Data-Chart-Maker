@@ -1,6 +1,6 @@
 #include "areachartwidget.h"
 
-AreaChartWidget::AreaChartWidget(QWidget *parent, const char *name):QWidget(parent)
+AreaChartWidget::AreaChartWidget(QWidget *parent, const char *name) : QWidget(parent)
 {
     lt=new QGridLayout(this);
     areaTable=new QTableView;
@@ -33,7 +33,6 @@ AreaChartWidget::AreaChartWidget(QWidget *parent, const char *name):QWidget(pare
     connect(areaTableModel,&AreaChartTableModel::rowsRemoved,areaModel,&AreaChartModel::updateAxisY);
 }
 void AreaChartWidget::aggiungiLineaSlot(){
-    //areaTableModel->insertColumns(areaTableModel->columnCount(),2);
     areaTableModel->insertColumns(areaTableModel->columnCount(),1);
     areaModel->updateInsertColumn();
 }

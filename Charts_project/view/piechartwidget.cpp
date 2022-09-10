@@ -61,7 +61,7 @@ void piechartwidget::cambiaTitoloSlot(){
 }
 
 void piechartwidget::salvaJsonPie(){
-    piemodel->salvaJsonPie();
+    piemodel->salvaJson();
 }
 
 void piechartwidget::chartFocus(){
