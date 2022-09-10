@@ -127,3 +127,5 @@ QVariant CandleStickChartTableModel::headerData(int section, Qt::Orientation ori
     }
     return QVariant();
 }
+
+

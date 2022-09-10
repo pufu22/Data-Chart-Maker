@@ -1,9 +1,8 @@
 #include "bar_data.h"
 #include<string>
 
-Bar_data::Bar_data(QVector<QVector<int>> m_sets, QString m_title, QVector<QString> m_categories, QVector<QString> m_names, int minValue,
-                   int maxValue)
-    : comparisonChartData(m_title, m_sets, m_names, m_categories, minValue, maxValue){}
+Bar_data::Bar_data(QVector<QVector<int>> m_sets, QString m_title, QVector<QString> m_categories, QVector<QString> m_names)
+    : comparisonChartData(m_title, m_sets, m_names, m_categories){}
 
 Bar_data::Bar_data():comparisonChartData(){}
 
@@ -16,7 +15,7 @@ Bar_data& Bar_data::operator =(const Bar_data& other){
     return *this;
 }
 
-void Bar_data::setCategories(int x,int y,QString cat){
+void Bar_data::setCategories(int x,QString cat){
     categories[x]=cat;
 }
 

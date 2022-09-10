@@ -22,7 +22,7 @@ barcharttable::barcharttable(Bar_data *data, QWidget *parent, const char *name):
     connect(changeTitle,&QPushButton::released,this,&barcharttable::changetitle);
 
     m_model=new BarChartModel(barmodel);
-    connect(barmodel,&BarChartTableModel::minMaxChanged,m_model,&BarChartModel::updateAxisY);
+
     table->setModel(barmodel);
     barmodel->setParent(table);
     lt->addWidget(table);
@@ -31,9 +31,7 @@ barcharttable::barcharttable(Bar_data *data, QWidget *parent, const char *name):
     chartView = new QChartView(m_model->getChart());
     chartView->setRenderHint(QPainter::Antialiasing);
     chartView->setMinimumSize(1280, 480);
-
     QPushButton* ingrandisci=new QPushButton("&Ingrandisci");
-    //ingrandisci->setIcon(QIcon(":/icone/ingrandisci"));
     connect(ingrandisci,&QPushButton::released,this,&barcharttable::chartFocus);
     lt->addWidget(aggiungi_riga);
     lt->addWidget(aggiungi_colonna);
@@ -46,10 +44,12 @@ barcharttable::barcharttable(Bar_data *data, QWidget *parent, const char *name):
     setLayout(lt);
     connect(nullptr,&MainWindow::salvaConNomeSignal,this,&barcharttable::salvaJsonBar);
     connect(barmodel,&BarChartTableModel::dataChanged,m_model,&BarChartModel::updateAxisY);
-    connect(barmodel,&BarChartTableModel::columnsInserted,m_model,&BarChartModel::updateAxisY);
+    //connect(barmodel,&BarChartTableModel::columnsInserted,m_model,&BarChartModel::updateAxisY);
     connect(barmodel,&BarChartTableModel::columnsRemoved,m_model,&BarChartModel::updateAxisY);
     connect(barmodel,&BarChartTableModel::rowsRemoved,m_model,&BarChartModel::updateAxisY);
-    connect(barmodel,&BarChartTableModel::rowsInserted,m_model,&BarChartModel::updateAxisY);
+    //connect(barmodel,&BarChartTableModel::rowsInserted,m_model,&BarChartModel::updateAxisY);
+
+    connect(this,&barcharttable::riga,this,&barcharttable::adjustChart);
 }
 
 void barcharttable::setupModels(){
@@ -60,21 +60,19 @@ void barcharttable::setupModels(){
 
 void barcharttable::aggiungiriga(){
     bool ok;
-    QString cat=QInputDialog::getText(nullptr,tr("Aggiungi categoria"),tr("Categoria:"),QLineEdit::Normal,tr(" "),&ok);
-    if(ok && cat.trimmed()!=""){
-        barmodel->insertRows(barmodel->rowCount(),1,cat);
-        m_model->updateMapperLastRow(barmodel);
-    }
+        ok=barmodel->insertRows(barmodel->rowCount(),1);
+        if(ok)
+            m_model->updateMapperLastRow(barmodel);
+
 
 }
 
 void barcharttable::aggiungicolonna(){
-        bool ok;
-        QString set=QInputDialog::getText(nullptr,tr("Aggiungi nome barra"),tr("Barra:"),QLineEdit::Normal,tr(" "),&ok);
-        if(ok && set.trimmed()!= ""){
-            barmodel->insertColumns(barmodel->columnCount(),1,set);
+            bool ok;
+            ok=barmodel->insertColumns(barmodel->columnCount(),1);
+            if(ok)
             m_model->updateMapperLastColumn();
-        }
+
 }
 
 void barcharttable::removebars(){
@@ -116,16 +114,12 @@ void barcharttable::changetitle(){
 }
 void barcharttable::chartFocus(){
 PopupChart::chartFocus(chartView,this);
-
 lt->addWidget(chartView);
-chartView->chart()->resize(120,120);
-chartView->resize(1280,480);
-chartView->chart()->adjustSize();
-
+emit riga();
 }
 
 void barcharttable::adjustChart(){
-    chartView->resize(480,480);
-    chartView->updatesEnabled();
-    chartView->updateGeometry();
+    chartView->resize(1280,480);
+    //chartView->updatesEnabled();
+    //chartView->updateGeometry();
 }

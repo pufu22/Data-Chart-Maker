@@ -25,6 +25,7 @@ public:
     void creaBarChartFromFile(const QJsonObject &json);
     void creaLineChartFromFile(const QJsonObject &json);
     void creaCandleChartFromFile(const QJsonObject &json);
+    void creaAreaChartFromFile(const QJsonObject &json);
 private:
     //CreateChartWidget createchart;
     QMenu* fileMenu;

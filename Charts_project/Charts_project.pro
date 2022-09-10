@@ -29,7 +29,6 @@ SOURCES += \
     model/linecharttablemodel.cpp \
     model/piechartmodel.cpp \
     model/piecharttablemodel.cpp \
-    statisticalChartData.cpp \
     view/areachartwidget.cpp \
     view/barcharttable.cpp \
     view/candlestickchartwidget.cpp \
@@ -59,7 +58,6 @@ HEADERS += \
     model/linecharttablemodel.h \
     model/piechartmodel.h \
     model/piecharttablemodel.h \
-    statisticalChartData.h \
     view/areachartwidget.h \
     view/barcharttable.h \
     view/candlestickchartwidget.h \

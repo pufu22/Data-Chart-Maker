@@ -35,6 +35,7 @@ public:
     void pushName(QString name);
     void pushCategory(QString catg);
     void pushGroup(int pos);
+    void setName(QString name,int pos);
 };
 
 #endif // COMPARISONCHARTDATA_H

@@ -6,6 +6,7 @@ class CandleStickData
 {
 public:
     CandleStickData();
+    CandleStickData(QVector<qreal>t,QVector<qreal>o,QVector<qreal>h,QVector<qreal>l,QVector<qreal>c,QString tit);
     int getEntries()const;
     QVector<qreal> getTimeStamps()const;
     QVector<qreal> getOpens()const;
@@ -18,6 +19,7 @@ public:
     qreal getHighAt(int pos)const;
     qreal getLowAt(int pos)const;
     QString getTitle()const;
+    void setTitle(QString t);
     void setTimeStampAt(int pos,qreal v);
     void setOpenAt(int pos,qreal v);
     void setCloseAt(int pos,qreal v);

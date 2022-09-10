@@ -9,7 +9,7 @@ class Piecharttablemodel : public QAbstractTableModel
     Q_OBJECT
 
 public:
-    explicit Piecharttablemodel(QObject *parent = nullptr,pie_data* d=nullptr);
+    explicit Piecharttablemodel(pie_data* d=nullptr,QObject *parent = 0);
     // Header:
 
 
@@ -29,13 +29,13 @@ public:
     Qt::ItemFlags flags(const QModelIndex& index) const override;
 
     // Add data:
-    bool insertRows(int row, int count,QString eti,int val, const QModelIndex &parent = QModelIndex());
+    bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex());
 
 
-    bool removeRow(int row, const QModelIndex &parent=QModelIndex()) ;
+    bool removeRows(int row,int count, const QModelIndex &parent=QModelIndex()) ;
 
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    pie_data dati;
+    pie_data* dati;
 private:
 };
 

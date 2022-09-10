@@ -12,6 +12,10 @@ public:
     bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex());
     bool insertColumn(int column, const QModelIndex &parent = QModelIndex());
     bool insertColumns(int column, int count, const QModelIndex &parent = QModelIndex());
+    bool removeColumns(int column, int count, const QModelIndex &parent = QModelIndex());
+    bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    bool setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role=Qt::EditRole);
     QVariant data(const QModelIndex &index, int role=Qt::DisplayRole)const override;
     Qt::ItemFlags flags(const QModelIndex &index) const ;
     bool setData(const QModelIndex &index,const QVariant &value,int role);

@@ -99,8 +99,12 @@ QVariant LineChartTableModel::headerData(int section, Qt::Orientation orientatio
         if(section==0)
             return QString("X");
         else
-            return QString("Y");
+            return dati->getLineName(section-1);
     }
     return QVariant();
 }
-
+bool LineChartTableModel::setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role){
+    if(role == Qt::EditRole && orientation == Qt::Horizontal){
+       dati->setName(value.toString(),section);
+    }
+}

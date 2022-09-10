@@ -50,6 +50,6 @@ void pie_data::pushbackValue(int v){
 }
 
 void pie_data::removeSlice(int pos){
-    etichette.remove(pos-1);
-    valori.remove(pos-1);
+    etichette.remove(pos);
+    valori.remove(pos);
 }

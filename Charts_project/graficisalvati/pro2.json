@@ -1,0 +1,27 @@
+{
+    "Type": "barchart",
+    "bars": {
+        "SF": [
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "Tipo": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ]
+    },
+    "names": [
+        "Sinb",
+        "Jennie",
+        "Carlo",
+        "ADS",
+        "CASCO"
+    ],
+    "title": "Bar"
+}

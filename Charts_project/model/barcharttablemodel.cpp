@@ -53,34 +53,43 @@ Qt::ItemFlags BarChartTableModel::flags(const QModelIndex &index) const
 }
 
 
-bool BarChartTableModel::insertRows(int row, int count,QString cat, const QModelIndex &)
+bool BarChartTableModel::insertRows(int row, int count, const QModelIndex &)
 {
+    bool ok;
+    QString cat=QInputDialog::getText(nullptr,tr("Aggiungi categoria"),tr("Categoria:"),QLineEdit::Normal,tr(" "),&ok);
+    if(ok&&cat.trimmed()!=""){
+        beginInsertRows(QModelIndex(),row,row);
+            for(int r = 0;r<count;++r)
+            {
+                dati->pushSets(columnCount());
+                dati->pushCategory(cat);
+            }
 
-    beginInsertRows(QModelIndex(),row,row);
-        for(int r = 0;r<count;++r)
-        {
-            dati->pushSets(columnCount());
-            dati->pushCategory(cat);
-        }
-
-    endInsertRows();
-        return true;
+        endInsertRows();
+            return true;
+    }
+    return false;
 
 }
 
-bool BarChartTableModel::insertColumns(int column, int count,QString name,const QModelIndex &parent)
+bool BarChartTableModel::insertColumns(int column, int count,const QModelIndex &parent)
 {
+    bool ok;
+    QString set=QInputDialog::getText(nullptr,tr("Aggiungi nome barra"),tr("Barra:"),QLineEdit::Normal,tr(" "),&ok);
+    if(ok && set.trimmed()!= ""){
     beginInsertColumns(parent,column,column);
-    for(int c=0;c<count;++c)
-    {
-        for(int i=0;i<rowCount();++i)
-            dati->pushGroup(i);
-            dati->pushName(name);
+        for(int c=0;c<count;++c)
+        {
+            for(int i=0;i<rowCount();++i)
+                dati->pushGroup(i);
+                dati->pushName(set);
+        }
+
+        endInsertColumns();
+
+            return true;
     }
-
-    endInsertColumns();
-
-        return true;
+    return false;
 
 }
 
@@ -109,3 +118,11 @@ QVariant BarChartTableModel::headerData(int section, Qt::Orientation orientation
     return QVariant();
 }
 
+bool BarChartTableModel::setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role){
+    if(role == Qt::EditRole && orientation == Qt::Vertical){
+       dati->setCategories(section,value.toString());
+    }
+    if(role == Qt::EditRole && orientation == Qt::Horizontal){
+        dati->setBarNames(section,value.toString());
+    }
+}

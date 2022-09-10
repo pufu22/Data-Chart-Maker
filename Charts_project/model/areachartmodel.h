@@ -9,10 +9,17 @@ class AreaChartModel:public QObject
 public:
     AreaChartModel(AreaChartTableModel* data);
     QChart* getChart();
-    void updateMappers(AreaChartTableModel* data);
+    void updateMappers();
+    void updateRemoved(int pos);
+
 public slots:
     void updateAxisY();
+    void salvaJson();
+    void changeTitle(QString title);
+private slots:
+    void cambiaNome();
 private:
+    AreaChartTableModel* dati;
     QChart *chart;
     QVector<QVXYModelMapper*> linesmappers;
     QVector <QLineSeries*> series;

@@ -1,20 +1,26 @@
 {
     "Type":"barchart",
     "title":"Bar",
-    "range":"0-15",
     "bars":
     {
-        "M":
+        "Tipo":
         [
             1,2,3,4,5
         ]
         ,
-        "S":
+        "SF":
         [
             6,7,8,9,10
         ]
         
         
-    }
-    
+    },
+    "names":[
+        "Sinb",
+        "Jennie",
+        "Carlo",
+        "ADS",
+        "CASCO"
+    ]
+
 }

@@ -7,6 +7,7 @@
 #include<QVBarModelMapper>
 BarChartModel::BarChartModel(BarChartTableModel *data)
 {
+    dati=data;
     chart=new QChart;
     chart->setAnimationOptions(QChart::AllAnimations);
     series=new QBarSeries;
@@ -22,9 +23,9 @@ BarChartModel::BarChartModel(BarChartTableModel *data)
     mapper->setModel(data);
     chart->addSeries(series);
 
-    for(int i=0;i<data->dati->getCategories().size();++i){
-        QString qstr = data->dati->getCategories().at(i);
+    for(int i=0;i<data->rowCount();++i){
 
+        QString qstr = data->headerData(i,Qt::Vertical,Qt::DisplayRole).toString();
         categories<<qstr;
 
     }
@@ -42,7 +43,7 @@ BarChartModel::BarChartModel(BarChartTableModel *data)
     chart->addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
     series->setLabelsVisible(true);
-
+    connect(series,&QBarSeries::doubleClicked,this,&BarChartModel::cambiaNome);
 }
 
 void BarChartModel::updateMapperLastColumn()
@@ -53,7 +54,7 @@ void BarChartModel::updateMapperLastRow(BarChartTableModel *data)
 {
 
     mapper->setRowCount(++lastrow);
-    categories<<data->dati->getCategories()[lastrow-1];
+    categories<<data->headerData(lastrow-1,Qt::Vertical,Qt::DisplayRole).toString();
     axisX->append(categories);
 
 }
@@ -71,9 +72,45 @@ void BarChartModel::updateMapperRemoveRow(int pos){
 
 void BarChartModel::salvaJsonBar(){
     QJsonObject mainObject;
-    mainObject.insert(QString::fromStdString("title"),title);
+    QJsonObject secondaryObject;
+    mainObject.insert(QString::fromStdString("title"),chart->title());
     mainObject.insert(QString::fromStdString("Type"),QString::fromStdString("barchart"));
+    QJsonArray c;
+    QJsonArray v;
+    QVector<QVector<int>> c2;
+    QList<QBarSet*>temp=series->barSets();
+    for(int j=0;j<temp.at(0)->count();++j)
+    {
+        for(int i=0;i<temp.count();++i)
+        {
+            if(j>0)
+                c.pop_front();
+            else
+                v.append(temp.at(i)->label());
+            c.append(temp.at(i)->at(j));
+        }
+        secondaryObject.insert(categories.at(j),c);
 
+    }
+
+
+
+    mainObject.insert(QString::fromStdString("bars"),secondaryObject);
+    mainObject.insert(QString::fromStdString("names"),v);
+
+    QJsonDocument document;
+    document.setObject( mainObject );
+    bool ok;
+    QString nomeFile=QInputDialog::getText(nullptr,tr("Salva con nome:"),tr("Nome file:"),QLineEdit::Normal,QDir::home().dirName(),&ok);
+
+    QFile file( "../Charts_project/graficisalvati/"+nomeFile+".json");
+    if(file.open( QIODevice::WriteOnly))
+    {
+        file.write(document.toJson());
+               //return false;
+    }
+    else
+            qWarning("Couldn't open save file.");
 }
 
 void BarChartModel::updateAxisY(){
@@ -110,3 +147,33 @@ int BarChartModel::getMin(){
         return min;
 }
 
+void BarChartModel::cambiaNome(int index,QBarSet *barset){
+    QStringList name;
+    name<<"Bar name";
+    name<<"Set name";
+    bool ok;
+    QString scelta=QInputDialog::getItem(nullptr, tr("QInputDialog::getItem()"),
+                                         tr("Scegli:"), name, 0, false, &ok);
+    if(ok && !scelta.isEmpty())
+        if(scelta.compare("Bar name")==0)
+        for(int i=0;i<series->barSets().count();++i){
+        QBarSet* barSet=series->barSets().at(i);
+        if(barset==barSet){
+            bool ok2;
+            QString nome=QInputDialog::getText(nullptr,tr("Nome"),tr("Nome:"),QLineEdit::Normal,tr(""),&ok2);
+            if(ok2 && nome.trimmed()!=""){
+                dati->setHeaderData(i,Qt::Horizontal,nome,Qt::EditRole);
+            }
+        }
+        }
+        else{
+            bool ok3;
+            QString nomeset=QInputDialog::getText(nullptr,tr("Nome"),tr("Nome:"),QLineEdit::Normal,tr(""),&ok3);
+            if(ok3 && nomeset.trimmed()!="")
+                dati->setHeaderData(index,Qt::Vertical,nomeset,Qt::EditRole);
+                categories.replace(index,nomeset);
+                axisX->insert(index,nomeset);
+        }
+
+
+}

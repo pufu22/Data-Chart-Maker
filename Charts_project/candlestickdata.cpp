@@ -1,10 +1,16 @@
 #include "candlestickdata.h"
 
-CandleStickData::CandleStickData():timestamp({1435708800000,1435795200000}),open({126.90,126.69}),high({126.94,126.69}),low({125.99,126.69}),close({126.60,126.69})
+CandleStickData::CandleStickData():timestamp({1435708800000,1435795200000}),open({126.90,126.69}),high({126.94,126.69}),low({125.99,126.69}),close({126.60,126.69}),title("Titolo")
 {
 
 }
-
+CandleStickData::CandleStickData(QVector<qreal>t,
+                                 QVector<qreal>o,
+                                 QVector<qreal>h,
+                                 QVector<qreal>l,
+                                 QVector<qreal>c,
+                                 QString tit
+                                 ):timestamp(t),open(o),high(h),low(l),close(c),title(tit){}
 int CandleStickData::getEntries()const{
     return timestamp.size();
 }
@@ -72,3 +78,6 @@ void CandleStickData::addRow(qreal t,qreal o, qreal h,qreal l,qreal c){
     low.push_back(l);
 }
 
+void CandleStickData::setTitle(QString t){
+title=t;
+}

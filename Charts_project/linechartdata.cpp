@@ -9,7 +9,7 @@ LineChartData::LineChartData() : comparisonChartData() {
     }
 }
 
-LineChartData::LineChartData(QVector<QVector<int>> series,QString m_title) : comparisonChartData(m_title, series){}
+LineChartData::LineChartData(QVector<QVector<int>> series,QString m_title,QVector<QString>names) : comparisonChartData(m_title, series,names){}
 
 LineChartData& LineChartData::operator =(const LineChartData& other){
     if (this == &other)
@@ -55,4 +55,10 @@ void LineChartData::removeLineName(int l){
 }
 void LineChartData::addLineName(QString l){
     names.push_back(l);
+}
+void LineChartData::removeColumn(int column){
+    names.remove(column-1);
+    for(int i=0;i<sets.size();++i){
+        sets[i].remove(column);
+    }
 }

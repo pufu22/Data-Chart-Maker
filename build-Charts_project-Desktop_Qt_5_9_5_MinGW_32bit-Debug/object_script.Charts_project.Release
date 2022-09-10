@@ -18,7 +18,6 @@ INPUT(
 ./release\linecharttablemodel.o
 ./release\piechartmodel.o
 ./release\piecharttablemodel.o
-./release\statisticalChartData.o
 ./release\areachartwidget.o
 ./release\barcharttable.o
 ./release\candlestickchartwidget.o

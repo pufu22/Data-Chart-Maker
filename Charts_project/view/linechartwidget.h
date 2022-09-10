@@ -22,6 +22,7 @@ private:
     QPushButton* aggiungilinea;
     QPushButton* togliLinea;
     QPushButton* togliPunto;
+    QPushButton* cambiaTitolo;
     LineChartData* dati;
     QChartView* chartview;
 
@@ -30,6 +31,7 @@ private slots:
     void aggiungipunto();
     void togliLineaSlot();
     void togliPuntoSlot();
+    void cambiaTitoloSlot();
 signals:
     void linea();
 public slots:

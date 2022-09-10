@@ -76,3 +76,7 @@ void comparisonChartData::pushCategory(QString catg){
 void comparisonChartData::pushGroup(int pos){
     sets[pos].push_back(0);
 }
+
+void comparisonChartData::setName(QString name,int pos){
+    names[pos]=name;
+}

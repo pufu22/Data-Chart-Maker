@@ -7,10 +7,12 @@ LineChartWidget::LineChartWidget(LineChartData* data,QWidget *parent, const char
     aggiungilinea=new QPushButton("&Aggiungi una linea");
     togliLinea=new QPushButton("&Rimuovi linea");
     togliPunto=new QPushButton("Rimuovi Punti");
+    cambiaTitolo=new QPushButton("Cambia Titolo");
     connect(aggiungilinea,&QPushButton::released,this,&LineChartWidget::aggiungilineaslot);
     connect(aggiungiriga,&QPushButton::released,this,&LineChartWidget::aggiungipunto);
     connect(togliLinea,&QPushButton::released,this,&LineChartWidget::togliLineaSlot);
     connect(togliPunto,&QPushButton::released,this,&LineChartWidget::togliPuntoSlot);
+    connect(cambiaTitolo,&QPushButton::released,this,&LineChartWidget::cambiaTitoloSlot);
     table=new QTableView;
     if(data==nullptr)
         linecharttablemodel=new LineChartTableModel();
@@ -30,10 +32,11 @@ LineChartWidget::LineChartWidget(LineChartData* data,QWidget *parent, const char
      lt->addWidget(aggiungilinea);
      lt->addWidget(togliLinea);
      lt->addWidget(togliPunto);
+     lt->addWidget(cambiaTitolo);
      lt->addWidget(chartview);
      lt->setSizeConstraint(QLayout::SetFixedSize);
      setLayout(lt);
-     linecharttablemodel->setHeaderData(0, Qt::Horizontal, "Stock ID", Qt::DisplayRole);
+     //linecharttablemodel->setHeaderData(0, Qt::Horizontal, "Stock ID", Qt::DisplayRole);
      connect(nullptr,&MainWindow::salvaConNomeSignal,this,&LineChartWidget::salvaJsonFile);
      connect(linecharttablemodel,&LineChartTableModel::dataChanged,linechartmodel,&LineChartModel::updateAxisY);
      connect(linecharttablemodel,&LineChartTableModel::rowsInserted,linechartmodel,&LineChartModel::updateAxisY);
@@ -63,24 +66,31 @@ void LineChartWidget::aggiungipunto(){
 void LineChartWidget::togliLineaSlot(){
     bool ok;
     int linea;
-    if(linecharttablemodel->columnCount()/2>1){
-        linea=QInputDialog::getInt(this, tr("Linea"),tr("Linea:"),1,1,linecharttablemodel->columnCount()/2,1, &ok);
-        if(ok)
-            linecharttablemodel->removeColumns((linea-1)*2,2);
+    if(linecharttablemodel->columnCount()-1>1){
+        linea=QInputDialog::getInt(this, tr("Linea"),tr("Linea:"),1,1,linecharttablemodel->columnCount()-1,1, &ok);
+        if(ok){
+            linecharttablemodel->removeColumns(linea,1);
+            linechartmodel->updateRemoved(linea-1);
+        }
     }
 }
 
 void LineChartWidget::togliPuntoSlot(){
-            bool ok;
-            int row;
-            if(linecharttablemodel->rowCount()>1){
-                row=QInputDialog::getInt(this, tr("Punti"),tr("Punti"),1,1,linecharttablemodel->rowCount(),1, &ok);
-                if (ok){
-                    linecharttablemodel->removeRows(row-1,1);
-                }
+
+            if(linecharttablemodel->rowCount()>2){
+
+                    linecharttablemodel->removeRows(linecharttablemodel->rowCount()-1,1);
+
             }
 }
 
+void LineChartWidget::cambiaTitoloSlot(){
+    bool ok;
+    QString titolo=QInputDialog::getText(this,tr("Titolo"),tr("Titolo:"),QLineEdit::Normal,tr(""),&ok);
+    if(ok && titolo.trimmed()!=""){
+        linechartmodel->cambiaTitolo(linecharttablemodel,titolo);
+    }
+}
 void LineChartWidget::salvaJsonFile(){
     linechartmodel->salvaJsonFile();
 }

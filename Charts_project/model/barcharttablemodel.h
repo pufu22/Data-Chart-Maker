@@ -16,13 +16,14 @@ public:
     //BarChartTableModel(comparisonChartData* data,QObject* parent=0);
     int rowCount(const QModelIndex &parent = QModelIndex())const override;
     int columnCount(const QModelIndex &parent = QModelIndex())const override;
-    bool insertRows(int row, int count, QString cat, const QModelIndex &parent = QModelIndex());
+    bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex());
     bool insertColumn(int column, const QModelIndex &parent = QModelIndex());
-    bool insertColumns(int column, int count,QString name,const QModelIndex &parent = QModelIndex());
+    bool insertColumns(int column, int count,const QModelIndex &parent = QModelIndex());
     bool removeColumn(int column, const QModelIndex &parent=QModelIndex());
     bool removeRow(int row,  const QModelIndex &parent=QModelIndex());
     QVariant data(const QModelIndex &index, int role=Qt::DisplayRole)const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    bool setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role=Qt::EditRole);
     Bar_data* dati;
     //comparisonChartData* dati;
     void newData();

@@ -16,6 +16,7 @@ public:
     void salvaJsonBar();
     void changeTitle(BarChartTableModel *data,QString t);
 private:
+    BarChartTableModel* dati;
     QChart *chart;
     QBarSeries *series;
     QStringList categories;
@@ -27,7 +28,8 @@ private:
     int lastrow;
     int getMax();
     int getMin();
-
+private slots:
+    void cambiaNome(int index,QBarSet* barset);
 public slots:
     void updateAxisY();
 };

@@ -25,15 +25,15 @@ MainWindow::MainWindow(QWidget *parent)
     //CandleStickChartWidget* cChart=new CandleStickChartWidget(this);
     //this->setCentralWidget(cChart);
     //cChart->show();
-    //AreaChartWidget* areaChart=new AreaChartWidget(this,"areachart");
-    //this->setCentralWidget(areaChart);
-    //areaChart->show();
+    AreaChartWidget* areaChart=new AreaChartWidget(this,"areachart");
+    this->setCentralWidget(areaChart);
+    areaChart->show();
     //piechartwidget* piechart=new piechartwidget(this,"piechart",nullptr);
     //this->setCentralWidget(piechart);
     //piechart->show();
-    SelectGraphic* sG=new SelectGraphic(this);
+    /*SelectGraphic* sG=new SelectGraphic(this);
     this->setCentralWidget(sG);
-    connect(sG,&SelectGraphic::createChart,this,&MainWindow::creaChart);
+    connect(sG,&SelectGraphic::createChart,this,&MainWindow::creaChart);*/
 }
 
 MainWindow::~MainWindow()
@@ -94,9 +94,15 @@ bool MainWindow::apriFile()
          }
          else if(tipo=="barchart"){
              creaBarChartFromFile(obj);
+             return true;
          }else if(tipo=="linechart"){
             creaLineChartFromFile(obj);
+            return true;
          }
+         else if(tipo=="candlestickchart")
+             creaCandleChartFromFile(obj);
+         else if(tipo=="areachart")
+             creaAreaChartFromFile(obj);
          else
              return false;
 
@@ -116,7 +122,7 @@ void MainWindow::creaBarChart()
         this->centralWidget()->disconnect();
     this->setCentralWidget(bartable);
     bartable->show();
-
+    connect(this,&MainWindow::salvaConNomeSignal,bartable,&barcharttable::salvaJsonBar);
     emit graficoSalvabile(true);
 }
 
@@ -127,6 +133,7 @@ void MainWindow::creaLineChart()
         this->centralWidget()->disconnect();
     this->setCentralWidget(linechart);
         linechart->show();
+        connect(this,&MainWindow::salvaConNomeSignal,linechart,&LineChartWidget::salvaJsonFile);
         emit graficoSalvabile(true);
 
 }
@@ -145,6 +152,7 @@ void MainWindow::creaAreaChart(){
     AreaChartWidget* areachart=new AreaChartWidget(this,"piechart");
     this->setCentralWidget(areachart);
     areachart->show();
+    connect(this,&MainWindow::salvaConNomeSignal,areachart,&AreaChartWidget::salvaJson);
     emit graficoSalvabile(true);
 }
 void MainWindow::creaCandleChart(){
@@ -152,6 +160,7 @@ void MainWindow::creaCandleChart(){
     this->setCentralWidget(candleChart);
     candleChart->show();
     emit graficoSalvabile(true);
+    connect(this,&MainWindow::salvaConNomeSignal,candleChart,&CandleStickChartWidget::salvaJson);
 }
 void MainWindow::creaPieChartFromFile(const QJsonObject &json){
     QVector<QVariant> v= json["values"].toArray().toVariantList().toVector();
@@ -174,9 +183,14 @@ void MainWindow::creaPieChartFromFile(const QJsonObject &json){
 void MainWindow::creaBarChartFromFile(const QJsonObject &json){
 QString tempString =json["title"].toString();
 QJsonObject tempA =json["bars"].toObject();
+QVector<QVariant> v= json["names"].toArray().toVariantList().toVector();
 QVector<QVector<int>> s;
 QVector<QString> s2;
+QVector<QString> s3;
 int j=0;
+for(int i=0;i<v.size();++i){
+    s3.push_back(v.at(i).toString());
+}
 foreach(const QString& key, tempA.keys()) {
         s2.push_back(key);
        QJsonValue value = tempA.value(key);
@@ -189,44 +203,99 @@ foreach(const QString& key, tempA.keys()) {
        s.push_back(n2);
        ++j;
 }
-int minVal;
-int maxVal;
-//Bar_data* d=new Bar_data(s,tempString,s2,minVal,maxVal);
-//barcharttable* barchart=new barcharttable(d);
-//this->setCentralWidget(barchart);
-//barchart->show();
-//emit graficoSalvabile(true);
+
+Bar_data* d=new Bar_data(s,tempString,s2,s3);
+barcharttable* barchart=new barcharttable(d);
+this->setCentralWidget(barchart);
+barchart->show();
+connect(this,&MainWindow::salvaConNomeSignal,barchart,&barcharttable::salvaJsonBar);
+emit graficoSalvabile(true);
 }
 
 void MainWindow::creaLineChartFromFile(const QJsonObject &json)
 {
-    std::string tempString =json["title"].toString().toStdString();
+    QString tempString =json["title"].toString();
     QJsonObject tempA =json["series"].toObject();
+    QVector<QVariant> v= json["names"].toArray().toVariantList().toVector();
+    QVector<QString> s3;
+    for(int i=0;i<v.size();++i){
+        s3.push_back(v.at(i).toString());
+    }
     QVector<QVector<int>> s;
     foreach(const QString& key, tempA.keys()) {
            QJsonValue value = tempA.value(key);
+
            QJsonArray a=value.toArray();
            QVector<int> n2;
+           n2.push_back(key.toInt());
            for(int i=0;i<a.size();++i)
            {
                 n2.push_back(a.at(i).toInt());
            }
            s.push_back(n2);
     }
-    LineChartData* d=new LineChartData(s,json["title"].toString());
+    LineChartData* d=new LineChartData(s,json["title"].toString(),s3);
     LineChartWidget* linechart=new LineChartWidget(d);
     this->setCentralWidget(linechart);
     linechart->show();
+    connect(this,&MainWindow::salvaConNomeSignal,linechart,&LineChartWidget::salvaJsonFile);
     emit graficoSalvabile(true);
 }
 
 void MainWindow::creaCandleChartFromFile(const QJsonObject &json){
     QString title=json["title"].toString();
-    QJsonObject temp=json["timestamps"].toObject();
-    QVector<qreal> s;
-    foreach (const QString& timestamp, temp.keys()) {
+    QVector<QVariant>timestamps= json["timestamps"].toArray().toVariantList().toVector();
+    QVector<QVariant>opens= json["opens"].toArray().toVariantList().toVector();
+    QVector<QVariant>highs= json["highs"].toArray().toVariantList().toVector();
+    QVector<QVariant>lows= json["lows"].toArray().toVariantList().toVector();
+    QVector<QVariant>closes= json["closes"].toArray().toVariantList().toVector();
+    QVector<qreal> t;
+    QVector<qreal> o;
+    QVector<qreal> h;
+    QVector<qreal> l;
+    QVector<qreal> c;
 
+    for(int i=0;i<timestamps.size();++i){
+        t.push_back(timestamps.at(i).toReal());
+        o.push_back(opens.at(i).toReal());
+        h.push_back(highs.at(i).toReal());
+        l.push_back(lows.at(i).toReal());
+        c.push_back(closes.at(i).toReal());
     }
+    CandleStickData* candleData=new CandleStickData(t,o,h,l,c,title);
+    CandleStickChartWidget* candleWidget=new CandleStickChartWidget(this,candleData);
+    this->setCentralWidget(candleWidget);
+    candleWidget->show();
+    emit graficoSalvabile(true);
+    connect(this,&MainWindow::salvaConNomeSignal,candleWidget,&CandleStickChartWidget::salvaJson);
+
+}
+void MainWindow::creaAreaChartFromFile(const QJsonObject &json){
+    QJsonObject tempA =json["lines"].toObject();
+    QVector<QVariant> v= json["areanames"].toArray().toVariantList().toVector();
+    QVector<QString> s3;
+    for(int i=0;i<v.size();++i){
+        s3.push_back(v.at(i).toString());
+    }
+    QVector<QVector<int>> s;
+    foreach(const QString& key, tempA.keys()) {
+           QJsonValue value = tempA.value(key);
+
+           QJsonArray a=value.toArray();
+           QVector<int> n2;
+           n2.push_back(key.toInt());
+           for(int i=0;i<a.size();++i)
+           {
+                n2.push_back(a.at(i).toInt());
+           }
+           s.push_back(n2);
+    }
+    AreaChartData* d=new AreaChartData(s,json["title"].toString(),s3);
+    AreaChartWidget* areachart=new AreaChartWidget(this,"AreaChart",d);
+    this->setCentralWidget(areachart);
+    areachart->show();
+    connect(this,&MainWindow::salvaConNomeSignal,areachart,&AreaChartWidget::salvaJson);
+    emit graficoSalvabile(true);
 }
 
 void MainWindow::creaChart(QString name){
@@ -241,6 +310,5 @@ void MainWindow::creaChart(QString name){
          creaLineChart();
      if(name.compare("CandleChart")==0)
          creaCandleChart();
-
 }
 

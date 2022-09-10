@@ -18,7 +18,6 @@ INPUT(
 ./debug\linecharttablemodel.o
 ./debug\piechartmodel.o
 ./debug\piecharttablemodel.o
-./debug\statisticalChartData.o
 ./debug\areachartwidget.o
 ./debug\barcharttable.o
 ./debug\candlestickchartwidget.o

@@ -1,10 +1,13 @@
 #include "candlestickchartwidget.h"
 
-CandleStickChartWidget::CandleStickChartWidget(QWidget *parent)
+CandleStickChartWidget::CandleStickChartWidget(QWidget *parent,CandleStickData* d)
     : QWidget{parent}
 {
     lt=new QGridLayout(this);
     candleTable=new QTableView;
+    if(d)
+    candleTableModel=new CandleStickChartTableModel(d);
+        else
     candleTableModel=new CandleStickChartTableModel();
     candleModel=new CandleStickChartModel(candleTableModel);
     candleTable->setModel(candleTableModel);
@@ -15,11 +18,14 @@ CandleStickChartWidget::CandleStickChartWidget(QWidget *parent)
     connect(aggiungiSet,&QPushButton::released,this,&CandleStickChartWidget::aggiungiSetSlot);
     rimuoviSet=new QPushButton("Rimuovi set",this);
     connect(rimuoviSet,&QPushButton::released,this,&CandleStickChartWidget::rimuoviSetSlot);
+    cambiaTitolo=new QPushButton("Cambia Titolo",this);
+    connect(cambiaTitolo,&QPushButton::released,this,&CandleStickChartWidget::cambiaTitoloSlot);
     chartview=new QChartView(candleModel->getChart());
     chartview->setRenderHint(QPainter::Antialiasing);
     chartview->setMinimumSize(1280,480);
     lt->addWidget(aggiungiSet);
     lt->addWidget(rimuoviSet);
+    lt->addWidget(cambiaTitolo);
     lt->addWidget(chartview);
     lt->setSizeConstraint(QLayout::SetFixedSize);
     setLayout(lt);
@@ -29,6 +35,7 @@ CandleStickChartWidget::CandleStickChartWidget(QWidget *parent)
     connect(candleTableModel,&CandleStickChartTableModel::rowsRemoved,candleModel,&CandleStickChartModel::updateAxis);
     connect(candleTableModel,&CandleStickChartTableModel::columnsInserted,candleModel,&CandleStickChartModel::updateAxis);
     connect(candleTableModel,&CandleStickChartTableModel::rowsInserted,candleModel,&CandleStickChartModel::updateAxis);
+    connect(this,&CandleStickChartWidget::salvaJson,candleModel,&CandleStickChartModel::salvaJson);
 }
 
 void CandleStickChartWidget::aggiungiSetSlot(){
@@ -47,4 +54,12 @@ void CandleStickChartWidget::rimuoviSetSlot(){
         candleModel->updateRemoved(set-1);
     }
 
+}
+
+void CandleStickChartWidget::cambiaTitoloSlot(){
+    bool ok;
+    QString titolo=QInputDialog::getText(this,tr("Titolo"),tr("Titolo:"),QLineEdit::Normal,tr(""),&ok);
+    if(ok && titolo.trimmed()!=""){
+        candleModel->cambiaTitolo(candleTableModel,titolo);
+    }
 }

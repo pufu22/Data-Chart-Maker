@@ -10,18 +10,25 @@ class AreaChartWidget:public QWidget
 {
     Q_OBJECT
 public:
-    AreaChartWidget(QWidget *parent = 0, const char* name = 0);
+    AreaChartWidget(QWidget *parent = 0, const char* name = 0,AreaChartData* data=nullptr);
     AreaChartModel* areaModel;
     AreaChartTableModel* areaTableModel;
     QTableView* areaTable;
     QLayout* lt;
-    AreaChartData* dati;
     QChartView* chartview;
     QPushButton* aggiungiLinea;
     QPushButton* aggiungiPunto;
+    QPushButton* rimuoviLinea;
+    QPushButton* rimuoviPunto;
+    QPushButton* cambiaTitolo;
 private slots:
+    void cambiaTitoloSlot();
     void aggiungiLineaSlot();
     void aggiungiPuntoSlot();
+    void rimuoviLineaSlot();
+    void rimuoviPuntoSlot();
+public slots:
+    void salvaJson();
 };
 
 #endif // AREACHARTWIDGET_H

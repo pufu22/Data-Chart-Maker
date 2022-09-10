@@ -69,13 +69,46 @@ bool AreaChartTableModel::insertRows(int row, int count, const QModelIndex &pare
 
 bool AreaChartTableModel::insertColumns(int column, int count, const QModelIndex &parent)
 {
-    beginInsertColumns(parent,column,column);
+    bool ok;
+    QString areaName=QInputDialog::getText(nullptr,tr("Area"),tr("Nome area:"),QLineEdit::Normal,tr(""),&ok);
+    if(ok&&areaName.trimmed()!=""){
+        dati->addAreaName(areaName);
+        beginInsertColumns(parent,column,column);
+        for(int c=0;c<count;++c)
+        {
+            for(int i=0;i<rowCount();++i)
+                dati->pushGroup(i);
+        }
+        endInsertColumns();
+        return true;
+        }
+    return false;
+}
 
-    for(int c=0;c<count;++c)
-    {
-        for(int i=0;i<rowCount();++i)
-            dati->pushGroup(i);
+bool AreaChartTableModel::removeColumns(int column, int count, const QModelIndex &parent){
+    beginRemoveColumns(parent,column,column+count-1);
+        dati->removeColumn(column);
+    endRemoveColumns();
+}
+
+bool AreaChartTableModel::removeRows(int row, int count, const QModelIndex &parent){
+    beginRemoveRows(parent,row,row);
+    dati->removeRow(row);
+    endRemoveRows();
+}
+QVariant AreaChartTableModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
+        if(section==0)
+            return QString("X");
+        else
+            return dati->getAreaName(section-1);
     }
-    endInsertColumns();
-return true;
+    return QVariant();
+}
+
+bool AreaChartTableModel::setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role){
+    if(role == Qt::EditRole && orientation == Qt::Horizontal){
+       dati->setName(value.toString(),section);
+    }
 }

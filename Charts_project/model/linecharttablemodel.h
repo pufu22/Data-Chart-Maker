@@ -21,6 +21,7 @@ public:
     bool setData(const QModelIndex &index,const QVariant &value,int role);
     LineChartData* dati;   /*dovrebbe essere in private o protected*/
     QVariant headerData(int section, Qt::Orientation orientation, int role) const;
+    bool setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role=Qt::EditRole);
     //bool correctValue(const QModelIndex &index,const QVariant &value);
     int maxValue=0;    /*a che serve?*/
 signals:
