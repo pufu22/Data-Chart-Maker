@@ -3,13 +3,13 @@
 
 piechartwidget::piechartwidget(QWidget *parent, const char *name,pie_data* d){
     lt=new QGridLayout(this);
+
     pietable=new QTableView;
     if(d==nullptr)
         pietablemodel=new Piecharttablemodel();
         else
         pietablemodel=new Piecharttablemodel(d);
     piemodel=new piechartmodel(pietablemodel);
-
     pietable->setModel(pietablemodel);
     pietablemodel->setParent(pietable);
     lt->addWidget(pietable);
@@ -30,14 +30,13 @@ piechartwidget::piechartwidget(QWidget *parent, const char *name,pie_data* d){
     lt->addWidget(ingrandisci);
     chartview=new QChartView(piemodel->getChart());
     chartview->setRenderHint(QPainter::Antialiasing);
-    chartview->setMinimumSize(1280,480);
+    chartview->setMinimumSize(1440,590);
     lt->addWidget(chartview);
-    lt->setSizeConstraint(QLayout::SetFixedSize);
-
+    lt->setSizeConstraint(QLayout::SetMinimumSize);
     setLayout(lt);
+
 }
 void piechartwidget::aggiungifettaslot(){
-
         bool ok;
         ok=pietablemodel->insertRows(pietablemodel->rowCount(),1);
         if(ok)
@@ -52,7 +51,7 @@ void piechartwidget::rimuovifettaslot(){
     if(piemodel->sliceCount()>1){
         int fetta=QInputDialog::getInt(this,tr("ELIMINA FETTA"),tr("Fetta:"),QLineEdit::Normal,1,piemodel->sliceCount(),1,&ok);
         if(ok)
-            pietablemodel->removeRows(fetta-1,1);
+            pietablemodel->removeRows(fetta,1);
     }
 }
 
@@ -70,10 +69,12 @@ void piechartwidget::salvaJsonPie(){
 }
 
 void piechartwidget::chartFocus(){
+    QSize size=chartview->size();
     ingrandisci->blockSignals(true);
     lt->removeWidget(chartview);
     PopupChart::chartFocus(chartview,this);
     ingrandisci->blockSignals(false);
+    chartview->resize(size);
     lt->addWidget(chartview);
 }
 

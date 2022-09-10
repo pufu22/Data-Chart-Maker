@@ -1,5 +1,5 @@
 #include "barchart_model.h"
-#include <bar_data.h>
+#include <data/bar_data.h>
 #include<QStringList>
 #include<QString>
 #include<iostream>
@@ -35,9 +35,7 @@ BarChartModel::BarChartModel(BarChartTableModel *data)
     chart->addAxis(axisX,Qt::AlignBottom);
     series->attachAxis(axisX);
     axisY= new QValueAxis();
-    int w=data->dati->getYAxisMinValue();
-    int x=data->dati->getYAxisMaxValue();
-    axisY->setRange(w,x);
+    axisY->setRange(getMin(),getMax());
     title=data->dati->getTitle();
     chart->setTitle(title);
     chart->addAxis(axisY, Qt::AlignLeft);
@@ -77,7 +75,6 @@ void BarChartModel::salvaJsonBar(){
     mainObject.insert(QString::fromStdString("Type"),QString::fromStdString("barchart"));
     QJsonArray c;
     QJsonArray v;
-    QVector<QVector<int>> c2;
     QList<QBarSet*>temp=series->barSets();
     for(int j=0;j<temp.at(0)->count();++j)
     {
@@ -164,6 +161,7 @@ void BarChartModel::cambiaNome(int index,QBarSet *barset){
             if(ok2 && nome.trimmed()!=""){
                 dati->setHeaderData(i,Qt::Horizontal,nome,Qt::EditRole);
             }
+            chart->legend()->update();
         }
         }
         else{
@@ -172,7 +170,7 @@ void BarChartModel::cambiaNome(int index,QBarSet *barset){
             if(ok3 && nomeset.trimmed()!="")
                 dati->setHeaderData(index,Qt::Vertical,nomeset,Qt::EditRole);
                 categories.replace(index,nomeset);
-                axisX->insert(index,nomeset);
+                axisX->replace(axisX->at(index),nomeset);
         }
 
 

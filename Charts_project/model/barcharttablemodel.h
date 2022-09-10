@@ -2,7 +2,7 @@
 #define BARCHARTTABLEMODEL_H
 
 #include <QAbstractTableModel>
-#include <bar_data.h>
+#include <data/bar_data.h>
 #include<QAbstractItemModel>
 #include<vector>
 #include<iostream>

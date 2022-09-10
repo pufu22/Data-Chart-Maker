@@ -2,13 +2,15 @@ INPUT(
 ./release\areachartdata.o
 ./release\bar_data.o
 ./release\candlestickdata.o
+./release\chartData.o
 ./release\comparisonChartData.o
-./release\inputdialog.o
 ./release\linechartdata.o
+./release\pie_data.o
+./release\statisticalChartData.o
+./release\inputdialog.o
 ./release\main.o
 ./release\candlestickchartmodel.o
 ./release\candlestickcharttablemodel.o
-./release\pie_data.o
 ./release\popupchart.o
 ./release\areachartmodel.o
 ./release\areacharttablemodel.o

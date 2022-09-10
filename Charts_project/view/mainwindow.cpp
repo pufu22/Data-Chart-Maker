@@ -25,12 +25,14 @@ MainWindow::MainWindow(QWidget *parent)
     //CandleStickChartWidget* cChart=new CandleStickChartWidget(this);
     //this->setCentralWidget(cChart);
     //cChart->show();
-    AreaChartWidget* areaChart=new AreaChartWidget(this,"areachart");
-    this->setCentralWidget(areaChart);
-    areaChart->show();
-    //piechartwidget* piechart=new piechartwidget(this,"piechart",nullptr);
-    //this->setCentralWidget(piechart);
-    //piechart->show();
+    //AreaChartWidget* areaChart=new AreaChartWidget(this,"areachart");
+    //this->setCentralWidget(areaChart);
+    //areaChart->show();
+    piechartwidget* piechart=new piechartwidget(this,"piechart",nullptr);
+    this->setCentralWidget(piechart);
+    piechart->show();
+
+    this->setMinimumSize(1080,590);
     /*SelectGraphic* sG=new SelectGraphic(this);
     this->setCentralWidget(sG);
     connect(sG,&SelectGraphic::createChart,this,&MainWindow::creaChart);*/
@@ -88,7 +90,6 @@ bool MainWindow::apriFile()
      {
          std::string tipo=obj["Type"].toString().toStdString();
          if(tipo=="piechart"){
-
                 creaPieChartFromFile(obj);
                 return true;
          }
@@ -163,139 +164,196 @@ void MainWindow::creaCandleChart(){
     connect(this,&MainWindow::salvaConNomeSignal,candleChart,&CandleStickChartWidget::salvaJson);
 }
 void MainWindow::creaPieChartFromFile(const QJsonObject &json){
-    QVector<QVariant> v= json["values"].toArray().toVariantList().toVector();
-     QVector<QVariant> v2=json["slices"].toArray().toVariantList().toVector();
-     QVector<int> s;
-     QVector<QString> s2;
-    for(int i=0;i<v.size();++i){
-        s.push_back(v.at(i).toInt());
-        s2.push_back(v2.at(i).toString());
-    }
-    QString s3=json["title"].toString();
-    pie_data* d=new pie_data(s,s2,s3);
-    piechartwidget* piechart=new piechartwidget(this,"piechart",d);
-    this->setCentralWidget(piechart);
-    piechart->show();
-    emit graficoSalvabile(true);
-    connect(this,&MainWindow::salvaConNomeSignal,piechart,&piechartwidget::salvaJsonPie);
+    if(json.contains("values")&&json.contains("slices")&&json.contains("title")){
+        QVector<QVariant> v= json["values"].toArray().toVariantList().toVector();
+         QVector<QVariant> v2=json["slices"].toArray().toVariantList().toVector();
+         QVector<qreal> s;
+         QVector<QString> s2;
+        for(int i=0;i<v.size();++i){
+            s.push_back(v.at(i).toInt());
+            s2.push_back(v2.at(i).toString());
+        }
+        QString s3=json["title"].toString();
+        if(s.size()==s2.size()){
+            pie_data* d=new pie_data(s,s2,s3);
+            piechartwidget* piechart=new piechartwidget(this,"piechart",d);
+            this->setCentralWidget(piechart);
+            piechart->show();
+            emit graficoSalvabile(true);
+            connect(this,&MainWindow::salvaConNomeSignal,piechart,&piechartwidget::salvaJsonPie);
+        }
+
+    }else qWarning("File JSON non valido");
+
 }
 
 void MainWindow::creaBarChartFromFile(const QJsonObject &json){
-QString tempString =json["title"].toString();
-QJsonObject tempA =json["bars"].toObject();
-QVector<QVariant> v= json["names"].toArray().toVariantList().toVector();
-QVector<QVector<int>> s;
-QVector<QString> s2;
-QVector<QString> s3;
-int j=0;
-for(int i=0;i<v.size();++i){
-    s3.push_back(v.at(i).toString());
-}
-foreach(const QString& key, tempA.keys()) {
-        s2.push_back(key);
-       QJsonValue value = tempA.value(key);
-       QJsonArray a=value.toArray();
-       QVector<int> n2;
-       for(int i=0;i<a.size();++i)
-       {
-            n2.push_back(a.at(i).toInt());
-       }
-       s.push_back(n2);
-       ++j;
-}
+    if(json.contains("title")&&json.contains("bars")&&json.contains("names"))
+    {
+        int sizeFirst=0;
+        bool sizesCoherent=true;
+        QString tempString =json["title"].toString();
+        QJsonObject tempA =json["bars"].toObject();
+        QVector<QVariant> v= json["names"].toArray().toVariantList().toVector();
+        QVector<QVector<qreal>> s;
+        QVector<QString> s2;
+        QVector<QString> s3;
+        int j=0;
+        for(int i=0;i<v.size();++i){
+            s3.push_back(v.at(i).toString());
+        }
+        foreach(const QString& key, tempA.keys()) {
+                s2.push_back(key);
+               QJsonValue value = tempA.value(key);
+               QJsonArray a=value.toArray();
+               QVector<qreal> n2;
+               for(int i=0;i<a.size();++i)
+               {
+                    n2.push_back(a.at(i).toInt());
+               }
+               if(sizeFirst==0)
+                   sizeFirst=n2.size();
+               else
+                   if(n2.size()!=sizeFirst)
+                       sizesCoherent=false;
+               s.push_back(n2);
+               ++j;
+        }
+    if(sizesCoherent&&sizeFirst==s3.size()){
+        Bar_data* d=new Bar_data(s,tempString,s2,s3);
+        barcharttable* barchart=new barcharttable(d);
+        this->setCentralWidget(barchart);
+        barchart->show();
+        connect(this,&MainWindow::salvaConNomeSignal,barchart,&barcharttable::salvaJsonBar);
+        emit graficoSalvabile(true);
+    }
 
-Bar_data* d=new Bar_data(s,tempString,s2,s3);
-barcharttable* barchart=new barcharttable(d);
-this->setCentralWidget(barchart);
-barchart->show();
-connect(this,&MainWindow::salvaConNomeSignal,barchart,&barcharttable::salvaJsonBar);
-emit graficoSalvabile(true);
+    }
+    else qWarning("File JSON non valido");
+
 }
 
 void MainWindow::creaLineChartFromFile(const QJsonObject &json)
 {
-    QString tempString =json["title"].toString();
-    QJsonObject tempA =json["series"].toObject();
-    QVector<QVariant> v= json["names"].toArray().toVariantList().toVector();
-    QVector<QString> s3;
-    for(int i=0;i<v.size();++i){
-        s3.push_back(v.at(i).toString());
-    }
-    QVector<QVector<int>> s;
-    foreach(const QString& key, tempA.keys()) {
-           QJsonValue value = tempA.value(key);
 
-           QJsonArray a=value.toArray();
-           QVector<int> n2;
-           n2.push_back(key.toInt());
-           for(int i=0;i<a.size();++i)
-           {
-                n2.push_back(a.at(i).toInt());
-           }
-           s.push_back(n2);
-    }
-    LineChartData* d=new LineChartData(s,json["title"].toString(),s3);
-    LineChartWidget* linechart=new LineChartWidget(d);
-    this->setCentralWidget(linechart);
-    linechart->show();
-    connect(this,&MainWindow::salvaConNomeSignal,linechart,&LineChartWidget::salvaJsonFile);
-    emit graficoSalvabile(true);
+    if(json.contains("title")&&json.contains("series")&&json.contains("names"))
+    {
+        int sizeFirst=0;
+        bool sizesCoherent=true;
+        QJsonObject tempA =json["series"].toObject();
+        QVector<QVariant> v= json["names"].toArray().toVariantList().toVector();
+        QVector<QString> s3;
+        for(int i=0;i<v.size();++i){
+            s3.push_back(v.at(i).toString());
+        }
+        QVector<QVector<qreal>> s;
+        foreach(const QString& key, tempA.keys()) {
+               QJsonValue value = tempA.value(key);
+
+               QJsonArray a=value.toArray();
+               QVector<qreal> n2;
+               n2.push_back(key.toInt());
+               for(int i=0;i<a.size();++i)
+               {
+                    n2.push_back(a.at(i).toInt());
+               }
+               if(sizeFirst==0)
+                   sizeFirst=n2.size();
+               else if(n2.size()!=sizeFirst)
+                   sizesCoherent=false;
+               s.push_back(n2);
+        }
+        if(sizesCoherent && sizeFirst==s3.size())
+        {
+            LineChartData* d=new LineChartData(s,json["title"].toString(),s3);
+            LineChartWidget* linechart=new LineChartWidget(d);
+            this->setCentralWidget(linechart);
+            linechart->show();
+            connect(this,&MainWindow::salvaConNomeSignal,linechart,&LineChartWidget::salvaJsonFile);
+            emit graficoSalvabile(true);
+        }
+
+    }else qWarning("File JSON non valido");
+
 }
 
 void MainWindow::creaCandleChartFromFile(const QJsonObject &json){
-    QString title=json["title"].toString();
-    QVector<QVariant>timestamps= json["timestamps"].toArray().toVariantList().toVector();
-    QVector<QVariant>opens= json["opens"].toArray().toVariantList().toVector();
-    QVector<QVariant>highs= json["highs"].toArray().toVariantList().toVector();
-    QVector<QVariant>lows= json["lows"].toArray().toVariantList().toVector();
-    QVector<QVariant>closes= json["closes"].toArray().toVariantList().toVector();
-    QVector<qreal> t;
-    QVector<qreal> o;
-    QVector<qreal> h;
-    QVector<qreal> l;
-    QVector<qreal> c;
+    if(json.contains("title") && json.contains("timestamps") && json.contains("opens") && json.contains("highs") &&
+            json.contains("lows") && json.contains("closes"))
+    {
+        QString title=json["title"].toString();
+        QVector<QVariant>timestamps= json["timestamps"].toArray().toVariantList().toVector();
+        QVector<QVariant>opens= json["opens"].toArray().toVariantList().toVector();
+        QVector<QVariant>highs= json["highs"].toArray().toVariantList().toVector();
+        QVector<QVariant>lows= json["lows"].toArray().toVariantList().toVector();
+        QVector<QVariant>closes= json["closes"].toArray().toVariantList().toVector();
+        QVector<qreal> t;
+        QVector<qreal> o;
+        QVector<qreal> h;
+        QVector<qreal> l;
+        QVector<qreal> c;
 
-    for(int i=0;i<timestamps.size();++i){
-        t.push_back(timestamps.at(i).toReal());
-        o.push_back(opens.at(i).toReal());
-        h.push_back(highs.at(i).toReal());
-        l.push_back(lows.at(i).toReal());
-        c.push_back(closes.at(i).toReal());
-    }
-    CandleStickData* candleData=new CandleStickData(t,o,h,l,c,title);
-    CandleStickChartWidget* candleWidget=new CandleStickChartWidget(this,candleData);
-    this->setCentralWidget(candleWidget);
-    candleWidget->show();
-    emit graficoSalvabile(true);
-    connect(this,&MainWindow::salvaConNomeSignal,candleWidget,&CandleStickChartWidget::salvaJson);
+        for(int i=0;i<timestamps.size();++i){
+            t.push_back(timestamps.at(i).toReal());
+            o.push_back(opens.at(i).toReal());
+            h.push_back(highs.at(i).toReal());
+            l.push_back(lows.at(i).toReal());
+            c.push_back(closes.at(i).toReal());
+        }
+        if(t.size()==o.size()==h.size()==l.size()==c.size()){
+            CandleStickData* candleData=new CandleStickData(t,o,c,h,l,title);
+            CandleStickChartWidget* candleWidget=new CandleStickChartWidget(this,candleData);
+            this->setCentralWidget(candleWidget);
+            candleWidget->show();
+            emit graficoSalvabile(true);
+            connect(this,&MainWindow::salvaConNomeSignal,candleWidget,&CandleStickChartWidget::salvaJson);
+        }
+
+    }else qWarning("File JSON non valido");
+
 
 }
 void MainWindow::creaAreaChartFromFile(const QJsonObject &json){
-    QJsonObject tempA =json["lines"].toObject();
-    QVector<QVariant> v= json["areanames"].toArray().toVariantList().toVector();
-    QVector<QString> s3;
-    for(int i=0;i<v.size();++i){
-        s3.push_back(v.at(i).toString());
-    }
-    QVector<QVector<int>> s;
-    foreach(const QString& key, tempA.keys()) {
-           QJsonValue value = tempA.value(key);
+    if(json.contains("lines")&&json.contains("areanames")&&json.contains("title"))
+    {
+        int sizeFirst=0;
+        bool sizesCoherent=true;
+        QJsonObject tempA =json["lines"].toObject();
+        QVector<QVariant> v= json["areanames"].toArray().toVariantList().toVector();
+        QVector<QString> s3;
+        for(int i=0;i<v.size();++i){
+            s3.push_back(v.at(i).toString());
+        }
+        QVector<QVector<qreal>> s;
+        foreach(const QString& key, tempA.keys()) {
+               QJsonValue value = tempA.value(key);
 
-           QJsonArray a=value.toArray();
-           QVector<int> n2;
-           n2.push_back(key.toInt());
-           for(int i=0;i<a.size();++i)
-           {
-                n2.push_back(a.at(i).toInt());
-           }
-           s.push_back(n2);
-    }
-    AreaChartData* d=new AreaChartData(s,json["title"].toString(),s3);
-    AreaChartWidget* areachart=new AreaChartWidget(this,"AreaChart",d);
-    this->setCentralWidget(areachart);
-    areachart->show();
-    connect(this,&MainWindow::salvaConNomeSignal,areachart,&AreaChartWidget::salvaJson);
-    emit graficoSalvabile(true);
+               QJsonArray a=value.toArray();
+               QVector<qreal> n2;
+               n2.push_back(key.toInt());
+               for(int i=0;i<a.size();++i)
+               {
+                    n2.push_back(a.at(i).toInt());
+               }
+               if(sizeFirst==0)
+                   sizeFirst=n2.size();
+               else
+                   if(n2.size()!=sizeFirst)
+                        sizesCoherent=false;
+               s.push_back(n2);
+        }
+        if(sizesCoherent && sizeFirst==s3.size())
+        {
+            AreaChartData* d=new AreaChartData(s,json["title"].toString(),s3);
+            AreaChartWidget* areachart=new AreaChartWidget(this,"AreaChart",d);
+            this->setCentralWidget(areachart);
+            areachart->show();
+            connect(this,&MainWindow::salvaConNomeSignal,areachart,&AreaChartWidget::salvaJson);
+            emit graficoSalvabile(true);
+        }
+
+    }else qWarning("File JSON non valido");
+
 }
 
 void MainWindow::creaChart(QString name){

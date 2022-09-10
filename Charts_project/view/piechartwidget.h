@@ -2,7 +2,7 @@
 #define PIECHARTWIDGET_H
 
 #include <QWidget>
-#include<pie_data.h>
+#include<data/pie_data.h>
 #include<model/piechartmodel.h>
 #include<model/piecharttablemodel.h>
 #include<inputdialog.h>
@@ -31,6 +31,8 @@ public slots:
     void cambiaTitoloSlot();
     void chartFocus();
     void salvaJsonPie();
+signals:
+    void cambiaTitoloSignal(QString titolo);
 };
 
 #endif // PIECHARTWIDGET_H

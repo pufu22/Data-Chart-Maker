@@ -30,7 +30,6 @@ QVariant LineChartTableModel::data(const QModelIndex &index, int role) const
         return dati->getSets()[index.row()][index.column()];
     }
 
-
         return QVariant();
 }
 
@@ -38,7 +37,7 @@ bool LineChartTableModel::setData(const QModelIndex &index, const QVariant &valu
 {
     if(role==Qt::EditRole){
 
-            dati->setSets(index.row(),index.column(),value.toInt());
+            dati->setData(index.row(),index.column(),value.toInt());
         emit dataChanged(index,index);
 
         /*Il codice all'interno dell'if potrebbe non funzionare dato che dipendeva precedentemente da
@@ -61,7 +60,7 @@ bool LineChartTableModel::insertRows(int row, int count, const QModelIndex &pare
     beginInsertRows(parent,row,row);
     for(int row =0;row<count;++row)
     {
-        dati->pushPoint(rowCount(), columnCount());
+        dati->pushData(columnCount());
     }
     endInsertRows();
     return true;
@@ -81,14 +80,14 @@ bool LineChartTableModel::insertColumns(int column, int count, const QModelIndex
 
 bool LineChartTableModel::removeRows(int row, int count, const QModelIndex &parent){
     beginRemoveRows(parent,row,row);
-        dati->removeRow(row);
+        dati->removeData(row);
     endRemoveRows();
     return true;
 }
 
 bool LineChartTableModel::removeColumns(int column, int count, const QModelIndex &parent){
     beginRemoveColumns(parent,column,column+count-1);
-        dati->removeColumn(column);
+        dati->removeGroup(column);
     endRemoveColumns();
     return true;
 }

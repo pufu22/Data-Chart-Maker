@@ -5,7 +5,7 @@
 #include <QWidget>
 #include<model/areacharttablemodel.h>
 #include<model/areachartmodel.h>
-#include<areachartdata.h>
+#include<data/areachartdata.h>
 class AreaChartWidget:public QWidget
 {
     Q_OBJECT
@@ -29,6 +29,8 @@ private slots:
     void rimuoviPuntoSlot();
 public slots:
     void salvaJson();
+signals:
+    void cambiaTitoloSignal(QString titolo);
 };
 
 #endif // AREACHARTWIDGET_H

@@ -17,11 +17,11 @@ LineChartModel::LineChartModel(LineChartTableModel * data)
         chart->addSeries(series[i]);
         series.at(i)->setName(dati->headerData(i+1,Qt::Horizontal,Qt::DisplayRole).toString());
         connect(series.at(i),&QLineSeries::doubleClicked,this,&LineChartModel::cambiaNome);
+        connect(series.at(i),&QLineSeries::pointReplaced,this,&LineChartModel::updateAxisY);
         nLines++;
     }
     chart->createDefaultAxes();
     chart->setTitle(dati->dati->getTitle());
-
 
 }
 
@@ -32,11 +32,12 @@ void LineChartModel::updateMapper(LineChartTableModel * data){
         mapper[temp]->setXColumn(0);
         mapper[temp]->setYColumn(temp+1);
         mapper[temp]->setSeries(series[temp]);
-        mapper[temp]->setModel(data);
+        mapper[temp]->setModel(dati);
         chart->addSeries(series[temp]);
         series.at(temp)->setName(dati->headerData(temp+1,Qt::Horizontal,Qt::DisplayRole).toString());
         updateAxisY();
         connect(series.at(temp),&QLineSeries::doubleClicked,this,&LineChartModel::cambiaNome);
+        connect(series.at(temp),&QLineSeries::pointReplaced,this,&LineChartModel::updateAxisY);
 }
 
 void LineChartModel::updateRemoved(int pos){
@@ -45,7 +46,7 @@ void LineChartModel::updateRemoved(int pos){
     series.removeAt(pos);
     mapper.removeAt(pos);
         for(int i=pos;i<temp;++i){
-            mapper[i]->setXColumn(i);
+            mapper[i]->setXColumn(0);
             mapper[i]->setYColumn(i+1);
         }
 }
@@ -62,13 +63,6 @@ void LineChartModel::cambiaNome(){
             }
         }
     }
-}
-void LineChartModel::updateAxises(){
-    chart->createDefaultAxes();
-}
-
-void LineChartModel::axises(int maxValue){
-    this->updateAxises();
 }
 
 void LineChartModel::salvaJsonFile(){
@@ -127,7 +121,9 @@ int LineChartModel::getMax(){
     for(int i=0;i<series.size();++i){
         for(int j=0;j<series.at(i)->points().size();++j)
         {
+
             qreal y=series.at(i)->points().at(j).y();
+
             if(y>max)
                 max=y;
         }

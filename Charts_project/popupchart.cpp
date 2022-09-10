@@ -6,7 +6,7 @@ PopupChart::PopupChart(QChartView* chart,QWidget *parent): QDialog(parent)
     chart=chart;
     lyt->addWidget(chart);
     //lyt->setSizeConstraint(QLayout::SetFixedSize);
-    this->showFullScreen();
+    this->showMaximized();
     setLayout(lyt);
 }
 

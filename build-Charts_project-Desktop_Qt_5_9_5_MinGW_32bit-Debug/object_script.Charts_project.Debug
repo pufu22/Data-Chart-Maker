@@ -2,13 +2,15 @@ INPUT(
 ./debug\areachartdata.o
 ./debug\bar_data.o
 ./debug\candlestickdata.o
+./debug\chartData.o
 ./debug\comparisonChartData.o
-./debug\inputdialog.o
 ./debug\linechartdata.o
+./debug\pie_data.o
+./debug\statisticalChartData.o
+./debug\inputdialog.o
 ./debug\main.o
 ./debug\candlestickchartmodel.o
 ./debug\candlestickcharttablemodel.o
-./debug\pie_data.o
 ./debug\popupchart.o
 ./debug\areachartmodel.o
 ./debug\areacharttablemodel.o

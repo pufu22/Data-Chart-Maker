@@ -37,13 +37,14 @@ AreaChartWidget::AreaChartWidget(QWidget *parent, const char *name,AreaChartData
     chartview->setRenderHint(QPainter::Antialiasing);
     chartview->setMinimumSize(1280,480);
     lt->addWidget(chartview);
-    lt->setSizeConstraint(QLayout::SetFixedSize);
+    lt->setSizeConstraint(QLayout::SetMinimumSize);
     setLayout(lt);
     connect(areaTableModel,&AreaChartTableModel::dataChanged,areaModel,&AreaChartModel::updateAxisY);
     connect(areaTableModel,&AreaChartTableModel::columnsInserted,areaModel,&AreaChartModel::updateAxisY);
     connect(areaTableModel,&AreaChartTableModel::columnsRemoved,areaModel,&AreaChartModel::updateAxisY);
     connect(areaTableModel,&AreaChartTableModel::rowsInserted,areaModel,&AreaChartModel::updateAxisY);
     connect(areaTableModel,&AreaChartTableModel::rowsRemoved,areaModel,&AreaChartModel::updateAxisY);
+    connect(this,&AreaChartWidget::cambiaTitoloSignal,areaModel,&AreaChartModel::changeTitle);
 }
 void AreaChartWidget::aggiungiLineaSlot(){
     //areaTableModel->insertColumns(areaTableModel->columnCount(),2);
@@ -82,7 +83,8 @@ void AreaChartWidget::cambiaTitoloSlot(){
     bool ok;
     QString titolo=QInputDialog::getText(this,tr("Titolo"),tr("Titolo:"),QLineEdit::Normal,tr(""),&ok);
     if(ok && titolo.trimmed()!=""){
-        areaModel->changeTitle(titolo);
+        emit AreaChartWidget::cambiaTitoloSignal(titolo);
+        //areaModel->changeTitle(titolo);
     }
 }
 void AreaChartWidget::salvaJson(){

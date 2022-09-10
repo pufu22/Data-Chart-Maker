@@ -35,7 +35,7 @@ QVariant BarChartTableModel::data(const QModelIndex &index, int role) const
 bool BarChartTableModel::setData(const QModelIndex &index,const QVariant &value,int role)
 {
     if(role==Qt::EditRole){
-            dati->setSets(index.row(),index.column(),value.toInt());
+            dati->setData(index.row(),index.column(),value.toInt());
         emit dataChanged(index,index);
 
 
@@ -61,7 +61,7 @@ bool BarChartTableModel::insertRows(int row, int count, const QModelIndex &)
         beginInsertRows(QModelIndex(),row,row);
             for(int r = 0;r<count;++r)
             {
-                dati->pushSets(columnCount());
+                dati->pushData(columnCount());
                 dati->pushCategory(cat);
             }
 
@@ -95,14 +95,14 @@ bool BarChartTableModel::insertColumns(int column, int count,const QModelIndex &
 
 bool BarChartTableModel::removeRow(int row, const QModelIndex &parent){
     beginRemoveRows(parent,row,row);
-    dati->removeRow(row);
+    dati->removeData(row);
     endRemoveRows();
     return true;
 }
 
 bool BarChartTableModel::removeColumn(int column, const QModelIndex &parent){
     beginRemoveColumns(parent,column,column);
-    dati->removeColumn(column);
+    dati->removeGroup(column);
     endRemoveColumns();
     return true;
 }
@@ -120,9 +120,9 @@ QVariant BarChartTableModel::headerData(int section, Qt::Orientation orientation
 
 bool BarChartTableModel::setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role){
     if(role == Qt::EditRole && orientation == Qt::Vertical){
-       dati->setCategories(section,value.toString());
+       dati->setCategories(value.toString(),section);
     }
     if(role == Qt::EditRole && orientation == Qt::Horizontal){
-        dati->setBarNames(section,value.toString());
+        dati->setName(value.toString(),section);
     }
 }

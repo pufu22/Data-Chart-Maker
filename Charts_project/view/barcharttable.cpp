@@ -40,14 +40,11 @@ barcharttable::barcharttable(Bar_data *data, QWidget *parent, const char *name):
     lt->addWidget(changeTitle);
     lt->addWidget(ingrandisci);
     lt->addWidget(chartView);
-    lt->setSizeConstraint(QLayout::SetFixedSize);
+    lt->setSizeConstraint(QLayout::SetMinimumSize);
     setLayout(lt);
-    connect(nullptr,&MainWindow::salvaConNomeSignal,this,&barcharttable::salvaJsonBar);
     connect(barmodel,&BarChartTableModel::dataChanged,m_model,&BarChartModel::updateAxisY);
-    //connect(barmodel,&BarChartTableModel::columnsInserted,m_model,&BarChartModel::updateAxisY);
     connect(barmodel,&BarChartTableModel::columnsRemoved,m_model,&BarChartModel::updateAxisY);
     connect(barmodel,&BarChartTableModel::rowsRemoved,m_model,&BarChartModel::updateAxisY);
-    //connect(barmodel,&BarChartTableModel::rowsInserted,m_model,&BarChartModel::updateAxisY);
 
     connect(this,&barcharttable::riga,this,&barcharttable::adjustChart);
 }
@@ -63,7 +60,6 @@ void barcharttable::aggiungiriga(){
         ok=barmodel->insertRows(barmodel->rowCount(),1);
         if(ok)
             m_model->updateMapperLastRow(barmodel);
-
 
 }
 

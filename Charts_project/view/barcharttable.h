@@ -7,7 +7,7 @@
 #include <QPushButton>
 #include <model/barchart_model.h>
 #include <model/barcharttablemodel.h>
-#include<bar_data.h>
+#include<data/bar_data.h>
 #include<view/mainwindow.h>
 #include<popupchart.h>
 class barcharttable:public QWidget{
@@ -40,6 +40,7 @@ public slots:
        void chartFocus();
 signals:
        void riga();
+       void cambiaTitoloSignal(QString titolo);
 };
 
 #endif // BARCHARTTABLE_H

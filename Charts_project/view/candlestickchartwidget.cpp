@@ -27,7 +27,7 @@ CandleStickChartWidget::CandleStickChartWidget(QWidget *parent,CandleStickData* 
     lt->addWidget(rimuoviSet);
     lt->addWidget(cambiaTitolo);
     lt->addWidget(chartview);
-    lt->setSizeConstraint(QLayout::SetFixedSize);
+    lt->setSizeConstraint(QLayout::SetMinimumSize);
     setLayout(lt);
 
     connect(candleTableModel,&CandleStickChartTableModel::dataChanged,candleModel,&CandleStickChartModel::updateAxis);

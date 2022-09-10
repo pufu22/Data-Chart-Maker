@@ -1,7 +1,7 @@
 #ifndef CANDLESTICKCHARTTABLEMODEL_H
 #define CANDLESTICKCHARTTABLEMODEL_H
 
-#include<candlestickdata.h>
+#include<data/candlestickdata.h>
 #include<inputdialog.h>
 class CandleStickChartTableModel:public QAbstractTableModel
 {
@@ -18,10 +18,7 @@ public:
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
     CandleStickData dati;
-private:
 
-signals:
-    void axisUpdate();
 };
 
 #endif // CANDLESTICKCHARTTABLEMODEL_H

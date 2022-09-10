@@ -1,12 +1,12 @@
 #include "areachartmodel.h"
 #include"stdio.h"
-AreaChartModel::AreaChartModel(AreaChartTableModel* data)
+AreaChartModel::AreaChartModel(QAbstractTableModel* data)
 {
     dati=data;
     chart=new QChart;
     chart->setAnimationOptions(QChart::AllAnimations);
     nLines=0;
-    for(int i=0;i<dati->columnCount()-1;++i){
+    for(int i=0;i<data->columnCount()-1;++i){
         linesmappers.push_back(new QVXYModelMapper);
         linesmappers[i]->setXColumn(0);
         linesmappers[i]->setYColumn(i+1);
@@ -22,12 +22,13 @@ AreaChartModel::AreaChartModel(AreaChartTableModel* data)
         chart->addSeries(areaSeries.at(i));
         nLines++;
         connect(areaSeries.at(i),&QAreaSeries::doubleClicked,this,&AreaChartModel::cambiaNome);
+        connect(linesmappers.at(i)->series(),&QLineSeries::pointReplaced,this,&AreaChartModel::updateAxisY);
     }
     chart->createDefaultAxes();
     QValueAxis *axisY = qobject_cast<QValueAxis *>(chart->axes(Qt::Vertical).at(0));
     axisY->setMax(axisY->max() * 1.01);
     axisY->setMin(axisY->min() * 0.99);
-    chart->setTitle(dati->dati->getTitle());
+    //chart->setTitle(dati->dati->getTitle());
 }
 
 void AreaChartModel::salvaJson(){
@@ -82,6 +83,7 @@ void AreaChartModel::updateMappers()
     areaSeries.at(temp)->setName(dati->headerData(temp+1,Qt::Horizontal,Qt::DisplayRole).toString());
     chart->createDefaultAxes();
     connect(areaSeries.at(temp),&QAreaSeries::doubleClicked,this,&AreaChartModel::cambiaNome);
+    connect(linesmappers.at(temp)->series(),&QLineSeries::pointReplaced,this,&AreaChartModel::updateAxisY);
 }
 
 void AreaChartModel::updateRemoved(int pos){
@@ -140,7 +142,7 @@ void AreaChartModel::updateAxisY(){
 }
 
 void AreaChartModel::changeTitle(QString title){
-    dati->dati->setTitle(title);
+    //dati->dati->setTitle(title);
     chart->setTitle(title);
 }
 

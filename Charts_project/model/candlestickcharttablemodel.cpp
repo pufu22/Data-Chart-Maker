@@ -37,7 +37,7 @@ bool CandleStickChartTableModel::insertRows(int row, int count, const QModelInde
         close=list.at(4).toDouble();
     if(timestamp>dati.getTimeStampAt(row-1)){
         beginInsertRows(parent,row,row);
-            dati.addRow(timestamp,open,high,low,close);
+            dati.addData(timestamp,open,high,low,close);
         endInsertRows();
         return true;
     }
@@ -46,7 +46,7 @@ bool CandleStickChartTableModel::insertRows(int row, int count, const QModelInde
 }
 bool CandleStickChartTableModel::removeRows(int row, int count, const QModelIndex &parent){
     beginRemoveRows(parent,row,row);
-        dati.removeRow(row);
+        dati.removeData(row);
     endRemoveRows();
 }
 QVariant CandleStickChartTableModel::data(const QModelIndex &index, int role)const {
@@ -77,29 +77,33 @@ Qt::ItemFlags CandleStickChartTableModel::flags(const QModelIndex &index) const 
 }
 bool CandleStickChartTableModel::setData(const QModelIndex &index,const QVariant &value,int role){
     if(role==Qt::EditRole){
-        switch (index.column()) {
-        case 0:
-            dati.setTimeStampAt(index.row(),value.toReal());
-            break;
-        case 1:
-            dati.setOpenAt(index.row(),value.toReal());
-            break;
-        case 2:
-            dati.setHighAt(index.row(),value.toReal());
-            break;
-        case 3:
-            dati.setLowAt(index.row(),value.toReal());
-            break;
-        case 4:
-            dati.setCloseAt(index.row(),value.toReal());
-            break;
-        default:
-            break;
-        }
-        emit dataChanged(index,index);
-        return true;
-    }else
-    return false;
+            switch (index.column()) {
+            case 0:
+                dati.setData(index.row(), 0, value.toReal());
+                break;
+            case 1:
+                if(value.toReal()<=dati.getHighAt(index.row()) && value.toReal()>=dati.getLowAt(index.row()))
+                    dati.setData(index.row(), 1, value.toReal());
+                break;
+            case 2:
+                if(value.toReal()>=dati.getLowAt(index.row()))
+                    dati.setData(index.row(), 2, value.toReal());
+                break;
+            case 3:
+                if(value.toReal()<=dati.getHighAt(index.row()))
+                    dati.setData(index.row(), 3, value.toReal());
+                break;
+            case 4:
+                if(value.toReal()<=dati.getHighAt(index.row()) && value.toReal()>=dati.getLowAt(index.row()))
+                    dati.setData(index.row(), 4, value.toReal());
+                break;
+            }
+            emit dataChanged(index,index);
+            return true;
+        }else
+        return false;
+
+
 }
 
 QVariant CandleStickChartTableModel::headerData(int section, Qt::Orientation orientation, int role) const{

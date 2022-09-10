@@ -2,7 +2,7 @@
 #define LINECHARTTABLEMODEL_H
 
 #include<QAbstractTableModel>
-#include<linechartdata.h>
+#include<data/linechartdata.h>
 class LineChartTableModel:public QAbstractTableModel
 {
     private:
@@ -23,11 +23,7 @@ public:
     QVariant headerData(int section, Qt::Orientation orientation, int role) const;
     bool setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role=Qt::EditRole);
     //bool correctValue(const QModelIndex &index,const QVariant &value);
-    int maxValue=0;    /*a che serve?*/
-signals:
-    void changeRange(int maxValue);
-    void minMaxChanged(int min,int max);
-    void updateAxis();
+
 };
 
 #endif // LINECHARTTABLEMODEL_H

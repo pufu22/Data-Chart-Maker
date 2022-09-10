@@ -6,7 +6,7 @@
 #include<model/linecharttablemodel.h>
 #include<QtCharts>
 #include<QVXYModelMapper>
-#include<linechartdata.h>
+#include<data/linechartdata.h>
 class LineChartModel:public QObject
 {
 
@@ -30,8 +30,6 @@ private:
     int getMax();
     int getMin();
 public slots:
-    void updateAxises();
-    void axises(int maxValue);
     void updateAxisY();
     void cambiaNome();
 };

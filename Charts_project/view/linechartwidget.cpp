@@ -34,10 +34,8 @@ LineChartWidget::LineChartWidget(LineChartData* data,QWidget *parent, const char
      lt->addWidget(togliPunto);
      lt->addWidget(cambiaTitolo);
      lt->addWidget(chartview);
-     lt->setSizeConstraint(QLayout::SetFixedSize);
+     lt->setSizeConstraint(QLayout::SetMinimumSize);
      setLayout(lt);
-     //linecharttablemodel->setHeaderData(0, Qt::Horizontal, "Stock ID", Qt::DisplayRole);
-     connect(nullptr,&MainWindow::salvaConNomeSignal,this,&LineChartWidget::salvaJsonFile);
      connect(linecharttablemodel,&LineChartTableModel::dataChanged,linechartmodel,&LineChartModel::updateAxisY);
      connect(linecharttablemodel,&LineChartTableModel::rowsInserted,linechartmodel,&LineChartModel::updateAxisY);
      connect(linecharttablemodel,&LineChartTableModel::rowsRemoved,linechartmodel,&LineChartModel::updateAxisY);
@@ -60,7 +58,7 @@ void LineChartWidget::aggiungilineaslot(){
 
 void LineChartWidget::aggiungipunto(){
     linecharttablemodel->insertRows(linecharttablemodel->rowCount(),1);
-    linechartmodel->updateAxises();
+
 }
 
 void LineChartWidget::togliLineaSlot(){

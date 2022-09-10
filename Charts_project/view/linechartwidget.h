@@ -2,7 +2,7 @@
 #define LINECHARTWIDGET_H
 
 #include <QWidget>
-#include<linechartdata.h>
+#include<data/linechartdata.h>
 #include<model/linechartmodel.h>
 #include<model/linecharttablemodel.h>
 #include<view/mainwindow.h>
@@ -34,6 +34,7 @@ private slots:
     void cambiaTitoloSlot();
 signals:
     void linea();
+    void cambiaTitoloSignal(QString titolo);
 public slots:
     void salvaJsonFile();
 };

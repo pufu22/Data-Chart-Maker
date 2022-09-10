@@ -10,16 +10,18 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    areachartdata.cpp \
-    bar_data.cpp \
-    candlestickdata.cpp \
-    comparisonChartData.cpp \
+    data/areachartdata.cpp \
+    data/bar_data.cpp \
+    data/candlestickdata.cpp \
+    data/chartData.cpp \
+    data/comparisonChartData.cpp \
+    data/linechartdata.cpp \
+    data/pie_data.cpp \
+    data/statisticalChartData.cpp \
     inputdialog.cpp \
-    linechartdata.cpp \
     main.cpp \
     model/candlestickchartmodel.cpp \
     model/candlestickcharttablemodel.cpp \
-    pie_data.cpp \
     popupchart.cpp \
     model/areachartmodel.cpp \
     model/areacharttablemodel.cpp \
@@ -40,15 +42,17 @@ SOURCES += \
     view/selectwindow.cpp
 
 HEADERS += \
-    areachartdata.h \
-    bar_data.h \
-    candlestickdata.h \
-    comparisonChartData.h \
+    data/areachartdata.h \
+    data/bar_data.h \
+    data/candlestickdata.h \
+    data/chartData.h \
+    data/comparisonChartData.h \
+    data/linechartdata.h \
+    data/pie_data.h \
+    data/statisticalChartData.h \
     inputdialog.h \
-    linechartdata.h \
     model/candlestickchartmodel.h \
     model/candlestickcharttablemodel.h \
-    pie_data.h \
     popupchart.h \
     model/areachartmodel.h \
     model/areacharttablemodel.h \

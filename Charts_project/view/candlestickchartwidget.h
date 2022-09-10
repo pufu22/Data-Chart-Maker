@@ -5,7 +5,7 @@
 #include <QWidget>
 #include <model/candlestickchartmodel.h>
 #include <model/candlestickcharttablemodel.h>
-#include <candlestickdata.h>
+#include <data/candlestickdata.h>
 class CandleStickChartWidget : public QWidget
 {
     Q_OBJECT
@@ -27,6 +27,7 @@ private slots:
     void rimuoviSetSlot();
 signals:
     void salvaJson();
+    void cambiaTitoloSignal(QString titolo);
 };
 
 #endif // CANDLESTICKCHARTWIDGET_H

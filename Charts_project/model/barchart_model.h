@@ -1,6 +1,6 @@
 #ifndef BARCHART_MODEL_H
 #define BARCHART_MODEL_H
-#include<bar_data.h>
+#include<data/bar_data.h>
 #include<model/barcharttablemodel.h>
 #include<qbarmodelmapper.h>
 #include<QString>
@@ -35,3 +35,4 @@ public slots:
 };
 
 #endif // BARCHART_MODEL_H
+

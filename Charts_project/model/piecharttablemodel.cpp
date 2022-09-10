@@ -54,7 +54,7 @@ bool Piecharttablemodel::setData(const QModelIndex &index, const QVariant &value
         if(index.column()==0)
             dati->setLabel(index.row(),value.toString());
         else
-            dati->setValue(index.row(),value.toInt());
+            dati->setData(index.row(),index.column(),value.toInt());
         emit dataChanged(index, index, QVector<int>() << role);
         return true;
     }
@@ -72,8 +72,8 @@ bool Piecharttablemodel::insertRows(int row, int count, const QModelIndex &paren
     QStringList list = inputdialog::getStrings(nullptr, "piechart",&ok);
     if(ok){
         beginInsertRows(parent, row, row + count - 1);
-        dati->pushbackLabel(list.at(0));
-        dati->pushbackValue(list.at(1).toInt());
+        dati->pushLabel(list.at(0));
+        dati->pushValue(list.at(1).toInt());
         endInsertRows();
         return true;
     }
@@ -82,8 +82,8 @@ bool Piecharttablemodel::insertRows(int row, int count, const QModelIndex &paren
 
 bool Piecharttablemodel::removeRows(int row, int count,const QModelIndex &parent)
 {
-    beginRemoveRows(parent,row,row+count-1);
-    dati->removeSlice(row);
+    beginRemoveRows(parent,row-1,row+count-2);
+    dati->removeData(row);
     endRemoveRows();
     return true;
 }

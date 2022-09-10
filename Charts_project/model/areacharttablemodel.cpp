@@ -41,7 +41,7 @@ bool AreaChartTableModel::setData(const QModelIndex &index, const QVariant &valu
 
     if(role==Qt::EditRole){
         if(index.column()!=0){
-            dati->setSets(index.row(),index.column(),value.toInt());
+            dati->setData(index.row(),index.column(),value.toInt());
         }
         emit dataChanged(index,index);
         return true;
@@ -52,8 +52,9 @@ bool AreaChartTableModel::setData(const QModelIndex &index, const QVariant &valu
 Qt::ItemFlags AreaChartTableModel::flags(const QModelIndex &index) const
 {
     if(index.column()!=0)
-    return QAbstractTableModel::flags(index)
+        return QAbstractTableModel::flags(index)
             |Qt::ItemIsEditable;
+    else return Qt::NoItemFlags;
 }
 
 bool AreaChartTableModel::insertRows(int row, int count, const QModelIndex &parent)
@@ -61,7 +62,7 @@ bool AreaChartTableModel::insertRows(int row, int count, const QModelIndex &pare
     beginInsertRows(parent,row,row);
     for(int row =0;row<count;++row)
     {
-        dati->pushPoint(rowCount(), columnCount());
+        dati->pushData(columnCount());
     }
     endInsertRows();
     return true;
@@ -72,7 +73,7 @@ bool AreaChartTableModel::insertColumns(int column, int count, const QModelIndex
     bool ok;
     QString areaName=QInputDialog::getText(nullptr,tr("Area"),tr("Nome area:"),QLineEdit::Normal,tr(""),&ok);
     if(ok&&areaName.trimmed()!=""){
-        dati->addAreaName(areaName);
+        dati->pushName(areaName);
         beginInsertColumns(parent,column,column);
         for(int c=0;c<count;++c)
         {
@@ -87,13 +88,13 @@ bool AreaChartTableModel::insertColumns(int column, int count, const QModelIndex
 
 bool AreaChartTableModel::removeColumns(int column, int count, const QModelIndex &parent){
     beginRemoveColumns(parent,column,column+count-1);
-        dati->removeColumn(column);
+        dati->removeGroup(column);
     endRemoveColumns();
 }
 
 bool AreaChartTableModel::removeRows(int row, int count, const QModelIndex &parent){
     beginRemoveRows(parent,row,row);
-    dati->removeRow(row);
+    dati->removeData(row);
     endRemoveRows();
 }
 QVariant AreaChartTableModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -102,7 +103,8 @@ QVariant AreaChartTableModel::headerData(int section, Qt::Orientation orientatio
         if(section==0)
             return QString("X");
         else
-            return dati->getAreaName(section-1);
+            return dati->getNames().at(section-1);
+
     }
     return QVariant();
 }

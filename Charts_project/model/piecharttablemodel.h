@@ -2,7 +2,7 @@
 #define PIECHARTTABLEMODEL_H
 
 #include <QAbstractTableModel>
-#include <pie_data.h>
+#include <data/pie_data.h>
 #include<inputdialog.h>
 class Piecharttablemodel : public QAbstractTableModel
 {

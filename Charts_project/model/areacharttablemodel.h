@@ -1,6 +1,6 @@
 #ifndef AREACHARTTABLEMODEL_H
 #define AREACHARTTABLEMODEL_H
-#include<areachartdata.h>
+#include<data/areachartdata.h>
 #include<QAbstractTableModel>
 class AreaChartTableModel:public QAbstractTableModel
 {
