@@ -35,10 +35,8 @@ bool BarChartTableModel::insertColumns(int column, int count, const QModelIndex 
                 barData->pushGroup(i);
             barData->pushName(set);
         }
-
         endInsertColumns();
-
-            return true;
+        return true;
     }
     return false;
 }

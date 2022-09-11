@@ -4,6 +4,7 @@
 #include "chartTableModel.h"
 #include <source/data/linechartdata.h>
 #include <QInputDialog>
+#include <QMessageBox>
 
 class LineChartTableModel : public ChartTableModel {
     Q_OBJECT

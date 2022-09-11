@@ -31,6 +31,29 @@ bool CandleStickChartTableModel::insertRows(int row, int count, const QModelInde
     return false;
 }
 
+QVariant CandleStickChartTableModel::data(const QModelIndex &index, int role)const {
+    if (role==Qt::DisplayRole){
+        switch (index.column()) {
+        case 0:
+            return candleData->getTimeStampAt(index.row());
+            break;
+        case 1:
+            return candleData->getOpenAt(index.row());
+            break;
+        case 2:
+            return candleData->getHighAt(index.row());
+            break;
+        case 3:
+            return candleData->getLowAt(index.row());
+            break;
+        case 4:
+            return candleData->getCloseAt(index.row());
+            break;
+        }
+    }
+    else return QVariant();
+}
+
 bool CandleStickChartTableModel::setData(const QModelIndex &index,const QVariant &value,int role){
     if(role==Qt::EditRole) {
         switch (index.column()) {

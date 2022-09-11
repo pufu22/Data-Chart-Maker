@@ -24,8 +24,7 @@ bool LineChartTableModel::insertColumns(int column, int count, const QModelIndex
         endInsertColumns();
         return true;
     }
-    else
-        return false;
+    return false;
 }
 
 bool LineChartTableModel::removeColumns(int column, int count, const QModelIndex &parent){

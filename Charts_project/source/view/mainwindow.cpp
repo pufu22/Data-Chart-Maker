@@ -280,7 +280,7 @@ void MainWindow::creaCandleChartFromFile(const QJsonObject &json) {
             l.push_back(lows.at(i).toReal());
             c.push_back(closes.at(i).toReal());
         }
-        if(t.size()==o.size()==h.size()==l.size()==c.size()){
+        if(t.size()==o.size()&& t.size()==h.size() && t.size()==l.size() && t.size()==c.size()){
             CandleStickData* candleData=new CandleStickData(t,o,c,h,l,title);
             CandleStickChartWidget* candleWidget=new CandleStickChartWidget(candleData, this);
             this->setCentralWidget(candleWidget);
