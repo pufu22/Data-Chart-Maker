@@ -28,14 +28,14 @@ MainWindow::MainWindow(QWidget *parent)
     //AreaChartWidget* areaChart=new AreaChartWidget(this,"areachart");
     //this->setCentralWidget(areaChart);
     //areaChart->show();
-    piechartwidget* piechart=new piechartwidget(this,"piechart",nullptr);
+    /*piechartwidget* piechart=new piechartwidget(this,"piechart",nullptr);
     this->setCentralWidget(piechart);
     piechart->show();
-
+*/
     this->setMinimumSize(1080,590);
-    /*SelectGraphic* sG=new SelectGraphic(this);
+    SelectGraphic* sG=new SelectGraphic(this);
     this->setCentralWidget(sG);
-    connect(sG,&SelectGraphic::createChart,this,&MainWindow::creaChart);*/
+    connect(sG,&SelectGraphic::createChart,this,&MainWindow::creaChart);
 }
 
 MainWindow::~MainWindow()
@@ -181,9 +181,15 @@ void MainWindow::creaPieChartFromFile(const QJsonObject &json){
             piechart->show();
             emit graficoSalvabile(true);
             connect(this,&MainWindow::salvaConNomeSignal,piechart,&piechartwidget::salvaJsonPie);
+        }    else {
+            qWarning("File JSON non valido");
+            QMessageBox::warning(this,"File","File non valido",QMessageBox::Ok);
         }
 
-    }else qWarning("File JSON non valido");
+    }    else {
+        qWarning("File JSON non valido");
+        QMessageBox::warning(this,"File","File non valido",QMessageBox::Ok);
+    }
 
 }
 
@@ -227,9 +233,15 @@ void MainWindow::creaBarChartFromFile(const QJsonObject &json){
         connect(this,&MainWindow::salvaConNomeSignal,barchart,&barcharttable::salvaJsonBar);
         emit graficoSalvabile(true);
     }
-
+    else {
+        qWarning("File JSON non valido");
+        QMessageBox::warning(this,"File","File non valido",QMessageBox::Ok);
     }
-    else qWarning("File JSON non valido");
+    }
+    else {
+        qWarning("File JSON non valido");
+        QMessageBox::warning(this,"File","File non valido",QMessageBox::Ok);
+    }
 
 }
 
@@ -271,9 +283,15 @@ void MainWindow::creaLineChartFromFile(const QJsonObject &json)
             linechart->show();
             connect(this,&MainWindow::salvaConNomeSignal,linechart,&LineChartWidget::salvaJsonFile);
             emit graficoSalvabile(true);
+        }    else {
+            qWarning("File JSON non valido");
+            QMessageBox::warning(this,"File","File non valido",QMessageBox::Ok);
         }
 
-    }else qWarning("File JSON non valido");
+    }    else {
+        qWarning("File JSON non valido");
+        QMessageBox::warning(this,"File","File non valido",QMessageBox::Ok);
+    }
 
 }
 
@@ -307,8 +325,14 @@ void MainWindow::creaCandleChartFromFile(const QJsonObject &json){
             candleWidget->show();
             emit graficoSalvabile(true);
             connect(this,&MainWindow::salvaConNomeSignal,candleWidget,&CandleStickChartWidget::salvaJson);
+        }    else {
+            qWarning("File JSON non valido");
+            QMessageBox::warning(this,"File","File non valido",QMessageBox::Ok);
         }
-    }else qWarning("File JSON non valido");
+    }    else {
+        qWarning("File JSON non valido");
+        QMessageBox::warning(this,"File","File non valido",QMessageBox::Ok);
+    }
 
 
 }
@@ -349,9 +373,15 @@ void MainWindow::creaAreaChartFromFile(const QJsonObject &json){
             areachart->show();
             connect(this,&MainWindow::salvaConNomeSignal,areachart,&AreaChartWidget::salvaJson);
             emit graficoSalvabile(true);
+        }    else {
+            qWarning("File JSON non valido");
+            QMessageBox::warning(this,"File","File non valido",QMessageBox::Ok);
         }
 
-    }else qWarning("File JSON non valido");
+    }    else {
+        qWarning("File JSON non valido");
+        QMessageBox::warning(this,"File","File non valido",QMessageBox::Ok);
+    }
 
 }
 

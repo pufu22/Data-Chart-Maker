@@ -13,6 +13,7 @@ LineChartModel::LineChartModel(LineChartTableModel * data) :ChartModel(data)
         chart->addSeries(series[i]);
         series.at(i)->setName(tableModel->headerData(i+1,Qt::Horizontal,Qt::DisplayRole).toString());
         connect(series.at(i),&QLineSeries::doubleClicked,this,&LineChartModel::cambiaNome);
+        connect(series.at(i),&QLineSeries::pointReplaced,this,&LineChartModel::updateAxisY);
     }
     chart->createDefaultAxes();
     chart->setTitle(tableModel->getData()->getTitle());
