@@ -13,11 +13,21 @@ private:
     QChartView* chartview;
     QPushButton* aggiungiLinea;
     QPushButton* aggiungiPunto;
+    QPushButton* rimuoviLinea;
+    QPushButton* rimuoviPunto;
+    QPushButton* cambiaTitolo;
 public:
-    AreaChartWidget(QWidget *parent = nullptr, const char* name = nullptr);
+    AreaChartWidget(AreaChartData* data = nullptr, QWidget *parent = nullptr);
 private slots:
+    void cambiaTitoloSlot();
     void aggiungiLineaSlot();
     void aggiungiPuntoSlot();
+    void rimuoviLineaSlot();
+    void rimuoviPuntoSlot();
+public slots:
+    void salvaJson();
+signals:
+    void cambiaTitoloSignal(QString titolo);
 };
 
 #endif // AREACHARTWIDGET_H

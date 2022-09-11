@@ -15,13 +15,18 @@ int Piecharttablemodel::columnCount(const QModelIndex &parent) const
 bool Piecharttablemodel::insertRows(int row, int count, const QModelIndex &parent) {
     bool ok;
     QStringList list = inputdialog::getStrings(nullptr, "piechart", &ok);
-    if(ok){
-        beginInsertRows(parent, row, row + count - 1);
-            pieData->pushLabel(list.at(0));
-            pieData->pushValue(list.at(1).toInt());
-        endInsertRows();
-        return true;
+    if (!pieData->getLabels().contains(list.at(0))) {
+        if(ok){
+            beginInsertRows(parent, row, row + count - 1);
+                pieData->pushLabel(list.at(0));
+                pieData->pushValue(list.at(1).toInt());
+            endInsertRows();
+            return true;
+        }
+        return false;
     }
+    else
+        QMessageBox::warning(nullptr,"Attenzione!","Label già presente.",QMessageBox::Ok);
     return false;
 }
 
@@ -45,9 +50,14 @@ QVariant Piecharttablemodel::data(const QModelIndex &index, int role) const {
 bool Piecharttablemodel::setData(const QModelIndex &index, const QVariant &value, int role) {
     if (data(index, role) != value) {
         if(index.column()==0)
-            pieData->setLabel(index.row(),value.toString());
+            if (!pieData->getLabels().contains(value.toString()))
+                pieData->setLabel(index.row(),value.toString());
+            else {
+                QMessageBox::warning(nullptr,"Attenzione!","Label già presente.",QMessageBox::Ok);
+                return false;
+            }
         else
-            pieData->setData(index.row(), index.column(), value.toInt());
+            pieData->setData(index.row(), index.column(), value.toUInt());
         emit dataChanged(index, index, QVector<int>() << role);
         return true;
     }
@@ -70,5 +80,4 @@ QVariant Piecharttablemodel::headerData(int section, Qt::Orientation orientation
         return section+1;
     }
     return QVariant();
-
 }

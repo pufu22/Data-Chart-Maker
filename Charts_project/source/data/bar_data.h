@@ -7,7 +7,7 @@ class Bar_data : public comparisonChartData {
 private:
     QVector<QString> categories;
 public:
-    Bar_data(QVector<QVector<qreal>> m_sets, QString m_title, QVector<QString> m_categories, QVector<QString>m_names, int minValue,int maxValue);
+    Bar_data(QVector<QVector<qreal>> m_sets, QString m_title, QVector<QString> m_categories, QVector<QString>m_names);
     Bar_data();
 
     QVector<QString> getCategories() const;
@@ -20,4 +20,3 @@ public:
 };
 
 #endif // BAR_DATA_H
-//const QVector<QString>& m_categories={"insert label"}

@@ -7,9 +7,9 @@ class CandleStickData : public ChartData {
 private:
     QVector<qreal> timestamp;
     QVector<qreal> open;
-    QVector<qreal>close;
     QVector<qreal>high;
     QVector<qreal>low;
+    QVector<qreal>close;
 
     void dataInit() override;
 public:
@@ -17,7 +17,6 @@ public:
     CandleStickData(QVector<qreal> m_timestamp, QVector<qreal> m_open, QVector<qreal> m_close, QVector<qreal> m_high, QVector<qreal> m_low,
                     QString m_title);
 
-    int getEntries()const;                    /*Ottiene il numero di righe in una tabella*/
     qreal getTimeStampAt(int pos)const;
     qreal getOpenAt(int pos)const;
     qreal getCloseAt(int pos)const;

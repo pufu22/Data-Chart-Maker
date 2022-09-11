@@ -1,6 +1,6 @@
 #include "barcharttable.h"
 
-barcharttable::barcharttable(Bar_data *data, QWidget *parent, const char *name) : QWidget(parent)
+barcharttable::barcharttable(Bar_data *data, QWidget *parent) : QWidget(parent)
 {
     lt=new QGridLayout(this);
 
@@ -22,7 +22,7 @@ barcharttable::barcharttable(Bar_data *data, QWidget *parent, const char *name) 
     connect(changeTitle,&QPushButton::released,this,&barcharttable::changetitle);
 
     barTable->setModel(barModel->getTableModel());
-    //barModel->getTableModel()->setParent(table);          //in teoria non serve.
+    barModel->getTableModel()->setParent(barTable);
     lt->addWidget(barTable);
     barTable->show();
 
@@ -30,7 +30,7 @@ barcharttable::barcharttable(Bar_data *data, QWidget *parent, const char *name) 
     chartView->setRenderHint(QPainter::Antialiasing);
     chartView->setMinimumSize(1280, 480);
 
-    QPushButton* ingrandisci=new QPushButton("&Ingrandisci");
+    ingrandisci=new QPushButton("&Ingrandisci");
     connect(ingrandisci,&QPushButton::released,this,&barcharttable::chartFocus);
     lt->addWidget(aggiungi_riga);
     lt->addWidget(aggiungi_colonna);
@@ -39,14 +39,11 @@ barcharttable::barcharttable(Bar_data *data, QWidget *parent, const char *name) 
     lt->addWidget(changeTitle);
     lt->addWidget(ingrandisci);
     lt->addWidget(chartView);
-    lt->setSizeConstraint(QLayout::SetFixedSize);
+    lt->setSizeConstraint(QLayout::SetMinimumSize);
     setLayout(lt);
-    connect(nullptr,&MainWindow::salvaConNomeSignal,this,&barcharttable::salvaJsonBar);
     connect(barModel->getTableModel(),&ChartTableModel::dataChanged,barModel,&ChartModel::updateAxisY);
-    connect(barModel->getTableModel(),&ChartTableModel::columnsInserted,barModel,&ChartModel::updateAxisY);
     connect(barModel->getTableModel(),&ChartTableModel::columnsRemoved,barModel,&ChartModel::updateAxisY);
     connect(barModel->getTableModel(),&ChartTableModel::rowsRemoved,barModel,&ChartModel::updateAxisY);
-    connect(barModel->getTableModel(),&ChartTableModel::rowsInserted,barModel,&ChartModel::updateAxisY);
 }
 
 void barcharttable::aggiungiriga(){
@@ -97,13 +94,9 @@ void barcharttable::changetitle(){
     title=QInputDialog::getText(this,tr("Titolo"),tr("Titolo:"),QLineEdit::Normal,tr(""),&ok);
     if(ok)
         barModel->updateTitle(title);
-    chartView->resize(1280,480);
 }
 
 void barcharttable::chartFocus(){
     PopupChart::chartFocus(chartView,this);
     lt->addWidget(chartView);
-    chartView->chart()->resize(120,120);
-    chartView->resize(1280,480);
-    chartView->chart()->adjustSize();
 }

@@ -1,6 +1,8 @@
 #include "areachartdata.h"
 
 AreaChartData::AreaChartData() : comparisonChartData("PlaceHolder", {{0,0},{1,12}}){}
+AreaChartData::AreaChartData(QVector<QVector<qreal>> lines, QString title, QVector<QString> areanames) : comparisonChartData(title,
+                                                                                                                   lines, areanames){}
 
 void AreaChartData::removeGroup(int pos){
     names.remove(pos-1);
@@ -18,3 +20,7 @@ void AreaChartData::pushData(int count){
     data.push_back(temp);
 }
 
+void AreaChartData::pushGroup(int pos) {
+    sets[pos].push_back(sets[pos].last());
+    data[pos].push_back(data[pos].last());
+}

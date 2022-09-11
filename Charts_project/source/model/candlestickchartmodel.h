@@ -7,7 +7,6 @@
 class CandleStickChartModel : public ChartModel {
 private:
     QCandlestickSeries* candleSeries;
-    QVector<QCandlestickSet*> candleSets;
     QBarCategoryAxis* axisX;
     QValueAxis* axisY;
     QHCandlestickModelMapper* mapper;

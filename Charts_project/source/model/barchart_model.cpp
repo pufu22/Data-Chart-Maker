@@ -88,25 +88,25 @@ void BarChartModel::cambiaNome(int index,QBarSet *barset){
     QString scelta=QInputDialog::getItem(nullptr, tr("QInputDialog::getItem()"),
                                          tr("Scegli:"), name, 0, false, &ok);
     if(ok && !scelta.isEmpty()) {
-        if(scelta.compare("Bar name")==0) {
+        if(scelta.compare("Bar name")==0)
             for(int i=0;i<series->barSets().count();++i) {
                 QBarSet* barSet=series->barSets().at(i);
-                if(barset==barSet) {
+                if(barset==barSet){
                     bool ok2;
                     QString nome=QInputDialog::getText(nullptr,tr("Nome"),tr("Nome:"),QLineEdit::Normal,tr(""),&ok2);
-                    if(ok2 && nome.trimmed()!="") {
+                    if(ok2 && nome.trimmed()!=""){
                         tableModel->setHeaderData(i,Qt::Horizontal,nome,Qt::EditRole);
+                        barSet->setLabel(nome);
                     }
                 }
             }
-        }
-        else {
+        else{
             bool ok3;
             QString nomeset=QInputDialog::getText(nullptr,tr("Nome"),tr("Nome:"),QLineEdit::Normal,tr(""),&ok3);
             if(ok3 && nomeset.trimmed()!="")
                 tableModel->setHeaderData(index,Qt::Vertical,nomeset,Qt::EditRole);
             categories.replace(index,nomeset);
-            axisX->insert(index,nomeset);
+            axisX->replace(axisX->at(index),nomeset);
         }
     }
 }

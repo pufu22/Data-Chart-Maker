@@ -4,6 +4,7 @@
 #include "chartTableModel.h"
 #include <source/data/bar_data.h>
 #include <QInputDialog>
+#include <QMessageBox>
 
 class BarChartTableModel : public ChartTableModel {
     Q_OBJECT

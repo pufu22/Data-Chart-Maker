@@ -17,14 +17,56 @@ bool CandleStickChartTableModel::insertRows(int row, int count, const QModelInde
         high=list.at(2).toDouble();
         low=list.at(3).toDouble();
         close=list.at(4).toDouble();
-        if(timestamp>candleData->getTimeStampAt(row-1)) {
-            beginInsertRows(parent,row,row);
-                candleData->addData(timestamp,open,high,low,close);
-            endInsertRows();
-            return true;
+        if (open <= high && open >= low && high >= low && close <= high && close >= low ) {
+            if(timestamp>candleData->getTimeStampAt(row-1)) {
+                beginInsertRows(parent,row,row);
+                    candleData->addData(timestamp,open,high,low,close);
+                endInsertRows();
+                return true;
+            }
         }
+        else
+            QMessageBox::warning(nullptr,"Attenzione!","Rispetta le condizioni di high e low.",QMessageBox::Ok);
     }
     return false;
+}
+
+bool CandleStickChartTableModel::setData(const QModelIndex &index,const QVariant &value,int role){
+    if(role==Qt::EditRole) {
+        switch (index.column()) {
+        case 0:
+            candleData->setData(index.row(), 0, value.toReal());
+            break;
+        case 1:
+            if(value.toReal() <= candleData->getHighAt(index.row()) && value.toReal() >= candleData->getLowAt(index.row()))
+                candleData->setData(index.row(), 1, value.toReal());
+            else
+                QMessageBox::warning(nullptr,"Attenzione!","Rispetta le condizioni di high e low.",QMessageBox::Ok);
+            break;
+        case 2:
+            if(value.toReal() >= candleData->getLowAt(index.row()))
+                candleData->setData(index.row(), 2, value.toReal());
+            else
+                QMessageBox::warning(nullptr,"Attenzione!","Rispetta le condizioni di high e low.",QMessageBox::Ok);
+            break;
+        case 3:
+            if(value.toReal() <= candleData->getHighAt(index.row()))
+                candleData->setData(index.row(), 3, value.toReal());
+            else
+                QMessageBox::warning(nullptr,"Attenzione!","Rispetta le condizioni di high e low.",QMessageBox::Ok);
+            break;
+        case 4:
+            if(value.toReal() <= candleData->getHighAt(index.row()) && value.toReal() >= candleData->getLowAt(index.row()))
+                candleData->setData(index.row(), 4, value.toReal());
+            else
+                QMessageBox::warning(nullptr,"Attenzione!","Rispetta le condizioni di high e low.",QMessageBox::Ok);
+            break;
+        }
+        emit dataChanged(index,index);
+        return true;
+    }
+    else
+        return false;
 }
 
 Qt::ItemFlags CandleStickChartTableModel::flags(const QModelIndex &index) const {

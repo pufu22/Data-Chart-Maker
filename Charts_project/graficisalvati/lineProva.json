@@ -1,0 +1,15 @@
+{
+    "Type": "linechart",
+    "names": [
+        "insert name"
+    ],
+    "series": {
+        "0": [
+            10
+        ],
+        "1": [
+            2
+        ]
+    },
+    "title": "PlaceHolder"
+}

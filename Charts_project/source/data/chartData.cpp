@@ -1,6 +1,6 @@
 #include "chartData.h"
 
-ChartData::ChartData(const QString& m_title) : title(m_title) {};
+ChartData::ChartData(const QString& m_title) : title(m_title) {}
 
 QString ChartData::getTitle() const {
     return title;

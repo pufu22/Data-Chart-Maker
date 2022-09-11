@@ -4,6 +4,7 @@
 #include "chartTableModel.h"
 #include <source/data/pie_data.h>
 #include <source/dialog/inputdialog.h>
+#include <QMessageBox>
 
 class Piecharttablemodel : public ChartTableModel {
     Q_OBJECT

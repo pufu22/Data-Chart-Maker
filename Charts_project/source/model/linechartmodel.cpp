@@ -13,6 +13,7 @@ LineChartModel::LineChartModel(LineChartTableModel * data) : ChartModel(data)
         chart->addSeries(series[i]);
         series.at(i)->setName(tableModel->headerData(i+1,Qt::Horizontal,Qt::DisplayRole).toString());
         connect(series.at(i),&QLineSeries::doubleClicked,this,&LineChartModel::cambiaNome);
+        connect(series.at(i),&QLineSeries::pointReplaced,this,&LineChartModel::updateAxisY);
     }
     chart->createDefaultAxes();
     chart->setTitle(tableModel->getData()->getTitle());
@@ -30,6 +31,7 @@ void LineChartModel::updateInsertColumn() {
     series.at(n)->setName(tableModel->headerData(n+1,Qt::Horizontal,Qt::DisplayRole).toString());
     updateAxisY();
     connect(series.at(n),&QLineSeries::doubleClicked,this,&LineChartModel::cambiaNome);
+    connect(series.at(n),&QLineSeries::pointReplaced,this,&LineChartModel::updateAxisY);
 }
 
 void LineChartModel::updateRemoveColumn(int pos) {
@@ -41,6 +43,7 @@ void LineChartModel::updateRemoveColumn(int pos) {
         mapper[i]->setXColumn(i);
         mapper[i]->setYColumn(i+1);
     }
+    updateAxisY();
 }
 
 void LineChartModel::cambiaNome(){

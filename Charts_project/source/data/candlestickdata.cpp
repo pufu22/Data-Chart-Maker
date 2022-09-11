@@ -12,7 +12,7 @@ CandleStickData::CandleStickData() : ChartData()
 
 CandleStickData::CandleStickData(QVector<qreal> m_timestamp, QVector<qreal> m_open, QVector<qreal> m_close, QVector<qreal> m_high,
                                  QVector<qreal> m_low, QString m_title)
-                                : ChartData(m_title), timestamp(m_timestamp), open(m_open), close(m_close), high(m_high), low(m_low) {
+                                : ChartData(m_title), timestamp(m_timestamp), open(m_open), high(m_high), low(m_low), close(m_close) {
     CandleStickData::dataInit();
 }
 
@@ -27,10 +27,6 @@ void CandleStickData::dataInit() {
         data.push_back(temp);
         temp.clear();
     }
-}
-
-int CandleStickData::getEntries() const {
-    return timestamp.size();
 }
 
 qreal CandleStickData::getTimeStampAt(int pos) const {

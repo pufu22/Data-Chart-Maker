@@ -13,11 +13,16 @@ private:
     QChartView* chartview;
     QPushButton* aggiungiSet;
     QPushButton* rimuoviSet;
+    QPushButton* cambiaTitolo;
 public:
-    explicit CandleStickChartWidget(QWidget *parent = nullptr);
+    explicit CandleStickChartWidget(CandleStickData* data = nullptr, QWidget *parent = nullptr);
 private slots:
+    void cambiaTitoloSlot();
     void aggiungiSetSlot();
     void rimuoviSetSlot();
+signals:
+    void salvaJson();
+    void cambiaTitoloSignal(QString titolo);
 };
 
 #endif // CANDLESTICKCHARTWIDGET_H

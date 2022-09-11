@@ -10,7 +10,8 @@
 class piechartwidget : public QWidget {
     Q_OBJECT
 public:
-    piechartwidget(QWidget *parent=nullptr, const char *name=nullptr, pie_data* data=nullptr);
+    piechartwidget(pie_data* data=nullptr, QWidget* parent = nullptr);
+    ~piechartwidget();
 private:
     ChartModel* pieModel;
     QTableView* pietable;
@@ -26,6 +27,8 @@ public slots:
     void cambiaTitoloSlot();
     void chartFocus();
     void salvaJsonPie();
+signals:
+    void cambiaTitoloSignal(QString titolo);
 };
 
 #endif // PIECHARTWIDGET_H

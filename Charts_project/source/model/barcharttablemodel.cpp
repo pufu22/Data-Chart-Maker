@@ -5,17 +5,22 @@ BarChartTableModel::BarChartTableModel(QObject* parent, Bar_data* data) : ChartT
 bool BarChartTableModel::insertRows(int row, int count, const QModelIndex &) {
     bool ok;
     QString cat=QInputDialog::getText(nullptr,tr("Aggiungi categoria"),tr("Categoria:"),QLineEdit::Normal,tr(" "),&ok);
-    if(ok && cat.trimmed()!=""){
-        beginInsertRows(QModelIndex(),row,row);
-            for(int r=0; r<count; ++r)
-            {
-                barData->pushData(columnCount());
-                barData->pushCategory(cat);
-            }
+    if(!barData->getCategories().contains(cat)) {
+        if(ok && cat.trimmed()!=""){
+            beginInsertRows(QModelIndex(),row,row);
+                for(int r=0; r<count; ++r)
+                {
+                        barData->pushData(columnCount());
+                        barData->pushCategory(cat);
 
-        endInsertRows();
+                }
+            endInsertRows();
             return true;
+        }
+        return false;
     }
+    else
+        QMessageBox::warning(nullptr,"Attenzione!","Categoria già esistente",QMessageBox::Ok);
     return false;
 }
 

@@ -2,7 +2,8 @@
 
 LineChartData::LineChartData() : comparisonChartData("PlaceHolder", {{0,10},{1,2}}) {}
 
-LineChartData::LineChartData(QVector<QVector<qreal>> series,QString m_title) : comparisonChartData(m_title, series){}
+LineChartData::LineChartData(QVector<QVector<qreal>> series, QString m_title, QVector<QString> names) : comparisonChartData(m_title, series,
+                                                                                                                            names){}
 
 void LineChartData::removeGroup(int pos){
     names.remove(pos-1);

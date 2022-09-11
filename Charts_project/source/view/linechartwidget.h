@@ -11,23 +11,26 @@ private:
     ChartModel* lineModel;
     QTableView* tableModel;
     QLayout* lt;
+    QChartView* chartview;
     QPushButton* aggiungiriga;
     QPushButton* aggiungilinea;
     QPushButton* togliLinea;
     QPushButton* togliPunto;
-    QChartView* chartview;
+    QPushButton* cambiaTitolo;
 public:
-    LineChartWidget(LineChartData* data=nullptr,QWidget *parent = 0, const char* name = 0);
+    LineChartWidget(LineChartData* data = nullptr,QWidget *parent = nullptr);
     virtual ~LineChartWidget(){};
 private slots:
-    void aggiungilineaslot();
-    void aggiungipunto();
+    void aggiungilineaSlot();
+    void aggiungipuntoSlot();
     void togliLineaSlot();
     void togliPuntoSlot();
-signals:
-    void linea();
+    void cambiaTitoloSlot();
 public slots:
     void salvaJsonFile();
+signals:
+    void linea();
+    void cambiaTitoloSignal(QString titolo);
 };
 
 #endif // LINECHARTWIDGET_H

@@ -35,6 +35,24 @@ bool AreaChartTableModel::removeColumns(int column, int count, const QModelIndex
     return true;
 }
 
+bool AreaChartTableModel::setData(const QModelIndex &index,const QVariant &value,int role) {
+    if(role==Qt::EditRole){
+        if(index.column()!=0){
+            if(index.column()!=1){
+                if(value.toInt() >= chartData->getData().at(index.row()).at(index.column()-1))
+                    chartData->setData(index.row(),index.column(),value.toInt());
+                else
+                    QMessageBox::warning(nullptr,"Attenzione!","Il punto deve essere maggiore di quello precedente.",QMessageBox::Ok);
+            }
+            else
+                chartData->setData(index.row(),index.column(),value.toInt());
+        }
+        emit dataChanged(index,index);
+        return true;
+    }
+    else
+        return false;
+}
 
 Qt::ItemFlags AreaChartTableModel::flags(const QModelIndex &index) const {
     if(index.column()!=0)

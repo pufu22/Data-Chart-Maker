@@ -21,13 +21,13 @@ private:
     QAction* openAct;
 public:
     MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
 
     void createMenus();
     void createActions();
     void creaPieChartFromFile(const QJsonObject &json);
     void creaBarChartFromFile(const QJsonObject &json);
     void creaLineChartFromFile(const QJsonObject &json);
+    void creaAreaChartFromFile(const QJsonObject &json);
     void creaCandleChartFromFile(const QJsonObject &json);
 private slots:
     void nuovoGrafico();

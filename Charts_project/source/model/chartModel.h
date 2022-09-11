@@ -14,13 +14,13 @@ public:
 
     QChart* getChart();
     ChartTableModel* getTableModel();
-    virtual void updateInsertRow() {};
-    virtual void updateInsertColumn() {};
-    virtual void updateRemoveRow(int pos) {};
-    virtual void updateRemoveColumn(int pos) {};
+    virtual void updateInsertRow() {}
+    virtual void updateInsertColumn() {}
+    virtual void updateRemoveRow(int pos) {}
+    virtual void updateRemoveColumn(int pos) {}
 public slots:
     void updateTitle(QString title);
-    virtual void updateAxisY() {};
+    virtual void updateAxisY() {}
     virtual void salvaJson() =0;
 };
 

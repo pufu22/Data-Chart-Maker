@@ -1,0 +1,12 @@
+{
+    "Type": "barchart",
+    "bars": {
+        "insert label": [
+            10
+        ]
+    },
+    "names": [
+        "insert name"
+    ],
+    "title": "titolo"
+}

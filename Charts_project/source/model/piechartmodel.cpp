@@ -24,6 +24,10 @@ piechartmodel::piechartmodel(Piecharttablemodel* data) : ChartModel(data)
     chart->legend()->setAlignment(Qt::AlignBottom);
 }
 
+piechartmodel::~piechartmodel(){
+    delete(piemapper);
+}
+
 void piechartmodel::explodeSplice(bool state){
     QObject* obj=sender();
     for(int i=0;i<pieSeries->slices().size();++i){

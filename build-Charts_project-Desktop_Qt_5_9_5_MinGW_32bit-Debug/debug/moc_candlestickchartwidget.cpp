@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CandleStickChartWidget_t {
-    QByteArrayData data[4];
-    char stringdata0[55];
+    QByteArrayData data[8];
+    char stringdata0[108];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,13 +32,18 @@ struct qt_meta_stringdata_CandleStickChartWidget_t {
 static const qt_meta_stringdata_CandleStickChartWidget_t qt_meta_stringdata_CandleStickChartWidget = {
     {
 QT_MOC_LITERAL(0, 0, 22), // "CandleStickChartWidget"
-QT_MOC_LITERAL(1, 23, 15), // "aggiungiSetSlot"
-QT_MOC_LITERAL(2, 39, 0), // ""
-QT_MOC_LITERAL(3, 40, 14) // "rimuoviSetSlot"
+QT_MOC_LITERAL(1, 23, 9), // "salvaJson"
+QT_MOC_LITERAL(2, 33, 0), // ""
+QT_MOC_LITERAL(3, 34, 18), // "cambiaTitoloSignal"
+QT_MOC_LITERAL(4, 53, 6), // "titolo"
+QT_MOC_LITERAL(5, 60, 16), // "cambiaTitoloSlot"
+QT_MOC_LITERAL(6, 77, 15), // "aggiungiSetSlot"
+QT_MOC_LITERAL(7, 93, 14) // "rimuoviSetSlot"
 
     },
-    "CandleStickChartWidget\0aggiungiSetSlot\0"
-    "\0rimuoviSetSlot"
+    "CandleStickChartWidget\0salvaJson\0\0"
+    "cambiaTitoloSignal\0titolo\0cambiaTitoloSlot\0"
+    "aggiungiSetSlot\0rimuoviSetSlot"
 };
 #undef QT_MOC_LITERAL
 
@@ -48,18 +53,28 @@ static const uint qt_meta_data_CandleStickChartWidget[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       2,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags
+       1,    0,   39,    2, 0x06 /* Public */,
+       3,    1,   40,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   24,    2, 0x08 /* Private */,
-       3,    0,   25,    2, 0x08 /* Private */,
+       5,    0,   43,    2, 0x08 /* Private */,
+       6,    0,   44,    2, 0x08 /* Private */,
+       7,    0,   45,    2, 0x08 /* Private */,
+
+ // signals: parameters
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    4,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -72,12 +87,30 @@ void CandleStickChartWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _
         CandleStickChartWidget *_t = static_cast<CandleStickChartWidget *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->aggiungiSetSlot(); break;
-        case 1: _t->rimuoviSetSlot(); break;
+        case 0: _t->salvaJson(); break;
+        case 1: _t->cambiaTitoloSignal((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 2: _t->cambiaTitoloSlot(); break;
+        case 3: _t->aggiungiSetSlot(); break;
+        case 4: _t->rimuoviSetSlot(); break;
         default: ;
         }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            typedef void (CandleStickChartWidget::*_t)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CandleStickChartWidget::salvaJson)) {
+                *result = 0;
+                return;
+            }
+        }
+        {
+            typedef void (CandleStickChartWidget::*_t)(QString );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CandleStickChartWidget::cambiaTitoloSignal)) {
+                *result = 1;
+                return;
+            }
+        }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject CandleStickChartWidget::staticMetaObject = {
@@ -105,15 +138,28 @@ int CandleStickChartWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 5)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 2;
+        _id -= 5;
     }
     return _id;
+}
+
+// SIGNAL 0
+void CandleStickChartWidget::salvaJson()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void CandleStickChartWidget::cambiaTitoloSignal(QString _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

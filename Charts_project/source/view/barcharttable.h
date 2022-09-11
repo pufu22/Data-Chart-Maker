@@ -18,8 +18,9 @@ private:
     QPushButton* removeBars;
     QPushButton* removeSet;
     QPushButton* changeTitle;
+    QPushButton* ingrandisci;
 public:
-    barcharttable(Bar_data* data = nullptr, QWidget *parent = nullptr, const char *name = nullptr);
+    barcharttable(Bar_data* data = nullptr, QWidget *parent = nullptr);
 private slots:
        void aggiungiriga();
        void aggiungicolonna();
@@ -31,6 +32,7 @@ public slots:
        void chartFocus();
 signals:
        void riga();
+       void cambiaTitoloSignal(QString titolo);
 };
 
 #endif // BARCHARTTABLE_H

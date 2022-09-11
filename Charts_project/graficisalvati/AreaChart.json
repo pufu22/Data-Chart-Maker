@@ -1,0 +1,20 @@
+{
+    "Type":"areachart",
+    "title":"Risultati sull'analisi dei dati",
+    "lines":
+    {
+        "0":[0,3],
+        "1":[2,4],
+        "2":[3,5],
+        "3":[1,4],
+        "4":[22,42],
+        "5":[41,86],
+        "6":[21,100]
+    },
+    "areanames":
+    [
+        "Dati del primo set",
+        "Dati del secondo set"
+    ]
+
+}

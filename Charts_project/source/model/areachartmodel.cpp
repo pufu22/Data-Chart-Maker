@@ -16,6 +16,7 @@ AreaChartModel::AreaChartModel(AreaChartTableModel* data) : ChartModel(data) {
         areaSeries.at(i)->setName(tableModel->headerData(i+1,Qt::Horizontal,Qt::DisplayRole).toString());
         chart->addSeries(areaSeries.at(i));
         connect(areaSeries.at(i),&QAreaSeries::doubleClicked,this,&AreaChartModel::cambiaNome);
+        connect(linesmappers.at(i)->series(),&QLineSeries::pointReplaced,this,&AreaChartModel::updateAxisY);
     }
     chart->createDefaultAxes();
     QValueAxis *axisY = qobject_cast<QValueAxis *>(chart->axes(Qt::Vertical).at(0));
@@ -38,6 +39,7 @@ void AreaChartModel::updateInsertColumn() {
     areaSeries.at(n)->setName(tableModel->headerData(n+1,Qt::Horizontal,Qt::DisplayRole).toString());
     chart->createDefaultAxes();
     connect(areaSeries.at(n),&QAreaSeries::doubleClicked,this,&AreaChartModel::cambiaNome);
+    connect(linesmappers.at(n)->series(),&QLineSeries::pointReplaced,this,&AreaChartModel::updateAxisY);
 }
 
 void AreaChartModel::updateRemoveColumn(int pos) {
@@ -58,6 +60,7 @@ void AreaChartModel::updateRemoveColumn(int pos) {
     }
     if(pos != 0)
     areaSeries.at(pos-1)->setUpperSeries(series.at(pos-1));
+    updateAxisY();
 }
 
 int AreaChartModel::getMax(){

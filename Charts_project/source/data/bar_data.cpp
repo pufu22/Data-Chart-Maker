@@ -1,8 +1,7 @@
 #include "bar_data.h"
 
-Bar_data::Bar_data(QVector<QVector<qreal>> m_sets, QString m_title, QVector<QString> m_categories, QVector<QString> m_names, int minValue,
-                   int maxValue)
-    : comparisonChartData(m_title, m_sets, m_names, minValue, maxValue){categories = m_categories;}
+Bar_data::Bar_data(QVector<QVector<qreal>> m_sets, QString m_title, QVector<QString> m_categories, QVector<QString> m_names)
+                                                : comparisonChartData(m_title, m_sets, m_names){categories = m_categories;}
 
 Bar_data::Bar_data() : comparisonChartData(){categories = {"insert label"};}
 

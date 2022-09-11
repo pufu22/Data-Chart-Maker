@@ -6,7 +6,7 @@
 class LineChartData : public comparisonChartData {
 public:
     LineChartData();
-    LineChartData(QVector<QVector<qreal>> series,QString title);
+    LineChartData(QVector<QVector<qreal>> series, QString title, QVector<QString> names);
 
     void removeGroup(int pos) override;
     void pushData(int count) override;

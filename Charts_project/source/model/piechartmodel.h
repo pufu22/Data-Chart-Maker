@@ -11,6 +11,7 @@ private:
     QVPieModelMapper* piemapper;
 public:
     piechartmodel(Piecharttablemodel* data = new Piecharttablemodel());
+    ~piechartmodel();
 
     void updateInsertRow() override;
 public slots:

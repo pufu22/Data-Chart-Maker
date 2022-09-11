@@ -1,8 +1,7 @@
 #include "comparisonChartData.h"
 
-comparisonChartData::comparisonChartData(const QString& m_title, const QVector<QVector<qreal>>& m_sets, const QVector<QString>& m_names,
-                                         const int& minValue, const int& maxValue)
-                                        : ChartData(m_title), sets(m_sets),  names(m_names), yAxisMinValue(minValue), yAxisMaxValue(maxValue) {
+comparisonChartData::comparisonChartData(const QString& m_title, const QVector<QVector<qreal>>& m_sets, const QVector<QString>& m_names)
+                                        : ChartData(m_title), sets(m_sets),  names(m_names) {
     comparisonChartData::dataInit();
 }
 
@@ -18,14 +17,6 @@ QVector<QString> comparisonChartData::getNames()const{
     return names;
 }
 
-int comparisonChartData::getYAxisMinValue()const{
-    return yAxisMinValue;
-}
-
-int comparisonChartData::getYAxisMaxValue() const{
-    return yAxisMaxValue;
-}
-
 void comparisonChartData::setData(int x,int y, qreal val) {
     sets[x][y] = val;
     data[x][y] = val;
@@ -33,14 +24,6 @@ void comparisonChartData::setData(int x,int y, qreal val) {
 
 void comparisonChartData::setName(QString name, int pos){
     names[pos]=name;
-}
-
-void comparisonChartData::setYAxisMinValue(int min){
-    yAxisMinValue=min;
-}
-
-void comparisonChartData::setYAxisMaxValue(int max){
-    yAxisMaxValue=max;
 }
 
 void comparisonChartData::removeData(int pos) {

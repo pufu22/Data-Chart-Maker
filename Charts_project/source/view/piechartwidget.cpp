@@ -1,6 +1,6 @@
 #include "piechartwidget.h"
 
-piechartwidget::piechartwidget(QWidget *parent, const char *name, pie_data* data){
+piechartwidget::piechartwidget(pie_data* data, QWidget *parent) : QWidget(parent){
     lt = new QGridLayout(this);
     pietable = new QTableView;
     if(data==nullptr)
@@ -26,12 +26,17 @@ piechartwidget::piechartwidget(QWidget *parent, const char *name, pie_data* data
     lt->addWidget(ingrandisci);
     chartview=new QChartView(pieModel->getChart());
     chartview->setRenderHint(QPainter::Antialiasing);
-    chartview->setMinimumSize(1280,480);
+    chartview->setMinimumSize(1440,590);
     lt->addWidget(chartview);
-    lt->setSizeConstraint(QLayout::SetFixedSize);
+    lt->setSizeConstraint(QLayout::SetMinimumSize);
 
     setLayout(lt);
 }
+
+piechartwidget::~piechartwidget(){
+    delete(pieModel);
+}
+
 void piechartwidget::aggiungifettaslot(){
     bool ok;
     ok = pieModel->getTableModel()->insertRows(pieModel->getTableModel()->rowCount(),1);
@@ -62,10 +67,12 @@ void piechartwidget::salvaJsonPie(){
 }
 
 void piechartwidget::chartFocus(){
+    QSize size=chartview->size();
     ingrandisci->blockSignals(true);
     lt->removeWidget(chartview);
     PopupChart::chartFocus(chartview,this);
     ingrandisci->blockSignals(false);
+    chartview->resize(size);
     lt->addWidget(chartview);
 }
 

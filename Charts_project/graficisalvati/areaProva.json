@@ -1,0 +1,15 @@
+{
+    "Type": "areachart",
+    "areanames": [
+        "insert name"
+    ],
+    "lines": {
+        "0": [
+            0
+        ],
+        "1": [
+            12
+        ]
+    },
+    "title": "PlaceHolder"
+}

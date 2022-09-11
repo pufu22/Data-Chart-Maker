@@ -1,0 +1,16 @@
+{
+    "Type": "piechart",
+    "slices": [
+        "John",
+        "Jude",
+        "Eunbi",
+        "Enrik"
+    ],
+    "title": "Titolo",
+    "values": [
+        1,
+        32,
+        12,
+        20
+    ]
+}
