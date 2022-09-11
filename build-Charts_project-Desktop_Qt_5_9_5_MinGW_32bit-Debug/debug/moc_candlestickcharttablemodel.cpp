@@ -63,7 +63,7 @@ void CandleStickChartTableModel::qt_static_metacall(QObject *_o, QMetaObject::Ca
 }
 
 const QMetaObject CandleStickChartTableModel::staticMetaObject = {
-    { &QAbstractTableModel::staticMetaObject, qt_meta_stringdata_CandleStickChartTableModel.data,
+    { &ChartTableModel::staticMetaObject, qt_meta_stringdata_CandleStickChartTableModel.data,
       qt_meta_data_CandleStickChartTableModel,  qt_static_metacall, nullptr, nullptr}
 };
 
@@ -78,12 +78,12 @@ void *CandleStickChartTableModel::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_CandleStickChartTableModel.stringdata0))
         return static_cast<void*>(this);
-    return QAbstractTableModel::qt_metacast(_clname);
+    return ChartTableModel::qt_metacast(_clname);
 }
 
 int CandleStickChartTableModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QAbstractTableModel::qt_metacall(_c, _id, _a);
+    _id = ChartTableModel::qt_metacall(_c, _id, _a);
     return _id;
 }
 QT_WARNING_POP

@@ -1,6 +1,7 @@
 #ifndef PIECHARTMODEL_H
 #define PIECHARTMODEL_H
 
+#include "chartModel.h"
 #include<vector>
 #include<string>
 #include<QtCharts>
@@ -8,27 +9,20 @@
 #include<QHPieModelMapper>
 #include<model/piecharttablemodel.h>
 
-class piechartmodel:public QObject
+class piechartmodel:public ChartModel
 {
 public:
-    QChart* getChart();
     ~piechartmodel();
-    Piecharttablemodel* dati;
     piechartmodel(Piecharttablemodel* data);
-    void connectInsertedSlice();
-    int sliceCount();
-    void salvaJsonPie();
-    void changeTitle(Piecharttablemodel *data,QString t);
-protected:
-    QChart* chart;
+    void updateInsertRow() override;
+private:
     QPieSeries* pieSeries;
     QString title;
     QVPieModelMapper* piemapper;
 public slots:
     void explodeSplice(bool state);
     void changeSlice();
-
-
+    void salvaJson() override;
 };
 
 #endif // PIECHARTMODEL_H

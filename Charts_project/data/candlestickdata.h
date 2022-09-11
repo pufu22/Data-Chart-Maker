@@ -14,8 +14,6 @@ public:
     qreal getCloseAt(int pos)const;
     qreal getHighAt(int pos)const;
     qreal getLowAt(int pos)const;
-    QString getTitle()const;
-    void setTitle(QString t);
     void setData(int x,int y, qreal val) override;
     void removeData(int pos) override;
     void addData(qreal t,qreal o,qreal h,qreal l,qreal c);

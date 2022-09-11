@@ -6,7 +6,6 @@
 
 class comparisonChartData:public ChartData{
 protected:
-    QString title;
     QVector<QVector<qreal>> sets;
     QVector<QString> names;
     int yAxisMinValue;
@@ -17,15 +16,12 @@ public:
     explicit comparisonChartData(const QString& m_title="titolo", const QVector<QVector<qreal>>& m_sets={{10}},
                                      const QVector<QString>& m_names={"insert name"}, const int& minValue=0, const int& maxValue=15);
 
-
-    QString getTitle() const;
     QVector<QVector<qreal>> getSets() const;
     QVector<QString> getNames()const;
     int getYAxisMinValue() const;
     int getYAxisMaxValue() const;
 
-    void setTitle(QString t);
-    void setData(int x,int y,qreal val);  /*corrisponde al setData()*/
+    void setData(int x,int y,qreal val) override;  /*corrisponde al setData()*/
     void setYAxisMinValue(int min);
     void setYAxisMaxValue(int max);
 
@@ -36,7 +32,6 @@ public:
         void pushName(QString name);
         void pushGroup(int pos);
 
-    void pushSets(int pos);
     void setName(QString name,int pos);
 };
 

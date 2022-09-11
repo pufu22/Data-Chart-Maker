@@ -5,27 +5,22 @@
 #include<iostream>
 #include<string>
 #include<QVBarModelMapper>
-BarChartModel::BarChartModel(BarChartTableModel *data)
+BarChartModel::BarChartModel(BarChartTableModel *data) : ChartModel(data)
 {
-    dati=data;
-    chart=new QChart;
-    chart->setAnimationOptions(QChart::AllAnimations);
     series=new QBarSeries;
     mapper=new QVBarModelMapper();
 
     mapper->setFirstBarSetColumn(0);
-    lastcolumn=data->columnCount();
-    mapper->setLastBarSetColumn(lastcolumn);
-    lastrow=data->rowCount();
+    mapper->setLastBarSetColumn(tableModel->columnCount());
     mapper->setFirstRow(0);
-    mapper->setRowCount(lastrow);
+    mapper->setRowCount(tableModel->rowCount());
     mapper->setSeries(series);
-    mapper->setModel(data);
+    mapper->setModel(tableModel);
     chart->addSeries(series);
 
-    for(int i=0;i<data->rowCount();++i){
+    for(int i=0; i < tableModel->rowCount(); ++i){
 
-        QString qstr = data->headerData(i,Qt::Vertical,Qt::DisplayRole).toString();
+        QString qstr = tableModel->headerData(i,Qt::Vertical,Qt::DisplayRole).toString();
         categories<<qstr;
 
     }
@@ -35,40 +30,36 @@ BarChartModel::BarChartModel(BarChartTableModel *data)
     chart->addAxis(axisX,Qt::AlignBottom);
     series->attachAxis(axisX);
     axisY= new QValueAxis();
-    axisY->setRange(getMin(),getMax());
-    title=data->dati->getTitle();
-    chart->setTitle(title);
+    axisY->setRange(getMin(), getMax());
+    chart->setTitle(tableModel->getData()->getTitle());
     chart->addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
     series->setLabelsVisible(true);
     connect(series,&QBarSeries::doubleClicked,this,&BarChartModel::cambiaNome);
 }
 
-void BarChartModel::updateMapperLastColumn()
-{
-    mapper->setLastBarSetColumn(++lastcolumn);
+
+void BarChartModel::updateInsertColumn() {
+    mapper->setLastBarSetColumn(tableModel->columnCount());
 }
-void BarChartModel::updateMapperLastRow(BarChartTableModel *data)
-{
-
-    mapper->setRowCount(++lastrow);
-    categories<<data->headerData(lastrow-1,Qt::Vertical,Qt::DisplayRole).toString();
-    axisX->append(categories);
-
+void BarChartModel::updateInsertRow() {
+    BarChartModel::mapper->setRowCount(tableModel->rowCount());
+    BarChartModel::categories<<tableModel->headerData(tableModel->rowCount()-1,Qt::Vertical,Qt::DisplayRole).toString();
+    BarChartModel::axisX->append(categories);
 }
 
-void BarChartModel::updateMapperRemoveColumn(){
-    mapper->setLastBarSetColumn(--lastcolumn);
-}
-
-void BarChartModel::updateMapperRemoveRow(int pos){
-    mapper->setRowCount(--lastrow);
+void BarChartModel::updateRemoveRow(int pos) {
+    mapper->setRowCount(tableModel->rowCount());
     categories.removeAt(pos);
     axisX->clear();
     axisX->append(categories);
 }
 
-void BarChartModel::salvaJsonBar(){
+void BarChartModel::updateRemoveColumn(int pos) {
+    mapper->setLastBarSetColumn(pos);
+}
+
+void BarChartModel::salvaJson(){
     QJsonObject mainObject;
     QJsonObject secondaryObject;
     mainObject.insert(QString::fromStdString("title"),chart->title());
@@ -114,14 +105,8 @@ void BarChartModel::updateAxisY(){
     axisY->setRange(getMin(),getMax()+1);
 }
 
-void BarChartModel::changeTitle(BarChartTableModel *data,QString t){
-    data->dati->setTitle(t);
-    chart->setTitle(data->dati->getTitle());
-}
 
-QChart* BarChartModel::getChart(){
-    return chart;
-}
+
 int BarChartModel::getMax(){
     int max=series->barSets().at(0)->at(0);
 for(int i=0;i<series->barSets().size();++i)
@@ -159,16 +144,15 @@ void BarChartModel::cambiaNome(int index,QBarSet *barset){
             bool ok2;
             QString nome=QInputDialog::getText(nullptr,tr("Nome"),tr("Nome:"),QLineEdit::Normal,tr(""),&ok2);
             if(ok2 && nome.trimmed()!=""){
-                dati->setHeaderData(i,Qt::Horizontal,nome,Qt::EditRole);
+                tableModel->setHeaderData(i,Qt::Horizontal,nome,Qt::EditRole);
             }
-            chart->legend()->update();
         }
         }
         else{
             bool ok3;
             QString nomeset=QInputDialog::getText(nullptr,tr("Nome"),tr("Nome:"),QLineEdit::Normal,tr(""),&ok3);
             if(ok3 && nomeset.trimmed()!="")
-                dati->setHeaderData(index,Qt::Vertical,nomeset,Qt::EditRole);
+                tableModel->setHeaderData(index,Qt::Vertical,nomeset,Qt::EditRole);
                 categories.replace(index,nomeset);
                 axisX->replace(axisX->at(index),nomeset);
         }

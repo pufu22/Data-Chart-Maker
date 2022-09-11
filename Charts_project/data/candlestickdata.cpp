@@ -48,9 +48,7 @@ qreal CandleStickData::getHighAt(int pos)const{
 qreal CandleStickData::getLowAt(int pos)const{
     return low.at(pos);
 }
-QString CandleStickData::getTitle()const{
-    return title;
-}
+
 
 void CandleStickData::setData(int x,int y, qreal val) {
     switch (y) {
@@ -86,6 +84,4 @@ void CandleStickData::addData(qreal t,qreal o, qreal h,qreal l,qreal c){
     data.push_back({timestamp.last(), open.last(), high.last(), low.last(), close.last()});
 }
 
-void CandleStickData::setTitle(QString t){
-title=t;
-}
+

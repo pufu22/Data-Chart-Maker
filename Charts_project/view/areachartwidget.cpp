@@ -7,7 +7,7 @@ AreaChartWidget::AreaChartWidget(QWidget *parent, const char *name,AreaChartData
     if(data==nullptr)
         areaTableModel=new AreaChartTableModel();
     else
-        areaTableModel=new AreaChartTableModel(data);
+        areaTableModel=new AreaChartTableModel(this,data);
     areaModel=new AreaChartModel(areaTableModel);
     areaTable->setModel(areaTableModel);
     areaTableModel->setParent(areaTable);
@@ -44,14 +44,14 @@ AreaChartWidget::AreaChartWidget(QWidget *parent, const char *name,AreaChartData
     connect(areaTableModel,&AreaChartTableModel::columnsRemoved,areaModel,&AreaChartModel::updateAxisY);
     connect(areaTableModel,&AreaChartTableModel::rowsInserted,areaModel,&AreaChartModel::updateAxisY);
     connect(areaTableModel,&AreaChartTableModel::rowsRemoved,areaModel,&AreaChartModel::updateAxisY);
-    connect(this,&AreaChartWidget::cambiaTitoloSignal,areaModel,&AreaChartModel::changeTitle);
+    connect(this,&AreaChartWidget::cambiaTitoloSignal,areaModel,&AreaChartModel::updateTitle);
 }
 void AreaChartWidget::aggiungiLineaSlot(){
     //areaTableModel->insertColumns(areaTableModel->columnCount(),2);
 
         bool ok =areaTableModel->insertColumns(areaTableModel->columnCount(),1);
         if(ok){
-            areaModel->updateMappers();
+            areaModel->updateInsertColumn();
             areaModel->updateAxisY();
         }
 
@@ -68,7 +68,7 @@ void AreaChartWidget::rimuoviLineaSlot(){
         linea=QInputDialog::getInt(this, tr("Linea"),tr("Linea:"),1,1,areaTableModel->columnCount()-1,1, &ok);
         if(ok){
             areaTableModel->removeColumns(linea,1);
-            areaModel->updateRemoved(linea-1);
+            areaModel->updateRemoveColumn(linea-1);
         }
     }
 }

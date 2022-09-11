@@ -1,50 +1,7 @@
 #include "barcharttablemodel.h"
 
-BarChartTableModel::BarChartTableModel(QObject *parent):QAbstractTableModel(parent)
-{
-    dati=new Bar_data();
-}
-BarChartTableModel::BarChartTableModel(Bar_data *data,/*comparisonChartData* data,*/ QObject *parent):QAbstractTableModel(parent)
-{
-    dati=data;
-}
-int BarChartTableModel::rowCount(const QModelIndex &parent) const
-{
-    if(parent.isValid())
-        return 0;
+BarChartTableModel::BarChartTableModel(QObject* parent, Bar_data* data) : ChartTableModel(parent, data), barData(data) {}
 
-    return dati->getSets().size();
-}
-
-int BarChartTableModel::columnCount(const QModelIndex &parent) const
-{
-    if(parent.isValid())
-        return 0;
-    return dati->getSets().at(0).size();
-}
-
-QVariant BarChartTableModel::data(const QModelIndex &index, int role) const
-{
-    if (role == Qt::DisplayRole)
-        return dati->getSets()[index.row()][index.column()];
-
-        return QVariant();
-
-}
-
-bool BarChartTableModel::setData(const QModelIndex &index,const QVariant &value,int role)
-{
-    if(role==Qt::EditRole){
-            dati->setData(index.row(),index.column(),value.toInt());
-        emit dataChanged(index,index);
-
-
-
-        return true;
-    }
-    else
-        return false;
-}
 
 Qt::ItemFlags BarChartTableModel::flags(const QModelIndex &index) const
 {
@@ -61,8 +18,8 @@ bool BarChartTableModel::insertRows(int row, int count, const QModelIndex &)
         beginInsertRows(QModelIndex(),row,row);
             for(int r = 0;r<count;++r)
             {
-                dati->pushData(columnCount());
-                dati->pushCategory(cat);
+                barData->pushData(columnCount());
+                barData->pushCategory(cat);
             }
 
         endInsertRows();
@@ -81,8 +38,8 @@ bool BarChartTableModel::insertColumns(int column, int count,const QModelIndex &
         for(int c=0;c<count;++c)
         {
             for(int i=0;i<rowCount();++i)
-                dati->pushGroup(i);
-                dati->pushName(set);
+                barData->pushGroup(i);
+                barData->pushName(set);
         }
 
         endInsertColumns();
@@ -93,36 +50,38 @@ bool BarChartTableModel::insertColumns(int column, int count,const QModelIndex &
 
 }
 
-bool BarChartTableModel::removeRow(int row, const QModelIndex &parent){
-    beginRemoveRows(parent,row,row);
-    dati->removeData(row);
-    endRemoveRows();
-    return true;
-}
 
-bool BarChartTableModel::removeColumn(int column, const QModelIndex &parent){
+bool BarChartTableModel::removeColumns(int column, int count,const QModelIndex &parent){
     beginRemoveColumns(parent,column,column);
-    dati->removeGroup(column);
+    barData->removeGroup(column);
     endRemoveColumns();
     return true;
 }
 
-
+bool BarChartTableModel::setData(const QModelIndex &index, const QVariant &value, int role) {
+    if(role==Qt::EditRole){
+        chartData->setData(index.row(),index.column(),value.toInt());
+        emit dataChanged(index,index);
+        return true;
+    }
+    else
+        return false;
+}
 QVariant BarChartTableModel::headerData(int section, Qt::Orientation orientation, int role) const{
     if (role == Qt::DisplayRole && orientation == Qt::Vertical) {
-        return dati->getCategories()[section];
+        return barData->getCategories()[section];
     }
     else if(role == Qt::DisplayRole && orientation == Qt::Horizontal){
-        return dati->getNames()[section];
+        return barData->getNames()[section];
     }
     return QVariant();
 }
 
 bool BarChartTableModel::setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role){
     if(role == Qt::EditRole && orientation == Qt::Vertical){
-       dati->setCategories(value.toString(),section);
+       barData->setCategories(value.toString(),section);
     }
     if(role == Qt::EditRole && orientation == Qt::Horizontal){
-        dati->setName(value.toString(),section);
+        barData->setName(value.toString(),section);
     }
 }

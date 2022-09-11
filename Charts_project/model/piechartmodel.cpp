@@ -1,11 +1,9 @@
 
 #include "piechartmodel.h"
 
-piechartmodel::piechartmodel(Piecharttablemodel* data)
+piechartmodel::piechartmodel(Piecharttablemodel* data):ChartModel(data)
 {
-    dati=data;
-    chart=new QChart;
-    chart->setAnimationOptions(QChart::AllAnimations);
+
     pieSeries=new QPieSeries();
     piemapper=new QVPieModelMapper();//QUESTO é IL PROBLEMA CHE FA CRASHARE TUTTO
 
@@ -24,7 +22,7 @@ piechartmodel::piechartmodel(Piecharttablemodel* data)
         connect(slice,&QPieSlice::hovered,this, &piechartmodel::explodeSplice);
         connect(slice,&QPieSlice::doubleClicked,this,&piechartmodel::changeSlice);
     }
-    title=dati->dati->getTitle();
+    title=tableModel->getData()->getTitle();
     chart->createDefaultAxes();
     chart->setTitle(title);
     chart->legend()->setAlignment(Qt::AlignBottom);
@@ -58,7 +56,7 @@ void piechartmodel::changeSlice(){
     }
 }
 
-void piechartmodel::connectInsertedSlice(){
+void piechartmodel::updateInsertRow(){
     QPieSlice* slice=pieSeries->slices().at(pieSeries->slices().size()-1);
     connect(slice,&QPieSlice::hovered,this, &piechartmodel::explodeSplice);
     connect(slice,&QPieSlice::doubleClicked,this,&piechartmodel::changeSlice);
@@ -68,11 +66,8 @@ piechartmodel::~piechartmodel(){
     delete(piemapper);
 }
 
-int piechartmodel::sliceCount(){
-    return pieSeries->slices().size();
-}
 
-void piechartmodel::salvaJsonPie(){
+void piechartmodel::salvaJson(){
     QJsonObject mainObject;
     mainObject.insert(QString::fromStdString("title"),title);
     mainObject.insert(QString::fromStdString("Type"),QString::fromStdString("piechart"));
@@ -103,12 +98,3 @@ void piechartmodel::salvaJsonPie(){
             qWarning("Couldn't open save file.");
 }
 
-void piechartmodel::changeTitle(Piecharttablemodel
-                                *data,QString t){
-    data->dati->setTitle(t);
-    chart->setTitle(data->dati->getTitle());
-}
-
-QChart* piechartmodel::getChart(){
-    return chart;
-}

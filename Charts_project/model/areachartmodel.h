@@ -1,16 +1,16 @@
 #ifndef AREACHARTMODEL_H
 #define AREACHARTMODEL_H
+#include "chartModel.h"
 #include<QChart>
 #include<QVXYModelMapper>
 #include<data/areachartdata.h>
 #include<model/areacharttablemodel.h>
-class AreaChartModel:public QObject
+class AreaChartModel:public ChartModel
 {
 public:
-    AreaChartModel(QAbstractTableModel* data);
-    QChart* getChart();
-    void updateMappers();
-    void updateRemoved(int pos);
+    AreaChartModel(AreaChartTableModel* data);
+    void updateInsertColumn() override;
+    void updateRemoveColumn(int pos) override;
 
 public slots:
     void updateAxisY();
@@ -19,12 +19,9 @@ public slots:
 private slots:
     void cambiaNome();
 private:
-    QAbstractTableModel* dati;
-    QChart *chart;
     QVector<QVXYModelMapper*> linesmappers;
     QVector <QLineSeries*> series;
     QVector <QAreaSeries*> areaSeries;
-    int nLines;
     int getMin();
     int getMax();
 

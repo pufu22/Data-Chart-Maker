@@ -24,9 +24,6 @@ QVector<QString> pie_data::getLabels()const{
     return labels;
 }
 
-QString pie_data::getTitle()const{
-    return title;
-}
 
 void pie_data::setLabel(int pos,QString l){
     labels[pos]=l;
@@ -37,9 +34,6 @@ void pie_data::setData(int x,int y,qreal val){
     data[x][y-1] = val;
 }
 
-void pie_data::setTitle(QString t){
-    title=t;
-}
 
 void pie_data::pushLabel(QString l){
     labels.push_back(l);

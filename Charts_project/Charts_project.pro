@@ -22,6 +22,8 @@ SOURCES += \
     main.cpp \
     model/candlestickchartmodel.cpp \
     model/candlestickcharttablemodel.cpp \
+    model/chartmodel.cpp \
+    model/charttablemodel.cpp \
     popupchart.cpp \
     model/areachartmodel.cpp \
     model/areacharttablemodel.cpp \
@@ -53,6 +55,8 @@ HEADERS += \
     inputdialog.h \
     model/candlestickchartmodel.h \
     model/candlestickcharttablemodel.h \
+    model/chartmodel.h \
+    model/charttablemodel.h \
     popupchart.h \
     model/areachartmodel.h \
     model/areacharttablemodel.h \

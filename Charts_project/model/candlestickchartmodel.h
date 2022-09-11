@@ -1,25 +1,22 @@
 #ifndef CANDLESTICKCHARTMODEL_H
 #define CANDLESTICKCHARTMODEL_H
 
+#include "chartModel.h"
 #include <QObject>
 #include<QtCharts>
 #include<model/candlestickcharttablemodel.h>
 
-class CandleStickChartModel:public QObject
+class CandleStickChartModel:public ChartModel
 {
 public:
     CandleStickChartModel(CandleStickChartTableModel *data);
 
-    int setsCount();
-    void updateMapper();
-    QChart* getChart();
+    void updateInsertRow() override;
+    void updateRemoveRow(int pos) override;
 private:
-    CandleStickChartTableModel* dati;
-    QChart* chart;
     QCandlestickSeries* candleSeries;
     QColor increasingColor;
     QColor decreasingColor;
-    QVector<QCandlestickSet*> candleSets;
     QBarCategoryAxis* axisX;
     QValueAxis* axisY;
     QHCandlestickModelMapper* mapper;
@@ -27,10 +24,8 @@ private:
     qreal getMax();
     qreal getMin();
 public slots:
-    void updateAxis();
-    void updateRemoved(int row);
-    void salvaJson();
-    void cambiaTitolo(CandleStickChartTableModel* data,QString t);
+    void updateAxisY() override;
+    void salvaJson() override;
 
 
 };

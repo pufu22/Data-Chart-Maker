@@ -263,7 +263,7 @@ void MainWindow::creaLineChartFromFile(const QJsonObject &json)
                    sizesCoherent=false;
                s.push_back(n2);
         }
-        if(sizesCoherent && sizeFirst==s3.size())
+        if(sizesCoherent && sizeFirst-1==s3.size())
         {
             LineChartData* d=new LineChartData(s,json["title"].toString(),s3);
             LineChartWidget* linechart=new LineChartWidget(d);
@@ -308,7 +308,6 @@ void MainWindow::creaCandleChartFromFile(const QJsonObject &json){
             emit graficoSalvabile(true);
             connect(this,&MainWindow::salvaConNomeSignal,candleWidget,&CandleStickChartWidget::salvaJson);
         }
-
     }else qWarning("File JSON non valido");
 
 
@@ -342,7 +341,7 @@ void MainWindow::creaAreaChartFromFile(const QJsonObject &json){
                         sizesCoherent=false;
                s.push_back(n2);
         }
-        if(sizesCoherent && sizeFirst==s3.size())
+        if(sizesCoherent && sizeFirst-1==s3.size())
         {
             AreaChartData* d=new AreaChartData(s,json["title"].toString(),s3);
             AreaChartWidget* areachart=new AreaChartWidget(this,"AreaChart",d);

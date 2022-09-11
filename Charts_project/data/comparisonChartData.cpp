@@ -11,10 +11,6 @@ void comparisonChartData::dataInit() {
 }
 
 
-QString comparisonChartData::getTitle()const{
-    return title;
-}
-
 QVector<QVector<qreal>> comparisonChartData::getSets()const{
     return sets;
 }
@@ -31,9 +27,6 @@ int comparisonChartData::getYAxisMaxValue() const{
     return yAxisMaxValue;
 }
 
-void comparisonChartData::setTitle(QString t){
-    title=t;
-}
 
 void comparisonChartData::setData(int x,int y,qreal val){
     sets[x][y]=val;

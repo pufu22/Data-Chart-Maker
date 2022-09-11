@@ -15,13 +15,7 @@ void LineChartData::pushData(int count){
 }
 
 
-QString LineChartData::getLineName(int i) const{
-    return names.at(i);
-}
 
-void LineChartData::addLineName(QString l){
-    names.push_back(l);
-}
 void LineChartData::removeGroup(int pos){
     names.remove(pos-1);
     for(int i=0;i<sets.size();++i){

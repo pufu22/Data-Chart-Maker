@@ -1,20 +1,7 @@
 #include "candlestickcharttablemodel.h"
 
-CandleStickChartTableModel::CandleStickChartTableModel(CandleStickData* data,QObject* parent):QAbstractTableModel(parent)
-{
-    if(data==nullptr){
-        dati=*(new CandleStickData());
-    }
-    else
-        dati=*data;
-}
-
-int CandleStickChartTableModel::rowCount(const QModelIndex &parent)const {
-    if (parent.isValid())
-        return 0;
-    else
-        return dati.getEntries();
-}
+CandleStickChartTableModel::CandleStickChartTableModel(QObject* parent, CandleStickData* data) : ChartTableModel(parent, data),
+                                                                                                 candleData(data) {}
 int CandleStickChartTableModel::columnCount(const QModelIndex &parent)const {
     if (parent.isValid())
         return 0;
@@ -35,37 +22,33 @@ bool CandleStickChartTableModel::insertRows(int row, int count, const QModelInde
         high=list.at(2).toDouble();
         low=list.at(3).toDouble();
         close=list.at(4).toDouble();
-    if(timestamp>dati.getTimeStampAt(row-1)){
+    if(timestamp>candleData->getTimeStampAt(row-1)){
         beginInsertRows(parent,row,row);
-            dati.addData(timestamp,open,high,low,close);
+            candleData->addData(timestamp,open,high,low,close);
         endInsertRows();
         return true;
     }
     }
         return false;
 }
-bool CandleStickChartTableModel::removeRows(int row, int count, const QModelIndex &parent){
-    beginRemoveRows(parent,row,row);
-        dati.removeData(row);
-    endRemoveRows();
-}
+
 QVariant CandleStickChartTableModel::data(const QModelIndex &index, int role)const {
     if (role==Qt::DisplayRole){
         switch (index.column()) {
         case 0:
-            return dati.getTimeStampAt(index.row());
+            return candleData->getTimeStampAt(index.row());
             break;
         case 1:
-            return dati.getOpenAt(index.row());
+            return candleData->getOpenAt(index.row());
             break;
         case 2:
-            return dati.getHighAt(index.row());
+            return candleData->getHighAt(index.row());
             break;
         case 3:
-            return dati.getLowAt(index.row());
+            return candleData->getLowAt(index.row());
             break;
         case 4:
-            return dati.getCloseAt(index.row());
+            return candleData->getCloseAt(index.row());
             break;
         }
     }
@@ -79,23 +62,23 @@ bool CandleStickChartTableModel::setData(const QModelIndex &index,const QVariant
     if(role==Qt::EditRole){
             switch (index.column()) {
             case 0:
-                dati.setData(index.row(), 0, value.toReal());
+                candleData->setData(index.row(), 0, value.toReal());
                 break;
             case 1:
-                if(value.toReal()<=dati.getHighAt(index.row()) && value.toReal()>=dati.getLowAt(index.row()))
-                    dati.setData(index.row(), 1, value.toReal());
+                if(value.toReal()<=candleData->getHighAt(index.row()) && value.toReal()>=candleData->getLowAt(index.row()))
+                    candleData->setData(index.row(), 1, value.toReal());
                 break;
             case 2:
-                if(value.toReal()>=dati.getLowAt(index.row()))
-                    dati.setData(index.row(), 2, value.toReal());
+                if(value.toReal()>=candleData->getLowAt(index.row()))
+                    candleData->setData(index.row(), 2, value.toReal());
                 break;
             case 3:
-                if(value.toReal()<=dati.getHighAt(index.row()))
-                    dati.setData(index.row(), 3, value.toReal());
+                if(value.toReal()<=candleData->getHighAt(index.row()))
+                    candleData->setData(index.row(), 3, value.toReal());
                 break;
             case 4:
-                if(value.toReal()<=dati.getHighAt(index.row()) && value.toReal()>=dati.getLowAt(index.row()))
-                    dati.setData(index.row(), 4, value.toReal());
+                if(value.toReal()<=candleData->getHighAt(index.row()) && value.toReal()>=candleData->getLowAt(index.row()))
+                    candleData->setData(index.row(), 4, value.toReal());
                 break;
             }
             emit dataChanged(index,index);

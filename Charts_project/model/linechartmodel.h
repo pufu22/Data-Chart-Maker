@@ -1,28 +1,23 @@
 #ifndef LINECHARTMODEL_H
 #define LINECHARTMODEL_H
 
+#include "chartModel.h"
 #include<vector>
 #include<string>
 #include<model/linecharttablemodel.h>
 #include<QtCharts>
 #include<QVXYModelMapper>
 #include<data/linechartdata.h>
-class LineChartModel:public QObject
+class LineChartModel:public ChartModel
 {
 
 public:
-    QChart* getChart();
     LineChartModel(LineChartTableModel *data);
 
-    void updateMapper(LineChartTableModel *data);
-    void addLinea(LineChartTableModel *data,QString l);
-    void salvaJsonFile();
-    void removeLine(int pos);
-    void updateRemoved(int pos);
-    void cambiaTitolo(LineChartTableModel* data,QString t);
+    void updateInsertColumn() override;
+    void updateRemoveColumn(int pos) override;
 private:
-    LineChartTableModel* dati;
-    QChart *chart;
+
     int nLines;
     QVector<QLineSeries*> series;
     QString title;
@@ -31,6 +26,8 @@ private:
     int getMin();
 public slots:
     void updateAxisY();
+    void salvaJson() override;
+private slots:
     void cambiaNome();
 };
 

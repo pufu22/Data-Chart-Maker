@@ -17,7 +17,7 @@ barcharttable::barcharttable(Bar_data *data, QWidget *parent, const char *name):
     if(data==nullptr)
         barmodel=new BarChartTableModel();
     else
-        barmodel=new BarChartTableModel(data);
+        barmodel=new BarChartTableModel(this,data);
     changeTitle=new QPushButton("&Cambia Titolo");
     connect(changeTitle,&QPushButton::released,this,&barcharttable::changetitle);
 
@@ -46,7 +46,7 @@ barcharttable::barcharttable(Bar_data *data, QWidget *parent, const char *name):
     connect(barmodel,&BarChartTableModel::columnsRemoved,m_model,&BarChartModel::updateAxisY);
     connect(barmodel,&BarChartTableModel::rowsRemoved,m_model,&BarChartModel::updateAxisY);
 
-    connect(this,&barcharttable::riga,this,&barcharttable::adjustChart);
+    //connect(this,&barcharttable::riga,this,&barcharttable::adjustChart);
 }
 
 void barcharttable::setupModels(){
@@ -59,7 +59,7 @@ void barcharttable::aggiungiriga(){
     bool ok;
         ok=barmodel->insertRows(barmodel->rowCount(),1);
         if(ok)
-            m_model->updateMapperLastRow(barmodel);
+            m_model->updateInsertRow();
 
 }
 
@@ -67,7 +67,7 @@ void barcharttable::aggiungicolonna(){
             bool ok;
             ok=barmodel->insertColumns(barmodel->columnCount(),1);
             if(ok)
-            m_model->updateMapperLastColumn();
+            m_model->updateInsertColumn();
 
 }
 
@@ -79,7 +79,7 @@ void barcharttable::removebars(){
         item = QInputDialog::getInt(this, tr("Barre"),tr("Barra:"),1,1,barmodel->columnCount(),1, &ok);
         if (ok){
             barmodel->removeColumn(item-1);
-            m_model->updateMapperRemoveColumn();
+            m_model->updateRemoveColumn(barmodel->columnCount());
         }
 
 }
@@ -91,13 +91,13 @@ void barcharttable::removeset(){
         item = QInputDialog::getInt(this, tr("Barre"),tr("Barra:"),1,1,barmodel->rowCount(),1, &ok);
     if(ok){
         barmodel->removeRow(item-1);
-        m_model->updateMapperRemoveRow(item-1);
+        m_model->updateRemoveRow(item-1);
     }
 
 }
 
 void barcharttable::salvaJsonBar(){
-    m_model->salvaJsonBar();
+    m_model->salvaJson();
 }
 
 void barcharttable::changetitle(){
@@ -105,17 +105,13 @@ void barcharttable::changetitle(){
     QString title;
     title=QInputDialog::getText(this,tr("Titolo"),tr("Titolo:"),QLineEdit::Normal,tr(""),&ok);
     if(ok)
-        m_model->changeTitle(barmodel,title);
-    chartView->resize(1280,480);
+        m_model->updateTitle(title);
 }
 void barcharttable::chartFocus(){
 PopupChart::chartFocus(chartView,this);
 lt->addWidget(chartView);
-emit riga();
 }
 
 void barcharttable::adjustChart(){
     chartView->resize(1280,480);
-    //chartView->updatesEnabled();
-    //chartView->updateGeometry();
 }

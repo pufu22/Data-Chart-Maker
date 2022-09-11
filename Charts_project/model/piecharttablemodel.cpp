@@ -1,13 +1,6 @@
 #include "piecharttablemodel.h"
 
-Piecharttablemodel::Piecharttablemodel(pie_data* d,QObject *parent)
-    : QAbstractTableModel(parent)
-{
-    if(d==nullptr)
-        dati=(new pie_data());
-    else
-        dati=d;
-}
+Piecharttablemodel::Piecharttablemodel(QObject *parent, pie_data* data) : ChartTableModel(parent, data), pieData(data) {}
 
 
 
@@ -16,7 +9,7 @@ int Piecharttablemodel::rowCount(const QModelIndex &parent) const
     if (parent.isValid())
         return 0;
     else
-        return dati->getLabels().size();
+        return pieData->getLabels().size();
 
 }
 
@@ -38,9 +31,9 @@ QVariant Piecharttablemodel::data(const QModelIndex &index, int role) const
     if (role==Qt::DisplayRole){
         if(index.column()==0)
 
-            return dati->getLabels().at(index.row());
+            return pieData->getLabels().at(index.row());
         else
-            return dati->getValues().at(index.row());
+            return pieData->getValues().at(index.row());
     }
 
 
@@ -52,9 +45,9 @@ bool Piecharttablemodel::setData(const QModelIndex &index, const QVariant &value
 {
     if (data(index, role) != value) {
         if(index.column()==0)
-            dati->setLabel(index.row(),value.toString());
+            pieData->setLabel(index.row(),value.toString());
         else
-            dati->setData(index.row(),index.column(),value.toInt());
+            pieData->setData(index.row(),index.column(),value.toInt());
         emit dataChanged(index, index, QVector<int>() << role);
         return true;
     }
@@ -72,21 +65,21 @@ bool Piecharttablemodel::insertRows(int row, int count, const QModelIndex &paren
     QStringList list = inputdialog::getStrings(nullptr, "piechart",&ok);
     if(ok){
         beginInsertRows(parent, row, row + count - 1);
-        dati->pushLabel(list.at(0));
-        dati->pushValue(list.at(1).toInt());
+        pieData->pushLabel(list.at(0));
+        pieData->pushValue(list.at(1).toInt());
         endInsertRows();
         return true;
     }
     return false;
 }
-
 bool Piecharttablemodel::removeRows(int row, int count,const QModelIndex &parent)
 {
     beginRemoveRows(parent,row-1,row+count-2);
-    dati->removeData(row);
+    pieData->removeData(row);
     endRemoveRows();
     return true;
 }
+
 
 QVariant Piecharttablemodel::headerData(int section, Qt::Orientation orientation, int role) const{
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
