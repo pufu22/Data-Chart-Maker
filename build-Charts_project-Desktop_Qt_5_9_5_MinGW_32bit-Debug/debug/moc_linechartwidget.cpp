@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_LineChartWidget_t {
-    QByteArrayData data[11];
-    char stringdata0[146];
+    QByteArrayData data[12];
+    char stringdata0[157];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,13 +41,15 @@ QT_MOC_LITERAL(6, 67, 17), // "aggiungipuntoSlot"
 QT_MOC_LITERAL(7, 85, 14), // "togliLineaSlot"
 QT_MOC_LITERAL(8, 100, 14), // "togliPuntoSlot"
 QT_MOC_LITERAL(9, 115, 16), // "cambiaTitoloSlot"
-QT_MOC_LITERAL(10, 132, 13) // "salvaJsonFile"
+QT_MOC_LITERAL(10, 132, 13), // "salvaJsonFile"
+QT_MOC_LITERAL(11, 146, 10) // "chartFocus"
 
     },
     "LineChartWidget\0linea\0\0cambiaTitoloSignal\0"
     "titolo\0aggiungilineaSlot\0aggiungipuntoSlot\0"
     "togliLineaSlot\0togliPuntoSlot\0"
-    "cambiaTitoloSlot\0salvaJsonFile"
+    "cambiaTitoloSlot\0salvaJsonFile\0"
+    "chartFocus"
 };
 #undef QT_MOC_LITERAL
 
@@ -57,7 +59,7 @@ static const uint qt_meta_data_LineChartWidget[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -65,22 +67,24 @@ static const uint qt_meta_data_LineChartWidget[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   54,    2, 0x06 /* Public */,
-       3,    1,   55,    2, 0x06 /* Public */,
+       1,    0,   59,    2, 0x06 /* Public */,
+       3,    1,   60,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       5,    0,   58,    2, 0x08 /* Private */,
-       6,    0,   59,    2, 0x08 /* Private */,
-       7,    0,   60,    2, 0x08 /* Private */,
-       8,    0,   61,    2, 0x08 /* Private */,
-       9,    0,   62,    2, 0x08 /* Private */,
-      10,    0,   63,    2, 0x0a /* Public */,
+       5,    0,   63,    2, 0x08 /* Private */,
+       6,    0,   64,    2, 0x08 /* Private */,
+       7,    0,   65,    2, 0x08 /* Private */,
+       8,    0,   66,    2, 0x08 /* Private */,
+       9,    0,   67,    2, 0x08 /* Private */,
+      10,    0,   68,    2, 0x0a /* Public */,
+      11,    0,   69,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,    4,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -105,6 +109,7 @@ void LineChartWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 5: _t->togliPuntoSlot(); break;
         case 6: _t->cambiaTitoloSlot(); break;
         case 7: _t->salvaJsonFile(); break;
+        case 8: _t->chartFocus(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -151,13 +156,13 @@ int LineChartWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 9)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 8;
+        _id -= 9;
     }
     return _id;
 }

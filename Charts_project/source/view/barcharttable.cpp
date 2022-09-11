@@ -24,6 +24,7 @@ barcharttable::barcharttable(Bar_data *data, QWidget *parent) : QWidget(parent)
     barTable->setModel(barModel->getTableModel());
     barModel->getTableModel()->setParent(barTable);
     lt->addWidget(barTable);
+    barTable->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     barTable->show();
 
     chartView = new QChartView(barModel->getChart());

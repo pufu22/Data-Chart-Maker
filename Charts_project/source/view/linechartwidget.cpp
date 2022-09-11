@@ -17,7 +17,7 @@ LineChartWidget::LineChartWidget(LineChartData* data,QWidget *parent) : QWidget(
         lineModel = new LineChartModel();
     else
         lineModel = new LineChartModel(new LineChartTableModel(this, data));
-
+    tableModel->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     tableModel->setModel(lineModel->getTableModel());
     lineModel->getTableModel()->setParent(tableModel);
     lt->addWidget(tableModel);
@@ -26,11 +26,15 @@ LineChartWidget::LineChartWidget(LineChartData* data,QWidget *parent) : QWidget(
     chartview = new QChartView(lineModel->getChart());
     chartview->setRenderHint(QPainter::Antialiasing);
     chartview->setMinimumSize(1280,480);
+    chartview->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
     lt->addWidget(aggiungiriga);
     lt->addWidget(aggiungilinea);
     lt->addWidget(togliLinea);
     lt->addWidget(togliPunto);
     lt->addWidget(cambiaTitolo);
+    ingrandisci=new QPushButton("&Ingrandisci");
+    lt->addWidget(ingrandisci);
+    connect(ingrandisci,&QPushButton::released,this,&LineChartWidget::chartFocus);
     lt->addWidget(chartview);
     lt->setSizeConstraint(QLayout::SetMinimumSize);
     setLayout(lt);
@@ -79,4 +83,8 @@ void LineChartWidget::cambiaTitoloSlot(){
 
 void LineChartWidget::salvaJsonFile(){
     lineModel->salvaJson();
+}
+void LineChartWidget::chartFocus(){
+    PopupChart::chartFocus(chartview,this);
+    lt->addWidget(chartview);
 }

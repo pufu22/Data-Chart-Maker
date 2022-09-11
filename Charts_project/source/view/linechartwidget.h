@@ -4,7 +4,7 @@
 #include "mainwindow.h"
 #include <source/model/linechartmodel.h>
 #include <QWidget>
-
+#include <source/dialog/popupchart.h>
 class LineChartWidget : public QWidget {
     Q_OBJECT
 private:
@@ -17,6 +17,7 @@ private:
     QPushButton* togliLinea;
     QPushButton* togliPunto;
     QPushButton* cambiaTitolo;
+    QPushButton* ingrandisci;
 public:
     LineChartWidget(LineChartData* data = nullptr,QWidget *parent = nullptr);
     virtual ~LineChartWidget(){};
@@ -28,6 +29,7 @@ private slots:
     void cambiaTitoloSlot();
 public slots:
     void salvaJsonFile();
+    void chartFocus();
 signals:
     void linea();
     void cambiaTitoloSignal(QString titolo);

@@ -10,6 +10,7 @@ CandleStickChartWidget::CandleStickChartWidget(CandleStickData* data, QWidget *p
     candleTable->setModel(candleModel->getTableModel());
     candleModel->getTableModel()->setParent(candleTable);
     lt->addWidget(candleTable);
+    candleTable->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     candleTable->show();
     aggiungiSet=new QPushButton("Aggiungi set",this);
     connect(aggiungiSet,&QPushButton::released,this,&CandleStickChartWidget::aggiungiSetSlot);
@@ -23,7 +24,11 @@ CandleStickChartWidget::CandleStickChartWidget(CandleStickData* data, QWidget *p
     lt->addWidget(aggiungiSet);
     lt->addWidget(rimuoviSet);
     lt->addWidget(cambiaTitolo);
+    ingrandisci=new QPushButton("&Ingrandisci");
+    lt->addWidget(ingrandisci);
+    connect(ingrandisci,&QPushButton::released,this,&CandleStickChartWidget::chartFocus);
     lt->addWidget(chartview);
+
     lt->setSizeConstraint(QLayout::SetMinimumSize);
     setLayout(lt);
 
@@ -58,4 +63,8 @@ void CandleStickChartWidget::cambiaTitoloSlot(){
     if(ok && titolo.trimmed()!=""){
         candleModel->updateTitle(titolo);
     }
+}
+void CandleStickChartWidget::chartFocus(){
+    PopupChart::chartFocus(chartview,this);
+    lt->addWidget(chartview);
 }

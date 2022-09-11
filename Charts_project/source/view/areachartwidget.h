@@ -3,7 +3,7 @@
 
 #include<source/model/areachartmodel.h>
 #include <QWidget>
-
+#include <source/dialog/popupchart.h>
 class AreaChartWidget : public QWidget {
     Q_OBJECT
 private:
@@ -16,6 +16,7 @@ private:
     QPushButton* rimuoviLinea;
     QPushButton* rimuoviPunto;
     QPushButton* cambiaTitolo;
+    QPushButton* ingrandisci;
 public:
     AreaChartWidget(AreaChartData* data = nullptr, QWidget *parent = nullptr);
 private slots:
@@ -24,6 +25,7 @@ private slots:
     void aggiungiPuntoSlot();
     void rimuoviLineaSlot();
     void rimuoviPuntoSlot();
+    void chartFocus();
 public slots:
     void salvaJson();
 signals:

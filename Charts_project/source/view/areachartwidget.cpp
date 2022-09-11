@@ -11,6 +11,7 @@ AreaChartWidget::AreaChartWidget(AreaChartData* data, QWidget *parent) : QWidget
     areaTable->setModel(areaModel->getTableModel());
     areaModel->getTableModel()->setParent(areaTable);
     lt->addWidget(areaTable);
+    areaTable->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     areaTable->show();
 
     aggiungiLinea=new QPushButton("&Aggiungi una linea");
@@ -32,6 +33,10 @@ AreaChartWidget::AreaChartWidget(AreaChartData* data, QWidget *parent) : QWidget
     cambiaTitolo=new QPushButton("&Cambia titolo");
     lt->addWidget(cambiaTitolo);
     connect(cambiaTitolo,&QPushButton::released,this,&AreaChartWidget::cambiaTitoloSlot);
+
+    ingrandisci=new QPushButton("&Ingrandisci");
+    lt->addWidget(ingrandisci);
+    connect(ingrandisci,&QPushButton::released,this,&AreaChartWidget::chartFocus);
 
     chartview=new QChartView(areaModel->getChart());
     chartview->setRenderHint(QPainter::Antialiasing);
@@ -90,3 +95,7 @@ void AreaChartWidget::salvaJson(){
     areaModel->salvaJson();
 }
 
+void AreaChartWidget::chartFocus(){
+    PopupChart::chartFocus(chartview,this);
+    lt->addWidget(chartview);
+}

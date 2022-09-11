@@ -8,6 +8,7 @@ piechartwidget::piechartwidget(pie_data* data, QWidget *parent) : QWidget(parent
     else
         pieModel = new piechartmodel(new Piecharttablemodel(this,data));
     pietable->setModel(pieModel->getTableModel());
+    pietable->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     pieModel->getTableModel()->setParent(pietable);
     lt->addWidget(pietable);
     aggiungifetta=new QPushButton("&Aggiungi una fetta");
