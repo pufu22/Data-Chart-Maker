@@ -1,0 +1,28 @@
+{
+    "Type": "piechart",
+    "slices": [
+        "USA",
+        "UK",
+        "Germania",
+        "Francia",
+        "Italia",
+        "Cina",
+        "Svezia",
+        "Australia",
+        "Giappone",
+        "Russia"
+    ],
+    "title": "Top 10 paesi per medaglie d'oro olimpiche",
+    "values": [
+        2980,
+        948,
+        892,
+        874,
+        742,
+        696,
+        661,
+        562,
+        555,
+        547
+    ]
+}

@@ -1,20 +1,26 @@
 {
     "Type":"barchart",
-    "title":"Bar",
-    "range":"0-15",
+    "title":"Frutta Venduta in milioni",
     "bars":
     {
-        "M":
+        "2019":
         [
-            1,2,3,4,5
+            10,20,39,2,5
         ]
         ,
-        "S":
+        "2020":
         [
-            6,7,8,9,10
+            12,43,36,5,7
         ]
         
         
-    }
-    
+    },
+    "names":[
+        "Pere",
+        "Mele",
+        "Banane",
+        "Mango",
+        "Cocco"
+    ]
+
 }

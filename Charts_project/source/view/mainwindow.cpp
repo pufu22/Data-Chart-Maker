@@ -1,0 +1,219 @@
+#include "mainwindow.h"
+
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
+    this->createActions();
+    this->createMenus();
+
+    SelectGraphic* sG=new SelectGraphic(this);
+    this->setCentralWidget(sG);
+    connect(sG,&SelectGraphic::createChart,this,&MainWindow::creaChart);
+}
+
+MainWindow::~MainWindow()
+{
+
+}
+
+void MainWindow::createMenus()
+  {
+       fileMenu = menuBar()->addMenu(tr("&File"));
+       openMenu = menuBar()->addMenu(tr("&Open"));
+       fileMenu->addAction(newAct);
+       fileMenu->addAction(saveAct);
+       openMenu->addAction(openAct);
+
+}
+
+void MainWindow::createActions()
+{
+    newAct=new QAction(tr("&Nuovo"),this);
+    newAct->setShortcuts(QKeySequence::New);
+    newAct->setStatusTip("Crea un nuovo grafico");
+    connect(newAct,&QAction::triggered,this,&MainWindow::nuovoGrafico);
+    openAct=new QAction(tr("Apri file"),this);
+    openAct->setShortcuts(QKeySequence::Open);
+    connect(openAct,&QAction::triggered,this,&MainWindow::apriFile);
+    saveAct=new QAction(tr("Salva con nome"),this);
+    saveAct->setShortcuts(QKeySequence::SaveAs);
+    saveAct->setEnabled(false);
+    connect(saveAct,&QAction::triggered,this,&MainWindow::salvaConNome);
+     connect(this,&MainWindow::graficoSalvabile,saveAct,&QAction::setEnabled);
+}
+
+void MainWindow::nuovoGrafico()
+{
+
+    SelectGraphic* sG=new SelectGraphic(this);
+    this->setCentralWidget(sG);
+    connect(sG,&SelectGraphic::createChart,this,&MainWindow::creaChart);
+}
+
+bool MainWindow::apriFile()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,tr("Open Image"), ":/graficisalvati", tr("Json File (*.json)"));
+    QFile infile(fileName);
+    infile.open(QIODevice::ReadOnly|QIODevice::Text);
+     QByteArray saveData = infile.readAll();
+     infile.close();
+      const QJsonDocument json=QJsonDocument::fromJson(saveData);
+        QJsonObject obj = json.object();
+     if(obj.contains("Type") && obj["Type"].isString())
+     {
+         std::string tipo=obj["Type"].toString().toStdString();
+         if(tipo=="piechart"){
+
+                creaPieChartFromFile(obj);
+                return true;
+         }
+         else if(tipo=="barchart"){
+             creaBarChartFromFile(obj);
+         }else if(tipo=="linechart"){
+            creaLineChartFromFile(obj);
+         }
+         else
+             return false;
+
+    }
+
+
+}
+
+bool MainWindow::salvaConNome(){
+emit salvaConNomeSignal();
+}
+
+void MainWindow::creaBarChart()
+{
+    barcharttable* bartable=new barcharttable(nullptr,this,"bartable");
+    if(this->centralWidget())
+        this->centralWidget()->disconnect();
+    this->setCentralWidget(bartable);
+    bartable->show();
+
+    emit graficoSalvabile(true);
+}
+
+void MainWindow::creaLineChart()
+{
+    LineChartWidget* linechart= new LineChartWidget(nullptr,this,"linechart");
+    if(this->centralWidget())
+        this->centralWidget()->disconnect();
+    this->setCentralWidget(linechart);
+        linechart->show();
+        emit graficoSalvabile(true);
+
+}
+void MainWindow::creaPieChart(){
+    if(this->centralWidget())
+        this->centralWidget()->disconnect();
+    piechartwidget* piechart=new piechartwidget(this,"piechart");
+    this->setCentralWidget(piechart);
+    piechart->show();
+    connect(this,&MainWindow::salvaConNomeSignal,piechart,&piechartwidget::salvaJsonPie);
+    emit graficoSalvabile(true);
+}
+void MainWindow::creaAreaChart(){
+    if(this->centralWidget())
+        this->centralWidget()->disconnect();
+    AreaChartWidget* areachart=new AreaChartWidget(this,"piechart");
+    this->setCentralWidget(areachart);
+    areachart->show();
+    emit graficoSalvabile(true);
+}
+void MainWindow::creaCandleChart(){
+    CandleStickChartWidget* candleChart=new CandleStickChartWidget(this);
+    this->setCentralWidget(candleChart);
+    candleChart->show();
+    emit graficoSalvabile(true);
+}
+void MainWindow::creaPieChartFromFile(const QJsonObject &json){
+    QVector<QVariant> v= json["values"].toArray().toVariantList().toVector();
+     QVector<QVariant> v2=json["slices"].toArray().toVariantList().toVector();
+     QVector<qreal> s;
+     QVector<QString> s2;
+    for(int i=0;i<v.size();++i){
+        s.push_back(v.at(i).toInt());
+        s2.push_back(v2.at(i).toString());
+    }
+    QString s3=json["title"].toString();
+    pie_data* d=new pie_data(s,s2,s3);
+    piechartwidget* piechart=new piechartwidget(this,"piechart",d);
+    this->setCentralWidget(piechart);
+    piechart->show();
+    emit graficoSalvabile(true);
+    connect(this,&MainWindow::salvaConNomeSignal,piechart,&piechartwidget::salvaJsonPie);
+}
+
+void MainWindow::creaBarChartFromFile(const QJsonObject &json){
+QString tempString =json["title"].toString();
+QJsonObject tempA =json["bars"].toObject();
+QVector<QVector<int>> s;
+QVector<QString> s2;
+int j=0;
+foreach(const QString& key, tempA.keys()) {
+        s2.push_back(key);
+       QJsonValue value = tempA.value(key);
+       QJsonArray a=value.toArray();
+       QVector<int> n2;
+       for(int i=0;i<a.size();++i)
+       {
+            n2.push_back(a.at(i).toInt());
+       }
+       s.push_back(n2);
+       ++j;
+}
+int minVal;
+int maxVal;
+//Bar_data* d=new Bar_data(s,tempString,s2,minVal,maxVal);
+//barcharttable* barchart=new barcharttable(d);
+//this->setCentralWidget(barchart);
+//barchart->show();
+//emit graficoSalvabile(true);
+}
+
+void MainWindow::creaLineChartFromFile(const QJsonObject &json)
+{
+    std::string tempString =json["title"].toString().toStdString();
+    QJsonObject tempA =json["series"].toObject();
+    QVector<QVector<qreal>> s;
+    foreach(const QString& key, tempA.keys()) {
+           QJsonValue value = tempA.value(key);
+           QJsonArray a=value.toArray();
+           QVector<qreal> n2;
+           for(int i=0;i<a.size();++i)
+           {
+                n2.push_back(a.at(i).toInt());
+           }
+           s.push_back(n2);
+    }
+    LineChartData* d=new LineChartData(s,json["title"].toString());
+    LineChartWidget* linechart=new LineChartWidget(d);
+    this->setCentralWidget(linechart);
+    linechart->show();
+    emit graficoSalvabile(true);
+}
+
+void MainWindow::creaCandleChartFromFile(const QJsonObject &json){
+    QString title=json["title"].toString();
+    QJsonObject temp=json["timestamps"].toObject();
+    QVector<qreal> s;
+    foreach (const QString& timestamp, temp.keys()) {
+
+    }
+}
+
+void MainWindow::creaChart(QString name){
+
+     if(name.compare("PieChart")==0)
+        creaPieChart();
+     if(name.compare("AreaChart")==0)
+         creaAreaChart();
+     if(name.compare("BarChart")==0)
+         creaBarChart();
+     if(name.compare("LineChart")==0)
+         creaLineChart();
+     if(name.compare("CandleChart")==0)
+         creaCandleChart();
+
+}
+
